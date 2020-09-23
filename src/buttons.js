@@ -1,4 +1,5 @@
 define(function() {
+  const tltAttr = 'title';
   const tltPosAttr = 'data-tooltip-pos';
 
   return (opt = {}) => {
