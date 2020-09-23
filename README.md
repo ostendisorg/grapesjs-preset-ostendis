@@ -1,4 +1,4 @@
-# [GrapesJS Ostendis Preset]
+# GrapesJS Ostendis Preset
 
 This preset configures GrapesJS to be used with some unique features and blocks for the [Ostendis E-Recrui­ting sys­tem](https://www.ostendis.com/en)
 
@@ -49,7 +49,7 @@ This preset configures GrapesJS to be used with some unique features and blocks 
 
 Download using one of the options:
 
-* `npm i grapesjs-preset-ostendis` or `yarn add grapesjs-preset-ostendis`
+* `npm i grapesjs-preset-ostendis`
 * Latest release link https://github.com/DNUbyOstendis/grapesjs-preset-ostendis/releases/latest
 
 
