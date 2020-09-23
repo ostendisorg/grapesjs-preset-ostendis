@@ -1,7 +1,14 @@
 define(function() {
   const tltAttr = 'title';
   const tltPosAttr = 'data-tooltip-pos';
-
+  let updateTooltip = (coll) => {
+    coll.each((item) => {
+      var attrs = item.get('attributes');
+      attrs[tltPosAttr] = 'bottom';
+      item.set('attributes', attrs);
+    });
+  }
+  
   return (opt = {}) => {
     let editor = opt.editor;
     let pnm = editor.Panels;
