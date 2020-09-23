@@ -234,13 +234,11 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
 
   // Do stuff on load
   editor.on('load', function() {
-    //Remove open-sm
-    var openSm = editor.Panels.getButton('views', 'open-sm');
-    openSm.remove()
-    
-    //Remove open-layers
-    var openLayers = editor.Panels.getButton('views', 'open-layers');
-    openLayers.remove()
+    const pnm = editor.Panels
+
+    //Remove buttons
+    pnm.removeButton('views', 'open-sm')
+    pnm.removeButton('views', 'open-layers')
 
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
