@@ -1,0 +1,44 @@
+{
+  "name": "grapesjs-preset-ostendis",
+  "version": "1.0.8",
+  "description": "GrapesJS preset configuration for the Ostendis editor",
+  "main": "dist/grapesjs-preset-ostendis.min.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "cross-env WEBPACK_ENV=prod && npm run v:patch && webpack && npm run build:css",
+    "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-ostendis.css",
+    "v:patch": "npm version --no-git-tag-version patch",
+    "start": "cross-env WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w",
+    "test": "jest"
+  },
+  "keywords": [
+    "grapesjs",
+    "plugin",
+    "newsletter",
+    "preset",
+    "ostendis"
+  ],
+  "author": "Daniel Nüssli",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "juice": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.9.0",
+    "jest": "^26.4.2",
+    "node-sass": "^4.14.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "modulePaths": [
+      "./src"
+    ]
+  }
+}
