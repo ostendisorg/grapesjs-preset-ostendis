@@ -1,6 +1,6 @@
 import grapesjs from 'grapesjs';
 
-export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
+export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
@@ -46,8 +46,20 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
       padding: '5px 5px 5px 5px',
       width: '100%'
     },
-    buttonBlkLabel: 'Apply button',
+    sect100BlkLabel: '1 Section',
+    sect50BlkLabel: '1/2 Section',
+    sect30BlkLabel: '1/3 Section',
+    sect37BlkLabel: '3/7 Section',
+    buttonBlkLabel: 'Button',
+    dividerBlkLabel: 'Divider',
     textBlkLabel: 'Text',
+    textSectionBlkLabel: 'Text Section',
+    imageBlkLabel: 'Image',
+    quoteBlkLabel: 'Quote',
+    linkBlkLabel: 'Link',
+    linkBlockBlkLabel: 'Link Block',
+    gridItemsBlkLabel: 'Grid Items',
+    listItemsBlkLabel: 'List Items',
     assetsModalTitle: c.assetsModalTitle || 'Select image',
     styleManagerSectors: [{
         name: 'Dimension',
@@ -189,15 +201,15 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
   }
 
   // Add commands
-  let importCommands = require('./commands');
+  let importCommands = require('./commandsAdvanced');
   importCommands(c);
 
   // Add blocks
-  let importBlocks = require('./blocks');
+  let importBlocks = require('./blocksAdvanced');
   importBlocks(c);
 
   // Add buttons
-  let importButtons = require('./buttons');
+  let importButtons = require('./buttonsAdvanced');
   importButtons(c);
 
   // Load style manager
@@ -234,16 +246,36 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
 
   // Do stuff on load
   editor.on('load', function() {
-    //Remove open-sm
-    var openSm = editor.Panels.getButton('views', 'open-sm');
-    openSm.remove()
-    
-    //Remove open-layers
-    var openLayers = editor.Panels.getButton('views', 'open-layers');
-    openLayers.remove()
-
+    var expTplBtn = editor.Panels.getButton('options', 'export-template');
+    expTplBtn.set('attributes', {
+      title: defaults.expTplBtnTitle
+    });
+    var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
+    fullScrBtn.set('attributes', {
+      title: defaults.fullScrBtnTitle
+    });
+    var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
+    swichtVwBtn.set('attributes', {
+      title: defaults.swichtVwBtnTitle
+    });
+    var openSmBtn = editor.Panels.getButton('views', 'open-sm');
+    openSmBtn.set('attributes', {
+      title: defaults.openSmBtnTitle
+    });
+    var openTmBtn = editor.Panels.getButton('views', 'open-tm');
+    openTmBtn.set('attributes', {
+      title: defaults.openTmBtnTitle
+    });
+    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    openLayersBtn.set('attributes', {
+      title: defaults.openLayersBtnTitle
+    });
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+      openBlocksBtn.set('attributes', {
+      title: defaults.openBlocksBtnTitle
+    });
     openBlocksBtn && openBlocksBtn.set('active', 1);
+    //editor.trigger('change:canvasOffset');
   });
 });
