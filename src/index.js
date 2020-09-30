@@ -12,6 +12,8 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     cmdTglImages: 'gjs-toggle-images',
     cmdInlineHtml: 'gjs-get-inlined-html',
     cmtTglImagesLabel: 'Toggle Images',
+    cmdUndo: 'undo',
+    cmdRedo: 'redo',
     cmdBtnMoveLabel: 'Move',
     cmdBtnUndoLabel: 'Undo',
     cmdBtnRedoLabel: 'Redo',
@@ -200,10 +202,6 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
   let importButtons = require('./buttons');
   importButtons(c);
 
-  // Load style manager
-  let importStyle = require('./style');
-  importStyle(c);
-
   // Set default template if the canvas is empty
   if(!editor.getHtml() && c.defaultTemplate){
     editor.setComponents(c.defaultTemplate);
@@ -212,36 +210,47 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     editor.editor.initChildrenComp(editor.DomComponents.getWrapper());
   }
 
-  // On component change show the Style Manager
-  editor.on('change:selectedComponent', function() {
-    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
-
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
-    if((!openLayersBtn || !openLayersBtn.get('active')) &&
-      editor.editor.get('selectedComponent')){
-      var openSmBtn = editor.Panels.getButton('views', 'open-sm');
-      openSmBtn.set('attributes',{ title:defaults.openSmBtnTitle });
-      openSmBtn && openSmBtn.set('active', 1);
-    }
-  });
-
   editor.on('run:open-assets', () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);
   })
 
-
   // Do stuff on load
   editor.on('load', function() {
-    const pnm = editor.Panels
+    // Title translation
+    var openTmBtn = editor.Panels.getButton('views', 'open-tm');
 
-    //Remove buttons
-    pnm.removeButton('views', 'open-sm')
-    pnm.removeButton('views', 'open-layers')
+    openTmBtn.set('attributes', {
+      title: defaults.openTmBtnTitle
+    });
+
+    // Title translation
+    var swVisBtn = editor.Panels.getButton('options', 'sw-visibility');
+
+    swVisBtn.set('attributes', {
+      title: defaults.swichtVwBtnTitle
+    });
 
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+
+    openBlocksBtn.set('attributes', {
+      title: defaults.openBlocksBtnTitle
+    });
+
     openBlocksBtn && openBlocksBtn.set('active', 1);
+
+    // Beautify tooltips
+    var titles = document.querySelectorAll('*[data-tooltip-pos]')
+
+    for (var i = 0; i < titles.length; i++) {
+      var el = titles[i]
+      var title = el.getAttribute('title')
+      title = title ? title.trim() : ''
+      if (!title) break
+      el.setAttribute('data-tooltip', title)
+      el.setAttribute('title', '')
+    }
   });
+
 });

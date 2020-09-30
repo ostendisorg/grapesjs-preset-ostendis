@@ -1,5 +1,20 @@
 @import "gjs_variables.scss";
 
+.#{$app-prefix}one-bg{
+  background-color: $bg-color;
+}
+
+.#{$app-prefix}two-color{
+  color: $fontColor;
+}
+
+.#{$app-prefix}pn-commands, .#{$app-prefix}pn-views-container {
+  box-shadow: none;
+}
+
+
+
+
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-title {
   border-top: none;
@@ -14,7 +29,7 @@
 }
 
 .#{$app-prefix}field {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: $bg-color;
   box-shadow: none;
 }
 
@@ -24,7 +39,7 @@
 }
 
 .#{$app-prefix}pn-btn:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: $active-color;
 }
 
 .#{$app-prefix}btnt.#{$app-prefix}pn-active,
@@ -67,7 +82,7 @@
 .#{$app-prefix}sm-select option,
 .#{$app-prefix}sm-unit option,
 .sp-container {
-  background-color: $mainColor;
+  background-color: $bg-color;
 }
 
 .#{$app-prefix}import-label,
@@ -133,6 +148,10 @@
   padding-right: 30px;
 }
 
+.#{$app-prefix}pn-options {
+  z-index: 4;
+}
+
 .#{$app-prefix}sm-composite .#{$app-prefix}sm-properties {
   display: flex;
   flex-flow: row wrap;
@@ -173,6 +192,12 @@
 #gjs-sm-margin-bottom,
 #gjs-sm-padding-bottom {
   order: 4;
+}
+
+.#{$app-prefix}field input,
+.#{$app-prefix}field select,
+.#{$app-prefix}field textarea {
+  border: 1px solid $mainColor;
 }
 
 .#{$app-prefix}field-radio {
