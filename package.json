@@ -10,7 +10,7 @@
     "v:patch": "npm version --no-git-tag-version patch",
     "start": "cross-env WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w",
     "test": "jest",
-    "release": "npm run build && np"
+    "release": "npm run build && np --passWithNoTests"
   },
   "keywords": [
     "grapesjs",
