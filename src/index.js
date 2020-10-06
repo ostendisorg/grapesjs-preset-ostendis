@@ -11,7 +11,6 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     cmdOpenImport: 'gjs-open-import-template',
     cmdTglImages: 'gjs-toggle-images',
     cmdInlineHtml: 'gjs-get-inlined-html',
-    cmtTglImagesLabel: 'Toggle Images',
     cmdUndo: 'undo',
     cmdRedo: 'redo',
     cmdBtnMoveLabel: 'Move',
@@ -25,7 +24,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     modalLabelImport: '',
     modalLabelExport: '',
     modalBtnImport: 'Import',
-    codeViewerTheme: 'hopscotch',
+    codeViewerTheme: 'material',
     openBlocksBtnTitle: c.openBlocksBtnTitle || '',
     openLayersBtnTitle: c.openLayersBtnTitle || '',
     openSmBtnTitle: c.openSmBtnTitle || '',
@@ -251,6 +250,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
       el.setAttribute('data-tooltip', title)
       el.setAttribute('title', '')
     }
+
   });
 
 });

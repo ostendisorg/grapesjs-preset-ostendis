@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var pkg = require('./package.json');
-var name = 'grapesjs-preset-ostendis';
+const path = require('path');
 var env = process.env.WEBPACK_ENV;
 var plugins = [];
 
@@ -9,14 +9,16 @@ if(env !== 'dev'){
 }
 
 module.exports = {
-  entry: './src',
+  entry: {
+    'grapesjs-preset-ostendis': './src/index.js',
+    'grapesjs-preset-ostendis-adv': './src/adv/index.js',
+  },
   output: {
-      filename: name + '.min.js',
-      library: name,
-      libraryTarget: 'umd',
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
-    minimize: true
+    minimize: true,
   },
   module: {
     rules: [

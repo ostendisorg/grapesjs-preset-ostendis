@@ -13,6 +13,14 @@ define(function() {
       cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
     }
     bm.getAll().reset();
+
+    bm.add('applyButton', {
+      label: opt.buttonApplyBlkLabel,
+      category: opt.categoryLabel,
+      content: '<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">Apply here</a>',
+      attributes: {title: 'Insert h1 block', class:'gjs-fonts gjs-f-button'}
+    });
+
     bm.add('sect100', {
       label: opt.sect100BlkLabel,
       category: opt.categoryLabel,
@@ -23,6 +31,7 @@ define(function() {
         </tr>
         </table>`,
     });
+
     bm.add('sect50', {
       label: opt.sect50BlkLabel,
       category: opt.categoryLabel,
@@ -34,6 +43,7 @@ define(function() {
         </tr>
         </table>`,
     });
+    
     bm.add('sect30', {
       label: opt.sect30BlkLabel,
       category: opt.categoryLabel,
@@ -46,6 +56,7 @@ define(function() {
         </tr>
         </table>`,
     });
+
     bm.add('sect37', {
       label: opt.sect37BlkLabel,
       category: opt.categoryLabel,
@@ -57,12 +68,14 @@ define(function() {
         </tr>
         </table>`,
     });
+
     bm.add('button', {
       label: opt.buttonBlkLabel,
       category: opt.categoryLabel,
       content: '<a class="button">Button</a>',
       attributes: {class:'gjs-fonts gjs-f-button'}
     });
+
     bm.add('divider', {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
@@ -79,6 +92,7 @@ define(function() {
       </style>`,
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
+
     bm.add('text', {
       label: opt.textBlkLabel,
       category: opt.categoryLabel,
@@ -90,12 +104,14 @@ define(function() {
        activeOnRender: 1
       },
     });
+
     bm.add('text-sect', {
       label: opt.textSectionBlkLabel,
       category: opt.categoryLabel,
       content: '<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>',
       attributes: {class:'gjs-fonts gjs-f-h1p'}
     });
+
     bm.add('image', {
       label: opt.imageBlkLabel,
       category: opt.categoryLabel,
@@ -106,12 +122,14 @@ define(function() {
         activeOnRender: 1
       },
     });
+
     bm.add('quote', {
       label: opt.quoteBlkLabel,
       category: opt.categoryLabel,
       content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
       attributes: {class:'fa fa-quote-right'}
     });
+
     bm.add('link', {
       label: opt.linkBlkLabel,
       category: opt.categoryLabel,
@@ -122,6 +140,7 @@ define(function() {
         style: {color:'#3b97e3'}
       },
     });
+
     bm.add('link-block', {
       label: opt.linkBlockBlkLabel,
       category: opt.categoryLabel,
@@ -138,6 +157,7 @@ define(function() {
         }
       },
     });
+
     let gridItem =
       `<table class="grid-item-card">
         <tr>
@@ -154,6 +174,7 @@ define(function() {
           </td>
         </tr>
       </table>`;
+
     bm.add('grid-items', {
       label: opt.gridItemsBlkLabel,
       category: opt.categoryLabel,
@@ -165,6 +186,7 @@ define(function() {
       </table>`,
       attributes: {class:'fa fa-th'}
     });
+
     let listItem =
       `<table class="list-item">
         <tr>
@@ -183,11 +205,14 @@ define(function() {
           </td>
         </tr>
       </table>`;
+
     bm.add('list-items', {
       label: opt.listItemsBlkLabel,
       category: opt.categoryLabel,
       content: listItem + listItem,
       attributes: {class:'fa fa-th-list'}
     });
+
   };
+  
 })

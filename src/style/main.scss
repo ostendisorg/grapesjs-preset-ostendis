@@ -1,7 +1,7 @@
 @import "gjs_variables.scss";
 
 .#{$app-prefix}one-bg{
-  background-color: $bg-color;
+  background-color: $whiteColor;
 }
 
 .#{$app-prefix}two-color{
@@ -12,24 +12,53 @@
   box-shadow: none;
 }
 
+.#{$app-prefix}four-color {
+  color: $accentColor;
+}
+
+.#{$app-prefix}color-warn {
+  color: $accentColor;
+  fill: $accentColor;
+  text-decoration: line-through;
+}
+
+.#{$app-prefix}radio-item input:checked+.#{$app-prefix}radio-item-label {
+  color: $whiteColor;
+  background-color: $mainColor;
+}
+
+.#{$app-prefix}field-arrow-d {
+  border-top: 4px solid $mainColor;
+}
+
+.#{$app-prefix}field-arrow-u {
+  border-bottom: 4px solid $mainColor;
+}
+
+.#{$app-prefix}clm-tags ##{$app-prefix}clm-new {
+  color: $fontColor;
+}
 
 
 
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-title {
   border-top: none;
+  background-color: $whiteColor;
 }
 
 .#{$app-prefix}clm-tags .#{$app-prefix}clm-tag {
-  background-color: $tag-color;
+  background-color: $mainColor;
   border: none;
   box-shadow: none;
   padding: 5px 8px;
   text-shadow: none;
+  color: $whiteColor;
 }
 
 .#{$app-prefix}field {
-  background-color: $bg-color;
+  color: $fontColor;
+  background-color: rgba(0, 0, 0, 0.1);
   box-shadow: none;
 }
 
@@ -39,7 +68,7 @@
 }
 
 .#{$app-prefix}pn-btn:hover {
-  color: $active-color;
+  color: $mainColor;
 }
 
 .#{$app-prefix}btnt.#{$app-prefix}pn-active,
@@ -47,7 +76,7 @@
 .#{$app-prefix}pn-btn.#{$app-prefix}pn-active,
 .#{$app-prefix}pn-btn:active,
 .#{$app-prefix}block:hover {
-  color: $active-color;
+  color: $mainColor;
 }
 
 #gjs-rte-toolbar .#{$app-prefix}rte-btn,
@@ -82,7 +111,24 @@
 .#{$app-prefix}sm-select option,
 .#{$app-prefix}sm-unit option,
 .sp-container {
-  background-color: $bg-color;
+  color: $fontColor;
+  background-color: $whiteColor;
+}
+
+.#{$app-prefix}sm-sector .#{$app-prefix}sm-field input,
+.#{$app-prefix}clm-tags .#{$app-prefix}sm-field input,
+.#{$app-prefix}sm-sector .#{$app-prefix}clm-field input,
+.#{$app-prefix}clm-tags .#{$app-prefix}clm-field input,
+.#{$app-prefix}sm-sector .#{$app-prefix}clm-select input,
+.#{$app-prefix}clm-tags .#{$app-prefix}clm-select input,
+.#{$app-prefix}sm-sector .#{$app-prefix}sm-field select,
+.#{$app-prefix}clm-tags .#{$app-prefix}sm-field select,
+.#{$app-prefix}sm-sector .#{$app-prefix}clm-field select,
+.#{$app-prefix}clm-tags .#{$app-prefix}clm-field select,
+.#{$app-prefix}sm-sector .#{$app-prefix}clm-select select,
+.#{$app-prefix}clm-tags .#{$app-prefix}clm-select select {
+  color: $fontColor;
+  background-color: $whiteColor;
 }
 
 .#{$app-prefix}import-label,
@@ -108,7 +154,7 @@
 .#{$app-prefix}block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  margin: 10px 2.5% 5px;
+  margin: 5px 2.5% 5px;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
   transition: box-shadow, color 0.2s ease 0s;
   width: 100%;
@@ -137,7 +183,7 @@
 
 #gjs-pn-views .#{$app-prefix}pn-active {
   color: rgba(255, 255, 255, 0.9);
-  border-bottom: 2px solid $active-color;
+  border-bottom: 2px solid $mainColor;
   border-radius: 0;
 }
 
@@ -193,12 +239,6 @@
 #gjs-sm-margin-bottom,
 #gjs-sm-padding-bottom {
   order: 4;
-}
-
-.#{$app-prefix}field input,
-.#{$app-prefix}field select,
-.#{$app-prefix}field textarea {
-  border: 1px solid $mainColor;
 }
 
 .#{$app-prefix}field-radio {

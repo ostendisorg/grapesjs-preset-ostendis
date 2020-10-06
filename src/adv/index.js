@@ -1,6 +1,6 @@
 import grapesjs from 'grapesjs';
 
-export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opts) => {
+export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
@@ -11,7 +11,8 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
     cmdOpenImport: 'gjs-open-import-template',
     cmdTglImages: 'gjs-toggle-images',
     cmdInlineHtml: 'gjs-get-inlined-html',
-    cmtTglImagesLabel: 'Toggle Images',
+    cmdUndo: 'undo',
+    cmdRedo: 'redo',
     cmdBtnMoveLabel: 'Move',
     cmdBtnUndoLabel: 'Undo',
     cmdBtnRedoLabel: 'Redo',
@@ -23,7 +24,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
     modalLabelImport: '',
     modalLabelExport: '',
     modalBtnImport: 'Import',
-    codeViewerTheme: 'hopscotch',
+    codeViewerTheme: 'material',
     openBlocksBtnTitle: c.openBlocksBtnTitle || '',
     openLayersBtnTitle: c.openLayersBtnTitle || '',
     openSmBtnTitle: c.openSmBtnTitle || '',
@@ -50,9 +51,8 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
     sect50BlkLabel: '1/2 Section',
     sect30BlkLabel: '1/3 Section',
     sect37BlkLabel: '3/7 Section',
-    buttonBlkLabel: 'Button',
+
     dividerBlkLabel: 'Divider',
-    textBlkLabel: 'Text',
     textSectionBlkLabel: 'Text Section',
     imageBlkLabel: 'Image',
     quoteBlkLabel: 'Quote',
@@ -60,6 +60,9 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
     linkBlockBlkLabel: 'Link Block',
     gridItemsBlkLabel: 'Grid Items',
     listItemsBlkLabel: 'List Items',
+    buttonBlkLabel: 'Button',
+    buttonApplyBlkLabel: 'Apply button',
+    textBlkLabel: 'Text',
     assetsModalTitle: c.assetsModalTitle || 'Select image',
     styleManagerSectors: [{
         name: 'Dimension',
@@ -201,19 +204,19 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
   }
 
   // Add commands
-  let importCommands = require('./commandsAdvanced');
+  let importCommands = require('./commands');
   importCommands(c);
 
   // Add blocks
-  let importBlocks = require('./blocksAdvanced');
+  let importBlocks = require('./blocks');
   importBlocks(c);
 
   // Add buttons
-  let importButtons = require('./buttonsAdvanced');
+  let importButtons = require('./buttons');
   importButtons(c);
 
   // Load style manager
-  let importStyle = require('./style');
+  let importStyle = require('../style');
   importStyle(c);
 
   // Set default template if the canvas is empty
@@ -250,32 +253,51 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-advanced', (editor, opt
     expTplBtn.set('attributes', {
       title: defaults.expTplBtnTitle
     });
+
     var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
     fullScrBtn.set('attributes', {
       title: defaults.fullScrBtnTitle
     });
+
     var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
     swichtVwBtn.set('attributes', {
       title: defaults.swichtVwBtnTitle
     });
+
     var openSmBtn = editor.Panels.getButton('views', 'open-sm');
     openSmBtn.set('attributes', {
       title: defaults.openSmBtnTitle
     });
+
     var openTmBtn = editor.Panels.getButton('views', 'open-tm');
     openTmBtn.set('attributes', {
       title: defaults.openTmBtnTitle
     });
+
     var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
     openLayersBtn.set('attributes', {
       title: defaults.openLayersBtnTitle
     });
+
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
       openBlocksBtn.set('attributes', {
       title: defaults.openBlocksBtnTitle
     });
     openBlocksBtn && openBlocksBtn.set('active', 1);
-    //editor.trigger('change:canvasOffset');
+
+
+     // Beautify tooltips
+     var titles = document.querySelectorAll('*[data-tooltip-pos]')
+
+     for (var i = 0; i < titles.length; i++) {
+       var el = titles[i]
+       var title = el.getAttribute('title')
+       title = title ? title.trim() : ''
+       if (!title) break
+       el.setAttribute('data-tooltip', title)
+       el.setAttribute('title', '')
+     }
+     
   });
 });

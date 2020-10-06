@@ -9,19 +9,43 @@
 .gjs-pn-commands, .gjs-pn-views-container {
   box-shadow: none; }
 
+.gjs-four-color {
+  color: #FF8200; }
+
+.gjs-color-warn {
+  color: #FF8200;
+  fill: #FF8200;
+  text-decoration: line-through; }
+
+.gjs-radio-item input:checked + .gjs-radio-item-label {
+  color: #ffffff;
+  background-color: #3b5998; }
+
+.gjs-field-arrow-d {
+  border-top: 4px solid #3b5998; }
+
+.gjs-field-arrow-u {
+  border-bottom: 4px solid #3b5998; }
+
+.gjs-clm-tags #gjs-clm-new {
+  color: #657390; }
+
 .gjs-clm-tags .gjs-sm-title,
 .gjs-sm-sector .gjs-sm-title {
-  border-top: none; }
+  border-top: none;
+  background-color: #ffffff; }
 
 .gjs-clm-tags .gjs-clm-tag {
   background-color: #3b5998;
   border: none;
   box-shadow: none;
   padding: 5px 8px;
-  text-shadow: none; }
+  text-shadow: none;
+  color: #ffffff; }
 
 .gjs-field {
-  background-color: #ffffff;
+  color: #657390;
+  background-color: rgba(0, 0, 0, 0.1);
   box-shadow: none; }
 
 .gjs-btnt.gjs-pn-active,
@@ -69,6 +93,22 @@
 .gjs-sm-select option,
 .gjs-sm-unit option,
 .sp-container {
+  color: #657390;
+  background-color: #ffffff; }
+
+.gjs-sm-sector .gjs-sm-field input,
+.gjs-clm-tags .gjs-sm-field input,
+.gjs-sm-sector .gjs-clm-field input,
+.gjs-clm-tags .gjs-clm-field input,
+.gjs-sm-sector .gjs-clm-select input,
+.gjs-clm-tags .gjs-clm-select input,
+.gjs-sm-sector .gjs-sm-field select,
+.gjs-clm-tags .gjs-sm-field select,
+.gjs-sm-sector .gjs-clm-field select,
+.gjs-clm-tags .gjs-clm-field select,
+.gjs-sm-sector .gjs-clm-select select,
+.gjs-clm-tags .gjs-clm-select select {
+  color: #657390;
   background-color: #ffffff; }
 
 .gjs-import-label,
@@ -90,7 +130,7 @@
 .gjs-block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  margin: 10px 2.5% 5px;
+  margin: 5px 2.5% 5px;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
   transition: box-shadow, color 0.2s ease 0s;
   width: 100%; }
@@ -161,11 +201,6 @@
 #gjs-sm-margin-bottom,
 #gjs-sm-padding-bottom {
   order: 4; }
-
-.gjs-field input,
-.gjs-field select,
-.gjs-field textarea {
-  border: 1px solid #3b5998; }
 
 .gjs-field-radio {
   width: 100%; }
