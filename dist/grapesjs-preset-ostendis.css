@@ -30,6 +30,15 @@
 .gjs-clm-tags #gjs-clm-new {
   color: #657390; }
 
+.gjs-pn-commands, .gjs-cv-canvas {
+  width: 80%; }
+
+.gjs-pn-views, .gjs-pn-views-container {
+  width: 20%; }
+
+.gjs-pn-options {
+  right: 20%; }
+
 .gjs-clm-tags .gjs-sm-title,
 .gjs-sm-sector .gjs-sm-title {
   border-top: none;

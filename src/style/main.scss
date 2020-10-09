@@ -39,6 +39,18 @@
   color: $fontColor;
 }
 
+.#{$app-prefix}pn-commands, .#{$app-prefix}cv-canvas {
+  width: 80%;
+}
+
+.#{$app-prefix}pn-views, .#{$app-prefix}pn-views-container {
+  width: 20%
+}
+
+.#{$app-prefix}pn-options {
+  right: 20%
+}
+
 
 
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
