@@ -216,8 +216,8 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts) =>
   importButtons(c);
 
   // Load style manager
-  let importStyle = require('../style');
-  importStyle(c);
+  //let importStyle = require('../style');
+  //importStyle(c);
 
   // Set default template if the canvas is empty
   if(!editor.getHtml() && c.defaultTemplate){
