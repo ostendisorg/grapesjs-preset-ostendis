@@ -39,6 +39,9 @@
 .gjs-pn-options {
   right: 20%; }
 
+.gjs-field-arrows {
+  z-index: 9; }
+
 .gjs-clm-tags .gjs-sm-title,
 .gjs-sm-sector .gjs-sm-title {
   border-top: none;
@@ -101,7 +104,8 @@
 .gjs-sm-sector .gjs-sm-colorp-c,
 .gjs-sm-select option,
 .gjs-sm-unit option,
-.sp-container {
+.sp-container
+.sp-container button {
   color: #657390;
   background-color: #ffffff; }
 
