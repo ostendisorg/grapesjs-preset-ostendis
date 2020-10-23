@@ -51,6 +51,10 @@
   right: 20%
 }
 
+.#{$app-prefix}field-arrows {
+  z-index: 9;
+}
+
 
 
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
@@ -122,7 +126,8 @@
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-colorp-c,
 .#{$app-prefix}sm-select option,
 .#{$app-prefix}sm-unit option,
-.sp-container {
+.sp-container
+.sp-container button {
   color: $fontColor;
   background-color: $whiteColor;
 }
