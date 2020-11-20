@@ -254,10 +254,10 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts) =>
       title: defaults.expTplBtnTitle
     });
 
-    var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
-    fullScrBtn.set('attributes', {
-      title: defaults.fullScrBtnTitle
-    });
+    // var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
+    // fullScrBtn.set('attributes', {
+    //   title: defaults.fullScrBtnTitle
+    // });
 
     var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
     swichtVwBtn.set('attributes', {

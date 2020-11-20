@@ -44,21 +44,23 @@ define(function() {
     });
 
     if(optPanel){
-      // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
-      cmdBtns.each((btn) => {
-        var attrs = btn.get('attributes');
-        attrs[tltPosAttr] = 'bottom';
-        btn.set('attributes', attrs);
-      });
 
       // Remove preview
       let prvBtn = pnm.addButton('options', 'preview');
       prvBtn && cmdBtns.remove(prvBtn);
+
+      // Remove fullscreen
+      let flsBtn = pnm.addButton('options', 'fullscreen');
+      flsBtn && cmdBtns.remove(flsBtn);
+
+       // Fix tooltip position 
+       updateTooltip(cmdBtns);
     }
 
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
+
     if(cmdPanel){
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
