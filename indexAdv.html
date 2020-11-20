@@ -496,18 +496,20 @@
 
       // Set up GrapesJS editor with the plugin
       var editor = grapesjs.init({
-        height: '100%',
+        height: '1100px',
         //noticeOnUnload: 0,
         storageManager:{
-          autoload: 0,
+          autoload: 0,   
         },
         assetManager: {
           assets: images,
           upload: 0,
           uploadText: 'Uploading is not available in this demo',
         },
+        blockManager: {appendOnClick: 1},
         container : '#gjs',
         fromElement: true,
+        colorPicker: { appendTo: 'parent', offset: { top: -244, left: -175 } },
         plugins: ['gjs-preset-ostendis-adv'],
         pluginsOpts: {
           'gjs-preset-ostendis-adv': {
