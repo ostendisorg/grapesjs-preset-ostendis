@@ -62,6 +62,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts) =>
     listItemsBlkLabel: 'List Items',
     buttonBlkLabel: 'Button',
     buttonApplyBlkLabel: 'Apply button',
+    buttonApplyBlkText: 'Apply here',
     textBlkLabel: 'Text',
     assetsModalTitle: c.assetsModalTitle || 'Select image',
     styleManagerSectors: [{

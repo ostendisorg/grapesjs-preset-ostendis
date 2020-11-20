@@ -47,7 +47,9 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
       padding: '5px 5px 5px 5px',
       width: '100%'
     },
-    buttonBlkLabel: 'Apply button',
+    buttonBlkLabel: 'Button',
+    buttonApplyBlkLabel: 'Apply button',
+    buttonApplyBlkText: 'Apply here',
     textBlkLabel: 'Text',
     imageBlkLabel: 'Image',
     assetsModalTitle: c.assetsModalTitle || 'Select image'

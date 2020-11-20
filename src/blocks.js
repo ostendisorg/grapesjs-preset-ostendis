@@ -6,10 +6,10 @@ define(function() {
     bm.getAll().reset();
     
     bm.add('applyButton', {
-      label: opt.buttonBlkLabel,
+      label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
-      content: '<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">Apply here</a>',
-      attributes: {title: 'Insert h1 block', class:'gjs-fonts gjs-f-button'}
+      attributes: {class:'gjs-fonts gjs-f-button'},
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`,
     });
     
     bm.add('text', {
