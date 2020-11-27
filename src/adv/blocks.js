@@ -18,7 +18,15 @@ define(function() {
       label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-button'},
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`,
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`
+    });
+
+    
+    bm.add('button', {
+      label: opt.buttonBlkLabel,
+      category: opt.categoryLabel,
+      content: '<a data-gjs-type="link" class="button">Button</a>',
+      attributes: {class:'gjs-fonts gjs-f-button'}
     });
 
     bm.add('sect100', {
@@ -29,7 +37,7 @@ define(function() {
         <tr>
           <td style="${cellStyleStr}"></td>
         </tr>
-        </table>`,
+        </table>`
     });
 
     bm.add('sect50', {
@@ -41,7 +49,7 @@ define(function() {
           <td style="${cellStyleStr} width: 50%"></td>
           <td style="${cellStyleStr} width: 50%"></td>
         </tr>
-        </table>`,
+        </table>`
     });
     
     bm.add('sect30', {
@@ -54,7 +62,7 @@ define(function() {
           <td style="${cellStyleStr} width: 33.3333%"></td>
           <td style="${cellStyleStr} width: 33.3333%"></td>
         </tr>
-        </table>`,
+        </table>`
     });
 
     bm.add('sect37', {
@@ -66,30 +74,13 @@ define(function() {
           <td style="${cellStyleStr} width:30%"></td>
           <td style="${cellStyleStr} width:70%"></td>
         </tr>
-        </table>`,
-    });
-
-    bm.add('button', {
-      label: opt.buttonBlkLabel,
-      category: opt.categoryLabel,
-      content: '<a class="button">Button</a>',
-      attributes: {class:'gjs-fonts gjs-f-button'}
+        </table>`
     });
 
     bm.add('divider', {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
-      content: `<table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
-        <tr>
-          <td class="divider"></td>
-        </tr>
-      </table>
-      <style>
-      .divider {
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 1px;
-      }
-      </style>`,
+      content: `<hr style="border-top: 1px solid #2b303b;" />`,
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
 
@@ -99,9 +90,18 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-text'},
       content: {
        type: 'text',
-       content: 'Insert your text here',
-       style: { padding: '10px' },
-       activeOnRender: 1
+       content: 'Text'
+      },
+    });
+
+    bm.add('text2', {
+      label: opt.textBlkLabelWithSpace,
+      category: opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-text'},
+      content: {
+       type: 'text',
+       content: 'Text',
+       style: { 'margin-top': '15px', 'margin-bottom': '15px' }
       },
     });
 

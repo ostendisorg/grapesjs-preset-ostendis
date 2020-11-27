@@ -25,6 +25,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     modalLabelExport: '',
     modalBtnImport: 'Import',
     codeViewerTheme: 'material',
+    dividerBlkLabel: 'Divider',
     openBlocksBtnTitle: c.openBlocksBtnTitle || '',
     openLayersBtnTitle: c.openLayersBtnTitle || '',
     openSmBtnTitle: c.openSmBtnTitle || '',
@@ -51,6 +52,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     buttonApplyBlkLabel: 'Apply button',
     buttonApplyBlkText: 'Apply here',
     textBlkLabel: 'Text',
+    textBlkLabelWithSpace: 'Text with spacing',
     imageBlkLabel: 'Image',
     assetsModalTitle: c.assetsModalTitle || 'Select image'
   };

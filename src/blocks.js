@@ -9,7 +9,7 @@ define(function() {
       label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-button'},
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`,
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`
     });
     
     bm.add('text', {
@@ -18,8 +18,18 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-text'},
       content: {
        type: 'text',
+       content: 'Text'
+      },
+    });
+
+    bm.add('text2', {
+      label: opt.textBlkLabelWithSpace,
+      category: opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-text'},
+      content: {
+       type: 'text',
        content: 'Text',
-       activeOnRender: 1
+       style: { 'margin-top': '15px', 'margin-bottom': '15px' }
       },
     });
 
@@ -32,6 +42,13 @@ define(function() {
         style: {color:'black'},
         activeOnRender: 1
       },
+    });
+
+    bm.add('divider', {
+      label: opt.dividerBlkLabel,
+      category: opt.categoryLabel,
+      content: `<hr style="border-top: 1px solid #2b303b;" />`,
+      attributes: {class:'gjs-fonts gjs-f-divider'}
     });
     
   };
