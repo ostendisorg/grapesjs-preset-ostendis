@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>GrapesJS Ostendis Editor</title>
-    <link rel="stylesheet" href="//unpkg.com/grapesjs@0.16.22/dist/css/grapes.min.css">
+    <link rel="stylesheet" href="//unpkg.com/grapesjs@0.16.27/dist/css/grapes.min.css">
     <link rel="stylesheet" href="./style/material.css">
     <link rel="stylesheet" href="./style/tooltip.css">
     <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css">
 
-    <script src="//unpkg.com/grapesjs@0.16.22/dist/grapes.min.js"></script>
+    <script src="//unpkg.com/grapesjs@0.16.27/dist/grapes.min.js"></script>
     <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
   </head>
   <style>
@@ -506,6 +506,11 @@
           upload: 0,
           uploadText: 'Uploading is not available in this demo',
         },
+        canvasCss: `.gjs-selected{
+                      outline: 2px solid #3b5998 !important;
+                      outline-offset: -2px;
+                    }
+                    `,
         blockManager: {appendOnClick: 1},
         container : '#gjs',
         fromElement: true,

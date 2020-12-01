@@ -136,8 +136,7 @@ define(function() {
       attributes: {class:'fa fa-link'},
       content: {
         type: 'link',
-        content: 'Link',
-        style: {color:'#3b97e3'}
+        content: 'Link'
       },
     });
 

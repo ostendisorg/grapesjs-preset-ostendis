@@ -57,6 +57,39 @@
 
 
 
+
+.#{$app-prefix}drag-helper {
+  background-color: $mainColor !important;
+}
+
+.#{$app-prefix}selected {
+	outline: 1px solid $mainColor !important;
+}
+
+.#{$app-prefix}highlighter {
+	outline: 1px solid $mainColor !important;
+}
+
+*.#{$app-prefix}hover, div.#{$app-prefix}hover { 
+  outline: 1px solid $mainColor;
+}
+
+.#{$app-prefix}badge, .#{$app-prefix}badge {
+	background-color: $mainColor;
+}
+
+.#{$app-prefix}toolbar {
+  background-color: $mainColor;
+}
+
+.#{$app-prefix}resizer-h {
+  border: 2px solid $mainColor;
+}
+
+
+
+
+
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-title {
   border-top: none;

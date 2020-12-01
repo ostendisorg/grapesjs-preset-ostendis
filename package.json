@@ -8,9 +8,9 @@
     "build": "cross-env WEBPACK_ENV=prod && webpack && npm run build:css",
     "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-ostendis.css",
     "v:patch": "npm version --no-git-tag-version patch",
-    "start": "npm run build && cross-env WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w",
+    "start": "npm run build & cross-env WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w",
     "test": "jest --passWithNoTests",
-    "release": "npm run build && np"
+    "release": "npm run build & np"
   },
   "keywords": [
     "grapesjs",
