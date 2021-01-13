@@ -21,6 +21,12 @@ define(function() {
       content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`
     });
 
+    bm.add('applyQrCode', {
+      label: opt.applyQrCodeBlkLabel,
+      category: opt.categoryLabel,
+      attributes: {class:'gjs-f-image'},
+      content: `<img class="image" src="$$$ApplyQrCode$$$" alt="QR code"/>`
+    });
     
     bm.add('button', {
       label: opt.buttonBlkLabel,
