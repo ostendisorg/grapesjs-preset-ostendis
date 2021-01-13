@@ -15,8 +15,8 @@ define(function() {
     bm.add('applyQrCode', {
       label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: {class:'gjs-f-image'},
-      content: `<img class="image" src="$$$ApplyQrCode$$$" alt="QR code"/>`
+      attributes: {class:'gjs-fonts gjs-f-image'},
+      content: `<img src="$$$ApplyQrCode$$$" alt="QR code"/>`
     });
     
     bm.add('text', {
