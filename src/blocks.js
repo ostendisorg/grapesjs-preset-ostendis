@@ -16,7 +16,16 @@ define(function() {
       label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-image'},
-      content: `<img src="$$$ApplyQrCode$$$" alt="QR code"/>`
+      content: {
+        type: 'image',
+        editable: false,
+        droppable: true,
+        style: {
+          'min-height': '100px',
+          'min-width': '100px'
+        },
+        attributes: {src:'$$$ApplyQrCode$$$', alt:'QR code'},
+      }
     });
     
     bm.add('text', {
