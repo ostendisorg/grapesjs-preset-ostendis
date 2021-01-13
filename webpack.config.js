@@ -8,6 +8,9 @@ if(env !== 'dev'){
   plugins.push(new webpack.BannerPlugin(pkg.name + ' - ' + pkg.version));
 }
 
+plugins.push(new webpack.ProvidePlugin({process: 'process/browser'}));
+plugins.push(new webpack.ProvidePlugin({Buffer: ['buffer', 'Buffer']}));
+
 module.exports = {
   entry: {
     'grapesjs-preset-ostendis': './src/index.js',
@@ -31,5 +34,11 @@ module.exports = {
     ],
   },
   externals: {'grapesjs': 'grapesjs'},
-  plugins: plugins
+  plugins: plugins,
+  resolve: {
+    fallback: {
+      "util": require.resolve("util/"),
+      "stream": require.resolve("stream-browserify"),
+    }
+  }
 };
