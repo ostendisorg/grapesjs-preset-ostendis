@@ -31,7 +31,8 @@ define(function() {
         droppable: true,
         style: {
           'min-height': '100px',
-          'min-width': '100px'
+          'min-width': '100px',
+          'width': '100px'
         },
         attributes: {src:'$$$ApplyQrCode$$$', alt:'QR code'},
       }
