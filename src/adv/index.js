@@ -67,6 +67,19 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts = {
     applyQrCodeBlkLabel: 'Apply QR code',
     textBlkLabel: 'Text',
     textBlkLabelWithSpace: 'Text with spacing',
+    textBlkOstType: 'Block',
+    textBlkLabelOrg: 'Organization',
+    textBlkLabelIntro: 'Introduction',
+    textBlkLabelDesc: 'Description',
+    textBlkLabelReq: 'Requirements',
+    textBlkLabelBenefits: 'Benefits',
+    textBlkLabelContact: 'Contact',
+    textBlkTitleDesc: 'Tasks:',
+    textBlkContentDesc: 'Description',
+    textBlkTitleReq: 'We expect:',
+    textBlkContentReq: 'Requirements',
+    textBlkTitleBenefits: 'We offer:',
+    textBlkContentBenefits: 'Benefits',
     assetsModalTitle: c.assetsModalTitle || 'Select image',
   };
 
@@ -78,6 +91,32 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts = {
     if (!(name in c))
       c[name] = defaults[name];
   }
+
+  // Add traits
+  // editor.DomComponents.addType('text', {
+  //   isComponent: el => true,
+  //   model: {
+  //     defaults: {
+  //       traits: [
+  //         'id',
+  //         'title',
+  //         {
+  //           type: 'select',
+  //           label: defaults.textBlkOstType,
+  //           name: 'data-ost-type',
+  //           options: [
+  //             { id: 'organization', name: 'organization'},
+  //             { id: 'introduction', name: 'introduction'},
+  //             { id: 'description', name: 'description'},
+  //             { id: 'requirements', name: 'requirements'},
+  //             { id: 'benefits', name: 'benefits'},
+  //             { id: 'contact', name: 'contact'},
+  //           ]
+  //         }
+  //       ]
+  //     }
+  //   }
+  // });
 
   // Add commands
   let importCommands = require('./commands');

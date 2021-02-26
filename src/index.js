@@ -55,6 +55,18 @@ export default grapesjs.plugins.add('gjs-preset-ostendis', (editor, opts) => {
     textBlkLabel: 'Text',
     textBlkLabelWithSpace: 'Text with spacing',
     imageBlkLabel: 'Image',
+    textBlkLabelOrg: 'Organization',
+    textBlkLabelIntro: 'Introduction',
+    textBlkLabelDesc: 'Description',
+    textBlkLabelReq: 'Requirements',
+    textBlkLabelBenefits: 'Benefits',
+    textBlkLabelContact: 'Contact',
+    textBlkTitleDesc: 'Tasks:',
+    textBlkContentDesc: 'Description',
+    textBlkTitleReq: 'We expect:',
+    textBlkContentReq: 'Requirements',
+    textBlkTitleBenefits: 'We offer:',
+    textBlkContentBenefits: 'Benefits',
     assetsModalTitle: c.assetsModalTitle || 'Select image'
   };
 

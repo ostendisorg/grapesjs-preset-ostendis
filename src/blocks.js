@@ -64,8 +64,110 @@ define(function() {
     bm.add('divider', {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
-      content: `<hr style="border-top: 1px solid #2b303b;" />`,
+      content: '<hr style="border-top: 1px solid #2b303b;" />',
       attributes: {class:'gjs-fonts gjs-f-divider'}
+    });
+
+    // OST ad blocks
+    bm.add('ost-organization', {
+      label: opt.textBlkLabelOrg,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        name: opt.textBlkLabelOrg,
+        type: 'text',
+        content: 'Organization',
+        attributes: { 'data-ost-type': 'organization' },
+      },
+    });
+
+    bm.add('ost-intro', {
+      label: opt.textBlkLabelIntro,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        name: opt.textBlkLabelIntro,
+        type: 'text',
+        content: 'Introduction',
+        attributes: { 'data-ost-type': 'introduction' },
+      },
+    });
+
+    bm.add('ost-description', {
+      label: opt.textBlkLabelDesc,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: { 
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<strong>' + opt.textBlkTitleDesc + '</strong>',
+          },
+          {
+            name: opt.textBlkLabelDesc,
+            type: 'text',
+            content: opt.textBlkContentDesc,
+            attributes: { 'data-ost-type': 'description' },
+          },
+        ],
+        
+      },
+    });
+
+    bm.add('ost-requirements', {
+      label: opt.textBlkLabelReq,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<strong>' + opt.textBlkTitleReq + '</strong>',
+          },
+          {
+            name: opt.textBlkLabelReq,
+            type: 'text',
+            content: opt.textBlkContentReq,
+            attributes: { 'data-ost-type': 'requirements' },
+          },
+        ],
+      },
+    });
+
+    bm.add('ost-benefits', {
+      label: opt.textBlkLabelBenefits,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<strong>' + opt.textBlkTitleBenefits + '</strong>',
+          },
+          {
+            name: opt.textBlkLabelBenefits,
+            type: 'text',
+            content: opt.textBlkContentBenefits,
+            attributes: { 'data-ost-type': 'benefits' },
+          },
+        ],
+        
+      },
+    });
+
+    bm.add('ost-contact', {
+      label: opt.textBlkLabelContact,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        name: opt.textBlkLabelContact,
+        type: 'text',
+        content: 'Contact',
+        attributes: { 'data-ost-type': 'contact' },
+      },
     });
     
   };
