@@ -76,7 +76,7 @@ define(function() {
       content: {
         name: opt.textBlkLabelOrg,
         type: 'text',
-        content: 'Organization',
+        content: opt.textBlkContentOrg,
         attributes: { 'data-ost-type': 'organization' },
       },
     });
@@ -88,7 +88,7 @@ define(function() {
       content: {
         name: opt.textBlkLabelIntro,
         type: 'text',
-        content: 'Introduction',
+        content: opt.textBlkContentIntro,
         attributes: { 'data-ost-type': 'introduction' },
       },
     });
@@ -109,6 +109,28 @@ define(function() {
             type: 'text',
             content: opt.textBlkContentDesc,
             attributes: { 'data-ost-type': 'description' },
+          },
+        ],
+        
+      },
+    });
+
+    bm.add('ost-tasks', {
+      label: opt.textBlkLabelTasks,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: { 
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<strong>' + opt.textBlkTitleTasks + '</strong>',
+          },
+          {
+            name: opt.textBlkLabelTasks,
+            type: 'text',
+            content: opt.textBlkContentTasks,
+            attributes: { 'data-ost-type': 'tasks' },
           },
         ],
         
@@ -158,6 +180,18 @@ define(function() {
       },
     });
 
+    bm.add('ost-action', {
+      label: opt.textBlkLabelAction,
+      category: 'Ostendis',
+      attributes: {class:'gjs-fonts gjs-f-hero'},
+      content: {
+        name: opt.textBlkLabelAction,
+        type: 'text',
+        content: opt.textBlkContentAction,
+        attributes: { 'data-ost-type': 'calltoaction' },
+      },
+    });
+
     bm.add('ost-contact', {
       label: opt.textBlkLabelContact,
       category: 'Ostendis',
@@ -165,7 +199,7 @@ define(function() {
       content: {
         name: opt.textBlkLabelContact,
         type: 'text',
-        content: 'Contact',
+        content: opt.textBlkContentContact,
         attributes: { 'data-ost-type': 'contact' },
       },
     });
