@@ -66,6 +66,20 @@ Start the dev server
 $ npm start
 ```
 
+To install publishing dependency
+```sh
+$ npm install --global np
+```
+
+## Release
+
+Publish the package
+
+```sh
+$ npm release
+```
+
+https://github.com/sindresorhus/np
 
 ## License
 
