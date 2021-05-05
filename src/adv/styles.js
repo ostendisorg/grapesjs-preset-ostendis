@@ -39,7 +39,8 @@ export default (editor) => {
           { name: 'Trebuchet MS', value: 'Trebuchet MS, Helvetica, sans-serif', style: 'font-family: Trebuchet MS, Helvetica, sans-serif;' },
           { name: 'Verdana', value: 'Verdana, Geneva, sans-serif', style: 'font-family: Verdana, Geneva, sans-serif;' },
           { name: 'Brush Script MT', value: 'Brush Script MT, sans-serif', style: 'font-family: Brush Script MT, sans-serif;' },
-          { name: 'Impact', value: 'Impact, Charcoal, sans-serif', style: 'font-family: Impact, Charcoal, sans-serif;' }
+          { name: 'Impact', value: 'Impact, Charcoal, sans-serif', style: 'font-family: Impact, Charcoal, sans-serif;' },
+          { name: 'Noto Sans JP', value: 'Noto Sans JP, sans-serif', style: 'font-family: Noto Sans JP, sans-serif;' }
         ]
       }]
     }, { at: 0 });
