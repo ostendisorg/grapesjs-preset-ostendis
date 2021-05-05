@@ -76,7 +76,7 @@ $ npm install --global np
 Publish the package
 
 ```sh
-$ npm release
+$ npm run release
 ```
 
 https://github.com/sindresorhus/np
