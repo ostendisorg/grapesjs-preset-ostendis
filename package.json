@@ -3,6 +3,11 @@
   "version": "1.8.0",
   "description": "GrapesJS preset configuration for the Ostendis editor",
   "main": "dist/grapesjs-preset-ostendis.min.js",
+  "files": [
+    "grapesjs-preset-ostendis.min.js",
+    "grapesjs-preset-ostendis.adv.min.js",
+    "grapesjs-preset-ostendis.css"
+  ],
   "scripts": {
     "lint": "eslint src",
     "build": "cross-env WEBPACK_ENV=prod && webpack && npm run build:css",
