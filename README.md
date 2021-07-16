@@ -78,8 +78,8 @@ Publish the package
 ```sh
 $ npm run release
 ```
-
-https://github.com/sindresorhus/np
+**ONLY** workes with package:
+https://www.npmjs.com/package/np
 
 ## License
 
