@@ -11,7 +11,7 @@ TODO
 Download using one of the options:
 
 * `npm i grapesjs-preset-ostendis`
-* Latest release link https://github.com/DNUbyOstendis/grapesjs-preset-ostendis/releases/latest
+* Latest release link https://github.com/ostendisorg/grapesjs-preset-ostendis/releases
 
 
 ## Usage
