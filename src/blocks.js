@@ -61,6 +61,20 @@ define(function() {
       },
     });
 
+    bm.add('video', {
+      label: opt.videoBlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: 'fa fa-youtube-play' },
+      content: {
+        type: 'video',
+        src: '',
+        style: {
+          height: '350px',
+          width: '615px'
+        }
+      }
+    });
+    
     bm.add('divider', {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
@@ -68,7 +82,10 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
 
-    // OST ad blocks
+    
+
+      
+     // OST ad blocks
     bm.add('ost-organization', {
       label: opt.textBlkLabelOrg,
       category: 'Ostendis',
