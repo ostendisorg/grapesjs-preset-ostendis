@@ -68,6 +68,29 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
 
+    bm.add('facebook', {
+      label: 'Facebook',
+      category: opt.categoryLabel,
+      content: '<div><a href="https://facebook.com/"><img src="../image/f_logo_RGB-Blue_58.png" alt="Facebook Link"></a></div>',
+      attributes: {class:'fa fa-facebook'}
+    });
+
+    bm.add('facebook2', {
+      label: 'Facebook2',
+      category: opt.categoryLabel,
+      content: {
+        name: 'Facebook2',
+        type: 'link',
+        content: {
+          name: 'Facebook2',
+          type: 'image',
+          src: '../image/f_logo_RGB-Blue_58.png',
+          alt: 'Facebook Link',
+        },
+      },
+      attributes: {class:'fa fa-facebook'}
+    });
+
     // OST ad blocks
     bm.add('ost-organization', {
       label: opt.textBlkLabelOrg,
