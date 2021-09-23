@@ -140,7 +140,33 @@ define(function () {
       },
     });
 
-    bm.add("quote", {
+    bm.add('video', {
+      label: opt.videoBlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: 'fa fa-youtube-play' },
+      content: {
+        type: 'video',
+        src: 'https://www.ostendis.com/media/juice-success-story.mp4',
+        style: {
+          height: '350px',
+          width: '615px'
+        }
+      }
+    });
+
+    bm.add('box', {
+      label: 'Box',
+      category: opt.categoryLabel,
+      attributes: { class: 'gjs-fonts gjs-f-b1' },
+      content: {
+        type: 'box',
+        style: {
+          padding: '20px'
+        }
+      },
+    });
+
+    bm.add('quote', {
       label: opt.quoteBlkLabel,
       category: opt.categoryLabel,
       content:

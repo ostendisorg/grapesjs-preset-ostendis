@@ -57,6 +57,7 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts = {
     dividerBlkLabel: 'Divider',
     textSectionBlkLabel: 'Text Section',
     imageBlkLabel: 'Image',
+    videoBlkLabel: 'Video',
     facebookBlkLabelSite: 'Facebook site',
     instagramBlkLabelSite: 'Instagram site',
     linkedinBlkLabelSite: 'LinkedIn site',
