@@ -67,7 +67,7 @@ define(function() {
       attributes: { class: 'fa fa-youtube-play' },
       content: {
         type: 'video',
-        src: '',
+        src: 'https://www.ostendis.com/media/juice-success-story.mp4',
         style: {
           height: '350px',
           width: '615px'
