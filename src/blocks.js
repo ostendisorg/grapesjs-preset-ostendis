@@ -68,10 +68,6 @@ define(function () {
       content: {
         type: 'video',
         src: 'https://www.ostendis.com/media/juice-success-story.mp4',
-        style: {
-          height: '350px',
-          width: '615px'
-        }
       }
     });
     

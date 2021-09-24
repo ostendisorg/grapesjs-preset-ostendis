@@ -147,7 +147,6 @@ define(function () {
       content: {
         type: 'video',
         src: 'https://www.ostendis.com/media/juice-success-story.mp4',
-
       }
     });
 
