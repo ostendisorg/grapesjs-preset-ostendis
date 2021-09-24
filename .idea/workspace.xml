@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7a92d6-b229-4d9d-86f0-bbf9a6d85d60" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adv/blocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adv/blocks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adv/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adv/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1632386968858</updated>
       <workItem from="1632386971476" duration="11031000" />
-      <workItem from="1632406853263" duration="1746000" />
+      <workItem from="1632406853263" duration="6757000" />
     </task>
     <servers />
   </component>
