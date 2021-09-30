@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7a92d6-b229-4d9d-86f0-bbf9a6d85d60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/adv/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adv/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis-adv.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/grapesjs-preset-ostendis.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adv/blocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adv/blocks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1yX9G1TRMdUSIVtTpIKLHmdIJTw" />
@@ -55,7 +63,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feature/socialMedia" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
