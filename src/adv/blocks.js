@@ -417,7 +417,7 @@ define(function () {
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-facebook-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
           },
           attributes: { class: "fa fa-facebook-square" },
         });
@@ -432,7 +432,7 @@ define(function () {
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-instagram"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
           },
           attributes: { class: "fa fa-instagram" },
         });
@@ -447,7 +447,7 @@ define(function () {
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-linkedin-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
           },
           attributes: { class: "fa fa-linkedin-square" },
         });
@@ -462,7 +462,7 @@ define(function () {
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-xing-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
           },
           attributes: { class: "fa fa-xing-square" },
         });
@@ -477,7 +477,7 @@ define(function () {
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-twitter-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-twitter-square"></i></div>',
           },
           attributes: { class: "fa fa-twitter-square" },
         });
@@ -490,11 +490,11 @@ define(function () {
           content: {
             type: "link",
             attributes: {
-              href: "https://www.facebook.com/sharer/sharer.php?u=$$$Link$$$",
+              href: "https://www.facebook.com/sharer/sharer.php?u=$$$ViewLink$$$",
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-facebook-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-facebook-square"></i></div>',
           },
           attributes: { class: "fa fa-facebook-square" },
         });
@@ -505,11 +505,11 @@ define(function () {
           content: {
             type: "link",
             attributes: {
-              href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$Link$$$",
+              href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$ViewLink$$$",
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-linkedin-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-linkedin"></i></div>',
           },
           attributes: { class: "fa fa-linkedin-square" },
         });
@@ -520,11 +520,11 @@ define(function () {
           content: {
             type: "link",
             attributes: {
-              href: "https://www.xing.com/spi/shares/new?url=$$$Link$$$",
+              href: "https://www.xing.com/spi/shares/new?url=$$$ViewLink$$$",
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-xing.square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-xing-square"></i></div>',
           },
           attributes: { class: "fa fa-xing-square" },
         });
@@ -535,11 +535,11 @@ define(function () {
           content: {
             type: "link",
             attributes: {
-              href: "https://twitter.com/intent/tweet?url=$$$Link$$$&text=",
+              href: "https://twitter.com/intent/tweet?url=$$$ViewLink$$$&text=",
               style: "display: inline-block; margin: 3px;",
               target: "_blank",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-twitter-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-twitter-square"></i></div>',
           },
           attributes: { class: "fa fa-twitter-square" },
         });
@@ -550,10 +550,10 @@ define(function () {
           content: {
             type: "link",
             attributes: {
-              href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$Link$$$",
+              href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$ViewLink$$$",
               style: "display: inline-block; margin: 3px;",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-envelope-square"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fas fa-envelope-square"></i></div>',
           },
           attributes: { class: "fa fa-envelope-square" },
         });
@@ -567,7 +567,7 @@ define(function () {
               href: "javascript:if(window.print)window.print()",
               style: "display: inline-block; margin: 3px;",
             },
-            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-file-pdf-o"></i></div>',
+            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fas fa-file-pdf"></i></div>',
           },
           attributes: { class: "fa fa-file-pdf-o" },
         });
