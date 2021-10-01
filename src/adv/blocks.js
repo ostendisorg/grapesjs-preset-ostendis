@@ -18,7 +18,7 @@ define(function () {
       label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "gjs-fonts gjs-f-button" },
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`,
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" target="_blank" class="button">${opt.buttonApplyBlkText}</a>`,
     });
 
     bm.add("applyQrCode", {
@@ -406,5 +406,170 @@ define(function () {
         attributes: { "data-ost-type": "contact" },
       },
     });
+        // Social Media blocks
+        bm.add("facebook", {
+          label: opt.facebookBlkLabelSite,
+          category: opt.smSitesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://facebook.com/",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-facebook-square"></i></div>',
+          },
+          attributes: { class: "fa fa-facebook-square" },
+        });
+    
+        bm.add("instagram", {
+          label: opt.instagramBlkLabelSite,
+          category: opt.smSitesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://instagram.com/",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-instagram"></i></div>',
+          },
+          attributes: { class: "fa fa-instagram" },
+        });
+    
+        bm.add("linkedin", {
+          label: opt.linkedinBlkLabelSite,
+          category: opt.smSitesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://linkedin.com/",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-linkedin-square"></i></div>',
+          },
+          attributes: { class: "fa fa-linkedin-square" },
+        });
+    
+        bm.add("xing", {
+          label: opt.xingBlkLabelSite,
+          category: opt.smSitesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://xing.com/",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-xing-square"></i></div>',
+          },
+          attributes: { class: "fa fa-xing-square" },
+        });
+    
+        bm.add("twitter", {
+          label: opt.twitterBlkLabelSite,
+          category: opt.smSitesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://twitter.com/",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-twitter-square"></i></div>',
+          },
+          attributes: { class: "fa fa-twitter-square" },
+        });
+    
+    
+        // Social Media Share blocks
+        bm.add("facebookShare", {
+          label: opt.facebookBlkLabelShare,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://www.facebook.com/sharer/sharer.php?u=$$$Link$$$",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-facebook-square"></i></div>',
+          },
+          attributes: { class: "fa fa-facebook-square" },
+        });
+    
+        bm.add("linkedinShare", {
+          label: opt.linkedinBlkLabelShare,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$Link$$$",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-linkedin-square"></i></div>',
+          },
+          attributes: { class: "fa fa-linkedin-square" },
+        });
+    
+        bm.add("xingShare", {
+          label: opt.xingBlkLabelShare,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://www.xing.com/spi/shares/new?url=$$$Link$$$",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-xing.square"></i></div>',
+          },
+          attributes: { class: "fa fa-xing-square" },
+        });
+    
+        bm.add("twitterShare", {
+          label: opt.twitterBlkLabelShare,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "https://twitter.com/intent/tweet?url=$$$Link$$$&text=",
+              style: "display: inline-block; margin: 3px;",
+              target: "_blank",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-twitter-square"></i></div>',
+          },
+          attributes: { class: "fa fa-twitter-square" },
+        });
+    
+        bm.add("mail", {
+          label: opt.mailBlkLabel,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$Link$$$",
+              style: "display: inline-block; margin: 3px;",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-envelope-square"></i></div>',
+          },
+          attributes: { class: "fa fa-envelope-square" },
+        });
+    
+        bm.add("print", {
+          label: opt.printBlkLabel,
+          category: opt.smSharesCategoryLabel,
+          content: {
+            type: "link",
+            attributes: {
+              href: "javascript:if(window.print)window.print()",
+              style: "display: inline-block; margin: 3px;",
+            },
+            components: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div style="text-align:center; font-size:28px; color:#1d66e6;"><i class="fa fa-file-pdf-o"></i></div>',
+          },
+          attributes: { class: "fa fa-file-pdf-o" },
+        });
   };
 });
