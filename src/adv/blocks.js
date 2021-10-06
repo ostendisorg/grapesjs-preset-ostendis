@@ -412,13 +412,18 @@ define(function () {
       category: opt.smSitesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://facebook.com/",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
+          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
       },
       attributes: { class: "fa fa-facebook-square" },
     });
@@ -428,13 +433,18 @@ define(function () {
       category: opt.smSitesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://instagram.com/",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
+          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
       },
       attributes: { class: "fa fa-instagram" },
     });
@@ -444,13 +454,18 @@ define(function () {
       category: opt.smSitesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://linkedin.com/",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
+          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
       },
       attributes: { class: "fa fa-linkedin-square" },
     });
@@ -460,13 +475,18 @@ define(function () {
       category: opt.smSitesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://xing.com/",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
+          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
       },
       attributes: { class: "fa fa-xing-square" },
     });
@@ -476,13 +496,20 @@ define(function () {
       category: opt.smSitesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+          // position: "relative",
+          // top: "3px",
+        },
         attributes: {
           href: "https://twitter.com/",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fab fa-twitter-square"></i></div>',
+          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fab fa-twitter-square"></i></div>',
       },
       attributes: { class: "fa fa-twitter-square" },
     });
@@ -493,13 +520,18 @@ define(function () {
       category: opt.smSharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://www.facebook.com/sharer/sharer.php?u=$$$ViewLink$$$",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
-          '<div style="border: 2px solid #293133; border-radius: 3px; box-sizing: border-box; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-facebook-f"></i></div>',
+          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-facebook-f"></i></div>',
       },
 
       attributes: { class: "fa fa-facebook-square" },
@@ -510,9 +542,14 @@ define(function () {
       category: opt.smSharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$ViewLink$$$",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
@@ -526,9 +563,14 @@ define(function () {
       category: opt.smSharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://www.xing.com/spi/shares/new?url=$$$ViewLink$$$",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
@@ -542,9 +584,14 @@ define(function () {
       category: opt.smSharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "https://twitter.com/intent/tweet?url=$$$ViewLink$$$&text=",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
           target: "_blank",
         },
         components:
@@ -553,14 +600,20 @@ define(function () {
       attributes: { class: "fa fa-twitter-square" },
     });
 
+    // conventional Shares
     bm.add("mail", {
       label: opt.mailBlkLabel,
-      category: opt.smSharesCategoryLabel,
+      category: opt.sharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$ViewLink$$$",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
         },
         components:
           '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-envelope-square"></i></div>',
@@ -570,12 +623,17 @@ define(function () {
 
     bm.add("print", {
       label: opt.printBlkLabel,
-      category: opt.smSharesCategoryLabel,
+      category: opt.sharesCategoryLabel,
       content: {
         type: "link",
+        style: {
+          display: "block",
+          float: "left",
+          margin: "3px",
+          "text-decoration": "none",
+        },
         attributes: {
           href: "javascript:if(window.print)window.print()",
-          style: "display: inline-block; margin: 3px; text-decoration: none;",
         },
         components:
           '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-file-pdf"></i></div>',

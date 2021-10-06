@@ -35,7 +35,8 @@ export default grapesjs.plugins.add('gjs-preset-ostendis-adv', (editor, opts = {
     swichtVwBtnTitle: c.swichtVwBtnTitle || 'View Components',
     categoryLabel: c.categoryLabel || '',
     smSitesCategoryLabel: 'Social media sites',
-    smSharesCategoryLabel: 'Shares',
+    smSharesCategoryLabel: 'Social media shares',
+    sharesCategoryLabel: 'Shares',
     importPlaceholder: '',
     defaultTemplate: '', // Default template in case the canvas is empty
     inlineCss: 1,
