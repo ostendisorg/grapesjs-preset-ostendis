@@ -140,29 +140,29 @@ define(function () {
       },
     });
 
-    bm.add('video', {
+    bm.add("video", {
       label: opt.videoBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: 'fa fa-youtube-play' },
+      attributes: { class: "fa fa-youtube-play" },
       content: {
-        type: 'video',
-        src: 'https://www.ostendis.com/media/juice-success-story.mp4',
-      }
-    });
-
-    bm.add('box', {
-      label: 'Box',
-      category: opt.categoryLabel,
-      attributes: { class: 'gjs-fonts gjs-f-b1' },
-      content: {
-        type: 'box',
-        style: {
-          padding: '20px'
-        }
+        type: "video",
+        src: "https://www.ostendis.com/media/juice-success-story.mp4",
       },
     });
 
-    bm.add('quote', {
+    bm.add("box", {
+      label: "Box",
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b1" },
+      content: {
+        type: "box",
+        style: {
+          padding: "20px",
+        },
+      },
+    });
+
+    bm.add("quote", {
       label: opt.quoteBlkLabel,
       category: opt.categoryLabel,
       content:
@@ -406,170 +406,181 @@ define(function () {
         attributes: { "data-ost-type": "contact" },
       },
     });
-        // Social Media blocks
-        bm.add("facebook", {
-          label: opt.facebookBlkLabelSite,
-          category: opt.smSitesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://facebook.com/",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
-          },
-          attributes: { class: "fa fa-facebook-square" },
-        });
-    
-        bm.add("instagram", {
-          label: opt.instagramBlkLabelSite,
-          category: opt.smSitesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://instagram.com/",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
-          },
-          attributes: { class: "fa fa-instagram" },
-        });
-    
-        bm.add("linkedin", {
-          label: opt.linkedinBlkLabelSite,
-          category: opt.smSitesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://linkedin.com/",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
-          },
-          attributes: { class: "fa fa-linkedin-square" },
-        });
-    
-        bm.add("xing", {
-          label: opt.xingBlkLabelSite,
-          category: opt.smSitesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://xing.com/",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
-          },
-          attributes: { class: "fa fa-xing-square" },
-        });
-    
-        bm.add("twitter", {
-          label: opt.twitterBlkLabelSite,
-          category: opt.smSitesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://twitter.com/",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-twitter-square"></i></div>',
-          },
-          attributes: { class: "fa fa-twitter-square" },
-        });
-    
-    
-        // Social Media Share blocks
-        bm.add("facebookShare", {
-          label: opt.facebookBlkLabelShare,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://www.facebook.com/sharer/sharer.php?u=$$$ViewLink$$$",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-facebook-square"></i></div>',
-          },
-          attributes: { class: "fa fa-facebook-square" },
-        });
-    
-        bm.add("linkedinShare", {
-          label: opt.linkedinBlkLabelShare,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$ViewLink$$$",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-linkedin"></i></div>',
-          },
-          attributes: { class: "fa fa-linkedin-square" },
-        });
-    
-        bm.add("xingShare", {
-          label: opt.xingBlkLabelShare,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://www.xing.com/spi/shares/new?url=$$$ViewLink$$$",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-xing-square"></i></div>',
-          },
-          attributes: { class: "fa fa-xing-square" },
-        });
-    
-        bm.add("twitterShare", {
-          label: opt.twitterBlkLabelShare,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "https://twitter.com/intent/tweet?url=$$$ViewLink$$$&text=",
-              style: "display: inline-block; margin: 3px;",
-              target: "_blank",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fab fa-twitter-square"></i></div>',
-          },
-          attributes: { class: "fa fa-twitter-square" },
-        });
-    
-        bm.add("mail", {
-          label: opt.mailBlkLabel,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$ViewLink$$$",
-              style: "display: inline-block; margin: 3px;",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fas fa-envelope-square"></i></div>',
-          },
-          attributes: { class: "fa fa-envelope-square" },
-        });
-    
-        bm.add("print", {
-          label: opt.printBlkLabel,
-          category: opt.smSharesCategoryLabel,
-          content: {
-            type: "link",
-            attributes: {
-              href: "javascript:if(window.print)window.print()",
-              style: "display: inline-block; margin: 3px;",
-            },
-            components: '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#1d66e6;"><i class="fas fa-file-pdf"></i></div>',
-          },
-          attributes: { class: "fa fa-file-pdf-o" },
-        });
+    // Social Media blocks
+    bm.add("facebook", {
+      label: opt.facebookBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://facebook.com/",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
+      },
+      attributes: { class: "fa fa-facebook-square" },
+    });
+
+    bm.add("instagram", {
+      label: opt.instagramBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://instagram.com/",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
+      },
+      attributes: { class: "fa fa-instagram" },
+    });
+
+    bm.add("linkedin", {
+      label: opt.linkedinBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://linkedin.com/",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
+      },
+      attributes: { class: "fa fa-linkedin-square" },
+    });
+
+    bm.add("xing", {
+      label: opt.xingBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://xing.com/",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
+      },
+      attributes: { class: "fa fa-xing-square" },
+    });
+
+    bm.add("twitter", {
+      label: opt.twitterBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://twitter.com/",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fab fa-twitter-square"></i></div>',
+      },
+      attributes: { class: "fa fa-twitter-square" },
+    });
+
+    // Social Media Share blocks
+    bm.add("facebookShare", {
+      label: opt.facebookBlkLabelShare,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://www.facebook.com/sharer/sharer.php?u=$$$ViewLink$$$",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="border: 2px solid #293133; border-radius: 3px; box-sizing: border-box; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-facebook-f"></i></div>',
+      },
+
+      attributes: { class: "fa fa-facebook-square" },
+    });
+
+    bm.add("linkedinShare", {
+      label: opt.linkedinBlkLabelShare,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$ViewLink$$$",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-linkedin-in"></i></div>',
+      },
+      attributes: { class: "fa fa-linkedin-square" },
+    });
+
+    bm.add("xingShare", {
+      label: opt.xingBlkLabelShare,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://www.xing.com/spi/shares/new?url=$$$ViewLink$$$",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-xing"></i></div>',
+      },
+      attributes: { class: "fa fa-xing-square" },
+    });
+
+    bm.add("twitterShare", {
+      label: opt.twitterBlkLabelShare,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "https://twitter.com/intent/tweet?url=$$$ViewLink$$$&text=",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+          target: "_blank",
+        },
+        components:
+          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-twitter"></i></div>',
+      },
+      attributes: { class: "fa fa-twitter-square" },
+    });
+
+    bm.add("mail", {
+      label: opt.mailBlkLabel,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$ViewLink$$$",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-envelope-square"></i></div>',
+      },
+      attributes: { class: "fa fa-envelope-square" },
+    });
+
+    bm.add("print", {
+      label: opt.printBlkLabel,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        attributes: {
+          href: "javascript:if(window.print)window.print()",
+          style: "display: inline-block; margin: 3px; text-decoration: none;",
+        },
+        components:
+          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-file-pdf"></i></div>',
+      },
+      attributes: { class: "fa fa-file-pdf-o" },
+    });
   };
 });
