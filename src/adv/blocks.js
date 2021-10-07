@@ -413,8 +413,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -434,8 +433,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -455,8 +453,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -476,8 +473,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -497,8 +493,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
           // position: "relative",
@@ -521,8 +516,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -543,8 +537,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -564,8 +557,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -585,8 +577,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -607,8 +598,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+      display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -627,8 +617,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-          display: "block",
-          float: "left",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
