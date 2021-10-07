@@ -413,7 +413,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -433,7 +433,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -453,7 +453,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -473,7 +473,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -493,7 +493,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
           // position: "relative",
@@ -516,7 +516,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -537,7 +537,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -557,7 +557,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -577,7 +577,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
@@ -598,7 +598,7 @@ define(function () {
       content: {
         type: "link",
         style: {
-      display: "inline-block",
+          display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
         },
