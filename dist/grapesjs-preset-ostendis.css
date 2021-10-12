@@ -42,6 +42,13 @@
 .gjs-field-arrows {
   z-index: 9; }
 
+.gjs-block.fa::before {
+  display: block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 2em; }
+
 .gjs-drag-helper {
   background-color: #3b5998 !important; }
 
@@ -166,8 +173,7 @@
   border-radius: 3px;
   margin: 5px 2.5% 5px;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
-  transition: box-shadow, color 0.2s ease 0s;
-  width: 100%; }
+  transition: box-shadow, color 0.2s ease 0s; }
 
 .gjs-block:hover {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15); }
