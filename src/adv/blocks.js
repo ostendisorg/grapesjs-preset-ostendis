@@ -406,6 +406,7 @@ define(function () {
         attributes: { "data-ost-type": "contact" },
       },
     });
+
     // Social Media blocks
     bm.add("facebook", {
       label: opt.facebookBlkLabelSite,
@@ -421,8 +422,9 @@ define(function () {
           href: "https://facebook.com/",
           target: "_blank",
         },
-        components:
-          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-facebook-square"></i></div>',
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i aria-hidden="true" class="fab fa-facebook-square"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-facebook-square" },
     });
@@ -441,8 +443,9 @@ define(function () {
           href: "https://instagram.com/",
           target: "_blank",
         },
-        components:
-          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-instagram-square"></i></div>',
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i aria-hidden="true" class="fab fa-instagram-square"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-instagram" },
     });
@@ -461,8 +464,9 @@ define(function () {
           href: "https://linkedin.com/",
           target: "_blank",
         },
-        components:
-          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-linkedin"></i></div>',
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i aria-hidden="true" class="fab fa-linkedin"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-linkedin-square" },
     });
@@ -481,8 +485,9 @@ define(function () {
           href: "https://xing.com/",
           target: "_blank",
         },
-        components:
-          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i aria-hidden="true" class="fab fa-xing-square"></i></div>',
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i aria-hidden="true" class="fab fa-xing-square"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-xing-square" },
     });
@@ -503,8 +508,9 @@ define(function () {
           href: "https://twitter.com/",
           target: "_blank",
         },
-        components:
-          '<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fab fa-twitter-square"></i></div>',
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i class="fab fa-twitter-square"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-twitter-square" },
     });
@@ -524,8 +530,10 @@ define(function () {
           href: "https://www.facebook.com/sharer/sharer.php?u=$$$ViewLink$$$",
           target: "_blank",
         },
-        components:
-          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-facebook-f"></i></div>',
+        components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
+                      <i class="fas fa-share"></i>
+                      <i class="fab fa-facebook-f"></i>
+                    </div>`,
       },
 
       attributes: { class: "fa fa-facebook-square" },
@@ -545,8 +553,10 @@ define(function () {
           href: "https://www.linkedin.com/shareArticle?mini=true&url=$$$ViewLink$$$",
           target: "_blank",
         },
-        components:
-          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-linkedin-in"></i></div>',
+        components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
+                      <i class="fas fa-share"></i>
+                      <i class="fab fa-linkedin-in"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-linkedin-square" },
     });
@@ -565,8 +575,10 @@ define(function () {
           href: "https://www.xing.com/spi/shares/new?url=$$$ViewLink$$$",
           target: "_blank",
         },
-        components:
-          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-xing"></i></div>',
+        components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
+                      <i class="fas fa-share"></i>
+                      <i class="fab fa-xing"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-xing-square" },
     });
@@ -585,8 +597,10 @@ define(function () {
           href: "https://twitter.com/intent/tweet?url=$$$ViewLink$$$&text=",
           target: "_blank",
         },
-        components:
-          '<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;"><i class="fas fa-share"></i><i class="fab fa-twitter"></i></div>',
+        components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
+                      <i class="fas fa-share"></i>
+                      <i class="fab fa-twitter"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-twitter-square" },
     });
@@ -605,8 +619,9 @@ define(function () {
         attributes: {
           href: "mailto:example@mail.com?subject=Sieh%20dir%20dieses%20Inserat%20an&body=$$$ViewLink$$$",
         },
-        components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-envelope-square"></i></div>',
+        components: `<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i class="fas fa-envelope-square"></i>
+                    </div>`,
       },
       attributes: { class: "fa fa-envelope-square" },
     });
@@ -624,10 +639,11 @@ define(function () {
         attributes: {
           href: "javascript:if(window.print)window.print()",
         },
-        components:
-          '<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;"><i class="fas fa-file-pdf"></i></div>',
+        components: `<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i class="fas fa-print"></i>
+                    </div>`,
       },
-      attributes: { class: "fa fa-file-pdf-o" },
+      attributes: { class: "fa fa-print" },
     });
   };
 });

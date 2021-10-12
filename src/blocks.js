@@ -61,23 +61,22 @@ define(function () {
       },
     });
 
-    bm.add('video', {
+    bm.add("video", {
       label: opt.videoBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: 'fa fa-youtube-play' },
+      attributes: { class: "fa fa-youtube-play" },
       content: {
-        type: 'video',
-        src: 'https://www.ostendis.com/media/juice-success-story.mp4',
-      }
+        type: "video",
+        src: "https://www.ostendis.com/media/juice-success-story.mp4",
+      },
     });
-    
-    bm.add('divider', {
+
+    bm.add("divider", {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
       content: '<hr style="border-top: 1px solid #2b303b;" />',
       attributes: { class: "gjs-fonts gjs-f-divider" },
     });
-
 
     // OST ad blocks
     bm.add("ost-organization", {
