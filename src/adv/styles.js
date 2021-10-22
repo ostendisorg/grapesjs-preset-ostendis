@@ -4,7 +4,7 @@ export default (editor) => {
   const removed = sm.removeSector('typography');
 
   if(removed) {
-    var sector = sm.addSector('typography',{
+    sm.addSector('typography',{
       name: 'Typography',
       open: false,
       buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'text-shadow'],

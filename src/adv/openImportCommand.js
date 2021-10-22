@@ -23,7 +23,6 @@ define(function() {
     return {
       run(editor, sender) {
         let md = editor.Modal;
-        let modalContent = md.getContentEl();
         let viewer = codeViewer.editor;
         md.setTitle(opt.modalTitleImport);
         // Init code viewer if not yet instantiated
