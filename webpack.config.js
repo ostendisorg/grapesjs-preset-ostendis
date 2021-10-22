@@ -12,6 +12,12 @@ plugins.push(new webpack.ProvidePlugin({process: 'process/browser'}));
 plugins.push(new webpack.ProvidePlugin({Buffer: ['buffer', 'Buffer']}));
 
 module.exports = {
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "."),
+      watch: true,
+    },
+  },
   entry: {
     'grapesjs-preset-ostendis': './src/index.js',
     'grapesjs-preset-ostendis-adv': './src/adv/index.js',
