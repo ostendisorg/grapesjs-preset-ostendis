@@ -67,6 +67,23 @@ define(function () {
       attributes: { class: "fa fa-youtube-play" },
       content: {
         type: "video",
+        src: "/video.mp4",
+        style: {
+          height: "315px",
+          width: "100%",
+        },
+      },
+    });
+
+    bm.add("box", {
+      label: "Box",
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b1" },
+      content: {
+        type: "box",
+        style: {
+          padding: "20px",
+        },
       },
     });
 

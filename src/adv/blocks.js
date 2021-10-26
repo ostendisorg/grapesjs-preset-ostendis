@@ -41,7 +41,7 @@ define(function () {
     bm.add("button", {
       label: opt.buttonBlkLabel,
       category: opt.categoryLabel,
-      content: '<a data-gjs-type="link" class="button">Button</a>',
+      content: `<a data-gjs-type="link" class="button">Button</a>`,
       attributes: { class: "gjs-fonts gjs-f-button" },
     });
 
@@ -124,8 +124,7 @@ define(function () {
     bm.add("text-sect", {
       label: opt.textSectionBlkLabel,
       category: opt.categoryLabel,
-      content:
-        '<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>',
+      content: `<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>`,
       attributes: { class: "gjs-fonts gjs-f-h1p" },
     });
 
@@ -146,6 +145,11 @@ define(function () {
       attributes: { class: "fa fa-youtube-play" },
       content: {
         type: "video",
+        src: "/video.mp4",
+        style: {
+          height: "315px",
+          width: "100%",
+        },
       },
     });
 
@@ -164,8 +168,7 @@ define(function () {
     bm.add("quote", {
       label: opt.quoteBlkLabel,
       category: opt.categoryLabel,
-      content:
-        '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
+      content: `<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>`,
       attributes: { class: "fa fa-quote-right" },
     });
 
