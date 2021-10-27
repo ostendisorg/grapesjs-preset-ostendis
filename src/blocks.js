@@ -80,7 +80,7 @@ define(function () {
       category: opt.categoryLabel,
       attributes: { class: "gjs-fonts gjs-f-b1" },
       content: {
-        type: "box",
+        type: "text",
         style: {
           padding: "20px",
         },
