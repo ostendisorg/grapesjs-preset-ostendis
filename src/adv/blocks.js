@@ -14,11 +14,23 @@ define(function () {
     }
     bm.getAll().reset();
 
-    bm.add("applyButton", {
-      label: opt.buttonApplyBlkLabel,
+    
+    bm.add("applyQrCode", {
+      label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-button" },
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" target="_blank" class="button">${opt.buttonApplyBlkText}</a>`,
+      attributes: { class: "gjs-fonts gjs-f-image" },
+      content: {
+        type: "image",
+        editable: false,
+        droppable: true,
+        style: {
+          "min-height": "100px",
+          "min-width": "100px",
+          width: "100px",
+          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')"
+        },
+        attributes: { src: "$$$ApplyQrCode$$$", alt: "Apply link QR code" },
+      },
     });
 
     bm.add("viewQrCode", {
@@ -39,22 +51,11 @@ define(function () {
       },
     });
 
-    bm.add("applyQrCode", {
-      label: opt.applyQrCodeBlkLabel,
+    bm.add("applyButton", {
+      label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-image" },
-      content: {
-        type: "image",
-        editable: false,
-        droppable: true,
-        style: {
-          "min-height": "100px",
-          "min-width": "100px",
-          width: "100px",
-          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')"
-        },
-        attributes: { src: "$$$ApplyQrCode$$$", alt: "Apply link QR code" },
-      },
+      attributes: { class: "gjs-fonts gjs-f-button" },
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" target="_blank" class="button">${opt.buttonApplyBlkText}</a>`,
     });
 
     bm.add("button", {
