@@ -14,7 +14,6 @@ define(function () {
     }
     bm.getAll().reset();
 
-    
     bm.add("applyQrCode", {
       label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
@@ -27,7 +26,7 @@ define(function () {
           "min-height": "100px",
           "min-width": "100px",
           width: "100px",
-          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')"
+          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')",
         },
         attributes: { src: "$$$ApplyQrCode$$$", alt: "Apply link QR code" },
       },
@@ -45,7 +44,7 @@ define(function () {
           "min-height": "100px",
           "min-width": "100px",
           width: "100px",
-          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')"
+          "background-image": "url('https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fostendis.com&chs=100x100')",
         },
         attributes: { src: "$$$ViewQrCode$$$", alt: "View link QR code" },
       },
