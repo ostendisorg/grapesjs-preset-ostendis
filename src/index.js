@@ -52,6 +52,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     buttonApplyBlkLabel: "Apply button",
     buttonApplyBlkText: "Apply here",
     applyQrCodeBlkLabel: "Apply QR code",
+    traitBlkValue: "Value",
     textBlkLabel: "Text",
     textBlkLabelWithSpace: "Text with spacing",
     imageBlkLabel: "Image",

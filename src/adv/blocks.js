@@ -270,6 +270,13 @@ define(function () {
       attributes: { class: "fa fa-th-list" },
     });
 
+    bm.add("input-range", {
+      label: opt.inputRangeBlkLabel,
+      category: opt.categoryLabel,
+      content: { type: "range" },
+      attributes: { class: "fa fa-sliders" },
+    });
+
     // OST ad blocks
     // let ostTraits = [
     //   'id',

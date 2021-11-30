@@ -18,8 +18,8 @@ define(function () {
           tagName: "input",
           droppable: true,
           highlightable: true,
-          attributes: { type: "range" },
           traits: [nameTrait, valueTrait],
+          attributes: { type: "range", disabled: true },
         },
       },
 

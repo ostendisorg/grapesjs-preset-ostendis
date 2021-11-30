@@ -3,6 +3,9 @@ define(function () {
     const trm = opt.editor.TraitManager;
 
     trm.addType("value", {
+      label: opt.traitBlkValue,
+      min: 0, // Minimum number value
+      max: 100, // Maximum number value
       events: {
         keyup: "onChange",
       },
