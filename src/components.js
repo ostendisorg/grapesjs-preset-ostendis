@@ -7,6 +7,7 @@ define(function () {
     };
     const valueTrait = {
       name: "value",
+      label: opt.traitBlkValue,
     };
 
     // INPUT
