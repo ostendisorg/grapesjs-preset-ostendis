@@ -166,7 +166,6 @@ define(function () {
         type: "video",
         src: "/video.mp4",
         style: {
-          height: "315px",
           width: "100%",
         },
       },

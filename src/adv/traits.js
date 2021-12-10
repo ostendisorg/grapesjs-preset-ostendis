@@ -30,5 +30,6 @@ define(function () {
         target.view.render();
       },
     });
+    
   };
 });

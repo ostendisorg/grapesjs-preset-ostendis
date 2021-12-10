@@ -1,17 +1,18 @@
 define(function () {
   return (opt = {}) => {
-    const domc = opt.editor.DomComponents;
+    const domComp = opt.editor.DomComponents;
 
     const nameTrait = {
       name: "name",
     };
+
     const valueTrait = {
       name: "value",
       label: opt.traitBlkValue,
     };
 
     // INPUT
-    domc.addType("range", {
+    domComp.addType("range", {
       isComponent: (el) => el.tagName == "INPUT",
 
       model: {
