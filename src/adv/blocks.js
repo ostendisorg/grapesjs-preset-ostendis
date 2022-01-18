@@ -167,6 +167,7 @@ define(function () {
         src: "/.mp4",
         style: {
           width: "100%",
+          height: '350px',
         },
       },
     });
@@ -177,7 +178,10 @@ define(function () {
       attributes: { class: 'fa fa-map-o' },
       content: {
         type: 'map',
-        style: { height: '350px' },
+        style: { 
+          width: "100%",
+          height: '350px',
+        },
       },
     });
 
