@@ -35,7 +35,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "jest": "^27.4.7",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.1",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
     "util": "^0.12.4",
