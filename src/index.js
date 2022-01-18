@@ -57,6 +57,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     textBlkLabelWithSpace: "Text with spacing",
     imageBlkLabel: "Image",
     videoBlkLabel: "Video",
+    mapBlkLabel: "Map",
+    linkBlkLabel: "Link",
     textBlkLabelOrg: "Organization",
     textBlkLabelIntro: "Introduction",
     textBlkLabelDesc: "Description",

@@ -158,16 +158,26 @@ define(function () {
       },
     });
 
-    bm.add("video", {
-      label: opt.videoBlkLabel,
+    bm.add("", {
+      label: opt.BlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "fa fa-youtube-play" },
       content: {
-        type: "video",
-        src: "/video.mp4",
+        type: "",
+        src: "/.mp4",
         style: {
           width: "100%",
         },
+      },
+    });
+
+    bm.add('map', {
+      label: opt.mapBlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: 'fa fa-map-o' },
+      content: {
+        type: 'map',
+        style: { height: '350px' },
       },
     });
 

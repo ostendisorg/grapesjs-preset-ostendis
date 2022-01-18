@@ -62,6 +62,16 @@ define(function () {
       },
     });
 
+    bm.add("link", {
+      label: opt.linkBlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "fa fa-link" },
+      content: {
+        type: "link",
+        content: "Link",
+      },
+    });
+
     bm.add("video", {
       label: opt.videoBlkLabel,
       category: opt.categoryLabel,
@@ -73,6 +83,16 @@ define(function () {
           width: "100%",
         },
       },
+    });
+
+    bm.add('map', {
+      label: opt.mapBlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: 'fa fa-map-o' },
+      content: {
+        type: 'map',
+        style: { height: '350px' }
+      }
     });
 
     bm.add("box", {
