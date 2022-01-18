@@ -33,7 +33,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "buffer": "^6.0.3",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.7.0",
     "jest": "^27.4.7",
     "node-sass": "^7.0.1",
     "process": "^0.11.10",
