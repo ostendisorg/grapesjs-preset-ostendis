@@ -66,12 +66,12 @@ Start the dev server
 $ npm start
 ```
 
+## Release
+
 To install publishing dependency
 ```sh
 $ npm install --global np
 ```
-
-## Release
 
 Publish the package
 
