@@ -555,6 +555,7 @@ define(function () {
       attributes: { class: "fa fa-twitter-square" },
     });
 
+
     // Social Media Share blocks
     bm.add("facebookShare", {
       label: opt.facebookBlkLabelShare,
@@ -645,6 +646,28 @@ define(function () {
       attributes: { class: "fa fa-twitter-square" },
     });
 
+    bm.add("whatsAppShare", {
+      label: opt.whatsAppBlkLabelShare,
+      category: opt.smSharesCategoryLabel,
+      content: {
+        type: "link",
+        style: {
+          display: "inline-block",
+          margin: "3px",
+          "text-decoration": "none",
+        },
+        attributes: {
+          href: "https://wa.me/?text=$$$ViewLink$$$&text=",
+          target: "_blank",
+        },
+        components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
+                      <i class="fas fa-share"></i>
+                      <i class="fab fa-whatsapp"></i>
+                    </div>`,
+      },
+      attributes: { class: "fa fa-whatsapp" },
+    });
+
     // conventional Shares
     bm.add("mail", {
       label: opt.mailBlkLabel,
@@ -664,6 +687,26 @@ define(function () {
                     </div>`,
       },
       attributes: { class: "fa fa-envelope-square" },
+    });
+
+    bm.add("sms", {
+      label: opt.smsBlkLabel,
+      category: opt.sharesCategoryLabel,
+      content: {
+        type: "link",
+        style: {
+          display: "inline-block",
+          margin: "3px",
+          "text-decoration": "none",
+        },
+        attributes: {
+          href: "sms:?body=$$$ViewLink$$$",
+        },
+        components: `<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i class="fas fa-sms"></i>
+                    </div>`,
+      },
+      attributes: { class: "fa fa-comment" },
     });
 
     bm.add("print", {
