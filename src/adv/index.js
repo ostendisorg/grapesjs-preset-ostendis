@@ -63,6 +63,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     mapBlkLabel: "Map",
     facebookBlkLabelSite: "Facebook link",
     instagramBlkLabelSite: "Instagram link",
+    youtubeBlkLabelSite: "YouTube link",
     linkedinBlkLabelSite: "LinkedIn link",
     xingBlkLabelSite: "Xing link",
     twitterBlkLabelSite: "Twitter link",

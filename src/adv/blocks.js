@@ -157,14 +157,13 @@ define(function () {
         activeOnRender: 1,
       },
     });
-
-    bm.add("", {
-      label: opt.BlkLabel,
+    bm.add("video", {
+      label: opt.videoBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "fa fa-youtube-play" },
       content: {
-        type: "",
-        src: "/.mp4",
+        type: "video",
+        src: "/video.mp4",
         style: {
           width: "100%",
           height: '350px',
@@ -290,6 +289,7 @@ define(function () {
       attributes: { class: "fa fa-sliders" },
     });
 
+    //  TODO ?
     // OST ad blocks
     // let ostTraits = [
     //   'id',
@@ -489,6 +489,26 @@ define(function () {
       },
       attributes: { class: "fa fa-instagram" },
     });
+    bm.add("youtube", {
+      label: opt.youtubeBlkLabelSite,
+      category: opt.smSitesCategoryLabel,
+      content: {
+        type: "link",
+        style: {
+          display: "inline-block",
+          margin: "3px",
+          "text-decoration": "none",
+        },
+        attributes: {
+          href: "https://www.youtube.com/",
+          target: "_blank",
+        },
+        components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
+                      <i aria-hidden="true" class="fab fa-youtube"></i>
+                    </div>`,
+      },
+      attributes: { class: "fa fa-youtube-play" },
+    });
 
     bm.add("linkedin", {
       label: opt.linkedinBlkLabelSite,
@@ -541,8 +561,6 @@ define(function () {
           display: "inline-block",
           margin: "3px",
           "text-decoration": "none",
-          // position: "relative",
-          // top: "3px",
         },
         attributes: {
           href: "https://twitter.com/",
@@ -700,7 +718,7 @@ define(function () {
           "text-decoration": "none",
         },
         attributes: {
-          href: "sms:?body=$$$ViewLink$$$",
+          href: "sms:?body=Sieh%20dir%20dieses%20Inserat%20an%20$$$ViewLink$$$",
         },
         components: `<div style="display:inline-block; text-align:center; width:28px; height:28px; font-size:28px; color:#293133;">
                       <i class="fas fa-sms"></i>
