@@ -17,7 +17,7 @@ define(function () {
     bm.add("applyQrCode", {
       label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-image" },
+      attributes: { class: "fa fa-qrcode" },
       content: {
         type: "image",
         editable: false,
@@ -35,7 +35,7 @@ define(function () {
     bm.add("viewQrCode", {
       label: opt.viewQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-image" },
+      attributes: { class: "fa fa-qrcode" },
       content: {
         type: "image",
         editable: false,
@@ -145,6 +145,20 @@ define(function () {
       category: opt.categoryLabel,
       content: `<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>`,
       attributes: { class: "gjs-fonts gjs-f-h1p" },
+    });
+
+    bm.add("ulist", {
+      label: opt.ulistLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "fa fa-list-ul" },
+      content: { type: "ulist" },
+    });
+
+    bm.add("icon", {
+      label: opt.iconLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "fa fa-smile-o" },
+      content: { type: "icon" },
     });
 
     bm.add("image", {

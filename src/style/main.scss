@@ -323,7 +323,6 @@
 }
 
 /*
-
 #gjs-pn-views-container,
 #gjs-pn-views{
   min-width: 270px;
@@ -361,6 +360,11 @@
 
 .text-danger {
   color: #f92929;
+}
+
+/* Settings from Traits */
+#select-fontawesome select{
+  font-family: "FontAwesome";
 }
 
 @keyframes spin {

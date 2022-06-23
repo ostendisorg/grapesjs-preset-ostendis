@@ -51,6 +51,22 @@ define(function () {
       },
     });
 
+    let ulistitem = `<div class="ulistitem" style="display: flex; align-items: flex-start; justify-content: flex-start; margin: 4px 0 4px 0; width: 100%;">
+                      <div class="ulisticon" style="margin: 0 0 0 0;"><p style="margin: 0 0 0 0;padding: 0 13px 0 13px;">&bull;</p></div>
+                      <div class="ulisttext" style="margin: 0 0 0 0;"><p style="margin: 0 0 0 0;padding: 0 0 0 0;">Text</p></div>
+                    </div>`;
+
+    bm.add("ulist", {
+      label: opt.ulistLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "fa fa-list-ul" },
+      content: `<div class="ulist" style="display: flex; flex-direction: column; justify-content: flex-start; margin: 15px 0 15px 0; padding: 7px 0 0 0; width: 100%;">
+                ${ulistitem}
+                ${ulistitem}
+                ${ulistitem}
+                </div>`,
+    });
+
     bm.add("image", {
       label: opt.imageBlkLabel,
       category: opt.categoryLabel,
