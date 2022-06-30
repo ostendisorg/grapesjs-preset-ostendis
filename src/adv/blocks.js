@@ -303,26 +303,6 @@ define(function () {
       attributes: { class: "fa fa-sliders" },
     });
 
-    //  TODO ?
-    // OST ad blocks
-    // let ostTraits = [
-    //   'id',
-    //   'title',
-    //   {
-    //     type: 'select',
-    //     label: opt.textBlkOstType,
-    //     name: 'data-ost-type',
-    //     options: [
-    //       { id: 'organization', name: 'organization'},
-    //       { id: 'introduction', name: 'introduction'},
-    //       { id: 'description', name: 'description'},
-    //       { id: 'requirements', name: 'requirements'},
-    //       { id: 'benefits', name: 'benefits'},
-    //       { id: 'contact', name: 'contact'},
-    //     ]
-    //   }
-    // ]
-
     bm.add("ost-organization", {
       label: opt.textBlkLabelOrg,
       category: "Ostendis",
