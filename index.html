@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.1/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
-  <link rel="stylesheet" href="./dist/block-style-ostendis.css" />
 
   <script src="//unpkg.com/grapesjs@0.18.1/dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis.min.js"></script>
@@ -87,8 +86,6 @@
                       <div class="c1144">
                         GrapesJS Newsletter Builder
                         <br />
-                        <input type="range" value="33" oninput="this.defaultValue = this.value"
-                          style="margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; appearance: none; position: relative; overflow-x: hidden; overflow-y: hidden; height: 20px; width: 100%; max-width: 300px; cursor: pointer; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; box-sizing: border-box" />
                       </div>
                     </td>
                   </tr>
@@ -579,6 +576,9 @@
       canvasCss: `.gjs-selected{
                       outline: 2px solid #3b5998 !important;
                       outline-offset: -2px;
+                    }
+                    .gjs-dashed *[data-ost-type]{
+                      outline-color: #FF8200;
                     }`,
       blockManager: { appendOnClick: 1 },
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },

@@ -63,14 +63,12 @@
   font-size: 2em;
 }
 
-
-
 .#{$app-prefix}drag-helper {
   background-color: $mainColor !important;
 }
 
 .#{$app-prefix}selected {
-	outline: 1px solid $mainColor !important;
+	outline: 2px solid $mainColor !important;
 }
 
 .#{$app-prefix}highlighter {
@@ -92,10 +90,6 @@
 .#{$app-prefix}resizer-h {
   border: 2px solid $mainColor;
 }
-
-
-
-
 
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-title {
@@ -362,11 +356,12 @@
   color: #f92929;
 }
 
-/* Settings from Traits */
+/* Icon Settings ( Traits ) */
 #select-fontawesome select{
   font-family: "FontAwesome";
 }
 
+/* animation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);

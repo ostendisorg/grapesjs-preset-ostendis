@@ -303,6 +303,7 @@ define(function () {
       attributes: { class: "fa fa-sliders" },
     });
 
+    // Ostendis blocks
     bm.add("ost-organization", {
       label: opt.textBlkLabelOrg,
       category: "Ostendis",

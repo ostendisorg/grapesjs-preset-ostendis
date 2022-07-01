@@ -35,88 +35,49 @@ define(function () {
       },
     });
 
-    // Unsorted list
-    let ulistitem = `<div class="ulistitem">
-                      <div class="ulisticon"><p><i class="fa fa-circle" aria-hidden="true" data-gjs-type="icon"></i></p></div>
-                      <div class="ulisttext"><p>Text</p></div>
-                     </div>`;
+    // Unsorted list with fontawesome 5.x
+    let ulistitem =   `<li><span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"></i></span>
+                        <p style="margin:0;padding:0;text-align:left;">Text</p>
+                      </li>`;
 
     domComp.addType("ulist", {
       model: {
         defaults: {
-          tagName: "div",
-          attributes: { class: "ulist" },
+          tagName: "ul",
+          attributes: { class: "ulist fa-ul" },
           components: ulistitem + ulistitem + ulistitem,
-          styles: `
-            .ulist{
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-              margin: 1em 0;
-              padding: 0.25em 0 0 0;
-              width: 100%;
-            }
-            .ulistitem{
-              display: flex;
-              align-items: flex-start;
-              justify-content: flex-start;
-              margin: 0.25em 0;
-              width: 100%;
-            }
-            .ulistitem p{
-              margin:0;
-            }
-            .ulisticon{
-              padding: 0.25em 1em 0.25em 0;
-              margin: 0 0 0 2px;
-            }
-            .ulisticon i{
-              font-size: 0.5em;
-            }
-            .ulisttext{
-              margin: 0;
-              padding: 0;
-            }`,
         },
       },
     });
-
 
     domComp.addType("icon", {
       model: {
         defaults: {
           tagName: "i",
-          attributes: { class: "fa fa-smile" },
+          attributes: { class: "fas fa-star" },
           traits: [
             {
             type: 'select',
             label: 'Icon',
-            name: 'icon',
-            attributes: {id: 'select-fontawesome'},
-            options: [
-              { id: 'fas fa-circle', name: '&#xf111; circle'},
-              { id: 'far fa-circle', name: '&#xf10c; circle'},
-              { id: 'fas fa-check', name: '&#xf00c;'},
-              { id: 'fas fa-square', name: '&#xf0c8;'},
-            ],
-          },
-          {
-            type: 'text',
             name: 'class',
-            label: 'Icon class',
-            id: 'font'
-
-          }],
-        },
-        init() {
-          this.on('change:icon', this.handleIconChange);
-        },
-    
-        handleIconChange() {
-          //console.log('Input icon changed to: ', this.getAttributes().icon);
-          //console.log('Input class changed to: ', this.getAttributes().class);
-          this.updateTrait('class',{value: this.getAttributes().icon});
-          return this;
+            attributes: {
+              id: 'select-fontawesome', 
+              'data-tooltip' : 'For more icons: change class name in style manager.',
+              'data-tooltip-pos' : 'bottom'},
+            options: [
+              { id: 'fas fa-minus' , name: '&#xf068; minus'},
+              { id: 'fas fa-circle', name: '&#xf111; circle solid'},
+              { id: 'far fa-circle', name: '&#xf10c; circle'},
+              { id: 'fas fa-check', name: '&#xf00c; check'},
+              { id: 'fas fa-square', name: '&#xf0c8; square'},
+              { id: 'fas fa-arrow-right', name: '&#xf061; arrwo-right'},
+              { id: 'fas fa-check-circle', name: '&#xf058; check-circle'},
+              { id: 'fas fa-phone', name: '&#xf095; phone'},
+              { id: 'fas fa-envelope', name: '&#xf0e0; envelope'},
+              { id: 'fas fa-star', name: '&#xf005; star'},
+            ],
+          }
+          ],
         },
       }
     });
