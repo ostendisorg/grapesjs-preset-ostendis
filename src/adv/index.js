@@ -112,6 +112,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     textBlkContentBenefits: "Benefits",
     textBlkContentAction: "Call to action",
     textBlkContentContact: "Contact",
+    traitBlkOstendisTooltip: "Define an Ostendis block.",
+    traitOstNone: "None",
+    traitOstOrganisationHeading: "Organization Title",
+    traitOstOrganisation: "Organization",
     assetsModalTitle: c.assetsModalTitle || "Select image",
   };
 

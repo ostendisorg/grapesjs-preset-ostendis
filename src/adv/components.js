@@ -4,6 +4,29 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
+    //add trait to default
+    domComp.getType("default").model.prototype.defaults.traits.push({
+      type: 'select',
+      label: 'Ostendis Blocks',
+      name: 'data-ost-type',
+      attributes: {
+        'data-tooltip' : opt.traitBlkOstendisTooltip,
+        'data-tooltip-pos' : 'bottom'},
+      options: [
+        { id: '' , name: opt.traitOstNone},
+        { id: 'organizationHeading', name: opt.traitOstOrganisationHeading},
+        { id: 'organization', name: opt.traitOstOrganisation},
+        { id: 'introductionHeading', name: opt.traitOstIntroductionHeading},
+        { id: 'introduction', name: opt.traitOstIntroduction},
+        { id: 'descriptionHeading', name: opt.traitOstDescriptionHeading},
+        { id: 'description', name: opt.traitOstDescription},
+        { id: 'tasksHeading', name: opt.traitOstTasksHeading},
+        { id: 'tasks', name: opt.traitOstTasks},
+      ],
+
+      });
+
+    // Range trait
     const nameTrait = {
       name: "name",
     };
