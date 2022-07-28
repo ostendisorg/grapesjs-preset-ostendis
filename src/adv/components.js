@@ -4,7 +4,7 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
-    //add trait to default
+    //add ostendis block  trait to default
     domComp.getType("default").model.prototype.defaults.traits.push({
       type: 'select',
       label: 'Ostendis Blocks',
@@ -30,8 +30,38 @@ define(function () {
         { id: 'contact', name: opt.traitOstContact},
         { id: 'calltoaction', name: opt.traitOstCallToAction},
       ],
+    });
 
-      });
+    //add ostendis block trait to image
+    domComp.getType("image").model.prototype.defaults.traits.push({
+      type: 'select',
+      label: 'Ostendis Blocks',
+      name: 'data-ost-type',
+      options: [
+        { id: '' , name: opt.traitOstNone},
+        { id: 'logoPicURL', name: opt.traitOstLogoPicURL},
+        { id: 'headerPic1URL', name: opt.traitOstHeaderPic1URL},
+        { id: 'headerPic2URL', name: opt.traitOstHeaderPic2URL},
+        { id: 'headerPic3URL', name: opt.traitOstHeaderPic3URL},
+        { id: 'footerPic1URL', name: opt.traitOstFooterPic1URL},
+        { id: 'footerPic2URL', name: opt.traitOstFooterPic2URL},
+        { id: 'footerPic3URL', name: opt.traitOstFooterPic3URL},
+        { id: 'additionalPic1URL', name: opt.traitOstAdditionalPic1URL},
+        { id: 'additionalPic2URL', name: opt.traitOstAdditionalPic2URL},
+        { id: 'additionalPic3URL', name: opt.traitOstAdditionalPic3URL},
+      ],
+    });
+
+    //add ostendis block trait to video
+    domComp.getType("video").model.prototype.defaults.traits.push({
+      type: 'select',
+      label: 'Ostendis Blocks',
+      name: 'data-ost-type',
+      options: [
+        { id: '' , name: opt.traitOstNone},
+        { id: 'videoURL', name: opt.traitOstVideoURL},
+      ],
+    });
 
     // Range trait
     const nameTrait = {
@@ -95,33 +125,33 @@ define(function () {
               'data-tooltip' : 'For more icons: change class name in style manager.',
               'data-tooltip-pos' : 'bottom'},
             options: [
-              { id: 'fas fa-minus' , name: '&#xf068; minus'},
-              { id: 'fas fa-circle', name: '&#xf111; circle solid'},
-              { id: 'far fa-circle', name: '&#xf10c; circle'},
-              { id: 'fas fa-check', name: '&#xf00c; check'},
-              { id: 'fas fa-square', name: '&#xf0c8; square'},
-              { id: 'fas fa-arrow-right', name: '&#xf061; arrwo-right'},
-              { id: 'fas fa-check-circle', name: '&#xf058; check-circle'},
-              { id: 'far fa-clock', name: '&#xf017; clock'},
-              { id: 'far fa-building', name: '&#xf1ad; building'},
-              { id: 'fas fa-home', name: '&#xf015; home'},
-              { id: 'fas fa-globe', name: '&#xf0ac; globe'},
-              { id: 'far fa-file', name: '&#xf15b; file'},
-              { id: 'fas fa-utensils', name: '&#xf2e7; utensils'},
-              { id: 'far fa-calendar-alt', name: '&#xf073; calendar-alt'},
-              { id: 'far fa-hourglass', name: '&#xf254; hourglass'},
-              { id: 'fas fa-map-marker-alt', name: '&#xf3c5; map-marker-alt'},
-              { id: 'fas fa-road', name: '&#xf018; road'},
-              { id: 'fas fa-coffee', name: '&#xf0f4; coffee'},
-              { id: 'fas fa-phone', name: '&#xf095; phone'},
-              { id: 'fas fa-envelope', name: '&#xf0e0; envelope'},
-              { id: 'fas fa-star', name: '&#xf005; star'},
+              { id: 'fas fa-minus' , name: opt.labelIconSelectMinus},
+              { id: 'fas fa-circle', name: opt.labelIconSelectCircleSolid},
+              { id: 'far fa-circle', name: opt.labelIconSelectCircle },
+              { id: 'fas fa-check', name: opt.labelIconSelectCheck},
+              { id: 'fas fa-square', name: opt.labelIconSelectSquare},
+              { id: 'fas fa-arrow-right', name: opt.labelIconSelectArrowRight},
+              { id: 'fas fa-check-circle', name: opt.labelIconSelectCheckCircle},
+              { id: 'far fa-clock', name: opt.labelIconSelectClock},
+              { id: 'fas fa-percent', name: opt.labelIconSelectPercent},
+              { id: 'far fa-building', name: opt.labelIconSelectBuilding},
+              { id: 'fas fa-home', name: opt.labelIconSelectHome},
+              { id: 'fas fa-globe', name: opt.labelIconSelectGlobe},
+              { id: 'far fa-file', name: opt.labelIconSelectFile},
+              { id: 'fas fa-utensils', name: opt.labelIconSelectUtensils},
+              { id: 'far fa-calendar-alt', name: opt.labelIconSelectCalendar},
+              { id: 'far fa-hourglass', name: opt.labelIconSelectHourglass},
+              { id: 'fas fa-map-marker-alt', name: opt.labelIconSelectMapMarker},
+              { id: 'fas fa-road', name: opt.labelIconSelectRoad},
+              { id: 'fas fa-coffee', name: opt.labelIconSelectCoffee},
+              { id: 'fas fa-phone', name: opt.labelIconSelectPhone},
+              { id: 'fas fa-envelope', name: opt.labelIconSelectEnvelope},
+              { id: 'fas fa-star', name: opt.labelIconSelectStar},
             ],
           }
           ],
         },
       }
     });
-
   };
 });

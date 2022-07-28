@@ -579,7 +579,12 @@
                     .gjs-dashed *[data-ost-type]:not([data-ost-type=""]){
                       outline-color: #FF8200;
                     }
+                    .gjs-dashed img[data-ost-type]:not([data-ost-type=""]) {
+                      outline: dashed 1px #FF8200;
+                      outline-offset: -3px;
+                    }
                     `,
+      //cssIcons: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
       blockManager: { appendOnClick: 1 },
       container: "#gjs",
       fromElement: true,

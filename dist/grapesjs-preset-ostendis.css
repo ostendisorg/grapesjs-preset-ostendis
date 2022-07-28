@@ -298,7 +298,7 @@
 
 /* Icon Settings ( Traits ) */
 #select-fontawesome select {
-  font-family: "Font Awesome 5 Free", "FontAwesome"; }
+  font-family: "Font Awesome 5 Free"; }
 
 /* animation */
 @keyframes spin {
