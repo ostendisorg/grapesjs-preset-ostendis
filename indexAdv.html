@@ -3,14 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>GrapesJS Ostendis Editor</title>
+  <title>GrapesJS Ostendis Editor Advaced</title>
+
   <link rel="stylesheet" href="//unpkg.com/grapesjs@0.19.5/dist/css/grapes.min.css" />
-  <!--<link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.1/dist/css/grapes.min.css" />-->
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
 
-  <!--<script src="//unpkg.com/grapesjs@0.18.1/dist/grapes.min.js"></script>-->
   <script src="//unpkg.com/grapesjs@0.19.5/dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
 </head>
@@ -568,8 +567,32 @@
       },
       assetManager: {
         assets: images,
-        upload: 0,
+        upload: 1,
         uploadText: "Uploading is not available in this demo",
+        beforeUpload: (files) => {
+
+          console.log(files);
+          var maxFilesize = 3300000;
+          var errorMessage = "";
+          var error = false;
+
+          for (let i = 0; i < files.length; i++) {
+            console.log("in for looop " + files[i].size + "\n" + formatBytes(files[i].size, 0));
+            if (files[i].size > maxFilesize) { // 3MB
+              console.log("in looop & if " + files[i].name);
+              errorMessage += "Das Bild " + files[i].name + "ist zu gross! \n";
+              error = true;
+            }
+          }
+
+          if (error) {
+            alert(errorMessage + "\n\n" + "Bilder dürfen maximal " + formatBytes(maxFilesize, 0) + "gross sein.");
+            return false;
+          }
+          else {
+            return true;
+          }
+        },
       },
       canvas: {
         styles: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
@@ -601,6 +624,7 @@
         },
       },
     });
+    function formatBytes(a, b = 2, k = 1024) { with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
   </script>
 </body>
 
