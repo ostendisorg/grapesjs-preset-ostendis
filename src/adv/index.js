@@ -139,11 +139,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     labelIconSelectPhone: "phone",
     labelIconSelectEnvelope: "envelope",
     labelIconSelectStar: "star",
-    
+
     traitBlkOstendisTooltip: "Define an Ostendis block.",
     traitOstNone: "None",
-    traitOstOrganisationHeading: "Organization Heading",
-    traitOstOrganisation: "Organization",
+    traitOstOrganizationHeading: "Organization Heading",
+    traitOstOrganization: "Organization",
     traitOstIntroductionHeading: "Introduction Heading",
     traitOstIntroduction: "Introduction",
     traitOstDescriptionHeading: "Description Heading",
@@ -179,7 +179,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   for (let name in defaults) {
     if (!(name in c)) c[name] = defaults[name];
   }
-
 
   // Add components
   let importComponents = require("./components");
