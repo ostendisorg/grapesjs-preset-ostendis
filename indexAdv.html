@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>GrapesJS Ostendis Editor Advaced</title>
+  <title>GrapesJS Ostendis Editor Advanced</title>
 
   <link rel="stylesheet" href="//unpkg.com/grapesjs@0.19.5/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/material.css" />
@@ -567,9 +567,9 @@
       },
       assetManager: {
         assets: images,
-        upload: 1,
-        uploadText: "Uploading is not available in this demo",
-        beforeUpload: (files) => {
+        multiUpload: true,
+        //TODO
+        /*beforeUpload: (files) => {
 
           console.log(files);
           var maxFilesize = 3300000;
@@ -577,39 +577,37 @@
           var error = false;
 
           for (let i = 0; i < files.length; i++) {
-            console.log("in for looop " + files[i].size + "\n" + formatBytes(files[i].size, 0));
+            console.log("in for looop " + files[i].size + "\n" + files[i].size);
             if (files[i].size > maxFilesize) { // 3MB
-              console.log("in looop & if " + files[i].name);
-              errorMessage += "Das Bild " + files[i].name + "ist zu gross! \n";
+              console.log("in loop & if " + files[i].name);
+              errorMessage += "Das Bild " + files[i].name + " ist zu gross! (" + files[i].size + ")\n";
               error = true;
             }
           }
-
-          if (error) {
-            alert(errorMessage + "\n\n" + "Bilder dürfen maximal " + formatBytes(maxFilesize, 0) + "gross sein.");
-            return false;
-          }
-          else {
+          if (!error) {
             return true;
           }
-        },
+          console.log(errorMessage + "\n" + "Bilder dürfen maximal " + maxFilesize + " gross sein.");
+          return false;
+
+        },*/
       },
       canvas: {
         styles: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
       },
       canvasCss: `.gjs-selected{
                       outline: 2px solid #3b5998 !important;
-                      outline-offset: -2px;
+                      outline-offset: -2px !important;
                     }
                     .gjs-dashed *[data-ost-type]:not([data-ost-type=""]){
                       outline-color: #FF8200;
                     }
-                    .gjs-dashed img[data-ost-type]:not([data-ost-type=""]) {
+                    .gjs-dashed img[data-ost-type]:not([data-ost-type=""]),
+                    .gjs-dashed [data-ost-type="videoURL"]{
                       outline: dashed 1px #FF8200;
                       outline-offset: -3px;
                     }
                     `,
-      //cssIcons: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
       blockManager: { appendOnClick: 1 },
       container: "#gjs",
       fromElement: true,
@@ -624,7 +622,7 @@
         },
       },
     });
-    function formatBytes(a, b = 2, k = 1024) { with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
+    //function formatBytes(a, b = 2, k = 1024) { with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
   </script>
 </body>
 
