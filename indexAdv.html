@@ -570,7 +570,6 @@
         multiUpload: true,
         //TODO
         /*beforeUpload: (files) => {
-
           console.log(files);
           var maxFilesize = 3300000;
           var errorMessage = "";
@@ -589,7 +588,6 @@
           }
           console.log(errorMessage + "\n" + "Bilder dürfen maximal " + maxFilesize + " gross sein.");
           return false;
-
         },*/
       },
       canvas: {
@@ -622,7 +620,7 @@
         },
       },
     });
-    //function formatBytes(a, b = 2, k = 1024) { with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
+    //function formatBytes(a, b = 2, k = 1024){ with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
   </script>
 </body>
 
