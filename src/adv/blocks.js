@@ -64,53 +64,53 @@ define(function () {
       attributes: { class: "gjs-fonts gjs-f-button" },
     });
 
-    bm.add("sect100", {
-      label: opt.sect100BlkLabel,
-      category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-b1" },
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr}"></td>
-        </tr>
-        </table>`,
-    });
+    // bm.add("sect100", {
+    //   label: opt.sect100BlkLabel,
+    //   category: opt.categoryLabel,
+    //   attributes: { class: "gjs-fonts gjs-f-b1" },
+    //   content: `<table style="${tableStyleStr}">
+    //     <tr>
+    //       <td style="${cellStyleStr}"></td>
+    //     </tr>
+    //     </table>`,
+    // });
 
-    bm.add("sect50", {
-      label: opt.sect50BlkLabel,
-      category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-b2" },
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width: 50%"></td>
-          <td style="${cellStyleStr} width: 50%"></td>
-        </tr>
-        </table>`,
-    });
+    // bm.add("sect50", {
+    //   label: opt.sect50BlkLabel,
+    //   category: opt.categoryLabel,
+    //   attributes: { class: "gjs-fonts gjs-f-b2" },
+    //   content: `<table style="${tableStyleStr}">
+    //     <tr>
+    //       <td style="${cellStyleStr} width: 50%"></td>
+    //       <td style="${cellStyleStr} width: 50%"></td>
+    //     </tr>
+    //     </table>`,
+    // });
 
-    bm.add("sect30", {
-      label: opt.sect30BlkLabel,
-      category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-b3" },
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-        </tr>
-        </table>`,
-    });
+    // bm.add("sect30", {
+    //   label: opt.sect30BlkLabel,
+    //   category: opt.categoryLabel,
+    //   attributes: { class: "gjs-fonts gjs-f-b3" },
+    //   content: `<table style="${tableStyleStr}">
+    //     <tr>
+    //       <td style="${cellStyleStr} width: 33.3333%"></td>
+    //       <td style="${cellStyleStr} width: 33.3333%"></td>
+    //       <td style="${cellStyleStr} width: 33.3333%"></td>
+    //     </tr>
+    //     </table>`,
+    // });
 
-    bm.add("sect37", {
-      label: opt.sect37BlkLabel,
-      category: opt.categoryLabel,
-      attributes: { class: "gjs-fonts gjs-f-b37" },
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width:30%"></td>
-          <td style="${cellStyleStr} width:70%"></td>
-        </tr>
-        </table>`,
-    });
+    // bm.add("sect37", {
+    //   label: opt.sect37BlkLabel,
+    //   category: opt.categoryLabel,
+    //   attributes: { class: "gjs-fonts gjs-f-b37" },
+    //   content: `<table style="${tableStyleStr}">
+    //     <tr>
+    //       <td style="${cellStyleStr} width:30%"></td>
+    //       <td style="${cellStyleStr} width:70%"></td>
+    //     </tr>
+    //     </table>`,
+    // });
 
     bm.add("divider", {
       label: opt.dividerBlkLabel,
@@ -153,7 +153,7 @@ define(function () {
       attributes: { class: "fa fa-list-ul" },
       content: { 
               type: "ulist",
-               style: { "padding-top":"0.2em", "padding-bottom":"0.2em" }, 
+              style: { "padding-top":"0.2em", "padding-bottom":"0.2em" }, 
       },      
     });
 

@@ -135,6 +135,14 @@ define(function () {
         },
       }),
       view: dView,
+      /*view: dView.extend({
+        init:function(e){
+          this.listenTo(this.model, "change:data-ost-type",this.updateOstendisIcon);
+        },
+        updateOstendisIcon:function(e){
+          this.el.name=
+        }
+      }),*/
     });
 
     // Range trait

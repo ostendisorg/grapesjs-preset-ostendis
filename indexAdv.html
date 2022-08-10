@@ -569,7 +569,7 @@
         assets: images,
         upload: 0,
         multiUpload: true,
-        beforeUpload: (files) => {
+        /*beforeUpload: (files) => {
           console.log(files);
           var maxFilesize = 3300000;
           var errorMessage = "";
@@ -588,7 +588,7 @@
           }
           console.log(errorMessage + "\n" + "Bilder dürfen maximal " + maxFilesize + " gross sein.");
           return false;
-        },
+        },*/
       },
       canvas: {
         styles: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
@@ -597,9 +597,8 @@
                       outline: 2px solid #3b5998 !important;
                       outline-offset: -2px !important;
                     }
-                    .gjs-dashed *[data-ost-type]:not([data-ost-type=""]){
-                      outline: dashed 1px #FF8200;
-                      outline-offset: -2px;
+                    *[data-ost-type]:not([data-ost-type=""]){
+                      outline-color: #FF8200 !important;
                     }
                     .gjs-dashed img[data-ost-type]:not([data-ost-type=""]),
                     .gjs-dashed [data-ost-type="videoURL"]{
