@@ -1,8 +1,11 @@
+import { openStdin } from "process";
+
 define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
     //add ostendis block  trait to default
+   /* console.log(domComp.getType("default").model.prototype.defaults.traits);
     domComp.getType("default").model.prototype.defaults.traits.push({
       type: "select",
       label: "Ostendis Blocks",
@@ -30,6 +33,42 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     });
+    */
+
+
+    var defaultType = domComp.getType("default");
+    var _initialize = defaultType.model.prototype.initialize;
+    defaultType.model.prototype.initialize = function() {
+      _initialize.apply(this, arguments);
+
+      this.get("traits").add({
+        type: "select",
+        label: "Ostendis Blocks",
+        name: "data-ost-type",
+        attributes: {
+          "data-tooltip": opt.traitBlkOstendisTooltip,
+          "data-tooltip-pos": "bottom",
+        },
+        options: [
+          { id: "", name: opt.traitOstNone },
+          { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
+          { id: "organization", name: opt.traitOstOrganization },
+          { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
+          { id: "introduction", name: opt.traitOstIntroduction },
+          { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
+          { id: "description", name: opt.traitOstDescription },
+          { id: "tasksHeading", name: opt.traitOstTasksHeading },
+          { id: "tasks", name: opt.traitOstTasks },
+          { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
+          { id: "requirements", name: opt.traitOstRequirements },
+          { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
+          { id: "benefits", name: opt.traitOstBenefits },
+          { id: "contactHeading", name: opt.traitOstContactHeading },
+          { id: "contact", name: opt.traitOstContact },
+          { id: "calltoaction", name: opt.traitOstCallToAction },
+        ],
+      });
+    };
 
     //add ostendis block trait to image
     domComp.getType("image").model.prototype.defaults.traits.push({
@@ -95,7 +134,6 @@ define(function () {
           em.get("ready") && em.trigger("component:toggled");
         },
       }),
-
       view: dView,
     });
 

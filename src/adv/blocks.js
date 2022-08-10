@@ -148,14 +148,17 @@ define(function () {
     });
 
     bm.add("ulist", {
-      label: opt.ulistLabel,
+      label: opt.ulistBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "fa fa-list-ul" },
-      content: { type: "ulist" },
+      content: { 
+              type: "ulist",
+               style: { "padding-top":"0.2em", "padding-bottom":"0.2em" }, 
+      },      
     });
 
     bm.add("icon", {
-      label: opt.iconLabel,
+      label: opt.iconBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "fa fa-smile-o" },
       content: { type: "icon" },

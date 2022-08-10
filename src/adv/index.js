@@ -58,11 +58,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
     dividerBlkLabel: "Divider",
     textSectionBlkLabel: "Text Section",
-    ulistLabel: "Liste",
-    iconLabel: "Icon",
+    ulistBlkLabel: "List",
+    iconBlkLabel: "Icon",
     imageBlkLabel: "Image",
     videoBlkLabel: "Video",
     mapBlkLabel: "Map",
+
     facebookBlkLabelSite: "Facebook link",
     instagramBlkLabelSite: "Instagram link",
     youtubeBlkLabelSite: "YouTube link",
@@ -140,7 +141,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     labelIconSelectEnvelope: "envelope",
     labelIconSelectStar: "star",
 
-    traitBlkOstendisTooltip: "Define an Ostendis block.",
+    traitBlkOstendisTooltip: "Define Ostendis block.",
     traitOstNone: "None",
     traitOstOrganizationHeading: "Organization Heading",
     traitOstOrganization: "Organization",
