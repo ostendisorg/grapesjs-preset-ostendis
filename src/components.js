@@ -137,7 +137,7 @@ define(function () {
     });
 
     // Unsorted list with fontawesome 5.x
-    let ulistitem =   `<li style="text-align:left;"><span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"></i></span>
+    let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable="ul"><span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"></i></span>
                         <p style="margin:0;padding:0;">Text</p>
                       </li>`;
 
@@ -159,29 +159,42 @@ define(function () {
           attributes: { class: "fas fa-star" },
           traits: [
             {
-            type: 'select',
-            label: 'Icon',
-            name: 'class',
-            attributes: {
-              id: 'select-fontawesome', 
-              'data-tooltip' : 'For more icons: change class name in style manager.',
-              'data-tooltip-pos' : 'bottom'},
-            options: [
-              { id: 'fas fa-minus' , name: '&#xf068; minus'},
-              { id: 'fas fa-circle', name: '&#xf111; circle solid'},
-              { id: 'far fa-circle', name: '&#xf10c; circle'},
-              { id: 'fas fa-check', name: '&#xf00c; check'},
-              { id: 'fas fa-square', name: '&#xf0c8; square'},
-              { id: 'fas fa-arrow-right', name: '&#xf061; arrwo-right'},
-              { id: 'fas fa-check-circle', name: '&#xf058; check-circle'},
-              { id: 'fas fa-phone', name: '&#xf095; phone'},
-              { id: 'fas fa-envelope', name: '&#xf0e0; envelope'},
-              { id: 'fas fa-star', name: '&#xf005; star'},
-            ],
-          }
+              type: "select",
+              label: "Icon",
+              name: "class",
+              attributes: {
+                id: "select-fontawesome",
+                "data-tooltip": "For more icons: change class name in style manager.",
+                "data-tooltip-pos": "bottom",
+              },
+              options: [
+                { id: "fas fa-minus", name: opt.labelIconSelectMinus },
+                { id: "fas fa-circle", name: opt.labelIconSelectCircleSolid },
+                { id: "far fa-circle", name: opt.labelIconSelectCircle },
+                { id: "fas fa-check", name: opt.labelIconSelectCheck },
+                { id: "fas fa-square", name: opt.labelIconSelectSquare },
+                { id: "fas fa-arrow-right", name: opt.labelIconSelectArrowRight },
+                { id: "fas fa-check-circle", name: opt.labelIconSelectCheckCircle },
+                { id: "far fa-clock", name: opt.labelIconSelectClock },
+                { id: "fas fa-percent", name: opt.labelIconSelectPercent },
+                { id: "far fa-building", name: opt.labelIconSelectBuilding },
+                { id: "fas fa-home", name: opt.labelIconSelectHome },
+                { id: "fas fa-globe", name: opt.labelIconSelectGlobe },
+                { id: "far fa-file", name: opt.labelIconSelectFile },
+                { id: "fas fa-utensils", name: opt.labelIconSelectUtensils },
+                { id: "far fa-calendar-alt", name: opt.labelIconSelectCalendar },
+                { id: "far fa-hourglass", name: opt.labelIconSelectHourglass },
+                { id: "fas fa-map-marker-alt", name: opt.labelIconSelectMapMarker },
+                { id: "fas fa-road", name: opt.labelIconSelectRoad },
+                { id: "fas fa-coffee", name: opt.labelIconSelectCoffee },
+                { id: "fas fa-phone", name: opt.labelIconSelectPhone },
+                { id: "fas fa-envelope", name: opt.labelIconSelectEnvelope },
+                { id: "fas fa-star", name: opt.labelIconSelectStar },
+              ],
+            },
           ],
         },
-      }
+      },
     });
   };
 });
