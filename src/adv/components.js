@@ -5,8 +5,8 @@ define(function () {
     const domComp = opt.editor.DomComponents;
 
     //add ostendis block  trait to default
-   /* console.log(domComp.getType("default").model.prototype.defaults.traits);
-    domComp.getType("default").model.prototype.defaults.traits.push({
+    var defaulttraits = domComp.getType("default").model.prototype.defaults.traits;
+     var dataOstBlock = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -32,43 +32,94 @@ define(function () {
         { id: "contact", name: opt.traitOstContact },
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
+    };
+    defaulttraits.indexOf(dataOstBlock) === -1 && defaulttraits.push(dataOstBlock);
+    //domComp.getType("default").model.prototype.defaults.traits.push(dataOstBlock);
+
+    // domComp.getType("default").model.prototype.defaults.traits.push({
+    //   type: "select",
+    //   label: "Ostendis Blocks",
+    //   name: "data-ost-type",
+    //   attributes: {
+    //     "data-tooltip": opt.traitBlkOstendisTooltip,
+    //     "data-tooltip-pos": "bottom",
+    //   },
+    //   options: [
+    //     { id: "", name: opt.traitOstNone },
+    //     { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
+    //     { id: "organization", name: opt.traitOstOrganization },
+    //     { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
+    //     { id: "introduction", name: opt.traitOstIntroduction },
+    //     { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
+    //     { id: "description", name: opt.traitOstDescription },
+    //     { id: "tasksHeading", name: opt.traitOstTasksHeading },
+    //     { id: "tasks", name: opt.traitOstTasks },
+    //     { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
+    //     { id: "requirements", name: opt.traitOstRequirements },
+    //     { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
+    //     { id: "benefits", name: opt.traitOstBenefits },
+    //     { id: "contactHeading", name: opt.traitOstContactHeading },
+    //     { id: "contact", name: opt.traitOstContact },
+    //     { id: "calltoaction", name: opt.traitOstCallToAction },
+    //   ],
+    // });
+
+    // function addItem(item) {
+    //   var index = a.findIndex(x => x.name == item.name)
+    //   if (index === -1) {
+    //     a.push(item);
+    //   }else {
+    //     console.log("object already exists")
+    //   }
+    // }
+
+  
+    /*
+    var dTypeDefault = domComp.getType("default");
+    var dModelDefault = dTypeDefault.model;
+    var dViewDefault = dTypeDefault.view;
+
+
+    domComp.addType("default", {
+      model: dModelDefault.extend({
+        updateTraits() {
+          const { em } = this;
+          let traits;
+          traits.push({
+            type: "select",
+            label: "Ostendis Blocks",
+            name: "data-ost-type",
+            options: [
+              { id: "", name: opt.traitOstNone },
+              { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
+              { id: "organization", name: opt.traitOstOrganization },
+              { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
+              { id: "introduction", name: opt.traitOstIntroduction },
+              { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
+              { id: "description", name: opt.traitOstDescription },
+              { id: "tasksHeading", name: opt.traitOstTasksHeading },
+              { id: "tasks", name: opt.traitOstTasks },
+              { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
+              { id: "requirements", name: opt.traitOstRequirements },
+              { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
+              { id: "benefits", name: opt.traitOstBenefits },
+              { id: "contactHeading", name: opt.traitOstContactHeading },
+              { id: "contact", name: opt.traitOstContact },
+              { id: "calltoaction", name: opt.traitOstCallToAction },
+            ],
+          });
+
+          //this.set({ tagName }, { silent: 1 }); // avoid break in view
+          this.set({ traits });
+          console.log(traits);
+          em.get("ready") && em.trigger("component:toggled");
+        },
+      }),
+      view: dViewDefault,
     });
     */
 
 
-    var defaultType = domComp.getType("default");
-    var _initialize = defaultType.model.prototype.initialize;
-    defaultType.model.prototype.initialize = function() {
-      _initialize.apply(this, arguments);
-
-      this.get("traits").add({
-        type: "select",
-        label: "Ostendis Blocks",
-        name: "data-ost-type",
-        attributes: {
-          "data-tooltip": opt.traitBlkOstendisTooltip,
-          "data-tooltip-pos": "bottom",
-        },
-        options: [
-          { id: "", name: opt.traitOstNone },
-          { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
-          { id: "organization", name: opt.traitOstOrganization },
-          { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
-          { id: "introduction", name: opt.traitOstIntroduction },
-          { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
-          { id: "description", name: opt.traitOstDescription },
-          { id: "tasksHeading", name: opt.traitOstTasksHeading },
-          { id: "tasks", name: opt.traitOstTasks },
-          { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
-          { id: "requirements", name: opt.traitOstRequirements },
-          { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
-          { id: "benefits", name: opt.traitOstBenefits },
-          { id: "contactHeading", name: opt.traitOstContactHeading },
-          { id: "contact", name: opt.traitOstContact },
-          { id: "calltoaction", name: opt.traitOstCallToAction },
-        ],
-      });
-    };
 
     //add ostendis block trait to image
     domComp.getType("image").model.prototype.defaults.traits.push({
@@ -135,14 +186,6 @@ define(function () {
         },
       }),
       view: dView,
-      /*view: dView.extend({
-        init:function(e){
-          this.listenTo(this.model, "change:data-ost-type",this.updateOstendisIcon);
-        },
-        updateOstendisIcon:function(e){
-          this.el.name=
-        }
-      }),*/
     });
 
     // Range trait

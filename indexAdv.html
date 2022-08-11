@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>GrapesJS Ostendis Editor Advanced</title>
 
-  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.19.5/dist/css/grapes.min.css" />
+  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.4/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
@@ -577,7 +577,7 @@
 
           for (let i = 0; i < files.length; i++) {
             console.log("in for looop " + files[i].size + "\n" + files[i].size);
-            if (files[i].size > maxFilesize) { // 3MB
+            if (files[i].size > maxFilesize) {
               console.log("in loop & if " + files[i].name);
               errorMessage += "Das Bild " + files[i].name + " ist zu gross! (" + files[i].size + ")\n";
               error = true;

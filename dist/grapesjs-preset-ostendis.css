@@ -21,6 +21,9 @@
   color: #ffffff;
   background-color: #3b5998; }
 
+.gjs-field-checkbox input:checked + .gjs-chk-icon {
+  border-color: #3b5998; }
+
 .gjs-field-arrow-d {
   border-top: 4px solid #3b5998; }
 

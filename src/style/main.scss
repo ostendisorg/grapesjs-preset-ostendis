@@ -27,6 +27,10 @@
   background-color: $mainColor;
 }
 
+.#{$app-prefix}field-checkbox input:checked + .gjs-chk-icon {
+  border-color: $mainColor;
+}
+
 .#{$app-prefix}field-arrow-d {
   border-top: 4px solid $mainColor;
 }
