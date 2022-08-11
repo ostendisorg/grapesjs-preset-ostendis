@@ -360,6 +360,11 @@
   color: #f92929;
 }
 
+/* Ostendis Block Traits */
+.#{$app-prefix}trt-trait__wrp-data-ost-type {
+  background: rgba(255, 130, 0, 0.4);
+}
+
 /* Icon Settings ( Traits ) */
 #select-fontawesome select{
   font-family: "Font Awesome 5 Free";

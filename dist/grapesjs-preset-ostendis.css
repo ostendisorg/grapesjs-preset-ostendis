@@ -299,6 +299,10 @@
 .text-danger {
   color: #f92929; }
 
+/* Ostendis Block Traits */
+.gjs-trt-trait__wrp-data-ost-type {
+  background: rgba(255, 130, 0, 0.4); }
+
 /* Icon Settings ( Traits ) */
 #select-fontawesome select {
   font-family: "Font Awesome 5 Free"; }

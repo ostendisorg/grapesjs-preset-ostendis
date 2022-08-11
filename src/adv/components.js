@@ -6,7 +6,7 @@ define(function () {
 
     //add ostendis block  trait to default
     var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
-     var dataOstBlock = {
+    var defaultDataOstBlock = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -33,88 +33,13 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     };
-    defaultTraits.findIndex(element => element.name == dataOstBlock.name) == -1 ? defaultTraits.push(dataOstBlock) : console.log("object already exists");
-    //domComp.getType("default").model.prototype.defaults.traits.push(dataOstBlock);
-
-    // domComp.getType("default").model.prototype.defaults.traits.push({
-    //   type: "select",
-    //   label: "Ostendis Blocks",
-    //   name: "data-ost-type",
-    //   attributes: {
-    //     "data-tooltip": opt.traitBlkOstendisTooltip,
-    //     "data-tooltip-pos": "bottom",
-    //   },
-    //   options: [
-    //     { id: "", name: opt.traitOstNone },
-    //     { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
-    //     { id: "organization", name: opt.traitOstOrganization },
-    //     { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
-    //     { id: "introduction", name: opt.traitOstIntroduction },
-    //     { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
-    //     { id: "description", name: opt.traitOstDescription },
-    //     { id: "tasksHeading", name: opt.traitOstTasksHeading },
-    //     { id: "tasks", name: opt.traitOstTasks },
-    //     { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
-    //     { id: "requirements", name: opt.traitOstRequirements },
-    //     { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
-    //     { id: "benefits", name: opt.traitOstBenefits },
-    //     { id: "contactHeading", name: opt.traitOstContactHeading },
-    //     { id: "contact", name: opt.traitOstContact },
-    //     { id: "calltoaction", name: opt.traitOstCallToAction },
-    //   ],
-    // });
-
-
-  
-    /*
-    var dTypeDefault = domComp.getType("default");
-    var dModelDefault = dTypeDefault.model;
-    var dViewDefault = dTypeDefault.view;
-
-
-    domComp.addType("default", {
-      model: dModelDefault.extend({
-        updateTraits() {
-          const { em } = this;
-          let traits;
-          traits.push({
-            type: "select",
-            label: "Ostendis Blocks",
-            name: "data-ost-type",
-            options: [
-              { id: "", name: opt.traitOstNone },
-              { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
-              { id: "organization", name: opt.traitOstOrganization },
-              { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
-              { id: "introduction", name: opt.traitOstIntroduction },
-              { id: "descriptionHeading", name: opt.traitOstDescriptionHeading },
-              { id: "description", name: opt.traitOstDescription },
-              { id: "tasksHeading", name: opt.traitOstTasksHeading },
-              { id: "tasks", name: opt.traitOstTasks },
-              { id: "requirementsHeading", name: opt.traitOstRequirementsHeading },
-              { id: "requirements", name: opt.traitOstRequirements },
-              { id: "benefitsHeading", name: opt.traitOstBenefitsHeading },
-              { id: "benefits", name: opt.traitOstBenefits },
-              { id: "contactHeading", name: opt.traitOstContactHeading },
-              { id: "contact", name: opt.traitOstContact },
-              { id: "calltoaction", name: opt.traitOstCallToAction },
-            ],
-          });
-
-          //this.set({ tagName }, { silent: 1 }); // avoid break in view
-          this.set({ traits });
-          console.log(traits);
-          em.get("ready") && em.trigger("component:toggled");
-        },
-      }),
-      view: dViewDefault,
-    });
-    */
-
-
+    if(defaultTraits.findIndex(element => element.name == defaultDataOstBlock.name) == -1){
+        defaultTraits.push(defaultDataOstBlock);
+    }
 
     //add ostendis block trait to image
-    domComp.getType("image").model.prototype.defaults.traits.push({
+    var imgTraits = domComp.getType("image").model.prototype.defaults.traits;
+    var imageDataOstBlock = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -131,7 +56,10 @@ define(function () {
         { id: "additionalPic2URL", name: opt.traitOstAdditionalPic2URL },
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
       ],
-    });
+    };
+    if(imgTraits.findIndex(element => element.name == imageDataOstBlock.name) == -1){
+      imgTraits.push(imageDataOstBlock);
+    }
 
     //add ostendis block trait to video
     var dType = domComp.getType("video");

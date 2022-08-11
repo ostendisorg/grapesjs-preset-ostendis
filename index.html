@@ -6,23 +6,12 @@
   <title>GrapesJS Ostendis Editor</title>
 
   <link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.4/dist/css/grapes.min.css" />
-  <link rel="stylesheet" href="./style/tooltip.css" />
-  <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
-
-  <script src="//unpkg.com/grapesjs@0.18.1/dist/grapes.min.js"></script>
-  <script src="./dist/grapesjs-preset-ostendis.min.js"></script>
-</head>
-
-<head>
-  <meta charset="utf-8" />
-  <title>GrapesJS Ostendis Editor</title>
-  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.19.5/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
 
-  <script src="//unpkg.com/grapesjs@0.19.5/dist/grapes.min.js"></script>
-  <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
+  <script src="//unpkg.com/grapesjs@0.18.4/dist/grapes.min.js"></script>
+  <script src="./dist/grapesjs-preset-ostendis.min.js"></script>
 </head>
 <style>
   body,
@@ -590,9 +579,8 @@
                       outline: 2px solid #3b5998 !important;
                       outline-offset: -2px !important;
                     }
-                    .gjs-dashed *[data-ost-type]:not([data-ost-type=""]){
-                      outline: dashed 1px #FF8200;
-                      outline-offset: -2px;
+                    *[data-ost-type]:not([data-ost-type=""]){
+                      outline-color: #FF8200 !important;
                     }
                     .gjs-dashed img[data-ost-type]:not([data-ost-type=""]),
                     .gjs-dashed [data-ost-type="videoURL"]{
