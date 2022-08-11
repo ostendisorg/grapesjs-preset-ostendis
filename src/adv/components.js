@@ -5,7 +5,7 @@ define(function () {
     const domComp = opt.editor.DomComponents;
 
     //add ostendis block  trait to default
-    var defaulttraits = domComp.getType("default").model.prototype.defaults.traits;
+    var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
      var dataOstBlock = {
       type: "select",
       label: "Ostendis Blocks",
@@ -33,7 +33,7 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     };
-    defaulttraits.indexOf(dataOstBlock) === -1 && defaulttraits.push(dataOstBlock);
+    defaultTraits.findIndex(element => element.name == dataOstBlock.name) == -1 ? defaultTraits.push(dataOstBlock) : console.log("object already exists");
     //domComp.getType("default").model.prototype.defaults.traits.push(dataOstBlock);
 
     // domComp.getType("default").model.prototype.defaults.traits.push({
@@ -64,14 +64,6 @@ define(function () {
     //   ],
     // });
 
-    // function addItem(item) {
-    //   var index = a.findIndex(x => x.name == item.name)
-    //   if (index === -1) {
-    //     a.push(item);
-    //   }else {
-    //     console.log("object already exists")
-    //   }
-    // }
 
   
     /*
