@@ -138,7 +138,7 @@ define(function () {
 
     // Unsorted list with fontawesome 5.x
     let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable="ul"><span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"></i></span>
-                        <p style="margin:0;padding:0;">Text</p>
+                        <p data-gjs-selectable="false" style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
 
     domComp.addType("ulist", {
@@ -150,8 +150,7 @@ define(function () {
         },
       },
     });
-
-
+    
     domComp.addType("icon", {
       model: {
         defaults: {

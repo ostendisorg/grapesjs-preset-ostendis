@@ -567,9 +567,8 @@
       },
       assetManager: {
         assets: images,
-        upload: 0,
         multiUpload: true,
-        /*beforeUpload: (files) => {
+        beforeUpload: (files) => {
           console.log(files);
           var maxFilesize = 3300000;
           var errorMessage = "";
@@ -588,7 +587,7 @@
           }
           console.log(errorMessage + "\n" + "Bilder dürfen maximal " + maxFilesize + " gross sein.");
           return false;
-        },*/
+        },
       },
       canvas: {
         styles: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],

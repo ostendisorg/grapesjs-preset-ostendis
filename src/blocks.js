@@ -58,15 +58,8 @@ define(function () {
       attributes: { class: "fa fa-list-ul" },
       content: { 
         type: "ulist",
-        style: { "padding-top":"0.2em", "padding-bottom":"0.2em" }, 
-      },      
-    });
-
-    bm.add("icon", {
-      label: opt.iconBlkLabel,
-      category: opt.categoryLabel,
-      attributes: { class: "fa fa-smile-o" },
-      content: { type: "icon" },
+        style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
+      },
     });
     
     bm.add("image", {

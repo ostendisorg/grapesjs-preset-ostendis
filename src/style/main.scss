@@ -320,13 +320,6 @@
   background-color: rgba(255, 255, 255, 0.09);
 }
 
-/*
-#gjs-pn-views-container,
-#gjs-pn-views{
-  min-width: 270px;
-}
-*/
-
 .#{$app-prefix}f-button::before { content: 'B'; }
 .#{$app-prefix}f-divider::before { content: 'D'; }
 
@@ -363,11 +356,6 @@
 /* Ostendis Block Traits */
 .#{$app-prefix}trt-trait__wrp-data-ost-type {
   background: rgba(255, 130, 0, 0.4);
-}
-
-/* Icon Settings ( Traits ) */
-#select-fontawesome select{
-  font-family: "Font Awesome 5 Free";
 }
 
 /* animation */
