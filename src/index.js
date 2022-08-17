@@ -64,9 +64,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     
     textBlkOstType: "Block",
     textBlkLabelOrg: "Organization",
+    textBlkLabelOrgList: "Organization List",
     textBlkTitleOrg: "Organization Header",
     textBlkContentOrg: "Organization Text",
     textBlkLabelIntro: "Introduction",
+    textBlkLabelIntroList: "Introduction List",
     textBlkTitleIntro: "Introduction Header",
     textBlkContentIntro: "Introduction Text",
     textBlkLabelDesc: "Description",
