@@ -279,7 +279,6 @@ define(function () {
             attributes: { "data-ost-type": "organizationHeading" },
           },
           {
-            name: opt.textBlkLabelOrg,
             type: 'text',
             content: opt.textBlkContentOrg,
             attributes: { "data-ost-type": "organization" },
@@ -301,7 +300,6 @@ define(function () {
             attributes: { "data-ost-type": "organizationHeading" },
           },
           {
-            name: opt.textBlkLabelOrg,
             type: 'ulist',
             attributes: { "data-ost-type": "organization" },
           },
@@ -322,7 +320,6 @@ define(function () {
             attributes: { "data-ost-type": "introductionHeading" },
           },
           {
-            name: opt.textBlkLabelIntro,
             type: 'text',
             content: opt.textBlkContentIntro,
             attributes: { "data-ost-type": "introduction" },
@@ -344,7 +341,6 @@ define(function () {
             attributes: { "data-ost-type": "introductionHeading" },
           },
           {
-            name: opt.textBlkLabelIntro,
             type: 'ulist',
             attributes: { "data-ost-type": "introduction" },
           },
@@ -365,7 +361,6 @@ define(function () {
             attributes: { "data-ost-type": "descriptionHeading" },
           },
           {
-            name: opt.textBlkLabelDesc,
             type: 'text',
             content: opt.textBlkContentDesc,
             attributes: { "data-ost-type": "description" },
@@ -387,7 +382,6 @@ define(function () {
             attributes: { "data-ost-type": "descriptionHeading" },
           },
           {
-            name: opt.textBlkLabelDesc,
             type: 'ulist',
             attributes: { "data-ost-type": "description" },
           },
@@ -407,7 +401,6 @@ define(function () {
             attributes: { "data-ost-type": "tasksHeading" },
           },
           {
-            name: opt.textBlkLabelTasks,
             type: "text",
             content: opt.textBlkContentTasks,
             attributes: { "data-ost-type": "tasks" },
@@ -428,7 +421,6 @@ define(function () {
             attributes: { "data-ost-type": "tasksHeading" },
           },
           {
-            name: opt.textBlkLabelTasksList,
             type: "ulist",
             attributes: { "data-ost-type": "tasks" },
           },
@@ -449,7 +441,6 @@ define(function () {
             attributes: { "data-ost-type": "requirementsHeading" },
           },
           {
-            name: opt.textBlkLabelReq,
             type: "text",
             content: opt.textBlkContentReq,
             attributes: { "data-ost-type": "requirements" },
@@ -470,7 +461,6 @@ define(function () {
             attributes: { "data-ost-type": "requirementsHeading" },
           },
           {
-            name: opt.textBlkLabelReqList,
             type: "ulist",
             attributes: { "data-ost-type": "requirements" },
           },
@@ -491,7 +481,6 @@ define(function () {
             attributes: { "data-ost-type": "benefitsHeading" },
           },
           {
-            name: opt.textBlkLabelBenefits,
             type: "text",
             content: opt.textBlkContentBenefits,
             attributes: { "data-ost-type": "benefits" },
@@ -512,7 +501,6 @@ define(function () {
             attributes: { "data-ost-type": "benefitsHeading" },
           },
           {
-            name: opt.textBlkLabelBenefitsList,
             type: "ulist",
             attributes: { "data-ost-type": "benefits" },
           },
@@ -533,7 +521,6 @@ define(function () {
             attributes: { "data-ost-type": "contactHeading" },
           },
           {
-            name: opt.textBlkLabelContact,
             type: "text",
             content: opt.textBlkContentContact,
             attributes: { "data-ost-type": "contact" },
