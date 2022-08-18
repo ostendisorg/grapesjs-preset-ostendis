@@ -75,6 +75,27 @@ define(function () {
         ],
       },
     });
+    bm.add('ost-introduction-list', {
+      label: opt.textBlkLabelIntroList,
+      category: 'Ostendis',
+      media: ostBlockTitleList,
+      content: {
+        name: opt.textBlkLabelIntroList,
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + '</h3>',
+            attributes: { "data-ost-type": "introductionHeading" },
+          },
+          {
+            name: opt.textBlkLabelIntro,
+            type: 'ulist',
+            attributes: { "data-ost-type": "introduction" },
+          },
+        ],
+      },
+    });
     bm.add('ost-description', {
       label: opt.textBlkLabelDesc,
       category: 'Ostendis',
@@ -97,6 +118,27 @@ define(function () {
         ],
       },
     });
+    bm.add('ost-description-list', {
+      label: opt.textBlkLabelDescList,
+      category: 'Ostendis',
+      media: ostBlockTitleList,
+      content: {
+        name: opt.textBlkLabelDescList,
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + '</h3>',
+            attributes: { "data-ost-type": "descriptionHeading" },
+          },
+          {
+            name: opt.textBlkLabelDesc,
+            type: 'ulist',
+            attributes: { "data-ost-type": "description" },
+          },
+        ],
+      },
+    });
     bm.add("ost-tasks", {
       label: opt.textBlkLabelTasks,
       category: "Ostendis",
@@ -113,6 +155,26 @@ define(function () {
             name: opt.textBlkLabelTasks,
             type: "text",
             content: opt.textBlkContentTasks,
+            attributes: { "data-ost-type": "tasks" },
+          },
+        ],
+      },
+    });
+    bm.add("ost-tasks-list", {
+      label: opt.textBlkLabelTasksList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + '</h3>',
+            attributes: { "data-ost-type": "tasksHeading" },
+          },
+          {
+            name: opt.textBlkLabelTasksList,
+            type: "ulist",
             attributes: { "data-ost-type": "tasks" },
           },
         ],
@@ -140,6 +202,26 @@ define(function () {
         ],
       },
     });
+    bm.add("ost-requirements-list", {
+      label: opt.textBlkLabelReqList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + '</h3>',
+            attributes: { "data-ost-type": "requirementsHeading" },
+          },
+          {
+            name: opt.textBlkLabelReqList,
+            type: "ulist",
+            attributes: { "data-ost-type": "requirements" },
+          },
+        ],
+      },
+    });
 
     bm.add("ost-benefits", {
       label: opt.textBlkLabelBenefits,
@@ -157,6 +239,26 @@ define(function () {
             name: opt.textBlkLabelBenefits,
             type: "text",
             content: opt.textBlkContentBenefits,
+            attributes: { "data-ost-type": "benefits" },
+          },
+        ],
+      },
+    });
+    bm.add("ost-benefits-list", {
+      label: opt.textBlkLabelBenefitsList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + '</h3>',
+            attributes: { "data-ost-type": "benefitsHeading" },
+          },
+          {
+            name: opt.textBlkLabelBenefitsList,
+            type: "ulist",
             attributes: { "data-ost-type": "benefits" },
           },
         ],
@@ -251,7 +353,6 @@ define(function () {
       attributes: { class: "fa fa-list-ul" },
       content: { 
         type: "ulist",
-        style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
       },
     });
     

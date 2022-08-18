@@ -150,6 +150,7 @@ define(function () {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
+          style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
           components: ulistitem + ulistitem + ulistitem,
         },
       },

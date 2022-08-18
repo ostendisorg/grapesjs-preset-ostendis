@@ -108,7 +108,6 @@ define(function () {
       attributes: { class: "fa fa-list-ul" },
       content: { 
         type: "ulist",
-        style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
       },
     });
 
@@ -261,11 +260,15 @@ define(function () {
       attributes: { class: "fa fa-sliders" },
     });
 
+    // Ostendis block icons
+    var ostBlockTitleText = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".106" d="M1.536 8.474h9.632v.556H1.536zm0-1.053h9.632v.556H1.535zm0-1.053h9.63v.557h-9.63zm-.004-2.106h6.954v.973H1.532z"/></svg>';
+    var ostBlockTitleList = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".1" d="M2.058 8.752a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm.651 1.828h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zM1.532 4.262h6.954v.973H1.532z"/></svg>';
+
     // Ostendis blocks
     bm.add('ost-organization', {
       label: opt.textBlkLabelOrg,
       category: 'Ostendis',
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelOrg,
         type: 'text',
@@ -284,10 +287,31 @@ define(function () {
         ],
       },
     });
+    bm.add('ost-organization-list', {
+      label: opt.textBlkLabelOrgList,
+      category: 'Ostendis',
+      media: ostBlockTitleList,
+      content: {
+        name: opt.textBlkLabelOrgList,
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleOrg + '</h3>',
+            attributes: { "data-ost-type": "organizationHeading" },
+          },
+          {
+            name: opt.textBlkLabelOrg,
+            type: 'ulist',
+            attributes: { "data-ost-type": "organization" },
+          },
+        ],
+      },
+    });
     bm.add('ost-introduction', {
       label: opt.textBlkLabelIntro,
       category: 'Ostendis',
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelIntro,
         type: 'text',
@@ -306,10 +330,31 @@ define(function () {
         ],
       },
     });
+    bm.add('ost-introduction-list', {
+      label: opt.textBlkLabelIntroList,
+      category: 'Ostendis',
+      media: ostBlockTitleList,
+      content: {
+        name: opt.textBlkLabelIntroList,
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + '</h3>',
+            attributes: { "data-ost-type": "introductionHeading" },
+          },
+          {
+            name: opt.textBlkLabelIntro,
+            type: 'ulist',
+            attributes: { "data-ost-type": "introduction" },
+          },
+        ],
+      },
+    });
     bm.add('ost-description', {
       label: opt.textBlkLabelDesc,
       category: 'Ostendis',
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelDesc,
         type: 'text',
@@ -328,10 +373,31 @@ define(function () {
         ],
       },
     });
+    bm.add('ost-description-list', {
+      label: opt.textBlkLabelDescList,
+      category: 'Ostendis',
+      media: ostBlockTitleList,
+      content: {
+        name: opt.textBlkLabelDescList,
+        type: 'text',
+        components: [
+          {
+            type: 'text',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + '</h3>',
+            attributes: { "data-ost-type": "descriptionHeading" },
+          },
+          {
+            name: opt.textBlkLabelDesc,
+            type: 'ulist',
+            attributes: { "data-ost-type": "description" },
+          },
+        ],
+      },
+    });
     bm.add("ost-tasks", {
       label: opt.textBlkLabelTasks,
       category: "Ostendis",
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         type: "text",
         components: [
@@ -349,11 +415,31 @@ define(function () {
         ],
       },
     });
+    bm.add("ost-tasks-list", {
+      label: opt.textBlkLabelTasksList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + '</h3>',
+            attributes: { "data-ost-type": "tasksHeading" },
+          },
+          {
+            name: opt.textBlkLabelTasksList,
+            type: "ulist",
+            attributes: { "data-ost-type": "tasks" },
+          },
+        ],
+      },
+    });
 
     bm.add("ost-requirements", {
       label: opt.textBlkLabelReq,
       category: "Ostendis",
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         type: "text",
         components: [
@@ -371,11 +457,31 @@ define(function () {
         ],
       },
     });
+    bm.add("ost-requirements-list", {
+      label: opt.textBlkLabelReqList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + '</h3>',
+            attributes: { "data-ost-type": "requirementsHeading" },
+          },
+          {
+            name: opt.textBlkLabelReqList,
+            type: "ulist",
+            attributes: { "data-ost-type": "requirements" },
+          },
+        ],
+      },
+    });
 
     bm.add("ost-benefits", {
       label: opt.textBlkLabelBenefits,
       category: "Ostendis",
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         type: "text",
         components: [
@@ -393,11 +499,31 @@ define(function () {
         ],
       },
     });
+    bm.add("ost-benefits-list", {
+      label: opt.textBlkLabelBenefitsList,
+      category: "Ostendis",
+      media: ostBlockTitleList,
+      content: {
+        type: "text",
+        components: [
+          {
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + '</h3>',
+            attributes: { "data-ost-type": "benefitsHeading" },
+          },
+          {
+            name: opt.textBlkLabelBenefitsList,
+            type: "ulist",
+            attributes: { "data-ost-type": "benefits" },
+          },
+        ],
+      },
+    });
 
     bm.add("ost-contact", {
       label: opt.textBlkLabelContact,
       category: "Ostendis",
-      attributes: { class: "gjs-fonts gjs-f-hero" },
+      media: ostBlockTitleText,
       content: {
         type: "text",
         components: [
@@ -427,7 +553,6 @@ define(function () {
         attributes: { "data-ost-type": "calltoaction" },
       },
     });
-
     // Social Media blocks
     bm.add("facebook", {
       label: opt.facebookBlkLabelSite,
