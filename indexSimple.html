@@ -561,7 +561,7 @@
     // Set up GrapesJS editor with the plugin
     var editor = grapesjs.init({
       height: "1100px",
-      //noticeOnUnload: 0,
+      width: '100%',
       storageManager: {
         autoload: 0,
       },
@@ -592,14 +592,15 @@
                     }
                     `,
       blockManager: { appendOnClick: 1 },
+      container: "#gjs",
+      fromElement: true,
+      // panels: { defaults: [] },
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },
-      plugins: ["gjs-preset-ostendis"],
+      plugins: ["gjs-preset-ostendis-simple"],
       pluginsOpts: {
-        "gjs-preset-ostendis": {
+        "gjs-preset-ostendis-simple": {
           modalLabelImport: "Paste all your code here below and click import",
           modalLabelExport: "Copy the code and use it wherever you want",
-          codeViewerTheme: "material",
-          //defaultTemplate: templateImport,
           importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
           categoryLabel: "Default",
         },

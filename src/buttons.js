@@ -1,7 +1,7 @@
 define(function() {
   const tltAttr = 'title';
   const tltPosAttr = 'data-tooltip-pos';
-  
+
   let updateTooltip = (coll) => {
     coll.each((item) => {
       var attrs = item.get('attributes');
@@ -22,7 +22,7 @@ define(function() {
       attributes: {
         [tltAttr]: opt.cmdBtnUndoLabel,
       }
-    })
+    });
 
     // Add redo
     pnm.addButton('options', {
@@ -32,7 +32,7 @@ define(function() {
       attributes: {
         [tltAttr]: opt.cmdBtnRedoLabel,
       }
-    })
+    });
 
     let optPanel = pnm.getPanel('options');
 
@@ -62,7 +62,7 @@ define(function() {
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
 
-      // Fix tooltip position 
+      // Fix tooltip position
       updateTooltip(cmdBtns);
     }
 

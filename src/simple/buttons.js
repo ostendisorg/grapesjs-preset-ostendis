@@ -1,7 +1,7 @@
 define(function() {
   const tltAttr = 'title';
   const tltPosAttr = 'data-tooltip-pos';
-  
+
   let updateTooltip = (coll) => {
     coll.each((item) => {
       var attrs = item.get('attributes');
@@ -22,7 +22,7 @@ define(function() {
       attributes: {
         [tltAttr]: opt.cmdBtnUndoLabel,
       }
-    })
+    });
 
     // Add redo
     pnm.addButton('options', {
@@ -32,7 +32,7 @@ define(function() {
       attributes: {
         [tltAttr]: opt.cmdBtnRedoLabel,
       }
-    })
+    });
 
     let optPanel = pnm.getPanel('options');
 
@@ -62,7 +62,7 @@ define(function() {
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
 
-      // Fix tooltip position 
+      // Fix tooltip position
       updateTooltip(cmdBtns);
     }
 
@@ -71,7 +71,10 @@ define(function() {
 
     if(viewPanel){
       let cmdBtns = viewPanel.get('buttons');
-      //cmdBtns.reset();
+
+      // Set parameter active 
+      let tmBtn = pnm.getButton('views', 'open-tm'); 
+      tmBtn && tmBtn.set('active', 1);
       
       // Remove style manager
       let smBtn = pnm.removeButton('views', 'open-sm');
@@ -80,6 +83,10 @@ define(function() {
       // Remove layers
       let layBtn = pnm.removeButton('views', 'open-layers');
       layBtn && cmdBtns.remove(layBtn);
+
+      // Remove blocks
+       let blBtn = pnm.removeButton('views', 'open-blocks');
+       blBtn && cmdBtns.remove(layBtn);
 
       // Fix tooltip position 
       updateTooltip(cmdBtns);

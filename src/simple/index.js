@@ -1,5 +1,5 @@
 import grapesjs from "grapesjs";
-import styles from "./styles";
+///import styles from "./styles";
 
 export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts = {}) => {
   let c = opts;
@@ -285,7 +285,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts 
     }
 
     // Load styles (manager)
-    styles(editor);
+    //styles(editor);
 
     //Add clear function
     const sm = editor.StyleManager;
