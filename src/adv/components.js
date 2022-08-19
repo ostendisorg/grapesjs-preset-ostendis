@@ -112,7 +112,6 @@ define(function () {
     const nameTrait = {
       name: "name",
     };
-
     const valueTrait = {
       name: "value",
       label: opt.traitBlkValue,
