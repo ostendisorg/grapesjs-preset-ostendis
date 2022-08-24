@@ -216,17 +216,17 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts 
   }
 
   // On component change show the Style Manager
-  editor.on("change:selectedComponent", function () {
-    var openLayersBtn = editor.Panels.getButton("views", "open-layers");
+  // editor.on("change:selectedComponent", function () {
+  //   var openLayersBtn = editor.Panels.getButton("views", "open-layers");
 
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
-    if ((!openLayersBtn || !openLayersBtn.get("active")) && editor.editor.get("selectedComponent")) {
-      var openSmBtn = editor.Panels.getButton("views", "open-sm");
-      openSmBtn.set("attributes", { title: defaults.openSmBtnTitle });
-      openSmBtn && openSmBtn.set("active", 1);
-    }
-  });
+  //   // Don't switch when the Layer Manager is on or
+  //   // there is no selected component
+  //   if ((!openLayersBtn || !openLayersBtn.get("active")) && editor.editor.get("selectedComponent")) {
+  //     var openSmBtn = editor.Panels.getButton("views", "open-sm");
+  //     openSmBtn.set("attributes", { title: defaults.openSmBtnTitle });
+  //     openSmBtn && openSmBtn.set("active", 1);
+  //   }
+  // });
 
   editor.on("run:open-assets", () => {
     const modal = editor.Modal;
@@ -235,42 +235,42 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts 
 
   // Do stuff on load
   editor.on("load", function () {
-    var expTplBtn = editor.Panels.getButton("options", "export-template");
-    expTplBtn.set("attributes", {
-      title: defaults.expTplBtnTitle,
-    });
+    // var expTplBtn = editor.Panels.getButton("options", "export-template");
+    // expTplBtn.set("attributes", {
+    //   title: defaults.expTplBtnTitle,
+    // });
 
     // var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
     // fullScrBtn.set('attributes', {
     //   title: defaults.fullScrBtnTitle
     // });
 
-    var swichtVwBtn = editor.Panels.getButton("options", "sw-visibility");
-    swichtVwBtn.set("attributes", {
-      title: defaults.swichtVwBtnTitle,
-    });
+    // var swichtVwBtn = editor.Panels.getButton("options", "sw-visibility");
+    // swichtVwBtn.set("attributes", {
+    //   title: defaults.swichtVwBtnTitle,
+    // });
 
-    var openSmBtn = editor.Panels.getButton("views", "open-sm");
-    openSmBtn.set("attributes", {
-      title: defaults.openSmBtnTitle,
-    });
+    // var openSmBtn = editor.Panels.getButton("views", "open-sm");
+    // openSmBtn.set("attributes", {
+    //   title: defaults.openSmBtnTitle,
+    // });
 
     var openTmBtn = editor.Panels.getButton("views", "open-tm");
     openTmBtn.set("attributes", {
       title: defaults.openTmBtnTitle,
     });
 
-    var openLayersBtn = editor.Panels.getButton("views", "open-layers");
-    openLayersBtn.set("attributes", {
-      title: defaults.openLayersBtnTitle,
-    });
+    // var openLayersBtn = editor.Panels.getButton("views", "open-layers");
+    // openLayersBtn.set("attributes", {
+    //   title: defaults.openLayersBtnTitle,
+    // });
 
     // Open block manager
-    var openBlocksBtn = editor.Panels.getButton("views", "open-blocks");
-    openBlocksBtn.set("attributes", {
-      title: defaults.openBlocksBtnTitle,
-    });
-    openBlocksBtn && openBlocksBtn.set("active", 1);
+    // var openBlocksBtn = editor.Panels.getButton("views", "open-blocks");
+    // openBlocksBtn.set("attributes", {
+    //   title: defaults.openBlocksBtnTitle,
+    // });
+    // openBlocksBtn && openBlocksBtn.set("active", 1);
 
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
@@ -283,6 +283,29 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts 
       el.setAttribute("data-tooltip", title);
       el.setAttribute("title", "");
     }
+
+    // editor.on('component:drag:start', props => {
+    //   const { target } = props;
+    //   target.set({
+    //       draggable: false,
+    //       propagate: ['draggable']
+    //   });
+    // });
+
+    // editor.on('component:selected', () => {
+    //   const selected = editor.getSelected();
+    //   // if (!selected || !selected.get('draggable')) return;
+    //   // const el = selected.view.el;
+    //   selected.set({draggable: false,});
+    //  });
+
+
+    var allComponents = editor.getComponents();
+    console.log(allComponents);
+    // allComponents.foreach((item) => {
+    //   item.set({draggable: false,})
+    // });
+
 
     // Load styles (manager)
     //styles(editor);
