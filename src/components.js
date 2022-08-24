@@ -139,7 +139,7 @@ define(function () {
     // Unsorted list with fontawesome 5.x
     let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable=".ulist">
                         <span class="fa-li" style="left:-2em;width:2em;">
-                          <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit"></i>
+                          <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
                         </span>
                         <p data-gjs-selectable="false" style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;

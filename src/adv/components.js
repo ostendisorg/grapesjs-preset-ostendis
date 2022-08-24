@@ -141,7 +141,10 @@ define(function () {
     });
 
     // Unsorted list with fontawesome 5.x
-    let ulistitem = `<li><span class="fa-li" style="left:-2em;width:2em;"><i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit"></i></span>
+    let ulistitem = `<li>
+                        <span class="fa-li" style="left:-2em;width:2em;">
+                          <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                        </span>
                         <p style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
 
