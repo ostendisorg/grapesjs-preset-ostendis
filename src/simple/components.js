@@ -2,6 +2,9 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
+    // var allComponents = domComp.getComponents();
+    // console.log(allComponents);
+
     //add ostendis block  trait to default
     var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
     var defaultDataOstBlock = {
