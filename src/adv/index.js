@@ -124,6 +124,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     textBlkLabelAction: "Action",
     textBlkContentAction: "Call to action",
 
+    labelIconTooltip: "For more icons: change class name in style manager.",
     labelIconSelectMinus: "minus",
     labelIconSelectCircleSolid: "circle solid",
     labelIconSelectCircle: "circle",

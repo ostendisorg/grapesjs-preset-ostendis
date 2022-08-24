@@ -137,16 +137,15 @@ define(function () {
     });
 
     // Unsorted list with fontawesome 5.x
-    let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable="ul">
-                        <span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"  style="font-size:0.4rem;line-height:1.2rem"></i></span>
+    let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable=".ulist">
+                        <span class="fa-li"><i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4rem;line-height:inherit"></i></span>
                         <p data-gjs-selectable="false" style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
 
     domComp.addType("ulist", {
       model: {
         defaults: {
-          tagName: "ul",
-          droppable: false,
+          tagName: "ul", 
           attributes: { class: "ulist fa-ul" },
           style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
           components: ulistitem + ulistitem + ulistitem,
@@ -166,7 +165,7 @@ define(function () {
               name: "class",
               attributes: {
                 id: "select-fontawesome",
-                "data-tooltip": "For more icons: change class name in style manager.",
+                "data-tooltip": opt.labelIconTooltip,
                 "data-tooltip-pos": "bottom",
               },
               options: [
