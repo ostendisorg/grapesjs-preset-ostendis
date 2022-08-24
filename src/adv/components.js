@@ -141,7 +141,7 @@ define(function () {
     });
 
     // Unsorted list with fontawesome 5.x
-    let ulistitem = `<li><span class="fa-li"><i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4rem;line-height:inherit"></i></span>
+    let ulistitem = `<li><span class="fa-li" style="left:-1.4em;width:1.4em;"><i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit"></i></span>
                         <p style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
 
@@ -150,7 +150,7 @@ define(function () {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
+          style: { "padding":"0.2em 0", "margin-left" : "1.5em", "line-height" : "1em"}, 
           components: ulistitem + ulistitem + ulistitem,
         },
       },
