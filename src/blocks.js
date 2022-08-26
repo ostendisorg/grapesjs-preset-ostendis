@@ -16,7 +16,6 @@ define(function () {
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelOrg,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -37,7 +36,6 @@ define(function () {
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelOrgList,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -57,7 +55,6 @@ define(function () {
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelIntro,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -78,7 +75,6 @@ define(function () {
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelIntroList,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -98,7 +94,6 @@ define(function () {
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelDesc,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -119,7 +114,6 @@ define(function () {
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelDescList,
-        type: 'text',
         components: [
           {
             type: 'text',
@@ -138,7 +132,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -158,7 +151,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -178,7 +170,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -198,7 +189,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -218,7 +208,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -238,7 +227,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
@@ -258,7 +246,6 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
