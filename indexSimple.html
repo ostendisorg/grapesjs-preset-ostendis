@@ -12,6 +12,9 @@
 
   <script src="//unpkg.com/grapesjs@0.18.4/dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis-simple.min.js"></script>
+  <!-- <script
+    src="https://cdn.jsdelivr.net/npm/grapesjs-plugin-ckeditor@0.0.10/dist/grapesjs-plugin-ckeditor.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.19.1/full-all/ckeditor.js"></script>-->
 </head>
 <style>
   body,
@@ -595,6 +598,7 @@
       container: "#gjs",
       fromElement: true,
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },
+      //plugins: ["gjs-preset-ostendis-simple", "gjs-plugin-ckeditor"],
       plugins: ["gjs-preset-ostendis-simple"],
       pluginsOpts: {
         "gjs-preset-ostendis-simple": {
