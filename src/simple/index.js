@@ -253,8 +253,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-simple", (editor, opts 
         pastedText = e.clipboardData.getData('text/plain');
       }
       e.target.ownerDocument.execCommand("insertText", false, pastedText);
-      //alert(pastedText); // Process and handle text...
-      return false; // Prevent the default handler from running.
+      return false; // Prevent the default handler
 
       //e.preventDefault();
       //var text = e.clipboardData.getData('text/plain');
