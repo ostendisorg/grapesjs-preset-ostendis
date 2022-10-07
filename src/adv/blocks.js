@@ -172,7 +172,7 @@ define(function () {
       content:
       `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
           <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 38.2%; min-width:200px; padding:20px;"></div>
-          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 61.8%; min-width:280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 61.8%; padding:20px;"></div>
        </div>`,
     });
 
@@ -182,9 +182,9 @@ define(function () {
       attributes: { class: "gjs-fonts gjs-f-b3" },
       content:
       `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
-          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
-          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
-          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
        </div>`,
     });
 
