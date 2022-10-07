@@ -376,7 +376,41 @@ define(function () {
         },
       }
     });
+    
+    bm.add("sect55", {
+      label: opt.sect55BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b2" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+       </div>`,
+    });
 
+    bm.add("sect37", {
+      label: opt.sect37BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b37" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 38.2%; min-width:200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 61.8%; min-width:280px; padding:20px;"></div>
+       </div>`,
+    });
+
+    bm.add("sect333", {
+      label: opt.sect333BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b3" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+       </div>`,
+    });
+    
     bm.add("box", {
       label: "Box",
       category: opt.categoryLabel,

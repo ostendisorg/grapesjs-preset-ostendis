@@ -40,21 +40,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     importPlaceholder: "",
     defaultTemplate: "", // Default template in case the canvas is empty
     inlineCss: 1,
-    cellStyle: {
-      padding: 0,
-      margin: 0,
-      "vertical-align": "top",
-    },
-    tableStyle: {
-      height: "150px",
-      margin: "0 auto 10px auto",
-      padding: "5px 5px 5px 5px",
-      width: "100%",
-    },
-    sect100BlkLabel: "1 Section",
-    sect50BlkLabel: "1/2 Section",
-    sect30BlkLabel: "1/3 Section",
-    sect37BlkLabel: "3/7 Section",
 
     dividerBlkLabel: "Divider",
     textSectionBlkLabel: "Text Section",
@@ -92,8 +77,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitBlkValue: "Value",
     textBlkLabel: "Text",
     textBlkLabelWithSpace: "Text with spacing",
-
+    sect333BlkLabel: "1/1/1 Columns",
+    sect55BlkLabel: "1/1 Columns",
+    sect37BlkLabel: "3/7 Columns",
     textBlkOstType: "Block",
+
     textBlkLabelOrg: "Organization",
     textBlkLabelOrgList: "Organization List",
     textBlkTitleOrg: "Organization Header",

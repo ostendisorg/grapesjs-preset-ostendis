@@ -7,6 +7,9 @@
 .#{$app-prefix}two-color{
   color: $fontColor;
 }
+.#{$app-prefix}blocks-c{
+  background-color: #F2f2f2;
+}
 
 .#{$app-prefix}pn-commands, .#{$app-prefix}pn-views-container {
   box-shadow: none;

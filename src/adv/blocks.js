@@ -64,7 +64,6 @@ define(function () {
       attributes: { class: "gjs-fonts gjs-f-button" },
     });
 
-    
 
     bm.add("divider", {
       label: opt.dividerBlkLabel,
@@ -155,6 +154,40 @@ define(function () {
       },
     });
 
+    bm.add("sect55", {
+      label: opt.sect55BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b2" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+       </div>`,
+    });
+
+    bm.add("sect37", {
+      label: opt.sect37BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b37" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 38.2%; min-width:200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 61.8%; min-width:280px; padding:20px;"></div>
+       </div>`,
+    });
+
+    bm.add("sect333", {
+      label: opt.sect333BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b3" },
+      content:
+      `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+       </div>`,
+    });
+
     bm.add("box", {
       label: "Box",
       category: opt.categoryLabel,
@@ -199,59 +232,6 @@ define(function () {
         },
       },
     });
-
-    // let gridItem = `<table class="grid-item-card">
-    //     <tr>
-    //       <td class="grid-item-card-cell">
-    //         <img class="grid-item-image" src="http://placehold.it/250x150/78c5d6/fff/" alt="Image"/>
-    //         <table class="grid-item-card-body">
-    //           <tr>
-    //             <td class="grid-item-card-content">
-    //               <h1 class="card-title">Title here</h1>
-    //               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-    //             </td>
-    //           </tr>
-    //         </table>
-    //       </td>
-    //     </tr>
-    //   </table>`;
-
-    // bm.add("grid-items", {
-    //   label: opt.gridItemsBlkLabel,
-    //   category: opt.categoryLabel,
-    //   content: `<table class="grid-item-row">
-    //     <tr>
-    //       <td class="grid-item-cell2-l">${gridItem}</td>
-    //       <td class="grid-item-cell2-r">${gridItem}</td>
-    //     </tr>
-    //   </table>`,
-    //   attributes: { class: "fa fa-th" },
-    // });
-
-    // let listItem = `<table class="list-item">
-    //     <tr>
-    //       <td class="list-item-cell">
-    //         <table class="list-item-content">
-    //           <tr class="list-item-row">
-    //             <td class="list-cell-left">
-    //               <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image"/>
-    //             </td>
-    //             <td class="list-cell-right">
-    //               <h1 class="card-title">Title here</h1>
-    //               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-    //             </td>
-    //           </tr>
-    //         </table>
-    //       </td>
-    //     </tr>
-    //   </table>`;
-
-    // bm.add("list-items", {
-    //   label: opt.listItemsBlkLabel,
-    //   category: opt.categoryLabel,
-    //   content: listItem + listItem,
-    //   attributes: { class: "fa fa-th-list" },
-    // });
 
     bm.add("input-range", {
       label: opt.inputRangeBlkLabel,

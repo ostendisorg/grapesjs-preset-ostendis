@@ -25,7 +25,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     modalLabelExport: "",
     modalBtnImport: "Import",
     codeViewerTheme: "material",
-    dividerBlkLabel: "Divider",
     openBlocksBtnTitle: c.openBlocksBtnTitle || "",
     openLayersBtnTitle: c.openLayersBtnTitle || "",
     openSmBtnTitle: c.openSmBtnTitle || "",
@@ -37,32 +36,26 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     importPlaceholder: "",
     defaultTemplate: "", // Default template in case the canvas is empty
     inlineCss: 1,
-    cellStyle: {
-      padding: 0,
-      margin: 0,
-      "vertical-align": "top",
-    },
-    tableStyle: {
-      height: "150px",
-      margin: "0 auto 10px auto",
-      padding: "5px 5px 5px 5px",
-      width: "100%",
-    },
-    buttonBlkLabel: "Button",
-    buttonApplyBlkLabel: "Apply button",
-    buttonApplyBlkText: "Apply here",
-    applyQrCodeBlkLabel: "Apply QR code",
-    traitBlkValue: "Value",
-    textBlkLabel: "Text",
-    textBlkLabelWithSpace: "Text with spacing",
+
+    dividerBlkLabel: "Divider",
     ulistBlkLabel: "List",
     iconBlkLabel: "Icon",
     imageBlkLabel: "Image",
     videoBlkLabel: "Video",
     mapBlkLabel: "Map",
     linkBlkLabel: "Link",
-    
+    buttonBlkLabel: "Button",
+    buttonApplyBlkLabel: "Apply button",
+    buttonApplyBlkText: "Apply here",
+    applyQrCodeBlkLabel: "Apply link QR code",
+    traitBlkValue: "Value",
+    textBlkLabel: "Text",
+    textBlkLabelWithSpace: "Text with spacing",
+    sect333BlkLabel: "1/1/1 Columns",
+    sect55BlkLabel: "1/1 Columns",
+    sect37BlkLabel: "3/7 Columns",
     textBlkOstType: "Block",
+
     textBlkLabelOrg: "Organization",
     textBlkLabelOrgList: "Organization List",
     textBlkTitleOrg: "Organization Header",
@@ -194,7 +187,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   editor.on("load", function () {
     // Title translation
     var openTmBtn = editor.Panels.getButton("views", "open-tm");
-
     openTmBtn.set("attributes", {
       title: defaults.openTmBtnTitle,
     });
@@ -208,11 +200,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton("views", "open-blocks");
-
     openBlocksBtn.set("attributes", {
       title: defaults.openBlocksBtnTitle,
     });
-
     openBlocksBtn && openBlocksBtn.set("active", 1);
 
     // Beautify tooltips
@@ -226,5 +216,20 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       el.setAttribute("data-tooltip", title);
       el.setAttribute("title", "");
     }
+
+    // Paste only plain text
+    var iframeBody = editor.Canvas.getBody();
+    iframeBody.onpaste = function(e) {
+
+      var pastedText = undefined;
+      if (window.clipboardData && window.clipboardData.getData) { // IE
+        pastedText = window.clipboardData.getData('Text');
+      } 
+      else if (e.clipboardData && e.clipboardData.getData) {
+        pastedText = e.clipboardData.getData('text/plain');
+      }
+      e.target.ownerDocument.execCommand("insertText", false, pastedText);
+      return false; // Prevent the default handler
+    };
   });
 });
