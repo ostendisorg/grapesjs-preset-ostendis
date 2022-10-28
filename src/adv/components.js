@@ -1,5 +1,3 @@
-import { openStdin } from "process";
-
 define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;

@@ -1,17 +1,7 @@
 define(function () {
   return (opt = {}) => {
-    let tableStyleStr = "";
-    let cellStyleStr = "";
     let editor = opt.editor;
-    let tableStyle = opt.tableStyle || {};
-    let cellStyle = opt.cellStyle || {};
     let bm = editor.BlockManager;
-    for (let prop in tableStyle) {
-      tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
-    }
-    for (let prop in cellStyle) {
-      cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
-    }
     bm.getAll().reset();
 
     bm.add("applyQrCode", {
