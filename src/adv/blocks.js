@@ -725,7 +725,7 @@ define(function () {
           "text-decoration": "none",
         },
         attributes: {
-          href: "https://wa.me/?text=$$$ViewLink$$$&text=",
+          href: "https://wa.me/?text=$$$ViewLink$$$",
           target: "_blank",
         },
         components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
