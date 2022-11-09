@@ -2,9 +2,8 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
-    //add ostendis block  trait to default
-    var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
-    var defaultDataOstBlock = {
+    //define ostendis type trait for text and default components
+    const ostTypeTextTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -31,16 +30,34 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     };
-    if(defaultTraits.findIndex(element => element.name == defaultDataOstBlock.name) == -1){
-        defaultTraits.push(defaultDataOstBlock);
-    }
 
-    //add ostendis block trait to image
-    var imgTraits = domComp.getType("image").model.prototype.defaults.traits;
-    var imageDataOstBlock = {
+    //add ostendis type trait to text components
+    domComp.addType("text", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //add ostendis type trait to default components
+    domComp.addType("default", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //define ostendis type trait for images
+    const ostTypeImageTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
+      attributes: {
+        "data-tooltip": opt.traitBlkOstendisTooltip,
+        "data-tooltip-pos": "bottom",
+      },
       options: [
         { id: "", name: opt.traitOstNone },
         { id: "logoPicURL", name: opt.traitOstLogoPicURL },
@@ -55,11 +72,17 @@ define(function () {
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
       ],
     };
-    if(imgTraits.findIndex(element => element.name == imageDataOstBlock.name) == -1){
-      imgTraits.push(imageDataOstBlock);
-    }
 
-    //add ostendis block trait to video
+    //add ostendis type trait to image components
+    domComp.addType("image", {
+      model: {
+        defaults: {
+          traits: ["alt", ostTypeImageTrait],
+        },
+      },
+    });
+
+    //add ostendis block trait to video components
     var dType = domComp.getType("video");
     var dModel = dType.model;
     var dView = dType.view;
@@ -137,7 +160,7 @@ define(function () {
     });
 
     // Unsorted list with fontawesome 5.x
-    let ulistitem =   `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable=".ulist">
+    let ulistitem = `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable=".ulist">
                         <span class="fa-li" style="left:-2em;width:2em;">
                           <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
                         </span>
@@ -147,14 +170,14 @@ define(function () {
     domComp.addType("ulist", {
       model: {
         defaults: {
-          tagName: "ul", 
+          tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
+          style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
           components: ulistitem + ulistitem + ulistitem,
         },
       },
     });
-    
+
     domComp.addType("icon", {
       model: {
         defaults: {

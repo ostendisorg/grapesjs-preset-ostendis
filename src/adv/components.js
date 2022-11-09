@@ -2,9 +2,8 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
-    //add ostendis block  trait to default
-    var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
-    var defaultDataOstBlock = {
+    //define ostendis type trait for text and default components
+    const ostTypeTextTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -31,16 +30,34 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     };
-    if(defaultTraits.findIndex(element => element.name == defaultDataOstBlock.name) == -1){
-        defaultTraits.push(defaultDataOstBlock);
-    }
 
-    //add ostendis block trait to image
-    var imgTraits = domComp.getType("image").model.prototype.defaults.traits;
-    var imageDataOstBlock = {
+    //add ostendis type trait to text components
+    domComp.addType("text", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //add ostendis type trait to default components
+    domComp.addType("default", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //define ostendis type trait for images
+    const ostTypeImageTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
+      attributes: {
+        "data-tooltip": opt.traitBlkOstendisTooltip,
+        "data-tooltip-pos": "bottom",
+      },
       options: [
         { id: "", name: opt.traitOstNone },
         { id: "logoPicURL", name: opt.traitOstLogoPicURL },
@@ -55,9 +72,15 @@ define(function () {
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
       ],
     };
-    if(imgTraits.findIndex(element => element.name == imageDataOstBlock.name) == -1){
-      imgTraits.push(imageDataOstBlock);
-    }
+
+    //add ostendis type trait to image components
+    domComp.addType("image", {
+      model: {
+        defaults: {
+          traits: ["alt", ostTypeImageTrait],
+        },
+      },
+    });
 
     //add ostendis block trait to video
     var dType = domComp.getType("video");
