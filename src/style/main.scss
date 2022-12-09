@@ -355,6 +355,34 @@
 .text-danger {
   color: #f92929;
 }
+/* Alert Modal */
+.alert .gjs-mdl-dialog{
+  width: 480px;
+  max-width: 100%;
+}
+.alert .gjs-mdl-header {
+  background-color: orange;
+  color: #FFF;
+}
+.alert strong,
+.alert b{
+font-weight: bold;
+}
+.alert button.ok{
+  margin: 15px auto;
+  display: flex;
+  background-color: #FFF;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  color: currentColor;
+  border: none;
+  font-weight: normal;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.alert button.ok:hover{
+background-color: #DFDFDF;
+}
 
 /* Ostendis Block Traits */
 .#{$app-prefix}trt-trait__wrp-data-ost-type {

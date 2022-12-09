@@ -139,6 +139,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
+    assetsModalWarningTitle: "Warning!",
+    assetsModalUploadImgToLarge: "Images too large. Maximum size:",
+
     assetsModalTitle: c.assetsModalTitle || "Select image",
   };
 
@@ -181,6 +184,36 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   editor.on("run:open-assets", () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);
+  });
+
+  // limit file size
+  editor.on('asset:upload:response', (response) => {
+    const asstm = editor.AssetManager;
+    var maxFileSize = 1048576;
+    var uploadData = response.data;
+    var toLargeImages = "";
+    uploadData.forEach(function(imgData){
+      var base64str = imgData.src.split(',')[1];
+      var decoded = Buffer.from(base64str, 'base64')
+      //console.log(imgData.name +": "+ formatBytes(decoded.length));
+
+      if(decoded.length > maxFileSize){
+        toLargeImages += "<li><small>" +imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
+      }
+      else{
+        asstm.add(imgData);
+      }
+    });
+    if(toLargeImages !== ""){
+      const modal = editor.Modal;
+      modal.open({
+        title: defaults.assetsModalWarningTitle,
+        content: "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p>" +
+                  "<ul>" + toLargeImages + "</ul><br>" +
+                  "<button class='gjs-btn-prim ok' onclick='editor.Modal.close();editor.AssetManager.open();'>Ok</button>",
+        attributes: { class: 'alert' },
+      });
+    }
   });
 
   // Do stuff on load
@@ -233,3 +266,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     };
   });
 });
+
+function formatBytes(bytes,decimals) {
+  if(bytes == 0) return '0 Bytes';
+  var k = 1024,
+      dm = decimals || 2,
+      sizes = ['Bytes', 'KB', 'MB', 'GB'],
+      i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}

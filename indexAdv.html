@@ -568,26 +568,7 @@
       assetManager: {
         assets: images,
         multiUpload: true,
-        // beforeUpload: (files) => {
-        //   console.log(files);
-        //   var maxFilesize = 3300000;
-        //   var errorMessage = "";
-        //   var error = false;
-
-        //   for (let i = 0; i < files.length; i++) {
-        //     console.log("in for looop " + files[i].size + "\n" + files[i].size);
-        //     if (files[i].size > maxFilesize) {
-        //       console.log("in loop & if " + files[i].name);
-        //       errorMessage += "Das Bild " + files[i].name + " ist zu gross! (" + files[i].size + ")\n";
-        //       error = true;
-        //     }
-        //   }
-        //   if (!error) {
-        //     return true;
-        //   }
-        //   console.log(errorMessage + "\n" + "Bilder dürfen maximal " + maxFilesize + " gross sein.");
-        //   return false;
-        // },
+        autoAdd: false,
       },
       canvas: {
         styles: ["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
@@ -622,7 +603,6 @@
         },
       },
     });
-    //function formatBytes(a, b = 2, k = 1024){ with (Math) { let d = floor(log(a) / log(k)); return 0 == a ? "0 Bytes" : parseFloat((a / pow(k, d)).toFixed(max(0, b))) + " " + ["Bytes", "KB", "MB", "GB", "TB"][d] } }
   </script>
 </body>
 
