@@ -245,12 +245,24 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     });
     if(toLargeImages !== ""){
       const modal = editor.Modal;
+
+      const btnOk = document.createElement('button');
+      btnOk.innerHTML = 'Ok';
+      btnOk.className = 'gjs-btn-prim ok';
+      btnOk.onclick = function() {
+        modal.close();
+        asstm.open();
+      };
+    
+      const contentContainer = document.createElement('div');
+      const contentHtml = "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p><ul>" + toLargeImages + "</ul>";
+      contentContainer.innerHTML = contentHtml;
+      contentContainer.appendChild(btnOk)
+
       modal.open({
         title: defaults.assetsModalWarningTitle,
-        content: "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p>" +
-                  "<ul>" + toLargeImages + "</ul><br>" +
-                  "<button class='gjs-btn-prim ok' onclick='editor.Modal.close();editor.AssetManager.open();'>Ok</button>",
-        attributes: { class: 'alert' },
+        content: contentContainer,
+        attributes: {class:"alert",},
       });
     }
   });

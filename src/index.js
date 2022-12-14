@@ -198,7 +198,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       //console.log(imgData.name +": "+ formatBytes(decoded.length));
 
       if(decoded.length > maxFileSize){
-        toLargeImages += "<li><small>" +imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
+        toLargeImages += "<li><small>" + imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
       }
       else{
         asstm.add(imgData);
