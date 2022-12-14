@@ -296,20 +296,39 @@
 .text-danger {
   color: #f92929; }
 
-/* Alert Modal */
-.alert .gjs-mdl-dialog {
-  width: 480px;
-  max-width: 100%; }
+/* Alert Upload Modal */
+#alert-msg {
+  position: absolute;
+  background-color: #fff;
+  top: 15px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 370px;
+  z-index: 999;
+  border-radius: 5px;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.5); }
 
-.alert .gjs-mdl-header {
+#alert-msg .header {
   background-color: orange;
-  color: #FFF; }
+  color: #FFF;
+  padding: 5px 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 50px; }
 
-.alert strong,
-.alert b {
+#alert-msg .content {
+  padding: 10px 15px;
+  height: 285px; }
+
+#alert-msg .content .files {
+  overflow-y: scroll;
+  max-height: 180px; }
+
+#alert-msg strong,
+#alert-msg b {
   font-weight: bold; }
 
-.alert button.ok {
+#alert-msg button.ok {
   margin: 15px auto;
   display: flex;
   background-color: #FFF;
@@ -321,7 +340,7 @@
   font-size: 1.1rem;
   cursor: pointer; }
 
-.alert button.ok:hover {
+#alert-msg button.ok:hover {
   background-color: #DFDFDF; }
 
 /* Ostendis Block Traits */

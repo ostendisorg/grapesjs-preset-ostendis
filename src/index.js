@@ -195,7 +195,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     uploadData.forEach(function(imgData){
       var base64str = imgData.src.split(',')[1];
       var decoded = Buffer.from(base64str, 'base64')
-      //console.log(imgData.name +": "+ formatBytes(decoded.length));
 
       if(decoded.length > maxFileSize){
         toLargeImages += "<li><small>" + imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
@@ -206,13 +205,17 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     });
     if(toLargeImages !== ""){
       const modal = editor.Modal;
-      modal.open({
-        title: defaults.assetsModalWarningTitle,
-        content: "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p>" +
-                  "<ul>" + toLargeImages + "</ul><br>" +
-                  "<button class='gjs-btn-prim ok' onclick='editor.Modal.close();editor.AssetManager.open();'>Ok</button>",
-        attributes: { class: 'alert' },
-      });
+      const alertMsg = "<div id='alert-msg'>" + 
+                          "<div class='header'><h3>" + defaults.assetsModalWarningTitle + "</h3></div>" +
+                          "<div class='content'>" + 
+                            "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p>" +
+                            "<div class='files'>" +
+                              "<ul>" + toLargeImages + "</ul>" +
+                            "</div>" + 
+                            "<button class='ok' onclick='document.getElementById(\"alert-msg\").style.display = \"none\";'>ok</button>" +
+                          "</div>" + 
+                        "</div>";
+      modal.setTitle(defaults.assetsModalTitle + alertMsg);
     }
   });
 
