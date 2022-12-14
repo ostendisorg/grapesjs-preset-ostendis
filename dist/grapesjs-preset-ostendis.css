@@ -311,7 +311,7 @@
 #alert-msg .header {
   background-color: orange;
   color: #FFF;
-  padding: 5px 15px;
+  padding: 15px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   height: 50px; }
@@ -322,6 +322,7 @@
 
 #alert-msg .content .files {
   overflow-y: scroll;
+  min-height: 100px;
   max-height: 180px; }
 
 #alert-msg strong,
