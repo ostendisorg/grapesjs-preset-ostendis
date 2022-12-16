@@ -139,7 +139,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    assetsModalWarningTitle: "Warning!",
+    assetsModalWarningTitle: "Warning",
     assetsModalUploadImgToLarge: "Images too large. Maximum size:",
 
     assetsModalTitle: c.assetsModalTitle || "Select image",
