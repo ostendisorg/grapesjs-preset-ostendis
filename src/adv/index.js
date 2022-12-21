@@ -228,31 +228,35 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   // limit file size
   editor.on('asset:upload:response', (response) => {
     const asstm = editor.AssetManager;
-    var maxFileSize = 1048576;
-    var uploadData = response.data;
-    var toLargeImages = "";
+    let maxFileSize = 1048576; //1MB
+    let uploadData = response.data;
+    let toLargeImages = "";
+
     uploadData.forEach(function(imgData){
-      var base64str = imgData.src.split(',')[1];
-      var decoded = Buffer.from(base64str, 'base64')
+      let base64str = imgData.src.split(',')[1];
+      let decoded = Buffer.from(base64str, 'base64');
 
       if(decoded.length > maxFileSize){
-        toLargeImages += "<li><small>" +imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
+        toLargeImages += "<li><small>" + imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
       }
       else{
         asstm.add(imgData);
       }
     });
+
     if(toLargeImages !== ""){
-      const modal = editor.Modal;
-      const alertMsg = "<div id='alert-msg'>" + 
-                          "<div class='header'><h3>" + defaults.assetsModalWarningTitle + "</h3></div>" +
-                          "<div class='content'>" + 
-                            "<p>" + defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong></p>" +
-                            "<div class='files'>" +
-                              "<ul>" + toLargeImages + "</ul>" +
-                            "</div>" + 
-                            "<button class='ok' onclick='document.getElementById(\"alert-msg\").style.display = \"none\";'>ok</button>" +
-                          "</div>" + 
+        const modal = editor.Modal;
+        const alertMsg = "<div id='alert-msg-overlay' data-random='" + Date.now() + "' >" +
+                          "<div class='alert-msg'>" +
+                            "<div class='header'><h3><span>!</span>" + defaults.assetsModalWarningTitle + "</h3></div>" +
+                            "<div class='content'>" +
+                              defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
+                              "<div class='files'>" +
+                                "<ul>" + toLargeImages + "</ul>" +
+                              "</div>" +
+                              "<button class='ok' onclick='document.getElementById(\"alert-msg-overlay\").remove();'>ok</button>" +
+                            "</div>" +
+                          "</div>" +
                         "</div>";
       modal.setTitle(defaults.assetsModalTitle + alertMsg);
     }
