@@ -139,9 +139,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    assetsModalTitle: "Select image",
-    assetsModalWarningTitle: "Warning",
-    assetsModalUploadImgToLarge: "Images too large. Maximum size:",   
+    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
+    assetsModalTitle: "Bild auswählen", 
+    assetsModalWarningTitle: "Warnung",
+    assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",   
   };
 
   // Change some config
@@ -191,10 +192,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     let maxFileSize = 1048576; //1MB
     let uploadData = response.data;
     let toLargeImages = "";
-    let translations = {
-      "alertModalWarningTitle" : defaults.assetsModalWarningTitle,
-      "alertModalWarningMsg" : defaults.assetsModalUploadImgToLarge
-    };
 
     uploadData.forEach(function(imgData){
       let base64str = imgData.src.split(',')[1];
@@ -212,9 +209,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       const modal = editor.Modal;
       const alertMsg = "<div id='alert-msg-overlay' data-random='" + Date.now() + "' >" +
                         "<div class='alert-msg'>" +
-                          "<div class='header'><h3><span>!</span>" + translations.alertModalWarningTitle + "</h3></div>" +
+                          "<div class='header'><h3><span>!</span>" + defaults.assetsModalWarningTitle + "</h3></div>" +
                           "<div class='content'>" +
-                            translations.alertModalWarningMsg + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
+                            defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
                             "<div class='files'>" +
                               "<ul>" + toLargeImages + "</ul>" +
                             "</div>" +
