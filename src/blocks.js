@@ -432,7 +432,7 @@ define(function () {
     bm.add("divider", {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
-      content: '<hr style="border-top: 1px solid #2b303b;" />',
+      content: '<hr style="border-top: 1px solid #2b303b;">',
       attributes: { class: "gjs-fonts gjs-f-divider" },
     });
   };

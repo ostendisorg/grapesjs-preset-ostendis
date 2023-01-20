@@ -327,14 +327,12 @@
     .alert-msg .header h3 {
       margin: 0; }
       .alert-msg .header h3 span {
-        margin-right: 15px; }
+        margin-right: 10px; }
   .alert-msg .content {
     padding: 20px;
-    /*height: 200px;*/
     box-sizing: border-box; }
     .alert-msg .content .files {
       overflow-y: auto;
-      /*height: 100px;*/
       margin: 15px 0; }
       .alert-msg .content .files ul {
         margin: 5px;

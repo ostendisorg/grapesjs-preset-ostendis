@@ -139,10 +139,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
+    assetsModalTitle: "Select image",
+    
     assetsModalWarningTitle: "Warning",
     assetsModalUploadImgToLarge: "Images too large. Maximum size:",
 
-    assetsModalTitle: c.assetsModalTitle || "Select image",
+    
   };
 
   // Change some config
@@ -206,19 +208,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     });
 
     if(toLargeImages !== ""){
-        const modal = editor.Modal;
-        const alertMsg = "<div id='alert-msg-overlay' data-random='" + Date.now() + "' >" +
-                          "<div class='alert-msg'>" +
-                            "<div class='header'><h3><span>!</span>" + defaults.assetsModalWarningTitle + "</h3></div>" +
-                            "<div class='content'>" +
-                              defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
-                              "<div class='files'>" +
-                                "<ul>" + toLargeImages + "</ul>" +
-                              "</div>" +
-                              "<button class='ok' onclick='document.getElementById(\"alert-msg-overlay\").remove();'>ok</button>" +
-                            "</div>" +
-                          "</div>" +
-                        "</div>";
+      const modal = editor.Modal;
+      const alertMsg = "<div id='alert-msg-overlay' data-random='" + Date.now() + "' >" +
+                         "<div class='alert-msg'>" +
+                           "<div class='header'><h3><span>!</span>" + defaults.assetsModalWarningTitle + "</h3></div>" +
+                           "<div class='content'>" +
+                             defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
+                             "<div class='files'>" +
+                               "<ul>" + toLargeImages + "</ul>" +
+                             "</div>" +
+                             "<button class='ok' onclick='document.getElementById(\"alert-msg-overlay\").remove();'>ok</button>" +
+                           "</div>" +
+                         "</div>" +
+                       "</div>";
       modal.setTitle(defaults.assetsModalTitle + alertMsg);
     }
   });
