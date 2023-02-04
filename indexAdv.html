@@ -92,6 +92,36 @@
                     </td>
                   </tr>
                 </table>
+                <ul class="ulist fa-ul" data-gjs-type="ulist">
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 1</p>
+                  </li>
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 2</p>
+                  </li>
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 3</p>
+                  </li>
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 4</p>
+                  </li>
+                </ul>
                 <table class="card">
                   <tr>
                     <td class="card-cell">
@@ -226,7 +256,6 @@
         </td>
       </tr>
     </table>
-
     <style>
       .link {
         color: rgb(217, 131, 166);
@@ -587,6 +616,30 @@
                     .gjs-dashed [data-ost-type="videoURL"]{
                       outline: dashed 1px #FF8200;
                       outline-offset: -3px;
+                    }
+                    li.gjs-show-add-btn .gjs-add-list-item-btn{
+                      display: block;
+                    }
+                    .gjs-btn-container{
+                      position: relative;
+                      height:0;
+                      width:100%;
+                      min-width: 30px;
+                    }
+                    .gjs-add-list-item-btn{
+                      display: none;
+                      position: absolute;
+                      bottom: -8px;
+                      right: 5px;
+                      width: 22px;
+                      padding: 0;
+                      font-weight: bold;
+                      background-color: #3b5998;
+                      border: none;
+                      color: #fff;
+                      border-radius: 50%;
+                      line-height: 22px;
+                      cursor: pointer;
                     }
                     `,
       blockManager: { appendOnClick: 1 },

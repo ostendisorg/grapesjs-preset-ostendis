@@ -161,23 +161,92 @@ define(function () {
       },
     });
 
+    // Unsorted list item
+    const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
+                                <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                              </span>
+                              <p style="margin:0;padding:0;text-align:left;">Text</p>`;
+    domComp.addType("ulistitem", {
+      isComponent: el => {
+        if(el.tagName === 'li' && el.isChildOf('ulist')){
+          return { type: 'ulistitem' };
+        }
+      },
+      model: {
+        defaults: {
+          tagName: "li",
+          draggable: "ul",
+          attributes: { class: "ulistitem" },
+          style: { "text-align":"left" }, 
+          components: ulistItemContent,
+        },
+      },
+    });
+  
     // Unsorted list with fontawesome 5.x
-    let ulistitem =   `<li style="text-align:left">
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
                         <span class="fa-li" style="left:-2em;width:2em;">
                           <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
                         </span>
                         <p style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
-
     domComp.addType("ulist", {
+      isComponent: el => {
+        if(el.tagName === 'ul' && el.classList.contains('ulist')){
+          return { type: 'ulist' };
+        }
+      },
       model: {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
           style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
-          components: ulistitem + ulistitem + ulistitem,
+          components: ulListItem + ulListItem + ulListItem,
         },
       },
+      // view:{
+      //   tagName: "ul",
+      //   events: {
+      //     click: 'showListAddBtn',
+      //     'change li': 'showListAddBtnParent',
+      //     'change li p': 'showListAddBtnGrandParent',
+      //   },
+      //   showListAddBtn(){
+      //     console.log("ul");
+      //     console.log(this.el);
+      //     console.log(this.el);
+      //     //if(this.el.classList.contains('gjs-selected')){
+      //     //  this.el.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
+      //     //}
+      //     //this.el.querySelector('.gjs-add-list-item-btn').style.display = 'none';
+      //   },
+      //   showListAddBtnParent(){
+      //     console.log("ul li");
+      //     this.el.parentElement.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
+      //   },
+      //   showListAddBtnGrandParent(){
+      //     console.log("ul li p");
+      //     this.el.parentElement.parentElement.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
+      //   },
+      //   // onRender({ el, model, view}){
+      //   //   var pos = 1;
+      //   //   el.childNodes.forEach(function(childEl) {
+      //   //     const div = document.createElement('div');
+      //   //     div.classList.add('gjs-btn-container');
+      //   //     const btn = document.createElement('button');
+      //   //     btn.innerHTML = '+';
+      //   //     btn.classList.add("gjs-add-list-item-btn");
+      //   //     btn.title = "Listenelement hinzufügen pos:" + pos;
+      //   //     btn.addEventListener('click', () => {
+      //   //       model.append(ulListItem, {at: pos});
+      //   //       view.render();
+      //   //     });
+      //   //     div.appendChild(btn);
+      //   //     childEl.appendChild(div);
+      //   //     pos++;
+      //   //   });    
+      //   // },
+      // },
     });
 
     domComp.addType("icon", {

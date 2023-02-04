@@ -94,9 +94,7 @@ define(function () {
       category: opt.categoryLabel,
       name: opt.ulistBlkLabel,
       attributes: { class: "fa fa-list-ul" },
-      content: {
-        type: "ulist",
-      },
+      content: { type: "ulist" },
     });
 
     bm.add("icon", {
