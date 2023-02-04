@@ -257,7 +257,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
                             "<button class='ok' onclick='document.getElementById(\"alert-msg-overlay\").remove();'>ok</button>" +
                           "</div>" +
                         "</div>" +
-                      "</div>";
+                       "</div>";
       modal.setTitle(defaults.assetsModalTitle + alertMsg);
     }
   });
@@ -322,9 +322,56 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sm.render();
 
   });
+  // On Selected Components
+  editor.on('component:selected', () => {
+    var selected = editor.getSelected();
+
+    if(selected.is("ulistitem")){
+      console.log("select ulistitem");
+      addBtn(selected);
+    }
+    if(selected.isChildOf('ulistitem')){
+      console.log("select childof ulistitem");
+      addBtn(selected.closestType('ulistitem'));
+    }
+    
+    function addBtn(listitem){
+      var el = listitem.getEl();
+      var elPos = listitem.index();
+
+      //Add class to li element
+      listitem.addClass('gjs-show-add-btn');
+
+      if(el.querySelector('.gjs-btn-container') === null) {
+        console.log("generate btn");
+        const div = document.createElement('div');
+        div.classList.add('gjs-btn-container');
+
+        const btn = document.createElement('button');
+        btn.innerHTML = '+';
+        btn.classList.add("gjs-add-list-item-btn");
+        btn.addEventListener('click', () => {
+          listitem.parent().append(listitem.clone(), {at: elPos + 1});
+        });
+        div.appendChild(btn);
+        el.appendChild(div);
+      }
+    }
+  
+  });
+  editor.on('component:deselected', (deselected) => {
+    if(deselected.is('ulistitem')){
+      //console.log("deselected ulistitem");
+      deselected.removeClass('gjs-show-add-btn');
+    }
+    if(deselected.isChildOf('ulistitem')){
+      //console.log("deselected child of ulistitem");
+      deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
+  });
 });
 
-function formatBytes(bytes,decimals) {
+function formatBytes(bytes, decimals) {
   if(bytes == 0) return '0 Bytes';
   var k = 1024,
       dm = decimals || 2,
