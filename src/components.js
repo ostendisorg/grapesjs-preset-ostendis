@@ -159,14 +159,14 @@ define(function () {
       },
     });
 
-    // Unsorted list item
+    // Unsorted list item component
     const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
                                 <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
                               </span>
                               <p style="margin:0;padding:0;text-align:left;">Text</p>`;
     domComp.addType("ulistitem", {
       isComponent: el => {
-        if(el.tagName === 'li' && el.isChildOf('ulist')){
+        if(el.tagName === 'LI' && el.parentElement.getAttribute('data-gjs-type') == 'ulist'){
           return { type: 'ulistitem' };
         }
       },
@@ -180,8 +180,8 @@ define(function () {
         },
       },
     });
-  
-    // Unsorted list with fontawesome 5.x
+
+    // Unsorted list component with fontawesome 5.x
     const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
                         <span class="fa-li" style="left:-2em;width:2em;">
                           <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
@@ -190,7 +190,7 @@ define(function () {
                       </li>`;
     domComp.addType("ulist", {
       isComponent: el => {
-        if(el.tagName === 'ul' && el.classList.contains('ulist')){
+        if(el.tagName === 'UL' && el.classList.contains('ulist')){
           return { type: 'ulist' };
         }
       },
@@ -204,7 +204,14 @@ define(function () {
       },
     });
 
+    // icon component
     domComp.addType("icon", {
+      isComponent: el => {
+        var classNames = ['fa','fas','far'];
+        if(el.tagName === 'I' && classNames.some(className => el.classList.contains(className))){
+          return { type: 'icon' };
+        }
+      },
       model: {
         defaults: {
           tagName: "i",
