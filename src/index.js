@@ -272,6 +272,53 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       return false; // Prevent the default handler
     };
   });
+  // On Selected Components
+  editor.on('component:selected', () => {
+    var selected = editor.getSelected();
+
+    if(selected.is("ulistitem")){
+      console.log("select ulistitem");
+      addBtn(selected);
+    }
+    if(selected.isChildOf('ulistitem')){
+      console.log("select childof ulistitem");
+      addBtn(selected.closestType('ulistitem'));
+    }
+
+    function addBtn(listitem){
+      var el = listitem.getEl();
+      var elPos = listitem.index();
+
+      //Add class to li element
+      listitem.addClass('gjs-show-add-btn');
+
+      if(el.querySelector('.gjs-btn-container') === null) {
+        console.log("generate btn");
+        const div = document.createElement('div');
+        div.classList.add('gjs-btn-container');
+
+        const btn = document.createElement('button');
+        btn.innerHTML = '+';
+        btn.classList.add("gjs-add-list-item-btn");
+        btn.addEventListener('click', () => {
+          listitem.parent().append(listitem.clone(), {at: elPos + 1});
+        });
+        div.appendChild(btn);
+        el.appendChild(div);
+      }
+    }
+  
+  });
+  editor.on('component:deselected', (deselected) => {
+    if(deselected.is('ulistitem')){
+      //console.log("deselected ulistitem");
+      deselected.removeClass('gjs-show-add-btn');
+    }
+    if(deselected.isChildOf('ulistitem')){
+      //console.log("deselected child of ulistitem");
+      deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
+  });
 });
 
 function formatBytes(bytes,decimals) {

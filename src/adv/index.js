@@ -322,6 +322,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sm.render();
 
   });
+  
   // On Selected Components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
@@ -334,7 +335,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       console.log("select childof ulistitem");
       addBtn(selected.closestType('ulistitem'));
     }
-    
+
     function addBtn(listitem){
       var el = listitem.getEl();
       var elPos = listitem.index();

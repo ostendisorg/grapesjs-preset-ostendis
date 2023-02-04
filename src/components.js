@@ -159,21 +159,47 @@ define(function () {
       },
     });
 
+    // Unsorted list item
+    const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
+                                <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                              </span>
+                              <p style="margin:0;padding:0;text-align:left;">Text</p>`;
+    domComp.addType("ulistitem", {
+      isComponent: el => {
+        if(el.tagName === 'li' && el.isChildOf('ulist')){
+          return { type: 'ulistitem' };
+        }
+      },
+      model: {
+        defaults: {
+          tagName: "li",
+          draggable: "ul",
+          attributes: { class: "ulistitem" },
+          style: { "text-align":"left" }, 
+          components: ulistItemContent,
+        },
+      },
+    });
+  
     // Unsorted list with fontawesome 5.x
-    let ulistitem = `<li style="text-align:left;" data-gjs-droppable="false" data-gjs-draggable=".ulist">
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
                         <span class="fa-li" style="left:-2em;width:2em;">
                           <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
                         </span>
-                        <p data-gjs-selectable="false" style="margin:0;padding:0;text-align:left;">Text</p>
+                        <p style="margin:0;padding:0;text-align:left;">Text</p>
                       </li>`;
-
     domComp.addType("ulist", {
+      isComponent: el => {
+        if(el.tagName === 'ul' && el.classList.contains('ulist')){
+          return { type: 'ulist' };
+        }
+      },
       model: {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
-          components: ulistitem + ulistitem + ulistitem,
+          style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
+          components: ulListItem + ulListItem + ulListItem,
         },
       },
     });
