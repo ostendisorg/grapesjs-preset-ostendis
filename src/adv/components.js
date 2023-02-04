@@ -204,49 +204,6 @@ define(function () {
           components: ulListItem + ulListItem + ulListItem,
         },
       },
-      // view:{
-      //   tagName: "ul",
-      //   events: {
-      //     click: 'showListAddBtn',
-      //     'change li': 'showListAddBtnParent',
-      //     'change li p': 'showListAddBtnGrandParent',
-      //   },
-      //   showListAddBtn(){
-      //     console.log("ul");
-      //     console.log(this.el);
-      //     console.log(this.el);
-      //     //if(this.el.classList.contains('gjs-selected')){
-      //     //  this.el.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
-      //     //}
-      //     //this.el.querySelector('.gjs-add-list-item-btn').style.display = 'none';
-      //   },
-      //   showListAddBtnParent(){
-      //     console.log("ul li");
-      //     this.el.parentElement.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
-      //   },
-      //   showListAddBtnGrandParent(){
-      //     console.log("ul li p");
-      //     this.el.parentElement.parentElement.querySelector('.gjs-add-list-item-btn').style.display = 'inline-block';
-      //   },
-      //   // onRender({ el, model, view}){
-      //   //   var pos = 1;
-      //   //   el.childNodes.forEach(function(childEl) {
-      //   //     const div = document.createElement('div');
-      //   //     div.classList.add('gjs-btn-container');
-      //   //     const btn = document.createElement('button');
-      //   //     btn.innerHTML = '+';
-      //   //     btn.classList.add("gjs-add-list-item-btn");
-      //   //     btn.title = "Listenelement hinzufügen pos:" + pos;
-      //   //     btn.addEventListener('click', () => {
-      //   //       model.append(ulListItem, {at: pos});
-      //   //       view.render();
-      //   //     });
-      //   //     div.appendChild(btn);
-      //   //     childEl.appendChild(div);
-      //   //     pos++;
-      //   //   });    
-      //   // },
-      // },
     });
 
     domComp.addType("icon", {
