@@ -277,11 +277,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     var selected = editor.getSelected();
 
     if(selected.is("ulistitem")){
-      console.log("select ulistitem");
+      //console.log("select ulistitem");
       addBtn(selected);
     }
     if(selected.isChildOf('ulistitem')){
-      console.log("select childof ulistitem");
+      //console.log("select childof ulistitem");
       addBtn(selected.closestType('ulistitem'));
     }
 
@@ -293,7 +293,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       listitem.addClass('gjs-show-add-btn');
 
       if(el.querySelector('.gjs-btn-container') === null) {
-        console.log("generate btn");
+        //console.log("generate btn");
         const div = document.createElement('div');
         div.classList.add('gjs-btn-container');
 
