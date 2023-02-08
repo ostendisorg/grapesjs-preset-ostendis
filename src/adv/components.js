@@ -168,6 +168,12 @@ define(function () {
                               <p style="margin:0;padding:0;text-align:left;">Text</p>`;
     domComp.addType("ulistitem", {
       isComponent: el => {
+        // Debug Start
+        if(el.tagName === 'LI'){
+          console.log(el.parentElement);
+          console.log(el.parentElement.classList);
+        }
+        // Debug End
         if(el.tagName === 'LI' && el.parentElement.classList.contains('ulist')){
           return { type: 'ulistitem' };
         }
