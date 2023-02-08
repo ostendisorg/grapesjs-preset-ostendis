@@ -168,7 +168,7 @@ define(function () {
                               <p style="margin:0;padding:0;text-align:left;">Text</p>`;
     domComp.addType("ulistitem", {
       isComponent: el => {
-        if(el.tagName === 'LI' && el.parentElement.getAttribute('data-gjs-type') == 'ulist'){
+        if(el.tagName === 'LI' && el.parentElement.classList.contains('ulist')){
           return { type: 'ulistitem' };
         }
       },
