@@ -283,12 +283,15 @@ define(function () {
       },
     });
 
+    var btnStyle = 'style=" display: block; padding: 10px 30px; margin: 10px auto; text-decoration: none;'+
+                    'border: none; color: #fff; text-align: center; background-color: #4b75cd; border-radius: 0.25rem 0.25rem 0.25em 0.25rem;"';
+
     // Default blocks
     bm.add("applyButton", {
       label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "gjs-fonts gjs-f-button" },
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" class="button">${opt.buttonApplyBlkText}</a>`,
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" role="button" `+btnStyle+`>${opt.buttonApplyBlkText}</a>`,
     });
 
     bm.add("applyQrCode", {
