@@ -272,6 +272,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       return false; // Prevent the default handler
     };
   });
+  
   // On Selected Components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
