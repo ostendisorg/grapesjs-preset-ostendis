@@ -1,12 +1,9 @@
-import { openStdin } from "process";
-
 define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
-    //add ostendis block  trait to default
-    var defaultTraits = domComp.getType("default").model.prototype.defaults.traits;
-    var defaultDataOstBlock = {
+    //define ostendis type trait for text and default components
+    const ostTypeTextTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -33,16 +30,34 @@ define(function () {
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
     };
-    if(defaultTraits.findIndex(element => element.name == defaultDataOstBlock.name) == -1){
-        defaultTraits.push(defaultDataOstBlock);
-    }
 
-    //add ostendis block trait to image
-    var imgTraits = domComp.getType("image").model.prototype.defaults.traits;
-    var imageDataOstBlock = {
+    //add ostendis type trait to text components
+    domComp.addType("text", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //add ostendis type trait to default components
+    domComp.addType("default", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //define ostendis type trait for images
+    const ostTypeImageTrait = {
       type: "select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
+      attributes: {
+        "data-tooltip": opt.traitBlkOstendisTooltip,
+        "data-tooltip-pos": "bottom",
+      },
       options: [
         { id: "", name: opt.traitOstNone },
         { id: "logoPicURL", name: opt.traitOstLogoPicURL },
@@ -57,9 +72,15 @@ define(function () {
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
       ],
     };
-    if(imgTraits.findIndex(element => element.name == imageDataOstBlock.name) == -1){
-      imgTraits.push(imageDataOstBlock);
-    }
+
+    //add ostendis type trait to image components
+    domComp.addType("image", {
+      model: {
+        defaults: {
+          traits: ["alt", ostTypeImageTrait],
+        },
+      },
+    });
 
     //add ostendis block trait to video
     var dType = domComp.getType("video");
@@ -139,23 +160,59 @@ define(function () {
       },
     });
 
-    // Unsorted list with fontawesome 5.x
-    let ulistitem = `<li><span class="fa-li"><i class="fas fa-minus" data-gjs-type="icon"></i></span>
-                        <p style="margin:0;padding:0;text-align:left;">Text</p>
-                      </li>`;
-
-    domComp.addType("ulist", {
+    // Unsorted list item component
+    const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
+                                <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                              </span>
+                              <p style="margin:0;padding:0;text-align:left;">Text</p>`;
+    domComp.addType("ulistitem", {
+      isComponent: el => {
+        if(el.tagName === 'LI' && el.classList.contains('ulistitem')){
+          return { type: 'ulistitem' };
+        }
+      },
       model: {
         defaults: {
-          tagName: "ul",
-          attributes: { class: "ulist fa-ul" },
-          style: { "padding-top":"0.2em", "padding-bottom":"0.2em", "margin-left" : "2em" }, 
-          components: ulistitem + ulistitem + ulistitem,
+          tagName: "li",
+          draggable: "ul",
+          attributes: { class: "ulistitem" },
+          style: { "text-align":"left" }, 
+          components: ulistItemContent,
         },
       },
     });
 
+    // Unsorted list component with fontawesome 5.x
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
+                        <span class="fa-li" style="left:-2em;width:2em;">
+                          <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                        </span>
+                        <p style="margin:0;padding:0;text-align:left;">Text</p>
+                      </li>`;
+    domComp.addType("ulist", {
+      isComponent: el => {
+        if(el.tagName === 'UL' && el.classList.contains('ulist')){
+          return { type: 'ulist' };
+        }
+      },
+      model: {
+        defaults: {
+          tagName: "ul",
+          attributes: { class: "ulist fa-ul" },
+          style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
+          components: ulListItem + ulListItem + ulListItem,
+        },
+      },
+    });
+
+    // icon component
     domComp.addType("icon", {
+      isComponent: el => {
+        var classNames = ['fa','fas','far'];
+        if(el.tagName === 'I' && classNames.some(className => el.classList.contains(className))){
+          return { type: 'icon' };
+        }
+      },
       model: {
         defaults: {
           tagName: "i",
@@ -167,7 +224,7 @@ define(function () {
               name: "class",
               attributes: {
                 id: "select-fontawesome",
-                "data-tooltip": "For more icons: change class name in style manager.",
+                "data-tooltip": opt.labelIconTooltip,
                 "data-tooltip-pos": "bottom",
               },
               options: [

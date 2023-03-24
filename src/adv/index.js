@@ -40,21 +40,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     importPlaceholder: "",
     defaultTemplate: "", // Default template in case the canvas is empty
     inlineCss: 1,
-    cellStyle: {
-      padding: 0,
-      margin: 0,
-      "vertical-align": "top",
-    },
-    tableStyle: {
-      height: "150px",
-      margin: "0 auto 10px auto",
-      padding: "5px 5px 5px 5px",
-      width: "100%",
-    },
-    sect100BlkLabel: "1 Section",
-    sect50BlkLabel: "1/2 Section",
-    sect30BlkLabel: "1/3 Section",
-    sect37BlkLabel: "3/7 Section",
 
     dividerBlkLabel: "Divider",
     textSectionBlkLabel: "Text Section",
@@ -92,8 +77,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitBlkValue: "Value",
     textBlkLabel: "Text",
     textBlkLabelWithSpace: "Text with spacing",
-
+    sect333BlkLabel: "1/1/1 Columns",
+    sect55BlkLabel: "1/1 Columns",
+    sect37BlkLabel: "3/7 Columns",
     textBlkOstType: "Block",
+
     textBlkLabelOrg: "Organization",
     textBlkLabelOrgList: "Organization List",
     textBlkTitleOrg: "Organization Header",
@@ -124,6 +112,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     textBlkLabelAction: "Action",
     textBlkContentAction: "Call to action",
 
+    labelIconTooltip: "For more icons: change class name in style manager.",
     labelIconSelectMinus: "minus",
     labelIconSelectCircleSolid: "circle solid",
     labelIconSelectCircle: "circle",
@@ -176,7 +165,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    assetsModalTitle: c.assetsModalTitle || "Select image",
+    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
+    assetsModalTitle: "Bild auswählen", 
+    assetsModalWarningTitle: "Warnung",
+    assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",
   };
 
   // Change some config
@@ -231,6 +223,43 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   editor.on("run:open-assets", () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);
+  });
+
+  // limit file size
+  editor.on('asset:upload:response', (response) => {
+    const asstm = editor.AssetManager;
+    let maxFileSize = 1048576; //1MB
+    let uploadData = response.data;
+    let toLargeImages = "";
+
+    uploadData.forEach(function(imgData){
+      let base64str = imgData.src.split(',')[1];
+      let decoded = Buffer.from(base64str, 'base64');
+
+      if(decoded.length > maxFileSize){
+        toLargeImages += "<li><small>" + imgData.name + ": <strong>"+ formatBytes(decoded.length) + "</strong></small></li>";
+      }
+      else{
+        asstm.add(imgData);
+      }
+    });
+
+    if(toLargeImages !== ""){
+      const modal = editor.Modal;
+      const alertMsg = "<div id='alert-msg-overlay' data-random='" + Date.now() + "' >" +
+                        "<div class='alert-msg'>" +
+                          "<div class='header'><h3><span>!</span>" + defaults.assetsModalWarningTitle + "</h3></div>" +
+                          "<div class='content'>" +
+                            defaults.assetsModalUploadImgToLarge + " <strong>" + formatBytes(maxFileSize) + "</strong>" +
+                            "<div class='files'>" +
+                              "<ul>" + toLargeImages + "</ul>" +
+                            "</div>" +
+                            "<button class='ok' onclick='document.getElementById(\"alert-msg-overlay\").remove();'>ok</button>" +
+                          "</div>" +
+                        "</div>" +
+                       "</div>";
+      modal.setTitle(defaults.assetsModalTitle + alertMsg);
+    }
   });
 
   // Do stuff on load
@@ -291,5 +320,58 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     const sm = editor.StyleManager;
     sm.getConfig().clearProperties = 1;
     sm.render();
+
+  });
+
+  // On Selected Components
+  editor.on('component:selected', () => {
+    var selected = editor.getSelected();
+
+    if(selected.is("ulistitem")){
+      addBtn(selected);
+    }
+    if(selected.isChildOf('ulistitem')){
+      addBtn(selected.closestType('ulistitem'));
+    }
+
+    function addBtn(listitem){
+      var el = listitem.getEl();
+      var elPos = listitem.index();
+
+      //Add class to li element
+      listitem.addClass('gjs-show-add-btn');
+
+      if(el.querySelector('.gjs-btn-container') === null) {
+        const div = document.createElement('div');
+        div.classList.add('gjs-btn-container');
+
+        const btn = document.createElement('button');
+        btn.innerHTML = '+';
+        btn.classList.add("gjs-add-list-item-btn");
+        btn.addEventListener('click', () => {
+          listitem.parent().append(listitem.clone(), {at: elPos + 1});
+        });
+        div.appendChild(btn);
+        el.appendChild(div);
+      }
+    }
+  
+  });
+  editor.on('component:deselected', (deselected) => {
+    if(deselected.is('ulistitem')){
+      deselected.removeClass('gjs-show-add-btn');
+    }
+    if(deselected.isChildOf('ulistitem')){
+      deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
   });
 });
+
+function formatBytes(bytes, decimals) {
+  if(bytes == 0) return '0 Bytes';
+  var k = 1024,
+      dm = decimals || 2,
+      sizes = ['Bytes', 'KB', 'MB', 'GB'],
+      i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}

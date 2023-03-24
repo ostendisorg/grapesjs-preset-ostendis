@@ -7,142 +7,142 @@ define(function () {
 
     // Ostendis block icons
     var ostBlockTitleText = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".106" d="M1.536 8.474h9.632v.556H1.536zm0-1.053h9.632v.556H1.535zm0-1.053h9.63v.557h-9.63zm-.004-2.106h6.954v.973H1.532z"/></svg>';
-    var ostBlockTitleList = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".1" d="M2.058 8.752a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm.651 1.828h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zM1.532 4.262h6.954v.973H1.532z"/></svg>';
+    var ostBlockTitleList =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".1" d="M2.058 8.752a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm.651 1.828h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zM1.532 4.262h6.954v.973H1.532z"/></svg>';
 
     // Ostendis blocks
-    bm.add('ost-organization', {
+    bm.add("ost-organization", {
       label: opt.textBlkLabelOrg,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelOrg,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleOrg + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleOrg + "</h3>",
             attributes: { "data-ost-type": "organizationHeading" },
           },
           {
-            type: 'text',
+            type: "text",
             content: opt.textBlkContentOrg,
             attributes: { "data-ost-type": "organization" },
           },
         ],
       },
     });
-    bm.add('ost-organization-list', {
+    
+    bm.add("ost-organization-list", {
       label: opt.textBlkLabelOrgList,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelOrgList,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleOrg + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleOrg + "</h3>",
             attributes: { "data-ost-type": "organizationHeading" },
           },
           {
-            type: 'ulist',
+            type: "ulist",
             attributes: { "data-ost-type": "organization" },
           },
         ],
       },
     });
-    bm.add('ost-introduction', {
+
+    bm.add("ost-introduction", {
       label: opt.textBlkLabelIntro,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelIntro,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + "</h3>",
             attributes: { "data-ost-type": "introductionHeading" },
           },
           {
-            type: 'text',
+            type: "text",
             content: opt.textBlkContentIntro,
             attributes: { "data-ost-type": "introduction" },
           },
         ],
       },
     });
-    bm.add('ost-introduction-list', {
+
+    bm.add("ost-introduction-list", {
       label: opt.textBlkLabelIntroList,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelIntroList,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleIntro + "</h3>",
             attributes: { "data-ost-type": "introductionHeading" },
           },
           {
-            type: 'ulist',
+            type: "ulist",
             attributes: { "data-ost-type": "introduction" },
           },
         ],
       },
     });
-    bm.add('ost-description', {
+
+    bm.add("ost-description", {
       label: opt.textBlkLabelDesc,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleText,
       content: {
         name: opt.textBlkLabelDesc,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + "</h3>",
             attributes: { "data-ost-type": "descriptionHeading" },
           },
           {
-            type: 'text',
+            type: "text",
             content: opt.textBlkContentDesc,
             attributes: { "data-ost-type": "description" },
           },
         ],
       },
     });
-    bm.add('ost-description-list', {
+
+    bm.add("ost-description-list", {
       label: opt.textBlkLabelDescList,
-      category: 'Ostendis',
+      category: "Ostendis",
       media: ostBlockTitleList,
       content: {
         name: opt.textBlkLabelDescList,
-        type: 'text',
         components: [
           {
-            type: 'text',
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + '</h3>',
+            type: "text",
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleDesc + "</h3>",
             attributes: { "data-ost-type": "descriptionHeading" },
           },
           {
-            type: 'ulist',
+            type: "ulist",
             attributes: { "data-ost-type": "description" },
           },
         ],
       },
     });
+
     bm.add("ost-tasks", {
       label: opt.textBlkLabelTasks,
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + "</h3>",
             attributes: { "data-ost-type": "tasksHeading" },
           },
           {
@@ -153,16 +153,16 @@ define(function () {
         ],
       },
     });
+
     bm.add("ost-tasks-list", {
       label: opt.textBlkLabelTasksList,
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleTasks + "</h3>",
             attributes: { "data-ost-type": "tasksHeading" },
           },
           {
@@ -178,11 +178,10 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + "</h3>",
             attributes: { "data-ost-type": "requirementsHeading" },
           },
           {
@@ -193,16 +192,16 @@ define(function () {
         ],
       },
     });
+
     bm.add("ost-requirements-list", {
       label: opt.textBlkLabelReqList,
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleReq + "</h3>",
             attributes: { "data-ost-type": "requirementsHeading" },
           },
           {
@@ -218,11 +217,10 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + "</h3>",
             attributes: { "data-ost-type": "benefitsHeading" },
           },
           {
@@ -233,16 +231,16 @@ define(function () {
         ],
       },
     });
+
     bm.add("ost-benefits-list", {
       label: opt.textBlkLabelBenefitsList,
       category: "Ostendis",
       media: ostBlockTitleList,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleBenefits + "</h3>",
             attributes: { "data-ost-type": "benefitsHeading" },
           },
           {
@@ -258,11 +256,10 @@ define(function () {
       category: "Ostendis",
       media: ostBlockTitleText,
       content: {
-        type: "text",
         components: [
           {
             type: "text",
-            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleContact + '</h3>',
+            content: '<h3 style="margin-bottom:7px">' + opt.textBlkTitleContact + "</h3>",
             attributes: { "data-ost-type": "contactHeading" },
           },
           {
@@ -338,11 +335,9 @@ define(function () {
       category: opt.categoryLabel,
       name: opt.ulistBlkLabel,
       attributes: { class: "fa fa-list-ul" },
-      content: { 
-        type: "ulist",
-      },
+      content: { type: "ulist" },
     });
-    
+
     bm.add("image", {
       label: opt.imageBlkLabel,
       category: opt.categoryLabel,
@@ -372,22 +367,53 @@ define(function () {
         src: "/video.mp4",
         style: {
           width: "100%",
-          height: '350px',
+          height: "350px",
         },
       },
     });
 
-    bm.add('map', {
+    bm.add("map", {
       label: opt.mapBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: 'fa fa-map-o' },
+      attributes: { class: "fa fa-map-o" },
       content: {
-        type: 'map',
-        style: { 
+        type: "map",
+        style: {
           width: "100%",
-          height: '350px',
+          height: "350px",
         },
-      }
+      },
+    });
+
+    bm.add("sect55", {
+      label: opt.sect55BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b2" },
+      content: `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 280px; padding:20px;"></div>
+       </div>`,
+    });
+
+    bm.add("sect37", {
+      label: opt.sect37BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b37" },
+      content: `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 38.2%; min-width:200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 61.8%; padding:20px;"></div>
+       </div>`,
+    });
+
+    bm.add("sect333", {
+      label: opt.sect333BlkLabel,
+      category: opt.categoryLabel,
+      attributes: { class: "gjs-fonts gjs-f-b3" },
+      content: `<div style="display:flex; flex-wrap: wrap; padding: 0.2rem 0">
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
+          <div style="flex-grow: 1; flex-shrink: 1; flex-basis: 200px; padding:20px;"></div>
+       </div>`,
     });
 
     bm.add("box", {
@@ -404,10 +430,8 @@ define(function () {
     bm.add("divider", {
       label: opt.dividerBlkLabel,
       category: opt.categoryLabel,
-      content: '<hr style="border-top: 1px solid #2b303b;" />',
+      content: '<hr style="border-top: 1px solid #2b303b;">',
       attributes: { class: "gjs-fonts gjs-f-divider" },
     });
-
-    
   };
 });

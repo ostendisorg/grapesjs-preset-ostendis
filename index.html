@@ -5,12 +5,12 @@
   <meta charset="utf-8" />
   <title>GrapesJS Ostendis Editor</title>
 
-  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.4/dist/css/grapes.min.css" />
+  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.20.1/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
 
-  <script src="//unpkg.com/grapesjs@0.18.4/dist/grapes.min.js"></script>
+  <script src="//unpkg.com/grapesjs@0.20.1//dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis.min.js"></script>
 </head>
 <style>
@@ -567,8 +567,8 @@
       },
       assetManager: {
         assets: images,
-        upload: 0,
-        uploadText: "Uploading is not available in this demo",
+        multiUpload: true,
+        autoAdd: false,
       },
       container: "#gjs",
       fromElement: true,
@@ -590,7 +590,31 @@
                       outline: dashed 1px #FF8200;
                       outline-offset: -3px;
                     }
-                    `,
+                    li.gjs-show-add-btn .gjs-add-list-item-btn{
+                      display: block;
+                    }
+                    .gjs-btn-container{
+                      position: relative;
+                      height:0;
+                      width:100%;
+                      min-width: 30px;
+                    }
+                    .gjs-add-list-item-btn{
+                      display: none;
+                      position: absolute;
+                      bottom: -8px;
+                      right: 5px;
+                      width: 22px;
+                      padding: 0;
+                      font-weight: bold;
+                      background-color: #3b5998;
+                      border: none;
+                      color: #fff;
+                      border-radius: 50%;
+                      line-height: 22px;
+                      cursor: pointer;
+                      z-index:99999;
+                    }`,
       blockManager: { appendOnClick: 1 },
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },
       plugins: ["gjs-preset-ostendis"],

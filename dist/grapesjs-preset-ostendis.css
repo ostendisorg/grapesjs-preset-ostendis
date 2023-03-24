@@ -6,6 +6,9 @@
 .gjs-two-color {
   color: #657390; }
 
+.gjs-blocks-c {
+  background-color: #F2f2f2; }
+
 .gjs-pn-commands, .gjs-pn-views-container {
   box-shadow: none; }
 
@@ -292,6 +295,66 @@
 
 .text-danger {
   color: #f92929; }
+
+/* Alert Upload Modal */
+#alert-msg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 401px;
+  z-index: 990; }
+
+.alert-msg {
+  position: absolute;
+  background-color: #fff;
+  top: 50px;
+  left: 20%;
+  width: 60%;
+  min-width: 300px;
+  z-index: 999;
+  border-radius: 5px;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.5); }
+  .alert-msg .header {
+    background-color: orange;
+    color: #FFF;
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 50px;
+    box-sizing: border-box; }
+    .alert-msg .header h3 {
+      margin: 0; }
+      .alert-msg .header h3 span {
+        margin-right: 10px; }
+  .alert-msg .content {
+    padding: 20px;
+    box-sizing: border-box; }
+    .alert-msg .content .files {
+      overflow-y: auto;
+      margin: 15px 0; }
+      .alert-msg .content .files ul {
+        margin: 5px;
+        padding: 0 0 0 15px; }
+        .alert-msg .content .files ul ::marker {
+          content: '\00d7 '; }
+        .alert-msg .content .files ul li {
+          padding-left: 5px; }
+    .alert-msg .content strong {
+      font-weight: bold; }
+    .alert-msg .content button.ok {
+      margin: 15px auto;
+      display: flex;
+      background-color: #FFF;
+      padding: 5px 15px;
+      text-transform: uppercase;
+      color: currentColor;
+      border: none;
+      font-weight: normal;
+      font-size: 1.1rem;
+      cursor: pointer; }
+      .alert-msg .content button.ok:hover {
+        background-color: #DFDFDF; }
 
 /* Ostendis Block Traits */
 .gjs-trt-trait__wrp-data-ost-type {
