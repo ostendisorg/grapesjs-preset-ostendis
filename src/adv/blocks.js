@@ -39,19 +39,24 @@ define(function () {
         attributes: { src: "$$$ViewQrCode$$$", alt: "View link QR code" },
       },
     });
+    
+    var btnStyle = 'style=" display: block; padding: 10px 30px; margin: 10px auto; text-decoration: none;'+
+                    'border: none; color: #fff; text-align: center; background-color: #4b75cd; border-radius: 0.25rem 0.25rem 0.25em 0.25rem;"';
 
     bm.add("applyButton", {
       label: opt.buttonApplyBlkLabel,
       category: opt.categoryLabel,
       attributes: { class: "gjs-fonts gjs-f-button" },
-      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" target="_blank" class="button">${opt.buttonApplyBlkText}</a>`,
+      content: `<a data-gjs-type="link" href="$$$ApplyLink$$$" target="_blank" role="button" `+  btnStyle + `>${opt.buttonApplyBlkText}</a>`,
+      style: btnStyle,
     });
 
     bm.add("button", {
       label: opt.buttonBlkLabel,
       category: opt.categoryLabel,
-      content: `<a data-gjs-type="link" class="button">Button</a>`,
+      content: `<a data-gjs-type="link" role="button" `+  btnStyle + `>Button</a>`,
       attributes: { class: "gjs-fonts gjs-f-button" },
+      style: btnStyle,
     });
 
     bm.add("divider", {
