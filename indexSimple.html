@@ -5,16 +5,13 @@
   <meta charset="utf-8" />
   <title>GrapesJS Ostendis Editor Simple</title>
 
-  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.18.4/dist/css/grapes.min.css" />
+  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.20.1/dist/css/grapes.min.css" />
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
 
-  <script src="//unpkg.com/grapesjs@0.18.4/dist/grapes.min.js"></script>
+  <script src="//unpkg.com/grapesjs@0.20.1/dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis-simple.min.js"></script>
-  <!-- <script
-    src="https://cdn.jsdelivr.net/npm/grapesjs-plugin-ckeditor@0.0.10/dist/grapesjs-plugin-ckeditor.min.js"></script>
-  <script src="https://cdn.ckeditor.com/4.19.1/full-all/ckeditor.js"></script>-->
 </head>
 <style>
   body,
@@ -95,6 +92,71 @@
                     </td>
                   </tr>
                 </table>
+                <ul class="ulist fa-ul" data-gjs-type="ulist">
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 1</p>
+                  </li>
+                  <li style="text-align:left">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 2 kein type ulistitem</p>
+                  </li>
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 3 kein type icon</p>
+                  </li>
+                  <li style="text-align:left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left:-2em;width:2em;">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size:0.4em;line-height:inherit;display:block;"></i>
+                    </span>
+                    <p style="margin:0;padding:0;text-align:left;">Text 4</p>
+                  </li>
+                </ul>
+
+                <ul class="ulist">
+                  <li>parent ulist</li>
+                  <li class="ulistitem">parent ulist, this ulistitem</li>
+                </ul>
+
+                <ul>
+                  <li>nothing1</li>
+                  <li>nothing2</li>
+                  <li>...</li>
+                </ul>
+
+                <ul class="ulist fa-ul" data-ost-type="benefits" id="i8c9go"
+                  style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding: 0.2em 0; margin-left: 2em; line-height: 1.4em;">
+                  <li class="ulistitem" id="ia3uv2" style="box-sizing: border-box; text-align: left;">
+                    <span id="ibmh9h" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em;"><i
+                        class="fas fa-circle" id="imkxch"
+                        style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block;">
+                      </i></span>
+                    <p id="ihgxlq"
+                      style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left;">
+                      original von Inserat
+                    </p>
+                  </li>
+                  <li class="ulistitem" id="icuzh5" style="box-sizing: border-box; text-align: left;">
+                    <span id="ijmtna" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em;"><i
+                        class="fas fa-circle" id="ii8g9t"
+                        style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block;">
+                      </i></span>
+                    <p id="iw52xl"
+                      style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left;">
+                      original <b>von</b> Inserat
+                    </p>
+                  </li>
+                </ul>
+
                 <table class="card">
                   <tr>
                     <td class="card-cell">

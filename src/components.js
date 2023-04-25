@@ -208,7 +208,7 @@ define(function () {
     // icon component
     domComp.addType("icon", {
       isComponent: el => {
-        var classNames = ['fa','fas','far'];
+        var classNames = ['fa','fas','far','fab'];
         if(el.tagName === 'I' && classNames.some(className => el.classList.contains(className))){
           return { type: 'icon' };
         }
