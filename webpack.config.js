@@ -21,7 +21,6 @@ module.exports = {
   entry: {
     'grapesjs-preset-ostendis': './src/index.js',
     'grapesjs-preset-ostendis-adv': './src/adv/index.js',
-    'grapesjs-preset-ostendis-simple': './src/simple/index.js',
   },
   output: {
     filename: '[name].min.js',
