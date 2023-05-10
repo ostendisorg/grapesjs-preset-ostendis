@@ -68,18 +68,25 @@ define(function () {
 
     // Clean views panel
     let viewPanel = pnm.getPanel("views");
-
+  
     if (viewPanel) {
       let cmdBtns = viewPanel.get("buttons");
-      //cmdBtns.reset();
 
-      // Remove style manager
+      // Remove style manager button
       let smBtn = pnm.removeButton("views", "open-sm");
       smBtn && cmdBtns.remove(smBtn);
 
-      // Remove layers
+      // Set trait manager active
+      let tmBtn = pnm.getButton("views", "open-tm");
+      tmBtn.set('active',true);
+
+      // Remove layers button
       let layBtn = pnm.removeButton("views", "open-layers");
       layBtn && cmdBtns.remove(layBtn);
+
+      //Remove blocks button
+      /*let blocksBtn = pnm.removeButton("views", "open-blocks");
+      blocksBtn && cmdBtns.remove(blocksBtn);*/
 
       // Fix tooltip position
       updateTooltip(cmdBtns);

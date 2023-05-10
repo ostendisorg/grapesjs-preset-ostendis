@@ -179,7 +179,7 @@ define(function () {
           style: { "text-align":"left" }, 
           components: ulistItemContent,
         },
-      },
+      }
     });
 
     // Unsorted list component with fontawesome 5.x

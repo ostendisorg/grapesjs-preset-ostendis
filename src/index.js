@@ -276,6 +276,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   // On Selected Components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
+    
+    // Hide Toolbar
+    selected.set('toolbar',[]);
+    
 
     if(selected.is("ulistitem")){
       //console.log("select ulistitem");

@@ -334,6 +334,14 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       addBtn(selected.closestType('ulistitem'));
     }
 
+    // Manipulate Toolbar
+    /*function manipulateToolbar(selected){
+      var toolbar = selected.get('toolbar');
+      var tb = toolbar.slice(0, -2);
+      console.log(tb);
+      selected.set('toolbar',tb);
+    }*/
+
     function addBtn(listitem){
       var el = listitem.getEl();
       var elPos = listitem.index();
