@@ -161,10 +161,10 @@ define(function () {
     });
 
     // Unsorted list item component
-    const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
-                                <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
+    const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;" draggable="false" removable="false" editable="false" copyable="false">
+                                <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;" draggable="false" removable="false" editable="false" copyable="false"></i>
                               </span>
-                              <p style="margin:0;padding:0;text-align:left;">Text</p>`;
+                              <p style="margin:0;padding:0;text-align:left;" draggable="false" removable="false" copyable="false">Text</p>`;
     domComp.addType("ulistitem", {
       isComponent: el => {
         if(el.tagName === 'LI' && el.classList.contains('ulistitem')){
@@ -183,12 +183,7 @@ define(function () {
     });
 
     // Unsorted list component with fontawesome 5.x
-    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
-                        <span class="fa-li" style="left:-2em;width:2em;">
-                          <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
-                        </span>
-                        <p style="margin:0;padding:0;text-align:left;">Text</p>
-                      </li>`;
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` + ulistItemContent + `</li>`;
     domComp.addType("ulist", {
       isComponent: el => {
         if(el.tagName === 'UL' && el.classList.contains('ulist')){
@@ -217,6 +212,10 @@ define(function () {
         defaults: {
           tagName: "i",
           attributes: { class: "fas fa-star" },
+          draggable: false,
+          droppable: false,
+          removable: false,
+          copyable: false,
           traits: [
             {
               type: "select",

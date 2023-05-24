@@ -85,8 +85,8 @@ define(function () {
       layBtn && cmdBtns.remove(layBtn);
 
       //Remove blocks button
-      /*let blocksBtn = pnm.removeButton("views", "open-blocks");
-      blocksBtn && cmdBtns.remove(blocksBtn);*/
+      let blocksBtn = pnm.removeButton("views", "open-blocks");
+      blocksBtn && cmdBtns.remove(blocksBtn);
 
       // Fix tooltip position
       updateTooltip(cmdBtns);

@@ -37,55 +37,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     defaultTemplate: "", // Default template in case the canvas is empty
     inlineCss: 1,
 
-    dividerBlkLabel: "Divider",
-    ulistBlkLabel: "List",
-    iconBlkLabel: "Icon",
-    imageBlkLabel: "Image",
-    videoBlkLabel: "Video",
-    mapBlkLabel: "Map",
-    linkBlkLabel: "Link",
-    buttonBlkLabel: "Button",
-    buttonApplyBlkLabel: "Apply button",
-    buttonApplyBlkText: "Apply here",
-    applyQrCodeBlkLabel: "Apply link QR code",
-    traitBlkValue: "Value",
-    textBlkLabel: "Text",
-    textBlkLabelWithSpace: "Text with spacing",
-    sect333BlkLabel: "1/1/1 Columns",
-    sect55BlkLabel: "1/1 Columns",
-    sect37BlkLabel: "3/7 Columns",
-    textBlkOstType: "Block",
-
-    textBlkLabelOrg: "Organization",
-    textBlkLabelOrgList: "Organization List",
-    textBlkTitleOrg: "Organization Header",
-    textBlkContentOrg: "Organization Text",
-    textBlkLabelIntro: "Introduction",
-    textBlkLabelIntroList: "Introduction List",
-    textBlkTitleIntro: "Introduction Header",
-    textBlkContentIntro: "Introduction Text",
-    textBlkLabelDesc: "Description",
-    textBlkLabelDescList: "Description List",
-    textBlkTitleDesc: "Description Header",
-    textBlkContentDesc: "Description Text",
-    textBlkLabelTasks: "Tasks",
-    textBlkLabelTasksList: "Tasks List",
-    textBlkTitleTasks: "Your tasks",
-    textBlkContentTasks: "Tasks Text",
-    textBlkLabelReq: "Requirements",
-    textBlkLabelReqList: "Requirements List",
-    textBlkTitleReq: "We expect",
-    textBlkContentReq: "Requirements Text",
-    textBlkLabelBenefits: "Benefits",
-    textBlkLabelBenefitsList: "Benefits List",
-    textBlkTitleBenefits: "We offer",
-    textBlkContentBenefits: "Benefits Text",
-    textBlkLabelContact: "Contact",
-    textBlkTitleContact: "Contact Header",
-    textBlkContentContact: "Contact Text",
-    textBlkLabelAction: "Action",
-    textBlkContentAction: "Call to action",
-
     labelIconTooltip: "For more icons: change class name in style manager.",
     labelIconSelectMinus: "minus",
     labelIconSelectCircleSolid: "circle solid",
@@ -139,7 +90,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
+    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb default Werte in Deutsch.*/
     assetsModalTitle: "Bild auswählen", 
     assetsModalWarningTitle: "Warnung",
     assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",   
@@ -166,8 +117,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   importCommands(c);
 
   // Add blocks
-  let importBlocks = require("./blocks");
-  importBlocks(c);
+ /* let importBlocks = require("./blocks");
+  importBlocks(c);*/
 
   // Add buttons
   let importButtons = require("./buttons");
@@ -186,7 +137,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     modal.setTitle(defaults.assetsModalTitle);
   });
 
-  // limit file size
+  // Limit file size
   editor.on('asset:upload:response', (response) => {
     const asstm = editor.AssetManager;
     let maxFileSize = 1048576; //1MB
@@ -225,25 +176,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
   // Do stuff on load
   editor.on("load", function () {
-    // Title translation
+    // Title translation and activate
     var openTmBtn = editor.Panels.getButton("views", "open-tm");
     openTmBtn.set("attributes", {
       title: defaults.openTmBtnTitle,
     });
+    openTmBtn && openTmBtn.set("active", 1);
 
-    // Title translation
+    // Title translation and activate
     var swVisBtn = editor.Panels.getButton("options", "sw-visibility");
-
     swVisBtn.set("attributes", {
       title: defaults.swichtVwBtnTitle,
     });
-
-    // Open block manager
-    var openBlocksBtn = editor.Panels.getButton("views", "open-blocks");
-    openBlocksBtn.set("attributes", {
-      title: defaults.openBlocksBtnTitle,
-    });
-    openBlocksBtn && openBlocksBtn.set("active", 1);
+    swVisBtn && swVisBtn.set("active", 1);
 
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
@@ -262,69 +207,114 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     iframeBody.onpaste = function(e) {
 
       var pastedText = undefined;
+
       if (window.clipboardData && window.clipboardData.getData) { // IE
         pastedText = window.clipboardData.getData('Text');
       } 
       else if (e.clipboardData && e.clipboardData.getData) {
-        pastedText = e.clipboardData.getData('text/plain');
+        pastedText = (e.originalEvent || e).clipboardData.getData('text/plain');
       }
       e.target.ownerDocument.execCommand("insertText", false, pastedText);
       return false; // Prevent the default handler
     };
   });
   
-  // On Selected Components
+  // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
     
-    // Hide Toolbar
+    // Hide toolbar
     selected.set('toolbar',[]);
+
+    // Set properties
+    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false});
     
 
     if(selected.is("ulistitem")){
-      //console.log("select ulistitem");
       addBtn(selected);
     }
     if(selected.isChildOf('ulistitem')){
-      //console.log("select childof ulistitem");
       addBtn(selected.closestType('ulistitem'));
     }
 
     function addBtn(listitem){
       var el = listitem.getEl();
       var elPos = listitem.index();
+      var elLast = listitem.parent().getLastChild().index();
+
+      //console.log(listitem.getI);
+      //console.log("selected: " + elPos);
+      //console.log("lastchild: " + elLast);
 
       //Add class to li element
       listitem.addClass('gjs-show-add-btn');
 
       if(el.querySelector('.gjs-btn-container') === null) {
-        //console.log("generate btn");
         const div = document.createElement('div');
         div.classList.add('gjs-btn-container');
 
-        const btn = document.createElement('button');
-        btn.innerHTML = '+';
-        btn.classList.add("gjs-add-list-item-btn");
-        btn.addEventListener('click', () => {
+        // Add clone button
+        const cBtn = document.createElement('button');
+        cBtn.innerHTML = '&#43;';
+        cBtn.classList.add("gjs-add-list-item-btn","clone");
+        cBtn.addEventListener('click', () => {
           listitem.parent().append(listitem.clone(), {at: elPos + 1});
         });
-        div.appendChild(btn);
+        div.appendChild(cBtn);
+
+        // Add delete button
+        const dBtn = document.createElement('button');
+        dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"></path></svg>';
+        dBtn.classList.add("gjs-add-list-item-btn","del");
+        dBtn.addEventListener('click', () => {
+          listitem.remove();
+        });
+        if(elLast != 0){
+          div.appendChild(dBtn);
+        }
+
+        // Add move up button
+        const upBtn = document.createElement('button');
+        upBtn.innerHTML = '&#9652;';
+        upBtn.classList.add("gjs-add-list-item-btn","up");
+        upBtn.addEventListener('click', () => {
+          //console.log("up to: " + (elPos - 1));
+          listitem.move(listitem.parent(), {at: elPos - 1});
+          editor.select(listitem);
+        });
+        div.appendChild(upBtn);
+
+        // Add move down button
+        const dwnBtn = document.createElement('button');
+        dwnBtn.innerHTML = '&#9662;';
+        dwnBtn.classList.add("gjs-add-list-item-btn","down");
+        var toPos = elPos + 2;
+        if(elPos == elLast){
+          toPos = 0;
+        }
+        dwnBtn.addEventListener('click', () => {
+          //console.log("down to: " + toPos);
+          listitem.move(listitem.parent(), {at: toPos});
+          editor.select(listitem);
+        });        
+        div.appendChild(dwnBtn);
         el.appendChild(div);
       }
     }
   
   });
+  // On deselected components
   editor.on('component:deselected', (deselected) => {
     if(deselected.is('ulistitem')){
-      //console.log("deselected ulistitem");
       deselected.removeClass('gjs-show-add-btn');
     }
     if(deselected.isChildOf('ulistitem')){
-      //console.log("deselected child of ulistitem");
       deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
     }
   });
 });
+
+
 
 function formatBytes(bytes,decimals) {
   if(bytes == 0) return '0 Bytes';

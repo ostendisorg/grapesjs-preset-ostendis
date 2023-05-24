@@ -87,7 +87,7 @@
                     <td class="cell c1776">
                       <div class="c1144">
                         GrapesJS Newsletter Builder
-                        <br />
+                        <br>
                       </div>
                     </td>
                   </tr>
@@ -108,7 +108,7 @@
                             <table class="c1542">
                               <tr>
                                 <td class="card-footer" id="c1545">
-                                  <a class="button" href="https://github.com/artf/grapesjs">Free and Open Source </a>
+                                  <a class="button" href="https://github.com/artf/grapesjs">Free and Open Source</a>
                                 </td>
                               </tr>
                             </table>
@@ -120,7 +120,7 @@
                 </table>
                 <ul class="ulist fa-ul" data-ost-type="benefits" id="i8c9go"
                   style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding: 0.2em 0; margin-left: 2em; line-height: 1.4em;">
-                  <li class="ulistitem" id="ia3uv2" style="box-sizing: border-box; text-align: left;">
+                  <li class="ulistitem" id="first" style="box-sizing: border-box; text-align: left;">
                     <span id="ibmh9h" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em;"><i
                         class="fas fa-circle" id="imkxch"
                         style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block;">
@@ -130,7 +130,7 @@
                       Original von Inserat
                     </p>
                   </li>
-                  <li class="ulistitem" id="icuzh5" style="box-sizing: border-box; text-align: left;">
+                  <li class="ulistitem" id="second" style="box-sizing: border-box; text-align: left;">
                     <span id="ijmtna" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em;"><i
                         class="fas fa-circle" id="ii8g9t"
                         style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block;">
@@ -147,8 +147,7 @@
                       <table class="list-item-content">
                         <tr class="list-item-row">
                           <td class="list-cell-left">
-                            <img class="list-item-image" src="http://artf.github.io/grapesjs/img/tmp-blocks.jpg"
-                              alt="Image1" />
+                            <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image1" />
                           </td>
                           <td class="list-cell-right">
                             <h1 class="card-title">Built-in Blocks</h1>
@@ -166,8 +165,7 @@
                       <table class="list-item-content">
                         <tr class="list-item-row">
                           <td class="list-cell-left">
-                            <img class="list-item-image" src="http://artf.github.io/grapesjs/img/tmp-tgl-images.jpg"
-                              alt="Image2" />
+                            <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image2" />
                           </td>
                           <td class="list-cell-right">
                             <h1 class="card-title">Toggle images</h1>
@@ -185,8 +183,7 @@
                       <table class="grid-item-card">
                         <tr>
                           <td class="grid-item-card-cell">
-                            <img class="grid-item-image" src="http://artf.github.io/grapesjs/img/tmp-send-test.jpg"
-                              alt="Image1" />
+                            <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image1" />
                             <table class="grid-item-card-body">
                               <tr>
                                 <td class="grid-item-card-content">
@@ -204,8 +201,7 @@
                       <table class="grid-item-card">
                         <tr>
                           <td class="grid-item-card-cell">
-                            <img class="grid-item-image" src="http://artf.github.io/grapesjs/img/tmp-devices.jpg"
-                              alt="Image2" />
+                            <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image2" />
                             <table class="grid-item-card-body">
                               <tr>
                                 <td class="grid-item-card-content">
@@ -231,7 +227,7 @@
                         <p>
                           <a class="link" href="https://github.com/artf/grapesjs-preset-newsletter">GrapesJS Newsletter
                             Preset</a>
-                          <br />
+                          <br>
                         </p>
                       </div>
 
@@ -560,7 +556,7 @@
   </div>
 
   <div id="info-cont" style="display: none">
-    <br />
+    <br>
     <svg class="grapesjs-logo" xmlns="http://www.w3.org/2000/svg" version="1">
       <g id="gjs-logo">
         <path
@@ -568,7 +564,7 @@
           style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; stroke-width: 10; stroke: #fff" />
       </g>
     </svg>
-    <br />
+    <br>
     <div class="gjs-import-label">
       <b>GrapesJS Ostendis Builder</b> is a showcase of what/how is possible to build an editor using the
       <a class="info-link gjs-color-active" target="_blank" href="http://artf.github.io/grapesjs/">GrapesJS</a>
@@ -624,18 +620,39 @@
                     .gjs-add-list-item-btn{
                       display: none;
                       position: absolute;
-                      bottom: -8px;
-                      right: 5px;
                       width: 22px;
+                      height: 22px;
+                      line-height: 22px;
                       padding: 0;
                       font-weight: bold;
                       background-color: #3b5998;
                       border: none;
                       color: #fff;
-                      border-radius: 50%;
-                      line-height: 22px;
                       cursor: pointer;
                       z-index:99999;
+                    }
+                    .gjs-add-list-item-btn svg{
+                      width: 16px;
+                    }
+                    .clone,
+                    .del{
+                      border-radius: 50% 50% 50% 50%;
+                      bottom: -11px;
+                      right: 30px;
+                      line-height: 16px;
+                    }
+                    .del{
+                      right: 55px;
+                    }
+                    .down{
+                      border-radius: 0 0 50% 50%;
+                      bottom: -22px;
+                      right: 5px;
+                    }
+                    .up{
+                      border-radius: 50% 50% 0 0;
+                      bottom: 22px;
+                      right: 5px;
                     }`,
       blockManager: { appendOnClick: 1 },
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },
