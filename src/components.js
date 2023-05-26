@@ -200,6 +200,31 @@ define(function () {
       },
     });
 
+    // Unsorted list default
+    domComp.addType("ulistdef", {
+      isComponent: el => {
+        if(el.tagName === 'UL' && !el.classList.contains('ulist')){
+          return { type: 'ulistdef' };
+        }
+      },
+    });
+
+    // Unsorted list default item
+    domComp.addType("ulistitemdef", {
+      isComponent: el => {
+        if(el.tagName === 'LI' && !el.classList.contains('ulistitem')){
+          return { type: 'ulistitemdef' };
+        }
+      },
+      model: {
+        defaults: {
+          tagName: "li",
+          style: { "position":"relative" }
+        },
+      },
+    });
+
+
     // icon component
     domComp.addType("icon", {
       isComponent: el => {

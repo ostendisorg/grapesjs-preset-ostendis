@@ -229,12 +229,15 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     // Set properties
     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false});
     
-
-    if(selected.is("ulistitem")){
+    // Is ulistitem or child of ulistitem
+    if(selected.is("ulistitem") || selected.is("ulistitemdef")){
       addBtn(selected);
     }
     if(selected.isChildOf('ulistitem')){
       addBtn(selected.closestType('ulistitem'));
+    }
+    if(selected.isChildOf('ulistitemdef')){
+      addBtn(selected.closestType('ulistitemdef'));
     }
 
     function addBtn(listitem){
@@ -298,18 +301,24 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
           editor.select(listitem);
         });        
         div.appendChild(dwnBtn);
+
         el.appendChild(div);
       }
     }
   
   });
+
+
   // On deselected components
   editor.on('component:deselected', (deselected) => {
-    if(deselected.is('ulistitem')){
+    if(deselected.is('ulistitem') || deselected.is('ulistitemdef')){
       deselected.removeClass('gjs-show-add-btn');
     }
     if(deselected.isChildOf('ulistitem')){
       deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
+    if(deselected.isChildOf('ulistitemdef')){
+      deselected.closestType('ulistitemdef').removeClass('gjs-show-add-btn');
     }
   });
 });

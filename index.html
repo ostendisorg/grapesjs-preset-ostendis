@@ -141,6 +141,11 @@
                     </p>
                   </li>
                 </ul>
+                <ul>
+                  <li>UL LI Blank 1</li>
+                  <li>UL LI Blank 2</li>
+                  <li>UL LI Blank 3</li>
+                </ul>
                 <table class="list-item">
                   <tr>
                     <td class="list-item-cell">
@@ -619,10 +624,13 @@
                       display: block;
                     }
                     .gjs-btn-container{
-                      position: relative;
-                      height:0;
-                      width:100%;
-                      min-width: 30px;
+                      position: absolute;
+                      height:100%;
+                      width:0;
+                      top:0;
+                      right:0;
+                      bottom:0;
+                      left: auto;
                     }
                     .gjs-add-list-item-btn{
                       display: none;
@@ -658,7 +666,7 @@
                     }
                     .up{
                       border-radius: 50% 50% 0 0;
-                      bottom: 22px;
+                      top: -22px;
                       right: 5px;
                     }`,
       blockManager: { appendOnClick: 1 },
@@ -673,6 +681,9 @@
           categoryLabel: "Default",
         },
       },
+      domComponents: {
+        draggableComponents: false,
+      }
     });
   </script>
 </body>
