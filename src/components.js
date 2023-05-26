@@ -176,7 +176,7 @@ define(function () {
           tagName: "li",
           draggable: "ul",
           attributes: { class: "ulistitem" },
-          style: { "text-align":"left" }, 
+          style: { "text-align": "left" }, 
           components: ulistItemContent,
         },
       }
@@ -194,7 +194,7 @@ define(function () {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
+          style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"}, 
           components: ulListItem + ulListItem + ulListItem,
         },
       },
@@ -219,7 +219,7 @@ define(function () {
       model: {
         defaults: {
           tagName: "li",
-          style: { "position":"relative" }
+          style: { "position": "relative" }
         },
       },
     });
