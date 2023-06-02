@@ -185,8 +185,7 @@ define(function () {
     // Unsorted list component with fontawesome 5.x
     const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` 
                             + ulistItemContent + 
-                       `<p style="margin:0;padding:0;text-align:left;">Text</p>
-                       </li>`;
+                       `</li>`;
     domComp.addType("ulist", {
       isComponent: el => {
         if(el.tagName === 'UL' && el.classList.contains('ulist')){
