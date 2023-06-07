@@ -625,49 +625,40 @@
                     }
                     .gjs-btn-container{
                       position: absolute;
-                      height:100%;
-                      width:0;
-                      top:0;
+                      height:0;
+                      width: 100%;
+                      top: auto;
                       right:0;
                       bottom:0;
-                      left: auto;
+                      left: 0;
                     }
                     .gjs-add-list-item-btn{
                       display: none;
                       position: absolute;
-                      width: 22px;
-                      height: 22px;
-                      line-height: 22px;
-                      padding: 0;
+                      bottom: -26px;
+                      width: 26px;
+                      height: 26px;
+                      line-height: 16px;
+                      padding: 5px;
                       font-weight: bold;
+                      font-size: 18px;
                       background-color: #3b5998;
                       border: none;
                       color: #fff;
                       cursor: pointer;
                       z-index:99999;
                     }
-                    .gjs-add-list-item-btn svg{
-                      width: 16px;
-                    }
-                    .clone,
-                    .del{
-                      border-radius: 50% 50% 50% 50%;
-                      bottom: -11px;
-                      right: 30px;
-                      line-height: 16px;
+                    .clone{
+                      right: 78px
                     }
                     .del{
-                      right: 55px;
+                      right: 52px;
                     }
                     .down{
-                      border-radius: 0 0 50% 50%;
-                      bottom: -22px;
-                      right: 5px;
+                      right: 26px;
                     }
                     .up{
-                      border-radius: 50% 50% 0 0;
-                      top: -22px;
-                      right: 5px;
+                      right: 0;
                     }`,
       blockManager: { appendOnClick: 1 },
       colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },

@@ -224,7 +224,10 @@ define(function () {
       model: {
         defaults: {
           tagName: "li",
-          style: { "position": "relative" }
+          style: { "position": "relative" },
+          attributes: {
+            "data-gjs-name": "List item",
+          }
         },
       },
     });
