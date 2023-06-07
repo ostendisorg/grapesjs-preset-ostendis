@@ -90,6 +90,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
+    ostToolbarClone: "Clone list element",
+    ostToolbarDelete: "Delete list element",
+    ostToolbarUp: "Move list element up",
+    ostToolbarDown: "Move list element down",
+
     /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb default Werte in Deutsch.*/
     assetsModalTitle: "Bild auswählen", 
     assetsModalWarningTitle: "Warnung",
@@ -190,6 +195,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     });
     swVisBtn && swVisBtn.set("active", 1);
 
+    // Set Canvas 100% and hide side panel
+    var panels = editor.Panels.getPanelsEl();
+    panels.getElementsByClassName("gjs-pn-views")[0].setAttribute("style", "width: 0%; display: none;");
+    panels.getElementsByClassName("gjs-pn-views-container")[0].setAttribute("style", "width: 0%; display: none;");
+    editor.Canvas.getElement().style.width = "100%";
+
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
 
@@ -223,11 +234,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
     
-    // Hide toolbar
-    selected.set('toolbar',[]);
-
     // Set properties
-    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false});
+    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
     
     // Is ulistitem or child of ulistitem
     if(selected.is("ulistitem") || selected.is("ulistitemdef")){
@@ -245,10 +253,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       var elPos = listitem.index();
       var elLast = listitem.parent().getLastChild().index();
 
-      //console.log(listitem.getI);
-      //console.log("selected: " + elPos);
-      //console.log("lastchild: " + elLast);
-
       //Add class to li element
       listitem.addClass('gjs-show-add-btn');
 
@@ -258,8 +262,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
         // Add clone button
         const cBtn = document.createElement('button');
-        cBtn.innerHTML = '&#43;';
+        cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
         cBtn.classList.add("gjs-add-list-item-btn","clone");
+        cBtn.title = defaults.ostToolbarClone;
         cBtn.addEventListener('click', () => {
           listitem.parent().append(listitem.clone(), {at: elPos + 1});
         });
@@ -267,7 +272,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
         // Add delete button
         const dBtn = document.createElement('button');
-        dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"></path></svg>';
+        dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
+        dBtn.title = defaults.ostToolbarDelete;
         dBtn.classList.add("gjs-add-list-item-btn","del");
         dBtn.addEventListener('click', () => {
           listitem.remove();
@@ -279,9 +285,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         // Add move up button
         const upBtn = document.createElement('button');
         upBtn.innerHTML = '&#9652;';
+        upBtn.title = defaults.ostToolbarUp;
         upBtn.classList.add("gjs-add-list-item-btn","up");
         upBtn.addEventListener('click', () => {
-          //console.log("up to: " + (elPos - 1));
           listitem.move(listitem.parent(), {at: elPos - 1});
           editor.select(listitem);
         });
@@ -290,13 +296,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         // Add move down button
         const dwnBtn = document.createElement('button');
         dwnBtn.innerHTML = '&#9662;';
+        dwnBtn.title = defaults.ostToolbarDown;
         dwnBtn.classList.add("gjs-add-list-item-btn","down");
         var toPos = elPos + 2;
         if(elPos == elLast){
           toPos = 0;
         }
         dwnBtn.addEventListener('click', () => {
-          //console.log("down to: " + toPos);
           listitem.move(listitem.parent(), {at: toPos});
           editor.select(listitem);
         });        
@@ -322,7 +328,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     }
   });
 });
-
 
 
 function formatBytes(bytes,decimals) {
