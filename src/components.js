@@ -198,7 +198,7 @@ define(function () {
       model: {
         defaults: {
           tagName: "ul",
-          attributes: { class: "ulist fa-ul" },
+          attributes: { class: "ulist fa-ul", name:"UnsortedList" },
           style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"}, 
           components: ulListItem + ulListItem + ulListItem,
         },
@@ -206,19 +206,19 @@ define(function () {
     });
 
     // Unsorted list default
-    domComp.addType("ulistdef", {
+    domComp.addType("list", {
       isComponent: el => {
         if(el.tagName === 'UL' && !el.classList.contains('ulist')){
-          return { type: 'ulistdef' };
+          return { type: 'list' };
         }
       },
     });
 
     // Unsorted list default item
-    domComp.addType("ulistitemdef", {
+    domComp.addType("listitem", {
       isComponent: el => {
         if(el.tagName === 'LI' && !el.classList.contains('ulistitem')){
-          return { type: 'ulistitemdef' };
+          return { type: 'listitem' };
         }
       },
       model: {
@@ -226,12 +226,11 @@ define(function () {
           tagName: "li",
           style: { "position": "relative" },
           attributes: {
-            "data-gjs-name": "List item",
+            name : "List item",
           }
         },
       },
     });
-
 
     // icon component
     domComp.addType("icon", {

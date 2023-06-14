@@ -197,8 +197,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     // Set Canvas 100% and hide side panel
     var panels = editor.Panels.getPanelsEl();
-    panels.getElementsByClassName("gjs-pn-views")[0].setAttribute("style", "width: 0%; display: none;");
-    panels.getElementsByClassName("gjs-pn-views-container")[0].setAttribute("style", "width: 0%; display: none;");
+    //panels.getElementsByClassName("gjs-pn-views")[0].setAttribute("style", "width: 0%; display: none;");
+    panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0%";
+    panels.getElementsByClassName("gjs-pn-views")[0].style.display = "none";
+    //panels.getElementsByClassName("gjs-pn-views-container")[0].setAttribute("style", "width: 0%;");
+    panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
     editor.Canvas.getElement().style.width = "100%";
 
     // Beautify tooltips
@@ -233,19 +236,33 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
-    
+       
     // Set properties
     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
+
+    // Show panel view if needed
+    var componentsShowPanel = ["link","video","map","icon"];
+    var panels = editor.Panels.getPanelsEl();
+    if(componentsShowPanel.includes(selected.get("type"))){
+      panels.getElementsByClassName("gjs-pn-views")[0].style.width = "20%";
+      panels.getElementsByClassName("gjs-pn-views")[0].style.display = "initial";
+      panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "20%";
+    }
+    else{
+      panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0";
+      panels.getElementsByClassName("gjs-pn-views")[0].style.display = "none";
+      panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
+    }
     
     // Is ulistitem or child of ulistitem
-    if(selected.is("ulistitem") || selected.is("ulistitemdef")){
+    if(selected.is("ulistitem") || selected.is("listitem")){
       addBtn(selected);
     }
     if(selected.isChildOf('ulistitem')){
       addBtn(selected.closestType('ulistitem'));
     }
-    if(selected.isChildOf('ulistitemdef')){
-      addBtn(selected.closestType('ulistitemdef'));
+    if(selected.isChildOf('listitem')){
+      addBtn(selected.closestType('listitem'));
     }
 
     function addBtn(listitem){
@@ -317,14 +334,14 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
   // On deselected components
   editor.on('component:deselected', (deselected) => {
-    if(deselected.is('ulistitem') || deselected.is('ulistitemdef')){
+    if(deselected.is('ulistitem') || deselected.is('listitem')){
       deselected.removeClass('gjs-show-add-btn');
     }
     if(deselected.isChildOf('ulistitem')){
       deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
     }
-    if(deselected.isChildOf('ulistitemdef')){
-      deselected.closestType('ulistitemdef').removeClass('gjs-show-add-btn');
+    if(deselected.isChildOf('listitem')){
+      deselected.closestType('listitem').removeClass('gjs-show-add-btn');
     }
   });
 });

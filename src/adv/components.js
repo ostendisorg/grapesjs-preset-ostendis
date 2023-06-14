@@ -203,25 +203,28 @@ define(function () {
     });
 
     // Unsorted list default
-    domComp.addType("ulistdef", {
+    domComp.addType("list", {
       isComponent: el => {
         if(el.tagName === 'UL' && !el.classList.contains('ulist')){
-          return { type: 'ulistdef' };
+          return { type: 'list' };
         }
       },
     });
 
     // Unsorted list default item
-    domComp.addType("ulistitemdef", {
+    domComp.addType("listitem", {
       isComponent: el => {
         if(el.tagName === 'LI' && !el.classList.contains('ulistitem')){
-          return { type: 'ulistitemdef' };
+          return { type: 'listitem' };
         }
       },
       model: {
         defaults: {
           tagName: "li",
-          style: { "position": "relative" }
+          style: { "position": "relative" },
+          attributes: {
+            "data-gjs-name": "List item",
+          }
         },
       },
     });

@@ -323,28 +323,25 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
   });
 
-  // On Selected Components
+  // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
-
-    if(selected.is("ulistitem")){
+       
+    // Is ulistitem or child of ulistitem
+    if(selected.is("ulistitem") || selected.is("listitem")){
       addBtn(selected);
     }
     if(selected.isChildOf('ulistitem')){
       addBtn(selected.closestType('ulistitem'));
     }
-
-    // Manipulate Toolbar
-    /*function manipulateToolbar(selected){
-      var toolbar = selected.get('toolbar');
-      var tb = toolbar.slice(0, -2);
-      console.log(tb);
-      selected.set('toolbar',tb);
-    }*/
+    if(selected.isChildOf('listitem')){
+      addBtn(selected.closestType('listitem'));
+    }
 
     function addBtn(listitem){
       var el = listitem.getEl();
       var elPos = listitem.index();
+      var elLast = listitem.parent().getLastChild().index();
 
       //Add class to li element
       listitem.addClass('gjs-show-add-btn');
@@ -353,24 +350,71 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
         const div = document.createElement('div');
         div.classList.add('gjs-btn-container');
 
-        const btn = document.createElement('button');
-        btn.innerHTML = '+';
-        btn.classList.add("gjs-add-list-item-btn");
-        btn.addEventListener('click', () => {
+        // Add clone button
+        const cBtn = document.createElement('button');
+        cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
+        cBtn.classList.add("gjs-add-list-item-btn","clone");
+        cBtn.title = defaults.ostToolbarClone;
+        cBtn.addEventListener('click', () => {
           listitem.parent().append(listitem.clone(), {at: elPos + 1});
         });
-        div.appendChild(btn);
+        div.appendChild(cBtn);
+
+        // Add delete button
+        const dBtn = document.createElement('button');
+        dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
+        dBtn.title = defaults.ostToolbarDelete;
+        dBtn.classList.add("gjs-add-list-item-btn","del");
+        dBtn.addEventListener('click', () => {
+          listitem.remove();
+        });
+        if(elLast != 0){
+          div.appendChild(dBtn);
+        }
+
+        // Add move up button
+        const upBtn = document.createElement('button');
+        upBtn.innerHTML = '&#9652;';
+        upBtn.title = defaults.ostToolbarUp;
+        upBtn.classList.add("gjs-add-list-item-btn","up");
+        upBtn.addEventListener('click', () => {
+          listitem.move(listitem.parent(), {at: elPos - 1});
+          editor.select(listitem);
+        });
+        div.appendChild(upBtn);
+
+        // Add move down button
+        const dwnBtn = document.createElement('button');
+        dwnBtn.innerHTML = '&#9662;';
+        dwnBtn.title = defaults.ostToolbarDown;
+        dwnBtn.classList.add("gjs-add-list-item-btn","down");
+        var toPos = elPos + 2;
+        if(elPos == elLast){
+          toPos = 0;
+        }
+        dwnBtn.addEventListener('click', () => {
+          listitem.move(listitem.parent(), {at: toPos});
+          editor.select(listitem);
+        });        
+        div.appendChild(dwnBtn);
+
         el.appendChild(div);
       }
     }
   
   });
+
+
+  // On deselected components
   editor.on('component:deselected', (deselected) => {
-    if(deselected.is('ulistitem')){
+    if(deselected.is('ulistitem') || deselected.is('listitem')){
       deselected.removeClass('gjs-show-add-btn');
     }
     if(deselected.isChildOf('ulistitem')){
       deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
+    if(deselected.isChildOf('listitem')){
+      deselected.closestType('listitem').removeClass('gjs-show-add-btn');
     }
   });
 });
