@@ -165,7 +165,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
+    /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
     assetsModalTitle: "Bild auswählen", 
     assetsModalWarningTitle: "Warnung",
     assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",

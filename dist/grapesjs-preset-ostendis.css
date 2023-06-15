@@ -41,7 +41,7 @@
 
 .gjs-pn-views, .gjs-pn-views-container {
   width: 20%;
-  transition: width .2s ease-in; }
+  transition: all .2s ease-in; }
 
 .gjs-pn-options {
   right: 20%; }

@@ -52,7 +52,7 @@
 
 .#{$app-prefix}pn-views, .#{$app-prefix}pn-views-container {
   width: 20%;
-  transition: width .2s ease-in;
+  transition: all .2s ease-in;
 }
 
 .#{$app-prefix}pn-options {

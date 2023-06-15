@@ -95,7 +95,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     ostToolbarUp: "Move list element up",
     ostToolbarDown: "Move list element down",
 
-    /* Diese Übersetzugen werden erste verwendet, wenn das Modal geladen wird. Deshalb default Werte in Deutsch.*/
+    /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb default Werte in Deutsch.*/
     assetsModalTitle: "Bild auswählen", 
     assetsModalWarningTitle: "Warnung",
     assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",   
@@ -197,10 +197,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     // Set Canvas 100% and hide side panel
     var panels = editor.Panels.getPanelsEl();
-    //panels.getElementsByClassName("gjs-pn-views")[0].setAttribute("style", "width: 0%; display: none;");
     panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0%";
-    panels.getElementsByClassName("gjs-pn-views")[0].style.display = "none";
-    //panels.getElementsByClassName("gjs-pn-views-container")[0].setAttribute("style", "width: 0%;");
+    panels.getElementsByClassName("gjs-pn-views")[0].style.padding = "0";
     panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
     editor.Canvas.getElement().style.width = "100%";
 
@@ -245,12 +243,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     var panels = editor.Panels.getPanelsEl();
     if(componentsShowPanel.includes(selected.get("type"))){
       panels.getElementsByClassName("gjs-pn-views")[0].style.width = "20%";
-      panels.getElementsByClassName("gjs-pn-views")[0].style.display = "initial";
+      panels.getElementsByClassName("gjs-pn-views")[0].style.removeProperty('padding');
       panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "20%";
     }
     else{
       panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0";
-      panels.getElementsByClassName("gjs-pn-views")[0].style.display = "none";
+      panels.getElementsByClassName("gjs-pn-views")[0].style.padding = "0";
       panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
     }
     
@@ -330,7 +328,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     }
   
   });
-
 
   // On deselected components
   editor.on('component:deselected', (deselected) => {
