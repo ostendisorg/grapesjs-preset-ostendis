@@ -223,7 +223,6 @@ define(function () {
       },
       model: {
         defaults: {
-          tagName: "li",
           style: { "position": "relative" },
           attributes: {
             name : "List item",
