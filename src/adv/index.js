@@ -374,7 +374,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
         // Add move up button
         const upBtn = document.createElement('button');
-        upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.6 21 12 3l10.4 18Z"/></svg>';
+        upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
         upBtn.title = defaults.ostToolbarUp;
         upBtn.classList.add("gjs-add-list-item-btn","up");
         upBtn.addEventListener('click', () => {
@@ -385,7 +385,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
         // Add move down button
         const dwnBtn = document.createElement('button');
-        dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3 12 21 1.6 3Z"/></svg>';
+        dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
         dwnBtn.title = defaults.ostToolbarDown;
         dwnBtn.classList.add("gjs-add-list-item-btn","down");
         var toPos = elPos + 2;

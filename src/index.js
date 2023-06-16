@@ -195,13 +195,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     });
     swVisBtn && swVisBtn.set("active", 1);
 
-    // Set Canvas 100% and hide side panel
-    var panels = editor.Panels.getPanelsEl();
-    panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0%";
-    panels.getElementsByClassName("gjs-pn-views")[0].style.padding = "0";
-    panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
-    editor.Canvas.getElement().style.width = "100%";
-
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
 
@@ -237,21 +230,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
        
     // Set properties
     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
-
-    // Show panel view if needed
-    var componentsShowPanel = ["link","video","map","icon"];
-    var panels = editor.Panels.getPanelsEl();
-    if(componentsShowPanel.includes(selected.get("type"))){
-      panels.getElementsByClassName("gjs-pn-views")[0].style.width = "20%";
-      panels.getElementsByClassName("gjs-pn-views")[0].style.removeProperty('padding');
-      panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "20%";
-    }
-    else{
-      panels.getElementsByClassName("gjs-pn-views")[0].style.width = "0";
-      panels.getElementsByClassName("gjs-pn-views")[0].style.padding = "0";
-      panels.getElementsByClassName("gjs-pn-views-container")[0].style.width = "0";
-    }
-    
+   
     // Is ulistitem or child of ulistitem
     if(selected.is("ulistitem") || selected.is("listitem")){
       addBtn(selected);
@@ -299,7 +278,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
         // Add move up button
         const upBtn = document.createElement('button');
-        upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.6 21 12 3l10.4 18Z"/></svg>';
+        upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
         upBtn.title = defaults.ostToolbarUp;
         upBtn.classList.add("gjs-add-list-item-btn","up");
         upBtn.addEventListener('click', () => {
@@ -310,7 +289,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
         // Add move down button
         const dwnBtn = document.createElement('button');
-        dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3 12 21 1.6 3Z"/></svg>';
+        dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
         dwnBtn.title = defaults.ostToolbarDown;
         dwnBtn.classList.add("gjs-add-list-item-btn","down");
         var toPos = elPos + 2;
