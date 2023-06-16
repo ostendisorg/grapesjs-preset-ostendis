@@ -165,6 +165,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
+    ostToolbarClone: "Clone list element",
+    ostToolbarDelete: "Delete list element",
+    ostToolbarUp: "Move list element up",
+    ostToolbarDown: "Move list element down",
+
     /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
     assetsModalTitle: "Bild auswählen", 
     assetsModalWarningTitle: "Warnung",
