@@ -31,23 +31,7 @@ define(function () {
       ],
     };
 
-    //add ostendis type trait to text components
-    domComp.addType("text", {
-      model: {
-        defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
-        },
-      },
-    });
-
-    //add ostendis type trait to default components
-    domComp.addType("default", {
-      model: {
-        defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
-        },
-      },
-    });
+    
 
     //define ostendis type trait for images
     const ostTypeImageTrait = {
@@ -283,6 +267,23 @@ define(function () {
               ],
             },
           ],
+        },
+      },
+    });
+    //add ostendis type trait to text components
+    domComp.addType("text", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
+        },
+      },
+    });
+
+    //add ostendis type trait to default components
+    domComp.addType("default", {
+      model: {
+        defaults: {
+          traits: ["id", "title", ostTypeTextTrait],
         },
       },
     });
