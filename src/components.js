@@ -189,32 +189,6 @@ define(function () {
       },
     });
 
-    // Unsorted list default
-    domComp.addType("list", {
-      isComponent: el => {
-        if(el.tagName === 'UL' && !el.classList.contains('ulist')){
-          return { type: 'list' };
-        }
-      },
-    });
-
-    // Unsorted list default item
-    domComp.addType("listitem", {
-      isComponent: el => {
-        if(el.tagName === 'LI' && !el.classList.contains('ulistitem')){
-          return { type: 'listitem' };
-        }
-      },
-      model: {
-        defaults: {
-          style: { "position": "relative" },
-          attributes: {
-            name : "List item",
-          }
-        },
-      },
-    });
-
     // icon component
     domComp.addType("icon", {
       isComponent: el => {
