@@ -244,17 +244,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       var elPos = listitem.index();
       var elLast = listitem.parent().getLastChild().index();
 
-      // Toolbar Manipulation (works!)
-      // listitem.set({
-      //   toolbar:[
-      //     {
-      //       attributes: {title: defaults.ostToolbarUp },
-      //       command: () => {listitem.move(listitem.parent(), {at: elPos - 1});},
-      //       label: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>',
-      //     }
-      //   ]
-      // });
-
       //Add class to li element
       listitem.addClass('gjs-show-add-btn');
 
@@ -263,7 +252,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         div.classList.add('gjs-btn-container');
 
         // Add clone button
-        const cBtn = document.createElement('button');
+        const cBtn = document.createElement('div');
         cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
         cBtn.classList.add("gjs-add-list-item-btn","clone");
         cBtn.title = defaults.ostToolbarClone;
@@ -273,7 +262,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         div.appendChild(cBtn);
 
         // Add delete button
-        const dBtn = document.createElement('button');
+        const dBtn = document.createElement('div');
         dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
         dBtn.title = defaults.ostToolbarDelete;
         dBtn.classList.add("gjs-add-list-item-btn","del");
@@ -285,7 +274,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         }
 
         // Add move up button
-        const upBtn = document.createElement('button');
+        const upBtn = document.createElement('div');
         upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
         upBtn.title = defaults.ostToolbarUp;
         upBtn.classList.add("gjs-add-list-item-btn","up");
@@ -296,7 +285,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
         div.appendChild(upBtn);
 
         // Add move down button
-        const dwnBtn = document.createElement('button');
+        const dwnBtn = document.createElement('div');
         dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
         dwnBtn.title = defaults.ostToolbarDown;
         dwnBtn.classList.add("gjs-add-list-item-btn","down");
@@ -325,6 +314,25 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     }
   });
 
+  editor.on('storage:start', () => {
+    console.log("storage:start");
+    /*const allComponents = editor.DomComponents.getWrapper();
+   
+    allComponents.onAll(component => {
+      if (component.is('ulistitem') || component.getEl().tagName === "LI"){
+        console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
+        let element = component.getEl();
+        console.log(element);
+        element.querySelector(".gjs-btn-container").remove();
+        element.removeClass('gjs-show-add-btn');
+      }
+    });*/
+  });
+
+  editor.on('storage:start:store', (storedmaterial) => {
+    console.log("storage:start:store");
+    console.log(storedmaterial);
+  });
 });
 
 function formatBytes(bytes,decimals) {
