@@ -226,6 +226,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   
   // On selected components
   editor.on('component:selected', () => {
+    console.log('selected');
     var selected = editor.getSelected();
        
     // Set properties
@@ -256,7 +257,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       var elPos = listitem.index();
       var elLast = listitem.parent().getLastChild().index();
 
-      //Add class to li element
       listitem.addClass('gjs-show-add-btn');
 
       if(el.querySelector('.gjs-btn-container') === null) {
@@ -318,11 +318,17 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
   // On deselected components
   editor.on('component:deselected', (deselected) => {
+    var el;
     if(deselected.is('ulistitem') || deselected.getEl().tagName === "LI"){
+      el = deselected.getEl();
       deselected.removeClass('gjs-show-add-btn');
     }
     else if(deselected.isChildOf('ulistitem')){
+      el = deselected.closestType('ulistitem').getEl();
       deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
+    }
+    if(typeof el !== 'undefined' && el.querySelector('.gjs-btn-container') !== null) {
+      el.querySelector('.gjs-btn-container').remove();
     }
   });
 
@@ -341,10 +347,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   //   });
   // });
 
-  // editor.on('storage:start:store', (storedmaterial) => {
-  //   console.log("storage:start:store");
-  //   console.log(storedmaterial);
-  // });
+  editor.on('storage:start:store', (storedmaterial) => {
+    console.log("storage:start:store");
+    console.log(storedmaterial);
+  });
 
 });
 
