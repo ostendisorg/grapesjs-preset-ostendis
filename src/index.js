@@ -232,7 +232,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
    
     // Is ulistitem or child of ulistitem
-    if(selected.is("ulistitem") || selected.getEl().tagName === "LI"){
+    if(selected.is("ulistitem")){
+      addBtn(selected);
+    }
+    else if(selected.getEl().tagName === "LI"){
+
+       if(selected.components().length === 0 && !selected.get('content')){
+        var selectedPosition = selected.index();
+        var newComponent = selected.parent().append('<li>Text</li>', {at: selectedPosition});
+        selected.remove();
+        editor.select(newComponent);
+        selected = editor.getSelected();
+       }
+       
       addBtn(selected);
     }
     else if(selected.isChildOf('ulistitem')){
@@ -314,25 +326,26 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     }
   });
 
-  editor.on('storage:start', () => {
-    console.log("storage:start");
-    /*const allComponents = editor.DomComponents.getWrapper();
+  // editor.on('storage:start', () => {
+  //   console.log("storage:start");
+  //   const allComponents = editor.DomComponents.getWrapper();
    
-    allComponents.onAll(component => {
-      if (component.is('ulistitem') || component.getEl().tagName === "LI"){
-        console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
-        let element = component.getEl();
-        console.log(element);
-        element.querySelector(".gjs-btn-container").remove();
-        element.removeClass('gjs-show-add-btn');
-      }
-    });*/
-  });
+  //   allComponents.onAll(component => {
+  //     if (component.is('ulistitem') || component.getEl().tagName === "LI"){
+  //       console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
+  //       let element = component.getEl();
+  //       console.log(element);
+  //       element.querySelector(".gjs-btn-container").remove();
+  //       element.removeClass('gjs-show-add-btn');
+  //     }
+  //   });
+  // });
 
-  editor.on('storage:start:store', (storedmaterial) => {
-    console.log("storage:start:store");
-    console.log(storedmaterial);
-  });
+  // editor.on('storage:start:store', (storedmaterial) => {
+  //   console.log("storage:start:store");
+  //   console.log(storedmaterial);
+  // });
+
 });
 
 function formatBytes(bytes,decimals) {
