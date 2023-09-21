@@ -332,16 +332,22 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   });
 
   editor.on('storage:start', () => {
+    // Remove all 
     console.log("storage:start");
     const allComponents = editor.DomComponents.getWrapper();
    
-    allComponents.onAll(component => {
+    allComponents.onAll((component) => {
       if (component.is('ulistitem') || component.getEl().tagName === "LI"){
         console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
-        let element = component.getEl();
+        var element = component.getEl();
         console.log(element);
-        element.querySelector(".gjs-btn-container").remove();
-        element.removeClass('gjs-show-add-btn');
+        var selection = element.querySelector(".gjs-btn-container");
+        if(selection !== null){
+          selection.remove();
+        }
+        console.log(component.getClasses());
+        component.removeClass('gjs-show-add-btn');
+        console.log(component.getClasses());
       }
     });
   });
