@@ -332,20 +332,20 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     }
   });
 
-  // editor.on('storage:start', () => {
-  //   console.log("storage:start");
-  //   const allComponents = editor.DomComponents.getWrapper();
+  editor.on('storage:start', () => {
+    console.log("storage:start");
+    //const allComponents = editor.DomComponents.getWrapper();
    
-  //   allComponents.onAll(component => {
-  //     if (component.is('ulistitem') || component.getEl().tagName === "LI"){
-  //       console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
-  //       let element = component.getEl();
-  //       console.log(element);
-  //       element.querySelector(".gjs-btn-container").remove();
-  //       element.removeClass('gjs-show-add-btn');
-  //     }
-  //   });
-  // });
+    // allComponents.onAll(component => {
+    //   if (component.is('ulistitem') || component.getEl().tagName === "LI"){
+    //     console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
+    //     let element = component.getEl();
+    //     console.log(element);
+    //     element.querySelector(".gjs-btn-container").remove();
+    //     element.removeClass('gjs-show-add-btn');
+    //   }
+    // });
+  });
 
   editor.on('storage:start:store', (storedmaterial) => {
     console.log("storage:start:store");
