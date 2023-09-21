@@ -226,7 +226,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   
   // On selected components
   editor.on('component:selected', () => {
-    console.log('selected');
     var selected = editor.getSelected();
        
     // Set properties
@@ -237,14 +236,14 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       addBtn(selected);
     }
     else if(selected.getEl().tagName === "LI"){
-
-       if(selected.components().length === 0 && !selected.get('content')){
+      // If list element empty replace with placeholder text (M&E case:)
+      if(selected.components().length === 0 && !selected.get('content')){
         var selectedPosition = selected.index();
         var newComponent = selected.parent().append('<li>Text</li>', {at: selectedPosition});
         selected.remove();
         editor.select(newComponent);
         selected = editor.getSelected();
-       }
+      }
        
       addBtn(selected);
     }
@@ -334,22 +333,17 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
   editor.on('storage:start', () => {
     console.log("storage:start");
-    //const allComponents = editor.DomComponents.getWrapper();
+    const allComponents = editor.DomComponents.getWrapper();
    
-    // allComponents.onAll(component => {
-    //   if (component.is('ulistitem') || component.getEl().tagName === "LI"){
-    //     console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
-    //     let element = component.getEl();
-    //     console.log(element);
-    //     element.querySelector(".gjs-btn-container").remove();
-    //     element.removeClass('gjs-show-add-btn');
-    //   }
-    // });
-  });
-
-  editor.on('storage:start:store', (storedmaterial) => {
-    console.log("storage:start:store");
-    console.log(storedmaterial);
+    allComponents.onAll(component => {
+      if (component.is('ulistitem') || component.getEl().tagName === "LI"){
+        console.log("Component type:", component.get('type'), "Tag name:", component.getEl().tagName);
+        let element = component.getEl();
+        console.log(element);
+        element.querySelector(".gjs-btn-container").remove();
+        element.removeClass('gjs-show-add-btn');
+      }
+    });
   });
 
 });
