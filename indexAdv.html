@@ -101,7 +101,7 @@
                     </span>
                     <p style="margin:0;padding:0;text-align:left;">Text 1</p>
                   </li>
-                  <li style="text-align:left">
+                  <li style="text-align:left" data-gjs-type="ulistitem">
                     <span class="fa-li" style="left:-2em;width:2em;">
                       <i class="fas fa-circle" data-gjs-type="icon"
                         style="font-size:0.4em;line-height:inherit;display:block;"></i>
@@ -131,7 +131,8 @@
                 <ul>
                   <li>nothing1</li>
                   <li>nothing2</li>
-                  <li>...</li>
+                  <li>empty li </li>
+                  <li></li>
                 </ul>
 
                 <ul class="ulist fa-ul" data-ost-type="benefits" id="i8c9go"
@@ -648,49 +649,6 @@
                     .gjs-dashed [data-ost-type="videoURL"]{
                       outline: dashed 1px #FF8200;
                       outline-offset: -3px;
-                    }
-                    li.gjs-show-add-btn{
-                      position: relative;
-                    }
-                    li.gjs-show-add-btn .gjs-add-list-item-btn{
-                      display: block;
-                    }
-                    .gjs-btn-container{
-                      position: absolute;
-                      height:0;
-                      width: 100%;
-                      top: auto;
-                      right:0;
-                      bottom:0;
-                      left: 0;
-                    }
-                    .gjs-add-list-item-btn{
-                      display: none;
-                      position: absolute;
-                      bottom: -26px;
-                      width: 26px;
-                      height: 26px;
-                      line-height: 16px;
-                      padding: 5px;
-                      font-weight: bold;
-                      font-size: 18px;
-                      background-color: #3b5998;
-                      border: none;
-                      color: #fff;
-                      cursor: pointer;
-                      z-index:99999;
-                    }
-                    .clone{
-                      right: 78px
-                    }
-                    .del{
-                      right: 52px;
-                    }
-                    .down{
-                      right: 26px;
-                    }
-                    .up{
-                      right: 0;
                     }`,
       blockManager: { appendOnClick: 1 },
       container: "#gjs",

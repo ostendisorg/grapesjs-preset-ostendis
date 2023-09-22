@@ -223,7 +223,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       return false; // Prevent the default handler
     };
 
-    // Create ostendis Toolbar
+    // Create ostendis toolbar
     let tools = document.getElementById('gjs-tools');
     const ostTools = document.createElement('div');
     ostTools.classList.add('gjs-ost-toolbar');

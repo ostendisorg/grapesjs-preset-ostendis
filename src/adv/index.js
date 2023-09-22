@@ -326,97 +326,113 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sm.getConfig().clearProperties = 1;
     sm.render();
 
+    // Create ostendis toolbar
+    let tools = document.getElementById('gjs-tools');
+    const ostTools = document.createElement('div');
+    ostTools.classList.add('gjs-ost-toolbar');
+    tools.append(ostTools);
+
   });
 
   // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
-       
+          
     // Is ulistitem or child of ulistitem
-    if(selected.is("ulistitem") || selected.getEl().tagName === "LI"){
-      addBtn(selected);
+    if(selected.is("ulistitem")){
+      showOstToolbar(selected);
+    }
+    else if(selected.getEl().tagName === "LI"){
+
+      // If list element empty replace with placeholder text (M&E case:)
+      if(selected.components().length === 0 && !selected.get('content')){
+        var selectedPosition = selected.index();
+        var newComponent = selected.parent().append('<li>Text</li>', {at: selectedPosition});
+        selected.remove();
+        editor.select(newComponent);
+        selected = editor.getSelected();
+      }
+       
+      showOstToolbar(selected);
     }
     else if(selected.isChildOf('ulistitem')){
-      addBtn(selected.closestType('ulistitem'));
+      showOstToolbar(selected.closestType('ulistitem'));
     }
 
-    function addBtn(listitem){
-      var el = listitem.getEl();
-      var elPos = listitem.index();
-      var elLast = listitem.parent().getLastChild().index();
+    function showOstToolbar(listItem){
+      var elPos = listItem.index();
+      var elLast = listItem.parent().getLastChild().index();
 
-      //Add class to li element
-      listitem.addClass('gjs-show-add-btn');
+      var ostToolbar = document.querySelector(".gjs-ost-toolbar");
+      ostToolbar.innerHTML = "";
 
-      if(el.querySelector('.gjs-btn-container') === null) {
-        const div = document.createElement('div');
-        div.classList.add('gjs-btn-container');
+      // Add clone button
+      const cBtn = document.createElement('div');
+      cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
+      cBtn.classList.add("gjs-ost-toolbar-item","clone");
+      cBtn.title = defaults.ostToolbarClone;    
+      cBtn.addEventListener('click', () => {
+        listItem.parent().append(listItem.clone(), {at: elPos + 1});
+      });
+      ostToolbar.appendChild(cBtn);
 
-        // Add clone button
-        const cBtn = document.createElement('button');
-        cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
-        cBtn.classList.add("gjs-add-list-item-btn","clone");
-        cBtn.title = defaults.ostToolbarClone;
-        cBtn.addEventListener('click', () => {
-          listitem.parent().append(listitem.clone(), {at: elPos + 1});
-        });
-        div.appendChild(cBtn);
-
-        // Add delete button
-        const dBtn = document.createElement('button');
-        dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
-        dBtn.title = defaults.ostToolbarDelete;
-        dBtn.classList.add("gjs-add-list-item-btn","del");
+      //Add delete button
+      const dBtn = document.createElement('div');
+      dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
+      dBtn.title = defaults.ostToolbarDelete;
+      dBtn.classList.add("gjs-ost-toolbar-item","del");
+      if(elLast != 0){
         dBtn.addEventListener('click', () => {
-          listitem.remove();
+          listItem.remove();
+          ostToolbar.classList.remove("show");
         });
-        if(elLast != 0){
-          div.appendChild(dBtn);
-        }
-
-        // Add move up button
-        const upBtn = document.createElement('button');
-        upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
-        upBtn.title = defaults.ostToolbarUp;
-        upBtn.classList.add("gjs-add-list-item-btn","up");
-        upBtn.addEventListener('click', () => {
-          listitem.move(listitem.parent(), {at: elPos - 1});
-          editor.select(listitem);
-        });
-        div.appendChild(upBtn);
-
-        // Add move down button
-        const dwnBtn = document.createElement('button');
-        dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
-        dwnBtn.title = defaults.ostToolbarDown;
-        dwnBtn.classList.add("gjs-add-list-item-btn","down");
-        var toPos = elPos + 2;
-        if(elPos == elLast){
-          toPos = 0;
-        }
-        dwnBtn.addEventListener('click', () => {
-          listitem.move(listitem.parent(), {at: toPos});
-          editor.select(listitem);
-        });        
-        div.appendChild(dwnBtn);
-
-        el.appendChild(div);
       }
+      else{
+        dBtn.classList.add("disable");
+      }
+      ostToolbar.appendChild(dBtn);      
+
+      // Add move up button
+      const upBtn = document.createElement('div');
+      upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
+      upBtn.title = defaults.ostToolbarUp;
+      upBtn.classList.add("gjs-ost-toolbar-item","up");
+      upBtn.addEventListener('click', () => {
+        listItem.move(listItem.parent(), {at: elPos - 1});
+        editor.selectRemove(listItem);
+        editor.select(listItem);
+      });
+      ostToolbar.appendChild(upBtn);
+
+      // Add move down button
+      const dwnBtn = document.createElement('div');
+      dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
+      dwnBtn.title = defaults.ostToolbarDown;
+      dwnBtn.classList.add("gjs-ost-toolbar-item","down");
+      var toPos = elPos + 2;
+      if(elPos == elLast){
+        toPos = 0;
+      }
+      dwnBtn.addEventListener('click', () => {
+        listItem.move(listItem.parent(), {at: toPos});
+        editor.selectRemove(listItem);
+        editor.select(listItem);
+      });        
+      ostToolbar.appendChild(dwnBtn);
+
+      ostToolbar.classList.add('show');      
     }
   });
 
   // On deselected components
-  editor.on('component:deselected', (deselected) => {
-    if(deselected.is('ulistitem') || deselected.getEl().tagName === "LI"){
-      deselected.removeClass('gjs-show-add-btn');
-    }
-    else if(deselected.isChildOf('ulistitem')){
-      deselected.closestType('ulistitem').removeClass('gjs-show-add-btn');
-    }
+  editor.on('component:deselected', () => {
+    var ostToolbar = document.querySelector(".gjs-ost-toolbar");
+    ostToolbar.classList.remove("show");    
   });
+
 });
 
-function formatBytes(bytes, decimals) {
+function formatBytes(bytes,decimals) {
   if(bytes == 0) return '0 Bytes';
   var k = 1024,
       dm = decimals || 2,
