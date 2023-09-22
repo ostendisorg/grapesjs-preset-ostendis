@@ -1,5 +1,7 @@
 @import "gjs_variables.scss";
 
+
+
 .#{$app-prefix}one-bg{
   background-color: $whiteColor;
 }
@@ -172,6 +174,34 @@
 .sp-container button {
   color: $fontColor;
   background-color: $whiteColor;
+}
+
+.#{$app-prefix}ost-toolbar{
+  display: none;
+  position: absolute;
+  background-color: $mainColor;
+  white-space: nowrap;
+  color: $whiteColor;
+  z-index: 11;
+  bottom: -26px;
+  right: 0;
+}
+
+.#{$app-prefix}ost-toolbar.show{
+  display: block;
+  pointer-events: all;
+}
+
+.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item{
+  cursor: pointer;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+}
+.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item.disable{
+  color: $white30;
+  cursor: inherit;
 }
 
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-field input,

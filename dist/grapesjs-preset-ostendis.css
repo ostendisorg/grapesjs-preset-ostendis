@@ -144,6 +144,31 @@
   color: #657390;
   background-color: #ffffff; }
 
+.gjs-ost-toolbar {
+  display: none;
+  position: absolute;
+  background-color: #3b5998;
+  white-space: nowrap;
+  color: #ffffff;
+  z-index: 11;
+  bottom: -26px;
+  right: 0; }
+
+.gjs-ost-toolbar.show {
+  display: block;
+  pointer-events: all; }
+
+.gjs-ost-toolbar .gjs-ost-toolbar-item {
+  cursor: pointer;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  padding: 5px; }
+
+.gjs-ost-toolbar .gjs-ost-toolbar-item.disable {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: inherit; }
+
 .gjs-sm-sector .gjs-sm-field input,
 .gjs-clm-tags .gjs-sm-field input,
 .gjs-sm-sector .gjs-clm-field input,
