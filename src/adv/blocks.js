@@ -508,6 +508,16 @@ define(function () {
     });
 
     // Social Media blocks
+    var instagramIcon = `<svg height="50" width="42" version="1.1" viewBox="0 0 44.8 51.2" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+     <path d="M 22.4,20.266 A 5.334,5.334 0 1 0 27.736,25.6 5.338,5.338 0 0 0 22.4,20.266 Z m 12.471,-4.1 A 5.4,5.4 0 0 0 31.83,13.125 c -2.1,-0.829 -7.1,-0.643 -9.43,-0.643 -2.33,0 -7.325,-0.193 -9.431,0.643 a 5.4,5.4 0 0 0 -3.041,3.041 c -0.828,2.1 -0.643,7.105 -0.643,9.433 0,2.328 -0.185,7.327 0.647,9.434 a 5.4,5.4 0 0 0 3.041,3.041 c 2.1,0.829 7.1,0.643 9.431,0.643 2.331,0 7.324,0.193 9.43,-0.643 a 5.4,5.4 0 0 0 3.041,-3.041 c 0.835,-2.1 0.643,-7.105 0.643,-9.433 0,-2.328 0.192,-7.326 -0.643,-9.433 z M 22.4,33.8 a 8.2,8.2 0 1 1 8.2,-8.2 8.19,8.19 0 0 1 -8.2,8.2 z m 8.538,-14.83 a 1.914,1.914 0 1 1 1.913,-1.914 1.91,1.91 0 0 1 -1.909,1.918 z M 40,3.2 H 4.8 A 4.8,4.8 0 0 0 0,8 V 43.2 A 4.8,4.8 0 0 0 4.8,48 H 40 a 4.8,4.8 0 0 0 4.8,-4.8 V 8 A 4.8,4.8 0 0 0 40,3.2 Z m -1.712,29 c -0.129,2.563 -0.714,4.834 -2.585,6.7 -1.871,1.866 -4.14,2.463 -6.7,2.585 -2.641,0.149 -10.559,0.149 -13.2,0 C 13.24,41.356 10.977,40.77 9.103,38.9 7.229,37.03 6.64,34.758 6.518,32.2 6.369,29.558 6.369,21.639 6.518,19 c 0.129,-2.563 0.707,-4.834 2.585,-6.7 1.878,-1.866 4.147,-2.456 6.7,-2.578 2.641,-0.149 10.559,-0.149 13.2,0 2.563,0.129 4.833,0.715 6.7,2.585 1.867,1.87 2.463,4.142 2.585,6.705 0.149,2.632 0.149,10.544 0,13.188 z"
+     style="stroke-width:.1" stroke="currentColor" fill="currentColor" /></svg>`;
+    var twitterXIcon =  `<svg height="50" width="42" version="1.1" viewBox="0 0 44.8 51.2" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+     <path d="M 6.4,3.2 C 2.87,3.2 0,6.07 0,9.6 v 32 C 0,45.13 2.87,48 6.4,48 h 32 c 3.53,0 6.4,-2.87 6.4,-6.4 V 9.6 C 44.8,6.07 41.93,3.2 38.4,3.2 Z M 36.11,11.6 25.73,23.46 37.94,39.6 H 28.38 L 20.9,29.81 12.33,39.6 H 7.58 L 18.68,26.91 6.97,11.6 h 9.8 l 6.77,8.95 7.82,-8.95 z M 32.33,36.76 15.34,14.29 h -2.83 l 17.18,22.47 h 2.63 z" 
+     style="stroke-width:.1" fill="currentColor" stroke="currentColor"/></svg>`;
+    var youtubeIcon = `<svg height="50" width="42" version="1.1" viewBox="0 0 44.8 51.2" xmlns="http://www.w3.org/2000/svg">
+    <path d="m18.68 20.21 9.52 5.41-9.52 5.41zm26.12-12.21v35.2c0 2.65-2.15 4.8-4.8 4.8h-35.2c-2.65 0-4.8-2.15-4.8-4.8v-35.2c0-2.65 2.15-4.8 4.8-4.8h35.2c2.65 0 4.8 2.15 4.8 4.8zm-4.2 17.63s0-5.96-0.76-8.82c-0.42-1.58-1.65-2.82-3.22-3.24-2.83-0.77-14.22-0.77-14.22-0.77s-11.39 0-14.22 0.77c-1.57 0.42-2.8 1.66-3.22 3.24-0.76 2.85-0.76 8.82-0.76 8.82s0 5.96 0.76 8.82c0.42 1.58 1.65 2.77 3.22 3.19 2.83 0.76 14.22 0.76 14.22 0.76s11.39 0 14.22-0.77c1.57-0.42 2.8-1.61 3.22-3.19 0.76-2.85 0.76-8.81 0.76-8.81z"
+     stroke-width=".1" fill="currentColor" stroke="currentColor"/></svg>`;
+
     bm.add("facebook", {
       label: opt.facebookBlkLabelSite,
       category: opt.smSitesCategoryLabel,
@@ -532,6 +542,7 @@ define(function () {
     bm.add("instagram", {
       label: opt.instagramBlkLabelSite,
       category: opt.smSitesCategoryLabel,
+      media: instagramIcon,
       content: {
         type: "link",
         style: {
@@ -547,12 +558,12 @@ define(function () {
                       <i aria-hidden="true" class="fab fa-instagram-square"></i>
                     </div>`,
       },
-      attributes: { class: "fa fa-instagram" },
     });
 
     bm.add("youtube", {
       label: opt.youtubeBlkLabelSite,
       category: opt.smSitesCategoryLabel,
+      media: youtubeIcon,
       content: {
         type: "link",
         style: {
@@ -565,10 +576,9 @@ define(function () {
           target: "_blank",
         },
         components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
-                      <i aria-hidden="true" class="fab fa-youtube"></i>
+                       <i class="fa-brands fa-square-youtube"></i>
                     </div>`,
       },
-      attributes: { class: "fa fa-youtube-play" },
     });
 
     bm.add("linkedin", {
@@ -616,6 +626,7 @@ define(function () {
     bm.add("twitter", {
       label: opt.twitterBlkLabelSite,
       category: opt.smSitesCategoryLabel,
+      media: twitterXIcon,
       content: {
         type: "link",
         style: {
@@ -628,10 +639,9 @@ define(function () {
           target: "_blank",
         },
         components: `<div style="display:flex; justify-content: center; align-items: center; width:28px; height:28px; font-size:28px; color:#293133;">
-                      <i class="fab fa-twitter-square"></i>
+                      <i class="fa-brands fa-square-x-twitter"></i>
                     </div>`,
       },
-      attributes: { class: "fa fa-twitter-square" },
     });
 
     // Social Media Share blocks
@@ -704,6 +714,7 @@ define(function () {
     bm.add("twitterShare", {
       label: opt.twitterBlkLabelShare,
       category: opt.smSharesCategoryLabel,
+      media: twitterXIcon,
       content: {
         type: "link",
         style: {
@@ -717,10 +728,9 @@ define(function () {
         },
         components: `<div style="border: 2px solid #293133; border-radius: 3px; display:flex; justify-content: space-around; align-items: center; text-align:center; width:60px; height:28px; font-size:21px; color:#293133;">
                       <i class="fas fa-share"></i>
-                      <i class="fab fa-twitter"></i>
+                      <i class="fa-brands fa-square-x-twitter"></i>
                     </div>`,
-      },
-      attributes: { class: "fa fa-twitter-square" },
+      }
     });
 
     bm.add("whatsAppShare", {
