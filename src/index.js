@@ -238,26 +238,32 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     // Set properties
     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
    
-    // Is ulistitem or child of ulistitem
     if(selected.is("ulistitem")){
       showOstToolbar(selected);
     }
-    else if(selected.getEl().tagName === "LI"){
 
-      // If list element empty replace with placeholder text (M&E case:)
-      if(selected.components().length === 0 && !selected.get('content')){
-        var selectedPosition = selected.index();
-        var newComponent = selected.parent().append('<li>Text</li>', {at: selectedPosition});
-        selected.remove();
-        editor.select(newComponent);
-        selected = editor.getSelected();
-      }
-       
-      showOstToolbar(selected);
-    }
     else if(selected.isChildOf('ulistitem')){
       showOstToolbar(selected.closestType('ulistitem'));
     }
+
+    else if(selected.getEl().tagName === "LI"){
+      // If list element empty replace with placeholder text (M&E case:)
+      if(selected.components().length === 0 && !selected.get('content')){
+        selected.append('<p style="margin:0;padding:0;text-align:left;">Text</p>');
+      }
+      // If list element has no child element add p element
+      else if(selected.getEl().children.length <= 0){
+        var elContent =  selected.getEl().innerHTML;
+        selected.getEl().innerHTML = "";
+        selected.append('<p style="margin:0;padding:0;text-align:left;">' + elContent + '</p>');
+      }
+      showOstToolbar(selected);
+    }
+
+    else if(isChildOfElement(selected.getEl(), "LI")){
+      showOstToolbar(selected.closest('li'));
+    }
+
 
     function showOstToolbar(listItem){
       var elPos = listItem.index();
@@ -332,7 +338,16 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
 });
 
-function formatBytes(bytes,decimals) {
+function isChildOfElement(element, tag) {
+  while (element.parentNode) {
+      element = element.parentNode;
+      if (element.tagName === tag)
+          return element;
+  }
+  return false;
+}
+
+function formatBytes(bytes ,decimals) {
   if(bytes == 0) return '0 Bytes';
   var k = 1024,
       dm = decimals || 2,
