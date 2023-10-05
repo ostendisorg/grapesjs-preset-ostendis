@@ -249,13 +249,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     else if(selected.getEl().tagName === "LI"){
       // If list element empty replace with placeholder text (M&E case:)
       if(selected.components().length === 0 && !selected.get('content')){
-        selected.append('<p style="margin:0;padding:0;text-align:left;">Text</p>');
+        selected.append('<p style="margin:0;padding:0;text-align:left;">Text</p>')[0];
       }
       // If list element has no child element add p element
       else if(selected.getEl().children.length <= 0){
         var elContent =  selected.getEl().innerHTML;
         selected.getEl().innerHTML = "";
-        selected.append('<p style="margin:0;padding:0;text-align:left;">' + elContent + '</p>');
+        selected.append('<p style="margin:0;padding:0;text-align:left;">' + elContent + '</p>')[0];
       }
       showOstToolbar(selected);
     }
