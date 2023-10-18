@@ -588,7 +588,7 @@ define(function () {
                       <i aria-hidden="true" class="fab fa-linkedin"></i>
                     </div>`,
       },
-      attributes: { class: "fa fa-linkedin-square" },
+      attributes: { class: "fa-brands fa-linkedin" },
     });
 
     bm.add("xing", {

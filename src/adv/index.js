@@ -15,6 +15,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     cmdUndo: "undo",
     cmdRedo: "redo",
     cmdBtnMoveLabel: "Move",
+    cmdBtnViewCompLabel: "View components",
+    cmdBtnViewCode: "View code",
     cmdBtnUndoLabel: "Undo",
     cmdBtnRedoLabel: "Redo",
     cmdBtnDesktopLabel: "Desktop",
