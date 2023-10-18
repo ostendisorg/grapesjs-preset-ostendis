@@ -65,12 +65,15 @@
   z-index: 9;
 }
 
-.#{$app-prefix}block.fa::before {
+.#{$app-prefix}block.fa::before,
+.#{$app-prefix}block.fa-solid::before,
+.#{$app-prefix}block.fa-regular::before, 
+.#{$app-prefix}block.fa-brands::before {
   display: block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 2em;
+  font-size: 48px;
 }
 
 .#{$app-prefix}drag-helper {

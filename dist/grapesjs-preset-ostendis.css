@@ -49,12 +49,15 @@
 .gjs-field-arrows {
   z-index: 9; }
 
-.gjs-block.fa::before {
+.gjs-block.fa::before,
+.gjs-block.fa-solid::before,
+.gjs-block.fa-regular::before,
+.gjs-block.fa-brands::before {
   display: block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 2em; }
+  font-size: 48px; }
 
 .gjs-drag-helper {
   background-color: #3b5998 !important; }
