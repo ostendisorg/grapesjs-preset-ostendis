@@ -59,6 +59,13 @@
   -moz-osx-font-smoothing: grayscale;
   font-size: 48px; }
 
+.gjs-block.fa-regular::before,
+.gjs-block.fa-brands::before {
+  font-weight: 400; }
+
+.gjs-block.fa-solid::before {
+  font-weight: 900; }
+
 .gjs-drag-helper {
   background-color: #3b5998 !important; }
 

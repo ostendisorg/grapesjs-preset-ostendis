@@ -75,6 +75,13 @@
   -moz-osx-font-smoothing: grayscale;
   font-size: 48px;
 }
+.#{$app-prefix}block.fa-regular::before, 
+.#{$app-prefix}block.fa-brands::before{
+  font-weight: 400;
+}
+.#{$app-prefix}block.fa-solid::before{
+  font-weight: 900;
+}
 
 .#{$app-prefix}drag-helper {
   background-color: $mainColor !important;
