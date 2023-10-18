@@ -7,7 +7,7 @@ define(function () {
     bm.add("applyQrCode", {
       label: opt.applyQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "fa fa-qrcode" },
+      attributes: { class: "fa-solid fa-qrcode" },
       content: {
         type: "image",
         editable: false,
@@ -25,7 +25,7 @@ define(function () {
     bm.add("viewQrCode", {
       label: opt.viewQrCodeBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class: "fa fa-qrcode" },
+      attributes: { class: "fa-solid fa-qrcode" },
       content: {
         type: "image",
         editable: false,
