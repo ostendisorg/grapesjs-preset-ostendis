@@ -17,11 +17,13 @@ define(function () {
     // Options panel
     let optPanel = pnm.getPanel("options");
 
+    console.log(opt);
+
     if (optPanel) {
       let optBtns = optPanel.get("buttons");
       optBtns.reset();
 
-      //Add view components
+      //Add option buttons
       optBtns.add([
         {
           active: true,
@@ -31,10 +33,6 @@ define(function () {
           context: "sw-visibility",
           attributes: { [tltAttr]: opt.cmdBtnViewCompLabel },
         },
-      ]);
-
-      //Add view code
-      optBtns.add([
         {
           id: "export-template",
           className: "fa-solid fa-code",
@@ -42,42 +40,69 @@ define(function () {
           context: "export-template",
           attributes: { [tltAttr]: opt.cmdBtnViewCode },
         },
-      ]);
-
-      // Add download
-      optBtns.add([
         {
           id: opt.cmdOpenImport,
           className: "fa-solid fa-download",
           command: opt.cmdOpenImport,
           attributes: { [tltAttr]: opt.modalTitleImport },
         },
-      ]);
-
-      // Add undo
-      optBtns.add([
         {
           id: opt.cmdUndo,
           className: "fa-solid fa-rotate-left",
           command: opt.cmdUndo,
-          attributes: {
-            [tltAttr]: opt.cmdBtnUndoLabel,
-          },
+          attributes: { [tltAttr]: opt.cmdBtnUndoLabel },
         },
-      ]);
-
-      // Add redo
-      optBtns.add([
         {
           id: opt.cmdRedo,
           className: "fa-solid fa-rotate-right",
           command: opt.cmdRedo,
-          attributes: {
-            [tltAttr]: opt.cmdBtnRedoLabel,
-          },
+          attributes: { [tltAttr]: opt.cmdBtnRedoLabel },
         },
       ]);
       updateTooltip(optBtns);
+    }
+
+    // Views panel
+    let viewPanel = pnm.getPanel("views");
+
+    if (viewPanel) {
+      let viewBtns = viewPanel.get("buttons");
+      viewBtns.reset();
+
+      viewBtns.add([
+        {
+          id: "open-sm",
+          className: "fa-solid fa-paintbrush",
+          command: "open-sm",
+          togglable: false,
+          attributes: { [tltAttr]: opt.viewBtnShowStyleManager },
+        },
+        {
+          id: "open-tm",
+          className: "fa-solid fa-gear",
+          command: "open-tm",
+          togglable: false,
+          attributes: { [tltAttr]: opt.viewBtnShowParameterManager },
+        },
+        {
+          id: "open-layers",
+          className: "fa-solid fa-layer-group",
+          command: "open-layers",
+          togglable: false,
+          attributes: { [tltAttr]: opt.viewBtnShowLayerManager },
+        },
+        {
+          id: "open-blocks",
+          className: "fa-solid fa-table-cells-large",
+          command: "open-blocks",
+          togglable: false,
+          attributes: { [tltAttr]: opt.viewBtnShowBlocksManager },
+          active: true,
+        },
+      ]);
+
+      // Set tooltip position
+      updateTooltip(viewBtns);
     }
 
     // Commands panel
@@ -110,13 +135,13 @@ define(function () {
       {
         id: "deviceTablet",
         command: "set-device-tablet",
-        className: "fa-solid fa-tablet",
+        className: "fa-solid fa-tablet-screen-button",
         attributes: { [tltAttr]: opt.cmdBtnTabletLabel },
       },
       {
         id: "deviceMobile",
         command: "set-device-mobile",
-        className: "fa-solid fa-mobile",
+        className: "fa-solid fa-mobile-screen-button",
         attributes: { [tltAttr]: opt.cmdBtnMobileLabel },
       },
     ]);

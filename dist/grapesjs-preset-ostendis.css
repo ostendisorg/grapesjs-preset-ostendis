@@ -84,6 +84,9 @@
 .gjs-toolbar {
   background-color: #3b5998; }
 
+.gjs-toolbar-items {
+  text-align: center; }
+
 .gjs-resizer-h {
   border: 2px solid #3b5998; }
 

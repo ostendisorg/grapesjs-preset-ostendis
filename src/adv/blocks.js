@@ -229,6 +229,13 @@ define(function () {
       attributes: { class: "fa-solid fa-sliders" },
     });
 
+    // bm.add("scale", {
+    //   label: opt.inputRangeBlkLabel,
+    //   category: opt.categoryLabel,
+    //   content: { type: "scale" },
+    //   attributes: { class: "fa-solid fa-bars-progress" },
+    // });
+
     // Ostendis block icons
     var ostBlockTitleText = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".106" d="M1.536 8.474h9.632v.556H1.536zm0-1.053h9.632v.556H1.535zm0-1.053h9.63v.557h-9.63zm-.004-2.106h6.954v.973H1.532z"/></svg>';
     var ostBlockTitleList =

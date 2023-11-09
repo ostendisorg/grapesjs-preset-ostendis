@@ -133,7 +133,6 @@ define(function () {
           attributes: { type: "range", disabled: true },
         },
       },
-
       extendFnView: ["updateAttributes"],
       view: {
         updateAttributes() {
@@ -141,6 +140,36 @@ define(function () {
         },
       },
     });
+
+    // domComp.addType("scale",{
+    //     isComponent: el => {
+    //       if(el.tagName === "DIV" && el.classList.contains('scale')){
+    //         return { type: 'scale'};
+    //       }
+    //     },
+    //     model: {
+    //       defaults: {
+    //         tagName: "div",
+    //         attributes: { class: "scale" },
+            
+    //         style: {"box-sizing":"border-box", "margin":"5px 1em", "padding":"0", "position":"relative", "height":"20px", "max-width":"100%","background-color":"#ccc","border":"none"},
+
+    //         components: `<div style="box-sizing: border-box; margin:0; padding:0; position:absolute; top: 0; bottom:0; left:0;right:auto; width: 66%; background-color: #3b5998;" 
+    //               draggable="false" removable="false" editable="false" copyable="false"><div>`,
+    //         traits: [
+    //           {
+    //             type: 'number',
+    //             min: 0,
+    //             max: 100,
+    //             label: 'value',
+    //             changeProp: 1,
+
+    //           }
+    //         ]
+    //       },
+
+    //     },
+    // });
 
     // Unsorted list item component
     const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">

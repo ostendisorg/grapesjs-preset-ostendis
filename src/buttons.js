@@ -115,13 +115,13 @@ define(function () {
       {
         id: "deviceTablet",
         command: "set-device-tablet",
-        className: "fa-solid fa-tablet",
+        className: "fa-solid fa-tablet-screen-button",
         attributes: { [tltAttr]: opt.cmdBtnTabletLabel },
       },
       {
         id: "deviceMobile",
         command: "set-device-mobile",
-        className: "fa-solid fa-mobile",
+        className: "fa-solid fa-mobile-screen-button",
         attributes: { [tltAttr]: opt.cmdBtnMobileLabel },
       },
     ]);

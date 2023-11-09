@@ -237,7 +237,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     var selected = editor.getSelected();
        
     // Set properties
-    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false,'toolbar': []});
+    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': [{ attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}] });
    
     if(selected.is("ulistitem")){
       showOstToolbar(selected);
