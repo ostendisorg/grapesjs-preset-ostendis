@@ -87,6 +87,9 @@
 .gjs-toolbar-items {
   text-align: center; }
 
+.gjs-toolbar-item {
+  padding: 7px; }
+
 .gjs-resizer-h {
   border: 2px solid #3b5998; }
 
