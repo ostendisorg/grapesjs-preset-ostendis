@@ -176,7 +176,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     ostToolbarUp: "Move list element up",
     ostToolbarDown: "Move list element down",
 
-    /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch.*/
+    /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch. */
     assetsModalTitle: "Bild auswählen",
     assetsModalWarningTitle: "Warnung",
     assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",
@@ -307,12 +307,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   editor.on("component:selected", () => {
     var selected = editor.getSelected();
 
-
-    // console.log("isDraggableBefore: ", selected.get('draggable'));
-    // console.log("isRemovableBefore: ", selected.get('removable'));
-    // console.log("isCopyableBefore: ", selected.get('copyable'));
-    // console.log("toolbar: ", selected.get('toolbar'));
-
     selected.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
         { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
         { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
@@ -329,7 +323,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       // If list element empty replace with placeholder text (M&E case:)
       if (selected.components().length === 0 && !selected.get("content")) {
         var selectedPosition = selected.index();
-        var newComponent = selected.parent().append("<li>Text</li>", { at: selectedPosition });
+        var newComponent = selected.parent().append("<li><p style='margin:0;'>Text</p></li>", { at: selectedPosition });
         selected.remove();
         editor.select(newComponent);
         selected = editor.getSelected();
