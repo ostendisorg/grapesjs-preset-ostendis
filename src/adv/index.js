@@ -307,16 +307,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   editor.on("component:selected", () => {
     var selected = editor.getSelected();
 
-    selected.set({ draggable: true, removable: true, copyable: true });
-    console.log("isDraggable: ", selected.get('draggable'));
-    console.log("isRemovable: ", selected.get('removable'));
-    console.log("iscopyable: ", selected.get('copyable'));
 
-    // Range manipulation (disable)
-    // if (selected.is("range")) {
-    //   console.log(selected.getEl().value);
-    //   selected.getEl().disabled = false;
-    // }
+    // console.log("isDraggableBefore: ", selected.get('draggable'));
+    // console.log("isRemovableBefore: ", selected.get('removable'));
+    // console.log("isCopyableBefore: ", selected.get('copyable'));
+    // console.log("toolbar: ", selected.get('toolbar'));
+
+    selected.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
+        { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
+        { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
+        { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
+        { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
+      ] 
+    });
 
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);
