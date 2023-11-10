@@ -22,7 +22,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     cmdBtnDesktopLabel: "Desktop",
     cmdBtnTabletLabel: "Tablet",
     cmdBtnMobileLabel: "Mobile",
-    viewBtnShowStyleManager: "Open Style Manager test",
+    viewBtnShowStyleManager: "Open Style Manager",
     viewBtnShowParameterManager: "Open Parameter",
     viewBtnShowLayerManager: "Open Layer",
     viewBtnShowBlocksManager: "Open Blocks",
@@ -308,12 +308,15 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     var selected = editor.getSelected();
 
     selected.set({ draggable: true, removable: true, copyable: true });
+    console.log("isDraggable: ", selected.get('draggable'));
+    console.log("isRemovable: ", selected.get('removable'));
+    console.log("iscopyable: ", selected.get('copyable'));
 
     // Range manipulation (disable)
-    if (selected.is("range")) {
-      console.log(selected.getEl().value);
-      selected.getEl().disabled = false;
-    }
+    // if (selected.is("range")) {
+    //   console.log(selected.getEl().value);
+    //   selected.getEl().disabled = false;
+    // }
 
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);

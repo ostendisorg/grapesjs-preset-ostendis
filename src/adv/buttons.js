@@ -17,8 +17,6 @@ define(function () {
     // Options panel
     let optPanel = pnm.getPanel("options");
 
-    console.log(opt);
-
     if (optPanel) {
       let optBtns = optPanel.get("buttons");
       optBtns.reset();
