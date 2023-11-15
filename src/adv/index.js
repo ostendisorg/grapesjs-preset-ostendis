@@ -320,7 +320,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     } else if (selected.isChildOf("ulistitem")) {
       showOstToolbar(selected.closestType("ulistitem"));
     } else if (selected.getEl().tagName === "LI") {
-      // If list element empty replace with placeholder text (M&E case:)
+
+      console.log("isEditableBefore: ", selected.get('editable'));
+      selected.set({ editable: true });
+      console.log("isEditableAfter : ", selected.get('editable'));
+      
+      // If list element empty replace with placeholder text
       if (selected.components().length === 0 && !selected.get("content")) {
         var selectedPosition = selected.index();
         var newComponent = selected.parent().append("<li><p style='margin:0;'>Text</p></li>", { at: selectedPosition });
