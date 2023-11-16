@@ -210,6 +210,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   let importButtons = require("./buttons");
   importButtons(c);
 
+  // Add richTextEditorSettings
+  let importRichTextEditor = require("./rte");
+  importRichTextEditor(c);
+
   // Set default template if the canvas is empty
   if (!editor.getHtml() && c.defaultTemplate) {
     editor.setComponents(c.defaultTemplate);
@@ -320,15 +324,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     } else if (selected.isChildOf("ulistitem")) {
       showOstToolbar(selected.closestType("ulistitem"));
     } else if (selected.getEl().tagName === "LI") {
-
-      console.log("isEditableBefore: ", selected.get('editable'));
+      // Some are not editable..
       selected.set({ editable: true });
-      console.log("isEditableAfter : ", selected.get('editable'));
-      
+
       // If list element empty replace with placeholder text
       if (selected.components().length === 0 && !selected.get("content")) {
         var selectedPosition = selected.index();
-        var newComponent = selected.parent().append("<li><p style='margin:0;'>Text</p></li>", { at: selectedPosition });
+        var newComponent = selected.parent().append("<li><p style='margin:0;padding:0;'>Text</p></li>", { at: selectedPosition });
         selected.remove();
         editor.select(newComponent);
         selected = editor.getSelected();

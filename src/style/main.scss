@@ -1,19 +1,18 @@
 @import "gjs_variables.scss";
 
-
-
-.#{$app-prefix}one-bg{
+.#{$app-prefix}one-bg {
   background-color: $whiteColor;
 }
 
-.#{$app-prefix}two-color{
+.#{$app-prefix}two-color {
   color: $fontColor;
 }
-.#{$app-prefix}blocks-c{
-  background-color: #F2f2f2;
+.#{$app-prefix}blocks-c {
+  background-color: #f2f2f2;
 }
 
-.#{$app-prefix}pn-commands, .#{$app-prefix}pn-views-container {
+.#{$app-prefix}pn-commands,
+.#{$app-prefix}pn-views-container {
   box-shadow: none;
 }
 
@@ -27,7 +26,7 @@
   text-decoration: line-through;
 }
 
-.#{$app-prefix}radio-item input:checked+.#{$app-prefix}radio-item-label {
+.#{$app-prefix}radio-item input:checked + .#{$app-prefix}radio-item-label {
   color: $whiteColor;
   background-color: $mainColor;
 }
@@ -48,17 +47,19 @@
   color: $fontColor;
 }
 
-.#{$app-prefix}pn-commands, .#{$app-prefix}cv-canvas {
+.#{$app-prefix}pn-commands,
+.#{$app-prefix}cv-canvas {
   width: 80%;
 }
 
-.#{$app-prefix}pn-views, .#{$app-prefix}pn-views-container {
+.#{$app-prefix}pn-views,
+.#{$app-prefix}pn-views-container {
   width: 20%;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .#{$app-prefix}pn-options {
-  right: 20%
+  right: 20%;
 }
 
 .#{$app-prefix}field-arrows {
@@ -67,7 +68,7 @@
 
 .#{$app-prefix}block.fa::before,
 .#{$app-prefix}block.fa-solid::before,
-.#{$app-prefix}block.fa-regular::before, 
+.#{$app-prefix}block.fa-regular::before,
 .#{$app-prefix}block.fa-brands::before {
   display: block;
   text-rendering: auto;
@@ -75,11 +76,11 @@
   -moz-osx-font-smoothing: grayscale;
   font-size: 48px;
 }
-.#{$app-prefix}block.fa-regular::before, 
-.#{$app-prefix}block.fa-brands::before{
+.#{$app-prefix}block.fa-regular::before,
+.#{$app-prefix}block.fa-brands::before {
   font-weight: 400;
 }
-.#{$app-prefix}block.fa-solid::before{
+.#{$app-prefix}block.fa-solid::before {
   font-weight: 900;
 }
 
@@ -88,30 +89,32 @@
 }
 
 .#{$app-prefix}selected {
-	outline: 2px solid $mainColor !important;
+  outline: 2px solid $mainColor !important;
 }
 
 .#{$app-prefix}highlighter {
-	outline: 1px solid $mainColor !important;
+  outline: 1px solid $mainColor !important;
 }
 
-*.#{$app-prefix}hover, div.#{$app-prefix}hover { 
+*.#{$app-prefix}hover,
+div.#{$app-prefix}hover {
   outline: 1px solid $mainColor;
 }
 
-.#{$app-prefix}badge, .#{$app-prefix}badge {
-	background-color: $mainColor;
+.#{$app-prefix}badge,
+.#{$app-prefix}badge {
+  background-color: $mainColor;
 }
 
 .#{$app-prefix}toolbar {
   background-color: $mainColor;
 }
 
-.#{$app-prefix}toolbar-items{
+.#{$app-prefix}toolbar-items {
   text-align: center;
 }
 
-.#{$app-prefix}toolbar-item{
+.#{$app-prefix}toolbar-item {
   padding: 7px;
 }
 
@@ -188,13 +191,12 @@
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-colorp-c,
 .#{$app-prefix}sm-select option,
 .#{$app-prefix}sm-unit option,
-.sp-container
-.sp-container button {
+.sp-container .sp-container button {
   color: $fontColor;
   background-color: $whiteColor;
 }
 
-.#{$app-prefix}ost-toolbar{
+.#{$app-prefix}ost-toolbar {
   display: none;
   position: absolute;
   background-color: $mainColor;
@@ -205,19 +207,19 @@
   right: 0;
 }
 
-.#{$app-prefix}ost-toolbar.show{
+.#{$app-prefix}ost-toolbar.show {
   display: block;
   pointer-events: all;
 }
 
-.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item{
+.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item {
   cursor: pointer;
   display: inline-block;
   width: 26px;
   height: 26px;
   padding: 5px;
 }
-.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item.disable{
+.#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item.disable {
   color: $white30;
   cursor: inherit;
 }
@@ -371,8 +373,12 @@
   background-color: rgba(255, 255, 255, 0.09);
 }
 
-.#{$app-prefix}f-button::before { content: 'B'; }
-.#{$app-prefix}f-divider::before { content: 'D'; }
+.#{$app-prefix}f-button::before {
+  content: "B";
+}
+.#{$app-prefix}f-divider::before {
+  content: "D";
+}
 
 .#{$app-prefix}mdl-dialog-sm {
   width: 300px;
@@ -425,49 +431,49 @@
 
   .header {
     background-color: orange;
-    color: #FFF;
+    color: #fff;
     padding: 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     height: 50px;
     box-sizing: border-box;
 
-    h3{ 
+    h3 {
       margin: 0;
 
       span {
-       margin-right: 10px;
+        margin-right: 10px;
       }
     }
   }
   .content {
     padding: 20px;
     box-sizing: border-box;
-  
+
     .files {
       overflow-y: auto;
       margin: 15px 0;
-      
+
       ul {
         margin: 5px;
         padding: 0 0 0 15px;
 
         ::marker {
-          content: '\00d7 ';
+          content: "\00d7 ";
         }
 
-        li{
+        li {
           padding-left: 5px;
         }
       }
     }
-    strong{
+    strong {
       font-weight: bold;
     }
-    button.ok{
+    button.ok {
       margin: 15px auto;
       display: flex;
-      background-color: #FFF;
+      background-color: #fff;
       padding: 5px 15px;
       text-transform: uppercase;
       color: currentColor;
@@ -475,12 +481,26 @@
       font-weight: normal;
       font-size: 1.1rem;
       cursor: pointer;
-      
-      &:hover{
-       background-color: #DFDFDF;
+
+      &:hover {
+        background-color: #dfdfdf;
       }
     }
   }
+}
+
+/* Color Picker */
+.#{$app-prefix}editor-cont .sp-container .sp-choose{
+  background: $mainColor;
+  border-color: $mainColor;
+  color: $whiteColor;
+  border-radius: 0; 
+}
+.#{$app-prefix}editor-cont .sp-container .sp-choose:hover,
+.#{$app-prefix}editor-cont .sp-container .sp-choose:active{
+  background: $mainColor;
+  border-color: $mainColor;
+  color: $fontColor;
 }
 
 /* Ostendis Block Traits */
@@ -493,7 +513,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }

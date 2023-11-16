@@ -130,6 +130,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   let importButtons = require("./buttons");
   importButtons(c);
 
+    // Add richTextEditorSettings
+    let importRichTextEditor = require("./rte");
+    importRichTextEditor(c);
+
   // Set default template if the canvas is empty
   if (!editor.getHtml() && c.defaultTemplate) {
     editor.setComponents(c.defaultTemplate);

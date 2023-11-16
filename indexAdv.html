@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="./style/material.css" />
   <link rel="stylesheet" href="./style/tooltip.css" />
   <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" />
 
   <script src="//unpkg.com/grapesjs@0.20.4/dist/grapes.min.js"></script>
   <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
-  <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet" />
 </head>
 <style>
   body,
@@ -667,7 +667,13 @@
       blockManager: { appendOnClick: 1 },
       container: "#gjs",
       fromElement: true,
-      colorPicker: { appendTo: "parent", offset: { top: -244, left: -175 } },
+      colorPicker: {
+        appendTo: "parent",
+        offset: { top: -244, left: -175 },
+        /* Option for Company Color */
+        // showPalette: true,
+        // palette: [['#000000', '#c2c2c2', '#ff0000', '#FF8200']],
+      },
       plugins: ["gjs-preset-ostendis-adv"],
       pluginsOpts: {
         "gjs-preset-ostendis-adv": {
