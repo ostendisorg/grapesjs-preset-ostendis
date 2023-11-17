@@ -419,6 +419,11 @@ div.gjs-hover {
 .gjs-trt-trait__wrp-data-ost-type {
   background: rgba(255, 130, 0, 0.4); }
 
+/* Scale Trait Color Picker */
+.gjs-trt-traits .sp-container {
+  top: 30px !important;
+  left: -200px !important; }
+
 /* animation */
 @keyframes spin {
   0% {

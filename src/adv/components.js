@@ -141,35 +141,58 @@ define(function () {
       },
     });
 
-    // domComp.addType("scale",{
-    //     isComponent: el => {
-    //       if(el.tagName === "DIV" && el.classList.contains('scale')){
-    //         return { type: 'scale'};
-    //       }
-    //     },
-    //     model: {
-    //       defaults: {
-    //         tagName: "div",
-    //         attributes: { class: "scale" },
-            
-    //         style: {"box-sizing":"border-box", "margin":"5px 1em", "padding":"0", "position":"relative", "height":"20px", "max-width":"100%","background-color":"#ccc","border":"none"},
+    domComp.addType("scale", {
+      isComponent: (el) => el.tagName === "DIV" && el.classList.contains("scale"),
+      model: {
+        defaults: {
+          tagName: "div",
+          attributes: { class: "scale" },
 
-    //         components: `<div style="box-sizing: border-box; margin:0; padding:0; position:absolute; top: 0; bottom:0; left:0;right:auto; width: 66%; background-color: #3b5998;" 
-    //               draggable="false" removable="false" editable="false" copyable="false"><div>`,
-    //         traits: [
-    //           {
-    //             type: 'number',
-    //             min: 0,
-    //             max: 100,
-    //             label: 'value',
-    //             changeProp: 1,
+          style: { "box-sizing": "border-box", margin: "5px 20px", padding: "0", height: "20px", "max-width": "100%", border: "none" },
+          traits: [
+            {
+              name: "percent",
+              type: "number",
+              min: 0,
+              max: 100,
+              label: opt.labelScalePercent,
+              changeProp: 1,
+            },
+            {
+              name: "fcolor",
+              type: "color",
+              label: opt.labelScaleForeColor,
+              placeholder: "#222222",
+              changeProp: 1,
+            },
+            {
+              name: "bgcolor",
+              type: "color",
+              label: opt.labelScaleBgColor,
+              placeholder: "#cccccc",
+              changeProp: 1,
+            },
+          ],
+        },
+        init() {
+          const scaleAttr = this.getAttributes();
+          this.set('percent', scaleAttr["data-percent"] );
+          this.set('bgcolor', scaleAttr["data-bgcolor"] );
+          this.set('fcolor', scaleAttr["data-fcolor"] );
 
-    //           }
-    //         ]
-    //       },
-
-    //     },
-    // });
+          this.on("change:percent", this.updateScale);
+          this.on("change:bgcolor", this.updateScale);
+          this.on("change:fcolor", this.updateScale);
+        },
+        updateScale() {
+          var p = this.get("percent");
+          var b = this.get("bgcolor");
+          var f = this.get("fcolor");
+          this.set('attributes',{'data-percent': p, 'data-bgcolor': b, 'data-fcolor': f})
+          this.addStyle({ background: "linear-gradient(to right, " + f + " " + p + "%, " + b + " " + p + "%)" });
+        },
+      },
+    });
 
     // Unsorted list item component
     const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;">
@@ -177,9 +200,9 @@ define(function () {
                               </span>
                               <p style="margin:0;padding:0;text-align:left;">Text</p>`;
     domComp.addType("ulistitem", {
-      isComponent: el => {
-        if(el.tagName === 'LI' && el.classList.contains('ulistitem')){
-          return { type: 'ulistitem' };
+      isComponent: (el) => {
+        if (el.tagName === "LI" && el.classList.contains("ulistitem")) {
+          return { type: "ulistitem" };
         }
       },
       model: {
@@ -187,27 +210,25 @@ define(function () {
           tagName: "li",
           draggable: "ul",
           attributes: { class: "ulistitem" },
-          style: { "text-align":"left" }, 
+          style: { "text-align": "left" },
           components: ulistItemContent,
         },
       },
     });
 
     // Unsorted list component with fontawesome 5.x
-    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` 
-                            + ulistItemContent + 
-                       `</li>`;
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` + ulistItemContent + `</li>`;
     domComp.addType("ulist", {
-      isComponent: el => {
-        if(el.tagName === 'UL' && el.classList.contains('ulist')){
-          return { type: 'ulist' };
+      isComponent: (el) => {
+        if (el.tagName === "UL" && el.classList.contains("ulist")) {
+          return { type: "ulist" };
         }
       },
       model: {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { "padding":"0.2em 0", "margin-left" : "2em", "line-height" : "1.4em"}, 
+          style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
           components: ulListItem + ulListItem + ulListItem,
         },
       },
@@ -215,10 +236,10 @@ define(function () {
 
     // icon component
     domComp.addType("icon", {
-      isComponent: el => {
-        var classNames = ['fa','fas','far','fab','fa-solid','fa-regular','fa-brands'];
-        if(el.tagName === 'I' && classNames.some(className => el.classList.contains(className))){
-          return { type: 'icon' };
+      isComponent: (el) => {
+        var classNames = ["fa", "fas", "far", "fab", "fa-solid", "fa-regular", "fa-brands"];
+        if (el.tagName === "I" && classNames.some((className) => el.classList.contains(className))) {
+          return { type: "icon" };
         }
       },
       model: {
@@ -264,7 +285,7 @@ define(function () {
         },
       },
     });
-    
+
     //add ostendis type trait to text components
     domComp.addType("text", {
       model: {

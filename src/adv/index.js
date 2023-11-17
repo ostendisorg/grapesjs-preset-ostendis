@@ -22,23 +22,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     cmdBtnDesktopLabel: "Desktop",
     cmdBtnTabletLabel: "Tablet",
     cmdBtnMobileLabel: "Mobile",
-    viewBtnShowStyleManager: "Open Style Manager",
-    viewBtnShowParameterManager: "Open Parameter",
-    viewBtnShowLayerManager: "Open Layer",
-    viewBtnShowBlocksManager: "Open Blocks",
     modalTitleImport: "Import template",
     modalTitleExport: "Export template",
     modalLabelImport: "",
     modalLabelExport: "",
     modalBtnImport: "Import",
     codeViewerTheme: "material",
-    //openBlocksBtnTitle: c.openBlocksBtnTitle || "",
-    //openLayersBtnTitle: c.openLayersBtnTitle || "",
-    //openSmBtnTitle: c.openSmBtnTitle || "",
-    //openTmBtnTitle: c.openTmBtnTitle || "",
-    //expTplBtnTitle: c.expTplBtnTitle || "View Code",
+    openBlocksBtnTitle: "Open Blocks",
+    openLayersBtnTitle: "Open Layer",
+    openSmBtnTitle: "Open Style Manager",
+    openTmBtnTitle: "Open Parameter",
+    expTplBtnTitle: "View Code",
     //fullScrBtnTitle: c.fullScrBtnTitle || "Fullscreen",
-    //swichtVwBtnTitle: c.swichtVwBtnTitle || "View Components",
+    swichtVwBtnTitle: "View Components",
     categoryLabel: c.categoryLabel || "",
     smSitesCategoryLabel: "Social media sites",
     smSharesCategoryLabel: "Social media shares",
@@ -186,9 +182,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   config.devicePreviewMode = 1;
 
   // Load defaults
+  // for (let name in defaults) {
+  //   if (!(name in c)) c[name] = defaults[name];
+  // }
   for (let name in defaults) {
-    if (!(name in c)) c[name] = defaults[name];
-  }
+      if (!(name in c)) c[name] = defaults[name];
+    }
 
   // Add components
   let importComponents = require("./components");
@@ -321,9 +320,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);
-    } else if (selected.isChildOf("ulistitem")) {
+    }
+    else if (selected.isChildOf("ulistitem")) {
       showOstToolbar(selected.closestType("ulistitem"));
-    } else if (selected.getEl().tagName === "LI") {
+    }
+    else if (selected.getEl().tagName === "LI") {
       // Some are not editable..
       selected.set({ editable: true });
 
@@ -337,10 +338,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       }
 
       showOstToolbar(selected);
-    } else if (isChildOfElement(selected.getEl(), "LI")) {
+    }
+    else if (isChildOfElement(selected.getEl(), "LI")) {
       showOstToolbar(selected.closest("li"));
     }
-
+ 
     function showOstToolbar(listItem) {
       var elPos = listItem.index();
       var elLast = listItem.parent().getLastChild().index();
