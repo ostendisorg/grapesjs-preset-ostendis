@@ -144,6 +144,59 @@ define(function () {
       },
     });
 
+    // Scale the new range
+    domComp.addType("scale", {
+      isComponent: (el) => el.tagName === "DIV" && el.classList.contains("scale"),
+      model: {
+        defaults: {
+          tagName: "div",
+          attributes: { class: "scale", "data-percent" : "66", "data-fcolor" : "#3b5998", "data-bgcolor" : "#CCCCCC" },
+          style: { "box-sizing": "border-box", margin: "5px", padding: "0", height: "20px", "max-width": "100%", border: "0px solid #666666", background: "linear-gradient(to right,#3b5998 66%, #CCCCCC 66%);" },
+          traits: [
+            {
+              name: "percent",
+              type: "number",
+              min: 0,
+              max: 100,
+              label: opt.labelScalePercent,
+              changeProp: 1,
+            },
+            {
+              name: "fcolor",
+              type: "color",
+              label: opt.labelScaleForeColor,
+              placeholder: "#222222",
+              changeProp: 1,
+            },
+            {
+              name: "bgcolor",
+              type: "color",
+              label: opt.labelScaleBgColor,
+              placeholder: "#cccccc",
+              changeProp: 1,
+            },
+          ],
+        },
+        init() {
+          const scaleAttr = this.getAttributes();
+          this.set('percent', scaleAttr["data-percent"] );
+          this.set('bgcolor', scaleAttr["data-bgcolor"] );
+          this.set('fcolor', scaleAttr["data-fcolor"] );
+
+          this.on("change:percent", this.updateScale);
+          this.on("change:bgcolor", this.updateScale);
+          this.on("change:fcolor", this.updateScale);
+        },
+        updateScale() {
+          var p = this.get("percent");
+          var b = this.get("bgcolor");
+          var f = this.get("fcolor");
+          this.set('attributes',{'data-percent': p, 'data-bgcolor': b, 'data-fcolor': f})
+          this.addStyle({ background: "linear-gradient(to right, " + f + " " + p + "%, " + b + " " + p + "%)" });
+        },
+      },
+    });
+
     // Unsorted list item component
     const ulistItemContent = `<span class="fa-li" style="left:-2em;width:2em;" draggable="false" removable="false" editable="false" copyable="false">
                                 <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;" draggable="false" removable="false" editable="false" copyable="false"></i>
