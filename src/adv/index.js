@@ -138,6 +138,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     labelIconSelectEnvelope: "envelope",
     labelIconSelectStar: "star",
 
+    labelScalePercent: "Percent",
+    labelScaleBarColor: "Bar color",
+    labelScaleBgColor:  "Background color",
+
     traitBlkOstendisTooltip: "Define Ostendis block.",
     traitOstNone: "None",
     traitOstOrganizationHeading: "Organization Heading",

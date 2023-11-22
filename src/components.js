@@ -164,7 +164,7 @@ define(function () {
             {
               name: "fcolor",
               type: "color",
-              label: opt.labelScaleForeColor,
+              label: opt.labelScaleBarColor,
               placeholder: "#222222",
               changeProp: 1,
             },

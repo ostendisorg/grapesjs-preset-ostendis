@@ -61,6 +61,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     labelIconSelectPhone: "phone",
     labelIconSelectEnvelope: "envelope",
     labelIconSelectStar: "star",
+    
+    labelScalePercent: "Percent",
+    labelScaleBarColor: "Bar color",
+    labelScaleBgColor:  "Background color",
 
     traitBlkOstendisTooltip: "Define Ostendis block.",
     traitOstNone: "None",
