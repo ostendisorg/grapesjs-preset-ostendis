@@ -243,12 +243,25 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
+
+    var ostToolbar = selected.get('toolbar');
        
+  // console.log(ostToolbar);
+
+   var ostTool = ostToolbar.slice(0,-3);
+
+   //console.log(ostTool);
+
     // Set properties
-    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': [
-      { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
-    ] });
-   
+    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': ostTool });
+
+    /* 
+     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': [
+     { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
+     ] });
+     */
+
+       
     if(selected.is("ulistitem")){
       showOstToolbar(selected);
     }

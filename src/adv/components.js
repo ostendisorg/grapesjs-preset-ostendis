@@ -148,7 +148,7 @@ define(function () {
         defaults: {
           tagName: "div",
           attributes: { class: "scale", "data-percent" : "66", "data-fcolor" : "#3b5998", "data-bgcolor" : "#CCCCCC" },
-          style: { "box-sizing": "border-box", margin: "5px", padding: "0", height: "20px", "max-width": "100%", border: "0px solid #666666", background: "linear-gradient(to right,#3b5998 66%, #CCCCCC 66%);" },
+          style: { "box-sizing": "border-box", padding: "0", height: "20px", "max-width": "100%", border: "0px solid #666666", background: "linear-gradient(to right,#3b5998 66%, #CCCCCC 66%);" },
           traits: [
             {
               name: "percent",
