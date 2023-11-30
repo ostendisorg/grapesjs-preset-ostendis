@@ -282,6 +282,22 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   // Do stuff on load
   editor.on("load", function () {
 
+    var getAllComponents = (model, result = []) => {
+      result.push(model);
+      model.components().each(mod => getAllComponents(mod, result))
+      return result;
+    }
+    
+     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+     allComponents.forEach((compo) => compo.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
+      { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
+      { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
+      { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
+      { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
+    ] 
+  }));
+
+
 
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
@@ -314,13 +330,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   editor.on("component:selected", () => {
     var selected = editor.getSelected();
 
-    selected.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
-        { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
-        { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
-        { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
-        { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
-      ] 
-    });
+    // selected.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
+    //     { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
+    //     { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
+    //     { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
+    //     { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
+    //   ] 
+    // });
 
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);
