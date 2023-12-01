@@ -278,8 +278,22 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       modal.setTitle(defaults.assetsModalTitle + alertMsg);
     }
   });
+ editor.on("storage:load", function(){
+  console.log("--- storage:load ---");
+ });
 
-  editor.on("storage:end",function(){
+ editor.on("storage:start:load", function(data){
+  console.log("--- storage:start:load ---");
+  console.log(data);
+
+
+ });
+
+
+  // Do stuff on load
+  editor.on("load", function () {
+    console.log("--- load ---");
+
     var getAllComponents = (model, result = []) => {
       result.push(model);
       model.components().each(mod => getAllComponents(mod, result))
@@ -289,7 +303,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
      var allComponents = getAllComponents(editor.DomComponents.getWrapper());
 
      console.log(allComponents);
-     
+
      allComponents.forEach((compo) => compo.set({ draggable: true, removable: true, copyable: true, 'toolbar': [
         { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
         { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
@@ -297,11 +311,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
         { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
       ] 
     }));
-  });
-
-  // Do stuff on load
-  editor.on("load", function () {
-
    
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
