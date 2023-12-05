@@ -241,15 +241,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   });
 
   editor.on("storage:start", () => {
-    console.log("--- storage:start ---");
 
     var getAllComponents = (model, result = []) => {
       result.push(model);
       model.components().each(mod => getAllComponents(mod, result))
       return result;
     }
-    
-     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+    var allComponents = getAllComponents(editor.DomComponents.getWrapper());
 
      allComponents.forEach((compo) => compo.set({ 
       'draggable': true, 
