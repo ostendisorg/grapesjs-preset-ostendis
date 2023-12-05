@@ -9,11 +9,5 @@ define(function () {
            
            result: rte => {rte.exec('removeformat',false,"");}
         });
-
-        // rte.add('fontColor',{
-        //     icon: '',
-        //     attributes: {title: ''},
-        //     result: rte => {rte.exec("styleWithCSS",true, null), rte.exec('forecolor','color');}
-        // });      
     };
 });

@@ -279,6 +279,20 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     }
   });
 
+
+  editor.on("storage:end:load", function () {
+    console.log("--- storage:end:load ---");
+
+    var getAllComponents = (model, result = []) => {
+      result.push(model);
+      model.components().each(mod => getAllComponents(mod, result))
+      return result;
+    }
+    
+     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+     console.log(allComponents);
+  });
+
   // Do stuff on load
   editor.on("load", function () {
     console.log("--- load ---");
