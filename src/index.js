@@ -197,10 +197,13 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       return result;
     }
     
-     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
-     allComponents.forEach((compo) => compo.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': [
-        { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
-        ] }));
+    var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+    allComponents.forEach((compo) => compo.set( {
+      'draggable' : false, 
+      'removable' : false , 
+      'copyable' : false, 
+      'toolbar': [ { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'} ] 
+    }));
 
 
     // Title translation and activate
@@ -251,7 +254,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     ostTools.classList.add('gjs-ost-toolbar');
     tools.append(ostTools);
   });
-  
 
   // On selected components
   editor.on('component:selected', () => {
@@ -266,13 +268,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     // Set properties
     //selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': ostTool });
-
-    /* 
-     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': [
-     { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
-     ] });
-     */
-
+     
+     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 
+     /*'toolbar': [
+      { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
+     ]*/
+    });
        
     if(selected.is("ulistitem")){
       showOstToolbar(selected);
