@@ -164,6 +164,10 @@ div.gjs-hover {
   color: #657390;
   background-color: #ffffff; }
 
+/* Hide Toolbar except "to parent" */
+.simple .gjs-toolbar-item:not(:first-child) {
+  display: none; }
+
 .gjs-ost-toolbar {
   display: none;
   position: absolute;

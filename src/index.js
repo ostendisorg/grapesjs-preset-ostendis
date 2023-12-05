@@ -191,21 +191,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   // Do stuff on load
   editor.on("load", function () {
 
-    var getAllComponents = (model, result = []) => {
-      result.push(model);
-      model.components().each(mod => getAllComponents(mod, result))
-      return result;
-    }
-    
-    var allComponents = getAllComponents(editor.DomComponents.getWrapper());
-    allComponents.forEach((compo) => compo.set( {
-      'draggable' : false, 
-      'removable' : false , 
-      'copyable' : false, 
-      'toolbar': [ { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'} ] 
-    }));
-
-
     // Title translation and activate
     var openTmBtn = editor.Panels.getButton("views", "open-tm");
     openTmBtn.set("attributes", {
@@ -258,22 +243,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   // On selected components
   editor.on('component:selected', () => {
     var selected = editor.getSelected();
-    //var ostToolbar = selected.get('toolbar');
-       
-  // console.log(ostToolbar);
-
-   //var ostTool = ostToolbar.slice(0,-3);
-
-   //console.log(ostTool);
-
-    // Set properties
-    //selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': ostTool });
      
-     selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 
-     /*'toolbar': [
-      { attributes: {class: 'fa-solid fa-arrow-up'},  command: 'select-parent'}
-     ]*/
-    });
+    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false });
        
     if(selected.is("ulistitem")){
       showOstToolbar(selected);

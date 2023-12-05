@@ -196,6 +196,11 @@ div.#{$app-prefix}hover {
   background-color: $whiteColor;
 }
 
+/* Hide Toolbar except "to parent" in simple editor */
+ .simple .#{$app-prefix}toolbar-item:not(:first-child) {
+   display: none;
+ }
+
 .#{$app-prefix}ost-toolbar {
   display: none;
   position: absolute;
@@ -509,7 +514,7 @@ div.#{$app-prefix}hover {
 }
 
 /* Scale Trait Color Picker */
-.gjs-trt-traits .sp-container{
+.#{$app-prefix}trt-traits .sp-container{
   top: 30px !important;
   left: -200px !important;
 }
