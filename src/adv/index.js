@@ -279,43 +279,42 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     }
   });
 
+  // editor.on("storage:start", function () {
+  //   console.log("--- storage:start ---");
 
-  editor.on("storage:end:load", function () {
-    console.log("--- storage:end:load ---");
-
-    var getAllComponents = (model, result = []) => {
-      result.push(model);
-      model.components().each(mod => getAllComponents(mod, result))
-      return result;
-    }
+  //   var getAllComponents = (model, result = []) => {
+  //     result.push(model);
+  //     model.components().each(mod => getAllComponents(mod, result))
+  //     return result;
+  //   }
     
-     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
-     console.log(allComponents);
-  });
+  //    var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+  //    console.log(allComponents);
+  // });
 
   // Do stuff on load
   editor.on("load", function () {
-    console.log("--- load ---");
+    // console.log("--- load ---");
 
-    var getAllComponents = (model, result = []) => {
-      result.push(model);
-      model.components().each(mod => getAllComponents(mod, result))
-      return result;
-    }
+    // var getAllComponents = (model, result = []) => {
+    //   result.push(model);
+    //   model.components().each(mod => getAllComponents(mod, result))
+    //   return result;
+    // }
     
-     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
+    //  var allComponents = getAllComponents(editor.DomComponents.getWrapper());
 
-     allComponents.forEach((compo) => compo.set({ 
-      'draggable': true, 
-      'removable': true, 
-      'copyable': true,
-      'toolbar': [
-        { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
-        { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
-        { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
-        { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
-      ] 
-    }));
+    //  allComponents.forEach((compo) => compo.set({ 
+    //   'draggable': true, 
+    //   'removable': true, 
+    //   'copyable': true,
+    //   'toolbar': [
+    //     { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
+    //     { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
+    //     { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
+    //     { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
+    //   ] 
+    // }));
        
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
