@@ -14,27 +14,32 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     cmdInlineHtml: "gjs-get-inlined-html",
     cmdUndo: "undo",
     cmdRedo: "redo",
-    cmdBtnMoveLabel: "Move",
+
+    cmdBtnDesktopLabel: "Desktop",
+    cmdBtnTabletLabel: "Tablet",
+    cmdBtnMobileLabel: "Mobile",    
+
     cmdBtnViewCompLabel: "View components",
     cmdBtnViewCode: "View code",
     cmdBtnUndoLabel: "Undo",
     cmdBtnRedoLabel: "Redo",
-    cmdBtnDesktopLabel: "Desktop",
-    cmdBtnTabletLabel: "Tablet",
-    cmdBtnMobileLabel: "Mobile",
     modalTitleImport: "Import template",
     modalTitleExport: "Export template",
+
     modalLabelImport: "",
     modalLabelExport: "",
+
+    //cmdBtnMoveLabel: "Move",
     modalBtnImport: "Import",
     codeViewerTheme: "material",
-    openBlocksBtnTitle: "Open Blocks",
-    openLayersBtnTitle: "Open Layer",
+
     openSmBtnTitle: "Open Style Manager",
     openTmBtnTitle: "Open Parameter",
-    expTplBtnTitle: "View Code",
+    openLayersBtnTitle: "Open Layer",
+    openBlocksBtnTitle: "Open Blocks",
+    //expTplBtnTitle: "View Code",
     //fullScrBtnTitle: c.fullScrBtnTitle || "Fullscreen",
-    swichtVwBtnTitle: "View Components",
+    //swichtVwBtnTitle: "View Components",
     categoryLabel: c.categoryLabel || "",
     smSitesCategoryLabel: "Social media sites",
     smSharesCategoryLabel: "Social media shares",
@@ -281,6 +286,36 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
   // Do stuff on load
   editor.on("load", function () {
+
+    // Title translation and activate
+    var swVisBtn = editor.Panels.getButton("options", "sw-visibility");
+    swVisBtn.set("attributes", {
+      title: defaults.swichtVwBtnTitle,
+    });
+    swVisBtn && swVisBtn.set("active", 1);
+    // Chrome doesnt show the outlines
+    editor.Commands.run('core:component-outline');
+
+    // Title translation
+    var expTempBtn = editor.Panels.getButton("options", "export-template");
+    expTempBtn.set("attributes", {
+      title: defaults.expTplBtnTitle,
+    });
+
+    // Title translation
+    var impTempBtn = editor.Panels.getButton("options", defaults.cmdOpenImport);
+    impTempBtn.set("attributes", {
+      title: defaults.modalTitleImport,
+    });
+
+    // Title translation and activate
+    var openTmBtn = editor.Panels.getButton("views", "open-tm");
+    openTmBtn.set("attributes", {
+      title: defaults.openTmBtnTitle,
+    });
+    openTmBtn && openTmBtn.set("active", 1);
+
+    
        
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");

@@ -13,26 +13,25 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     cmdInlineHtml: "gjs-get-inlined-html",
     cmdUndo: "undo",
     cmdRedo: "redo",
-    cmdBtnMoveLabel: "Move",
-    cmdBtnViewCompLabel: "View components",
-    cmdBtnUndoLabel: "Undo",
-    cmdBtnRedoLabel: "Redo",
+
     cmdBtnDesktopLabel: "Desktop",
     cmdBtnTabletLabel: "Tablet",
     cmdBtnMobileLabel: "Mobile",
-    modalTitleImport: "Import template",
-    modalTitleExport: "Export template",
-    modalLabelImport: "",
-    modalLabelExport: "",
-    modalBtnImport: "Import",
+
+    cmdBtnViewCompLabel: "View components",
+    cmdBtnUndoLabel: "Undo",
+    cmdBtnRedoLabel: "Redo",
+
+    //cmdBtnMoveLabel: "Move",
     codeViewerTheme: "material",
-    openBlocksBtnTitle: c.openBlocksBtnTitle || "",
-    openLayersBtnTitle: c.openLayersBtnTitle || "",
-    openSmBtnTitle: c.openSmBtnTitle || "",
-    openTmBtnTitle: c.openTmBtnTitle || "",
-    expTplBtnTitle: c.expTplBtnTitle || "View Code",
-    fullScrBtnTitle: c.fullScrBtnTitle || "Fullscreen",
-    swichtVwBtnTitle: c.swichtVwBtnTitle || "View Components",
+
+    openSmBtnTitle: "Open Style Manager",
+    openTmBtnTitle: "Open Parameter",
+    openLayersBtnTitle: "Open Layer",
+    openBlocksBtnTitle: "Open Blocks",
+
+    //fullScrBtnTitle: c.fullScrBtnTitle || "Fullscreen",
+    //swichtVwBtnTitle: c.swichtVwBtnTitle || "View Components",
     categoryLabel: c.categoryLabel || "",
     importPlaceholder: "",
     defaultTemplate: "", // Default template in case the canvas is empty
@@ -192,18 +191,20 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   editor.on("load", function () {
 
     // Title translation and activate
-    var openTmBtn = editor.Panels.getButton("views", "open-tm");
-    openTmBtn.set("attributes", {
-      title: defaults.openTmBtnTitle,
-    });
-    openTmBtn && openTmBtn.set("active", 1);
-
-    // Title translation and activate
     var swVisBtn = editor.Panels.getButton("options", "sw-visibility");
     swVisBtn.set("attributes", {
       title: defaults.swichtVwBtnTitle,
     });
     swVisBtn && swVisBtn.set("active", 1);
+    // Chrome doesnt show the outlines
+    editor.Commands.run('core:component-outline');
+
+    // Title translation and activate
+    var openTmBtn = editor.Panels.getButton("views", "open-tm");
+    openTmBtn.set("attributes", {
+      title: defaults.openTmBtnTitle,
+    });
+    openTmBtn && openTmBtn.set("active", 1);
 
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
