@@ -114,10 +114,6 @@ div.#{$app-prefix}hover {
   text-align: center;
 }
 
-.#{$app-prefix}toolbar-item {
-  padding: 7px;
-}
-
 .#{$app-prefix}resizer-h {
   border: 2px solid $mainColor;
 }
@@ -224,6 +220,7 @@ div.#{$app-prefix}hover {
   height: 26px;
   padding: 5px;
 }
+
 .#{$app-prefix}ost-toolbar .#{$app-prefix}ost-toolbar-item.disable {
   color: $white30;
   cursor: inherit;
