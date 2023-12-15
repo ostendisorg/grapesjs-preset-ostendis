@@ -212,6 +212,7 @@ define(function () {
           attributes: { class: "ulistitem" },
           style: { "text-align": "left" },
           components: ulistItemContent,
+          traits: ["id", "title", ostTypeTextTrait],
         },
       },
     });
@@ -230,6 +231,7 @@ define(function () {
           attributes: { class: "ulist fa-ul" },
           style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
           components: ulListItem + ulListItem + ulListItem,
+          traits: ["id", "title", ostTypeTextTrait],
         },
       },
     });
