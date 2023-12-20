@@ -55,11 +55,26 @@ define(function () {
       ],
     };
 
+    //define ostendis type hide in simple html
+    const ostTypeHideInSimpleHtmlTrait = {
+      type: "select",
+      label: "Hide in Simple Html",
+      name: "data-ost-simple-html",
+      attributes: {
+        "data-tooltip": "Element in Simple Html nicht anzeigen.",
+        "data-tooltip-pos": "bottom",
+      },
+      options: [
+        { id: "", name: "show" },
+        { id: "hidden", name: "hide" },
+      ],
+    };
+
     //add ostendis type trait to image components
     domComp.addType("image", {
       model: {
         defaults: {
-          traits: ["alt", ostTypeImageTrait],
+          traits: ["alt", ostTypeImageTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
@@ -212,12 +227,12 @@ define(function () {
           attributes: { class: "ulistitem" },
           style: { "text-align": "left" },
           components: ulistItemContent,
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", "title", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
 
-    // Unsorted list component with fontawesome 5.x
+    // Unsorted list component with fontawesome
     const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` + ulistItemContent + `</li>`;
     domComp.addType("ulist", {
       isComponent: (el) => {
@@ -231,7 +246,7 @@ define(function () {
           attributes: { class: "ulist fa-ul" },
           style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
           components: ulListItem + ulListItem + ulListItem,
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", "title", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
@@ -292,7 +307,7 @@ define(function () {
     domComp.addType("text", {
       model: {
         defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", "title", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
@@ -301,7 +316,7 @@ define(function () {
     domComp.addType("default", {
       model: {
         defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", "title", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
