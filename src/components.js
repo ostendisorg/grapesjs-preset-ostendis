@@ -2,7 +2,7 @@ define(function () {
   return (opt = {}) => {
     const domComp = opt.editor.DomComponents;
 
-    //define ostendis type trait for text and default components
+    // Define ostendis type trait for text and default components
     const ostTypeTextTrait = {
       type: "select",
       label: "Ostendis Blocks",
@@ -31,7 +31,7 @@ define(function () {
       ],
     };    
 
-    //define ostendis type trait for images
+    // Define ostendis type trait for images
     const ostTypeImageTrait = {
       type: "select",
       label: "Ostendis Blocks",
@@ -55,16 +55,29 @@ define(function () {
       ],
     };
 
-    //add ostendis type trait to image components
+    // Define ostendis type "hide in simple html"
+    const ostTypeHideInSimpleHtmlTrait = {
+      type: "checkbox",
+      label: opt.hideInSimpleHtmlLabel,
+      name: "data-ost-simple-hide",
+      attributes: {
+        "data-tooltip": opt.hideInSimpleHtmlTooltip,
+        "data-tooltip-pos": "bottom",
+      },
+      valueTrue: "1",
+      valueFalse: "0",
+    };
+
+    // Add ostendis type trait to image components
     domComp.addType("image", {
       model: {
         defaults: {
-          traits: ["alt", ostTypeImageTrait],
+          traits: ["alt", ostTypeImageTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
 
-    //add ostendis block trait to video components
+    // Add ostendis block trait to video components
     var dType = domComp.getType("video");
     var dModel = dType.model;
     var dView = dType.view;
@@ -237,12 +250,12 @@ define(function () {
           attributes: { class: "ulist fa-ul", name:"UnsortedList" },
           style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"}, 
           components: ulListItem + ulListItem + ulListItem,
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
 
-    // icon component
+    // Icon component
     domComp.addType("icon", {
       isComponent: el => {
         var classNames = ['fa','fas','far','fab'];
@@ -297,20 +310,39 @@ define(function () {
         },
       },
     });
-    //add ostendis type trait to text components
+
+    // Add ostendis type trait to text components
     domComp.addType("text", {
       model: {
         defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
 
-    //add ostendis type trait to default components
+    // Add ostendis type trait to table components
+    domComp.addType("table", {
+      model: {
+        defaults: {
+          traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
+        },
+      },
+    });
+
+    // Add ostendis type trait to link components
+    domComp.addType("link", {
+      model: {
+        defaults: {
+          traits: ["id", "href", "target", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
+        },
+      },
+    });
+
+    // Add ostendis type trait to default components
     domComp.addType("default", {
       model: {
         defaults: {
-          traits: ["id", "title", ostTypeTextTrait],
+          traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });

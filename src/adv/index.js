@@ -176,6 +176,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
+    hideInSimpleHtmlLabel: "Hide in simple HTML",
+    hideInSimpleHtmlTooltip: "Hide element in simple HTML (jobs.ch)",
+    
     ostToolbarClone: "Clone list element",
     ostToolbarDelete: "Delete list element",
     ostToolbarUp: "Move list element up",
