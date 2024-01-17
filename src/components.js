@@ -186,6 +186,7 @@ define(function () {
               placeholder: "#cccccc",
               changeProp: 1,
             },
+            ostTypeHideInSimpleHtmlTrait
           ],
         },
         init() {
