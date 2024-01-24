@@ -357,12 +357,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);
       toolbarArray.splice(3, 1);
-      selected.set({'toolbar' : toolbarArray});
+      selected.set({'removable': false, 'toolbar': toolbarArray});
     }
     else if (selected.isChildOf("ulistitem")) {
       showOstToolbar(selected.closestType("ulistitem"));
       toolbarArray.splice(3, 1);
-      selected.set({'toolbar' : toolbarArray});
+      selected.set({'removable': false, 'toolbar': toolbarArray});
     }
     else if (selected.getEl().tagName === "LI") {
       // Some are not editable..
@@ -378,12 +378,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       }
       showOstToolbar(selected);
       toolbarArray.splice(3, 1);
-      selected.set({'toolbar' : toolbarArray});
+      selected.set({'removable': false, 'toolbar': toolbarArray});
     }
     else if (isChildOfElement(selected.getEl(), "LI")) {
       showOstToolbar(selected.closest("li"));
       toolbarArray.splice(3, 1);
-      selected.set({'toolbar' : toolbarArray});
+      selected.set({'removable': false, 'toolbar': toolbarArray});
     }
  
     function showOstToolbar(listItem) {
