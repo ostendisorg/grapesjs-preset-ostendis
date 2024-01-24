@@ -176,7 +176,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    hideInSimpleHtmlLabel: "Hide in simple HTML",
+    hideInSimpleHtmlLabel: "Hide",
     hideInSimpleHtmlTooltip: "Hide element in simple HTML (jobs.ch)",
     
     ostToolbarClone: "Clone list element",
@@ -351,11 +351,18 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   editor.on("component:selected", () => {
     var selected = editor.getSelected();
 
+    // Get toolbar
+    var toolbarArray = selected.get('toolbar');
+    
     if (selected.is("ulistitem")) {
       showOstToolbar(selected);
+      toolbarArray.splice(3, 1);
+      selected.set({'toolbar' : toolbarArray});
     }
     else if (selected.isChildOf("ulistitem")) {
       showOstToolbar(selected.closestType("ulistitem"));
+      toolbarArray.splice(3, 1);
+      selected.set({'toolbar' : toolbarArray});
     }
     else if (selected.getEl().tagName === "LI") {
       // Some are not editable..
@@ -369,16 +376,19 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
         editor.select(newComponent);
         selected = editor.getSelected();
       }
-
       showOstToolbar(selected);
+      toolbarArray.splice(3, 1);
+      selected.set({'toolbar' : toolbarArray});
     }
     else if (isChildOfElement(selected.getEl(), "LI")) {
       showOstToolbar(selected.closest("li"));
+      toolbarArray.splice(3, 1);
+      selected.set({'toolbar' : toolbarArray});
     }
  
     function showOstToolbar(listItem) {
       var elPos = listItem.index();
-      var elLast = listItem.parent().getLastChild().index();
+      var elLast = listItem.parent().getLastChild().index();      
 
       var ostToolbar = document.querySelector(".gjs-ost-toolbar");
       ostToolbar.innerHTML = "";
@@ -393,7 +403,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       });
       ostToolbar.appendChild(cBtn);
 
-      //Add delete button
+      // Add delete button
       const dBtn = document.createElement("div");
       dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
       dBtn.title = defaults.ostToolbarDelete;

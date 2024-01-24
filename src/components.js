@@ -65,7 +65,7 @@ define(function () {
         "data-tooltip-pos": "bottom",
       },
       valueTrue: "1",
-      valueFalse: "0",
+      valueFalse: "",
     };
 
     // Add ostendis type trait to image components

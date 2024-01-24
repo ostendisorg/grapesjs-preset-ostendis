@@ -94,7 +94,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     traitOstAdditionalPic3URL: "Additional Image 3",
     traitOstVideoURL: "Video",
 
-    hideInSimpleHtmlLabel: "Hide in simple HTML",
+    hideInSimpleHtmlLabel: "Hide",
     hideInSimpleHtmlTooltip: "Hide element in simple HTML (jobs.ch)",
 
     ostToolbarClone: "Clone list element",
@@ -199,7 +199,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       title: defaults.swichtVwBtnTitle,
     });
     swVisBtn && swVisBtn.set("active", 1);
-    // Chrome doesnt show the outlines
+    // Chrome doesn't show the outlines
     editor.Commands.run('core:component-outline');
 
     // Title translation and activate
