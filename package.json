@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-preset-ostendis",
-  "version": "1.17.3",
+  "version": "1.17.4",
   "description": "GrapesJS preset configuration for the Ostendis editor",
   "main": "dist/grapesjs-preset-ostendis.min.js",
   "files": [
