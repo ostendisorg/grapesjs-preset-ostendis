@@ -97,7 +97,6 @@ define(function () {
     bm.add("ulist", {
       label: opt.ulistBlkLabel,
       category: opt.categoryLabel,
-      name: opt.ulistBlkLabel,
       attributes: { class: "fa-solid fa-list-ul" },
       content: { type: "ulist" },
     });
@@ -221,13 +220,6 @@ define(function () {
         },
       },
     });
-
-    // bm.add("input-range", {
-    //   label: opt.inputRangeBlkLabel,
-    //   category: opt.categoryLabel,
-    //   content: { type: "range" },
-    //   attributes: { class: "fa-solid fa-sliders" },
-    // });
 
     bm.add("scale", {
       label: opt.inputRangeBlkLabel,

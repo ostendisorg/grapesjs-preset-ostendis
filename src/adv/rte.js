@@ -6,8 +6,7 @@ define(function () {
         rte.add('removeFormat', {
             icon: '<i class="fa-solid fa-text-slash"></i>',
             attributes: {title: 'Remove format'},
-           
-           result: rte => {rte.exec('removeformat',false,"");}
+            result: rte => {rte.exec('removeformat', false, "");}
         });
     };
 });

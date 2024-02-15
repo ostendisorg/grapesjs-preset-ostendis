@@ -24,11 +24,20 @@ define(function () {
       //Add option buttons
       optBtns.add([
         {
-          active: true,
+          id: "ost-blocks-visibility",
+          className: "fa-solid fa-file-circle-check",
+          command: "ost-blocks-visibility",
+          context: "ost-blocks-visibility",
+          togglable: true, 
+          attributes: { [tltAttr]: opt.cmdBtnViewOstBlocks },
+        },
+        {
           id: "sw-visibility",
           className: "fa-solid fa-border-none",
           command: "core:component-outline",
           context: "sw-visibility",
+          togglable: true, 
+          active: true,
           attributes: { [tltAttr]: opt.cmdBtnViewCompLabel },
         },
         {

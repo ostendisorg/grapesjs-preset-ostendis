@@ -19,6 +19,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     cmdBtnTabletLabel: "Tablet",
     cmdBtnMobileLabel: "Mobile",    
 
+    cmdBtnViewOstBlocks: "View Ost Blocks",
     cmdBtnViewCompLabel: "View components",
     cmdBtnViewCode: "View code",
     cmdBtnUndoLabel: "Undo",
@@ -296,7 +297,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       title: defaults.swichtVwBtnTitle,
     });
     swVisBtn && swVisBtn.set("active", 1);
-    // Chrome doesnt show the outlines
+    // Chrome doesn't show the outlines
     editor.Commands.run('core:component-outline');
 
     // Title translation

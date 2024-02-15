@@ -13,6 +13,19 @@ define(function() {
       cmdm.add('export-template', exportCommand(opt));
     });
 
+    cmdm.add('ost-blocks-visibility', {
+      run(editor) {
+        //console.log("ost-blocks-visibility: ", "active");
+        const cList = editor.Canvas.getBody().classList;
+        cList.add("show-ost-blocks");
+      },
+      stop(editor) {
+        //console.log("ost-blocks-visibility: ", "inactive");
+        const cList = editor.Canvas.getBody().classList;
+        cList.remove("show-ost-blocks");
+      },
+    });
+
     cmdm.add('undo', {
       run(editor, sender) {
         sender.set('active', 0);
