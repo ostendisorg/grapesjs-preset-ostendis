@@ -15,15 +15,15 @@
   outline-offset: -3px;
 }
 
-/* Show Ost Blocks */
+/* Highlight Ost blocks */
 .show-ost-blocks *[data-ost-type]:not([data-ost-type=""]),
 .show-ost-blocks img[data-ost-type]:not([data-ost-type=""]) {
-  outline: solid 3px #ff8200 !important;
+  outline: solid 2px #ff8200 !important;
   position: relative;
   min-height: 20px !important;
 }
 .show-ost-blocks .gjs-selected[data-ost-type]:not([data-ost-type=""]) {
-  outline: solid 3px #ff8200 !important;
+  outline: solid 2px #ff8200 !important;
   position: relative;
   min-height: 20px !important;
 }
@@ -31,9 +31,30 @@
   content: "Block: " attr(data-ost-type);
   position: absolute;
   top: -20px;
-  left: -1px;
+  left: 0;
   background-color: #ff8200;
   color: #000;
+  padding: 0 3px;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  z-index: 999;
+  line-height: 20px;
+}
+
+/* Highlight Ost hidden elements  */
+.show-ost-blocks *[data-ost-simple-hide="1"] {
+  outline: solid 2px #000 !important;
+  min-height: 20px !important;
+  position: relative;
+  opacity: 0.4;
+}
+.show-ost-blocks *[data-ost-simple-hide="1"]::before {
+  content: "Hidden";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background-color: #000;
+  color: #fff;
   padding: 0 3px;
   font-size: 12px;
   font-family: "Open Sans", sans-serif;
