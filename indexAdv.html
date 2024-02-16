@@ -83,7 +83,8 @@
                 <table class="c1766">
                   <tr>
                     <td class="cell c1769">
-                      <img class="c926" src="https://place-hold.it/70x70/F44/fff?text=GrapesJS" alt="GrapesJS." />
+                      <img data-ost-type="logoPicURL" class="c926"
+                        src="https://place-hold.it/70x70/F44/fff?text=GrapesJS" alt="GrapesJS." />
                     </td>
                     <td class="cell c1776">
                       <div class="c1144">
@@ -652,22 +653,11 @@
       },
       cssIcons: null,
       canvas: {
-        styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css"],
+        styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
       },
       canvasCss: `.gjs-selected{
                       outline: 2px solid #3b5998 !important;
                       outline-offset: -2px !important;
-                    }
-                    .gjs-selected[data-ost-type]:not([data-ost-type=""]){
-                      outline-color: #FF8200 !important;
-                    }
-                    .gjs-dashed *[data-ost-type]:not([data-ost-type=""]){
-                      outline: dashed 1px #FF8200;
-                    }
-                    .gjs-dashed img[data-ost-type]:not([data-ost-type=""]),
-                    .gjs-dashed [data-ost-type="videoURL"]{
-                      outline: dashed 1px #FF8200;
-                      outline-offset: -3px;
                     }`,
       blockManager: { appendOnClick: 1 },
       container: "#gjs",
