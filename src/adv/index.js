@@ -184,11 +184,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     ostToolbarDelete: "Delete list element",
     ostToolbarUp: "Move list element up",
     ostToolbarDown: "Move list element down",
-
-    /* Diese Übersetzungen werden erste verwendet, wenn das Modal geladen wird. Deshalb defaulte Werte in Deutsch. */
-    assetsModalTitle: "Bild auswählen",
-    assetsModalWarningTitle: "Warnung",
-    assetsModalUploadImgToLarge: "Bilder zu gross. Maximum Grösse:",
   };
 
   // Change some config
