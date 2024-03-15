@@ -4,7 +4,7 @@ define(function () {
 
     // Define ostendis type trait for text and default components
     const ostTypeTextTrait = {
-      type: "select",
+      type: "ost-blocks-select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
       attributes: {
@@ -32,8 +32,8 @@ define(function () {
     };
 
     // Define ostendis type trait for images
-    const ostTypeImageTrait = {
-      type: "select",
+    const ostBlocksTest = {
+      type: "ost-blocks-select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
       attributes: {
@@ -52,7 +52,7 @@ define(function () {
         { id: "additionalPic1URL", name: opt.traitOstAdditionalPic1URL },
         { id: "additionalPic2URL", name: opt.traitOstAdditionalPic2URL },
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
-      ],
+      ]
     };
 
     // Define ostendis type "hide in simple html"
@@ -72,7 +72,7 @@ define(function () {
     domComp.addType("image", {
       model: {
         defaults: {
-          traits: ["id", "alt", ostTypeImageTrait, ostTypeHideInSimpleHtmlTrait],
+          traits: ["id", "alt", ostBlocksTest, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });

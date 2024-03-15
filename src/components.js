@@ -4,7 +4,7 @@ define(function () {
 
     // Define ostendis type trait for text and default components
     const ostTypeTextTrait = {
-      type: "select",
+      type: "ost-blocks-select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
       attributes: {
@@ -33,7 +33,7 @@ define(function () {
 
     // Define ostendis type trait for images
     const ostTypeImageTrait = {
-      type: "select",
+      type: "ost-blocks-select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
       attributes: {
