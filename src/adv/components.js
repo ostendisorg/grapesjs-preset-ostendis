@@ -32,7 +32,7 @@ define(function () {
     };
 
     // Define ostendis type trait for images
-    const ostBlocksTest = {
+    const ostTypeImageTrait = {
       type: "ost-blocks-select",
       label: "Ostendis Blocks",
       name: "data-ost-type",
@@ -72,7 +72,7 @@ define(function () {
     domComp.addType("image", {
       model: {
         defaults: {
-          traits: ["id", "alt", ostBlocksTest, ostTypeHideInSimpleHtmlTrait],
+          traits: ["id", "alt", ostTypeImageTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
