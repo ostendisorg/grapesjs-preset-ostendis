@@ -1,13 +1,16 @@
 import grapesjs from "grapesjs";
 import styles from "./styles";
+import * as checks from "./checks";
 
 export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {}) => {
   let c = opts;
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
+  let usedOstBlockTypes = [];
 
   let defaults = {
     editor,
+    usedOstBlockTypes,
     pfx: pfx || "",
     cmdOpenImport: "gjs-open-import-template",
     cmdTglImages: "gjs-toggle-images",
@@ -190,12 +193,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
   config.devicePreviewMode = 1;
 
   // Load defaults
-  // for (let name in defaults) {
-  //   if (!(name in c)) c[name] = defaults[name];
-  // }
   for (let name in defaults) {
-      if (!(name in c)) c[name] = defaults[name];
-    }
+    if (!(name in c)) c[name] = defaults[name];
+  }
 
   // Add components
   let importComponents = require("./components");
@@ -276,9 +276,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     openTmBtn.set("attributes", {
       title: defaults.openTmBtnTitle,
     });
-    openTmBtn && openTmBtn.set("active", 1);
-
-    
+    openTmBtn && openTmBtn.set("active", 1);    
        
     // Beautify tooltips
     var titles = document.querySelectorAll("*[data-tooltip-pos]");
@@ -305,11 +303,16 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     const ostTools = document.createElement("div");
     ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
+
+    console.log("before: ", usedOstBlockTypes);
+    checks.checkOstBlocks(editor, usedOstBlockTypes);
+    console.log("after: ", usedOstBlockTypes);
+
   });
 
   // On selected components
   editor.on("component:selected", () => {
-    var selected = editor.getSelected();
+    var selected = editor.getSelected();  
 
     // Get toolbar
     var toolbarArray = selected.get('toolbar');
@@ -411,6 +414,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     var ostToolbar = document.querySelector(".gjs-ost-toolbar");
     ostToolbar.classList.remove("show");
   });
+
 });
 
 function isChildOfElement(element, tag) {

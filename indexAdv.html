@@ -1,648 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>GrapesJS Ostendis Editor Advanced</title>
 
-    <link rel="stylesheet" href="//unpkg.com/grapesjs@0.20.4/dist/css/grapes.min.css" />
-    <link rel="stylesheet" href="./style/material.css" />
-    <link rel="stylesheet" href="./style/tooltip.css" />
-    <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" />
+<head>
+  <meta charset="utf-8" />
+  <title>GrapesJS Ostendis Editor Advanced</title>
 
-    <script src="//unpkg.com/grapesjs@0.20.4/dist/grapes.min.js"></script>
-    <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
-  </head>
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-    }
+  <link rel="stylesheet" href="//unpkg.com/grapesjs@0.20.4/dist/css/grapes.min.css" />
+  <link rel="stylesheet" href="./style/material.css" />
+  <link rel="stylesheet" href="./style/tooltip.css" />
+  <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" />
 
-    .nl-link {
-      color: inherit;
-    }
+  <script src="//unpkg.com/grapesjs@0.20.4/dist/grapes.min.js"></script>
+  <script src="./dist/grapesjs-preset-ostendis-adv.min.js"></script>
+</head>
+<style>
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
 
-    .info-link {
-      text-decoration: none;
-    }
+  .nl-link {
+    color: inherit;
+  }
 
-    #info-cont {
-      line-height: 17px;
-    }
+  .info-link {
+    text-decoration: none;
+  }
 
-    .grapesjs-logo {
-      display: block;
-      height: 90px;
-      margin: 0 auto;
-      width: 90px;
-    }
+  #info-cont {
+    line-height: 17px;
+  }
 
-    .grapesjs-logo path {
-      stroke: #eee !important;
-      stroke-width: 8 !important;
-    }
+  .grapesjs-logo {
+    display: block;
+    height: 90px;
+    margin: 0 auto;
+    width: 90px;
+  }
 
-    #toast-container {
-      font-size: 13px;
-      font-weight: lighter;
-    }
+  .grapesjs-logo path {
+    stroke: #eee !important;
+    stroke-width: 8 !important;
+  }
 
-    #toast-container > div,
-    #toast-container > div:hover {
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-      font-family: Helvetica, sans-serif;
-    }
+  #toast-container {
+    font-size: 13px;
+    font-weight: lighter;
+  }
 
-    #toast-container > div {
-      opacity: 0.95;
-    }
-  </style>
+  #toast-container>div,
+  #toast-container>div:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-family: Helvetica, sans-serif;
+  }
 
-  <body>
-    <div id="gjs" class="advanced" style="height: 0px; overflow: hidden">
-      <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans+Condensed&family=Open+Sans&family=PT+Serif&family=Roboto+Slab&family=Roboto&family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+  #toast-container>div {
+    opacity: 0.95;
+  }
+</style>
 
-      <table class="main-body">
-        <tr class="row">
-          <td class="main-body-cell">
-            <table class="container">
-              <tr>
-                <td class="container-cell">
-                  <table class="table100 c1790">
-                    <tr>
-                      <td class="top-cell" id="c1793">
-                        <u class="browser-link" id="c307">View in browser </u>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="c1766">
-                    <tr>
-                      <td class="cell c1769">
-                        <img data-ost-type="logoPicURL" class="c926" src="https://place-hold.it/70x70/F44/fff?text=GrapesJS" alt="GrapesJS." />
-                      </td>
-                      <td class="cell c1776">
-                        <div class="c1144">
-                          GrapesJS Newsletter Builder
+<body>
+  <div id="gjs" class="advanced" style="height: 0px; overflow: hidden">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans+Condensed&family=Open+Sans&family=PT+Serif&family=Roboto+Slab&family=Roboto&family=Noto+Sans+JP&display=swap"
+      rel="stylesheet" />
+
+    <table class="main-body">
+      <tr class="row">
+        <td class="main-body-cell">
+          <table class="container">
+            <tr>
+              <td class="container-cell">
+                <table class="table100 c1790">
+                  <tr>
+                    <td class="top-cell" id="c1793">
+                      <u class="browser-link" id="c307">View in browser </u>
+                    </td>
+                  </tr>
+                </table>
+                <table class="c1766">
+                  <tr>
+                    <td class="cell c1769">
+                      <img data-ost-type="logoPicURL" class="c926"
+                        src="https://place-hold.it/70x70/F44/fff?text=GrapesJS" alt="GrapesJS." />
+                    </td>
+                    <td class="cell c1776">
+                      <div class="c1144">
+                        GrapesJS Newsletter Builder
+                        <br />
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <br />
+                <br />
+                <div class="scale" data-percent="42" data-fcolor="rgba(29,230,179,0.5)" data-bgcolor="rgba(0,0,0,0)"
+                  style="box-sizing: border-box; margin: 5px 15px; padding: 0; height: 30px; max-width: 100%; border: solid 0px #000; background: linear-gradient(to right, rgba(29, 230, 179, 0.5) 42%, rgba(0, 0, 0, 0) 42%)">
+                </div>
+                <div class="scale" data-percent="66" data-fcolor="lime" data-bgcolor="red"
+                  style="box-sizing: border-box; margin: 5px 15px; padding: 0; height: 20px; max-width: 100%; border: none; background: linear-gradient(to right, lime 66%, red 66%)">
+                </div>
+
+                <ul class="ulist fa-ul" data-gjs-type="ulist">
+                  <li style="text-align: left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left: -2em; width: 2em">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size: 0.4em; line-height: inherit; display: block"></i>
+                    </span>
+                    <p style="margin: 0; padding: 0; text-align: left">Text 1</p>
+                  </li>
+                  <li style="text-align: left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left: -2em; width: 2em">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size: 0.4em; line-height: inherit; display: block"></i>
+                    </span>
+                    <p style="margin: 0; padding: 0; text-align: left">Text 2 kein type ulistitem</p>
+                  </li>
+                  <li style="text-align: left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left: -2em; width: 2em">
+                      <i class="fas fa-circle" style="font-size: 0.4em; line-height: inherit; display: block"></i>
+                    </span>
+                    <p style="margin: 0; padding: 0; text-align: left">Text 3 kein type icon</p>
+                  </li>
+                  <li style="text-align: left" data-gjs-type="ulistitem">
+                    <span class="fa-li" style="left: -2em; width: 2em">
+                      <i class="fas fa-circle" data-gjs-type="icon"
+                        style="font-size: 0.4em; line-height: inherit; display: block"></i>
+                    </span>
+                    <p style="margin: 0; padding: 0; text-align: left">Text 4</p>
+                  </li>
+                </ul>
+
+                <ul class="ulist">
+                  <li>parent ulist</li>
+                  <li class="ulistitem">parent ulist, this ulistitem</li>
+                </ul>
+
+                <ul>
+                  <li>nothing1</li>
+                  <li>nothing2</li>
+                  <li>empty li</li>
+                  <li></li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <p>with p tag</p>
+                  </li>
+                  <li><span>with span tag</span></li>
+                  <li>only text</li>
+                  <li></li>
+                </ul>
+
+                <ul class="ulist fa-ul" id="i8c9go"
+                  style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding: 0.2em 0; margin-left: 2em; line-height: 1.4em">
+                  <li class="ulistitem" data-ost-type="benefits" id="ia3uv2"
+                    style="box-sizing: border-box; text-align: left">
+                    <span id="ibmh9h" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em"><i
+                        class="fas fa-circle" id="imkxch"
+                        style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block">
+                      </i></span>
+                    <p id="ihgxlq"
+                      style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left">
+                      Original von Inserat</p>
+                  </li>
+                  <li class="ulistitem" data-ost-type="benefits" id="icuzh5"
+                    style="box-sizing: border-box; text-align: left">
+                    <span id="ijmtna" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em"><i
+                        class="fas fa-circle" id="ii8g9t"
+                        style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block">
+                      </i></span>
+                    <p id="iw52xl"
+                      style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left">
+                      Original <b>von</b> Inserat</p>
+                  </li>
+                </ul>
+
+                <table class="card" data-ost-type="benefitsHeader">
+                  <tr>
+                    <td class="card-cell">
+                      <img class="c1271" src="https://place-hold.it/520x520?text=Adv%20Editor&fontsize=40"
+                        alt="Big image here" />
+                      <table class="table100 c1357">
+                        <tr>
+                          <td class="card-content">
+                            <h1 class="card-title">
+                              Build your newsletters faster than ever
+                              <br />
+                            </h1>
+                            <p class="card-text">Import, build, test and export responsive newsletter templates faster
+                              than ever using the GrapesJS Newsletter Builder.</p>
+                            <table class="c1542">
+                              <tr>
+                                <td class="card-footer" id="c1545">
+                                  <a class="button" href="https://github.com/artf/grapesjs">Free and Open Source</a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="list-item">
+                  <tr>
+                    <td class="list-item-cell">
+                      <table class="list-item-content">
+                        <tr class="list-item-row">
+                          <td class="list-cell-left">
+                            <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image1" />
+                          </td>
+                          <td class="list-cell-right">
+                            <h1 class="card-title">Built-in Blocks</h1>
+                            <p class="card-text">Drag and drop built-in blocks from the right panel and style them in a
+                              matter of seconds</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="list-item">
+                  <tr>
+                    <td class="list-item-cell">
+                      <table class="list-item-content">
+                        <tr class="list-item-row">
+                          <td class="list-cell-left">
+                            <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image2" />
+                          </td>
+                          <td class="list-cell-right">
+                            <h1 class="card-title">Toggle images</h1>
+                            <p class="card-text">Build a good looking newsletter even without images enabled by the
+                              email clients</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="grid-item-row">
+                  <tr>
+                    <td class="grid-item-cell2-l">
+                      <table class="grid-item-card">
+                        <tr>
+                          <td class="grid-item-card-cell">
+                            <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image1" />
+                            <table class="grid-item-card-body">
+                              <tr>
+                                <td class="grid-item-card-content">
+                                  <h1 class="card-title">Test it</h1>
+                                  <p class="card-text">You can send email tests directly from the editor and check how
+                                    are looking on your email clients</p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td class="grid-item-cell2-r">
+                      <table class="grid-item-card">
+                        <tr>
+                          <td class="grid-item-card-cell">
+                            <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image2" />
+                            <table class="grid-item-card-body">
+                              <tr>
+                                <td class="grid-item-card-content">
+                                  <h1 class="card-title">Responsive</h1>
+                                  <p class="card-text">Using the device manager you'll always send a fully responsive
+                                    contents</p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="footer">
+                  <tr>
+                    <td class="footer-cell">
+                      <div class="c2577">
+                        <p class="footer-info">GrapesJS Newsletter Builder is a free and open source preset (plugin)
+                          used on top of the GrapesJS core library. For more information about and how to integrate it
+                          inside your applications check</p>
+                        <p>
+                          <a class="link" href="https://github.com/artf/grapesjs-preset-newsletter">GrapesJS Newsletter
+                            Preset</a>
                           <br />
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                  <br />
-                  <br />
-                  <div class="scale" data-percent="42" data-fcolor="rgba(29,230,179,0.5)" data-bgcolor="rgba(0,0,0,0)" style="box-sizing: border-box; margin: 5px 15px; padding: 0; height: 30px; max-width: 100%; border: solid 0px #000; background: linear-gradient(to right, rgba(29, 230, 179, 0.5) 42%, rgba(0, 0, 0, 0) 42%)"></div>
-                  <div class="scale" data-percent="66" data-fcolor="lime" data-bgcolor="red" style="box-sizing: border-box; margin: 5px 15px; padding: 0; height: 20px; max-width: 100%; border: none; background: linear-gradient(to right, lime 66%, red 66%)"></div>
+                        </p>
+                      </div>
 
-                  <ul class="ulist fa-ul" data-gjs-type="ulist">
-                    <li style="text-align: left" data-gjs-type="ulistitem">
-                      <span class="fa-li" style="left: -2em; width: 2em">
-                        <i class="fas fa-circle" data-gjs-type="icon" style="font-size: 0.4em; line-height: inherit; display: block"></i>
-                      </span>
-                      <p style="margin: 0; padding: 0; text-align: left">Text 1</p>
-                    </li>
-                    <li style="text-align: left" data-gjs-type="ulistitem">
-                      <span class="fa-li" style="left: -2em; width: 2em">
-                        <i class="fas fa-circle" data-gjs-type="icon" style="font-size: 0.4em; line-height: inherit; display: block"></i>
-                      </span>
-                      <p style="margin: 0; padding: 0; text-align: left">Text 2 kein type ulistitem</p>
-                    </li>
-                    <li style="text-align: left" data-gjs-type="ulistitem">
-                      <span class="fa-li" style="left: -2em; width: 2em">
-                        <i class="fas fa-circle" style="font-size: 0.4em; line-height: inherit; display: block"></i>
-                      </span>
-                      <p style="margin: 0; padding: 0; text-align: left">Text 3 kein type icon</p>
-                    </li>
-                    <li style="text-align: left" data-gjs-type="ulistitem">
-                      <span class="fa-li" style="left: -2em; width: 2em">
-                        <i class="fas fa-circle" data-gjs-type="icon" style="font-size: 0.4em; line-height: inherit; display: block"></i>
-                      </span>
-                      <p style="margin: 0; padding: 0; text-align: left">Text 4</p>
-                    </li>
-                  </ul>
+                      <div class="c2421">
+                        MADE BY <a class="link" href="https://github.com/artf">ARTUR ARSENIEV</a>
+                        <p></p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <style>
+      .link {
+        color: rgb(217, 131, 166);
+      }
 
-                  <ul class="ulist">
-                    <li>parent ulist</li>
-                    <li class="ulistitem">parent ulist, this ulistitem</li>
-                  </ul>
+      .row {
+        vertical-align: top;
+      }
 
-                  <ul>
-                    <li>nothing1</li>
-                    <li>nothing2</li>
-                    <li>empty li</li>
-                    <li></li>
-                  </ul>
+      .main-body {
+        min-height: 150px;
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(234, 236, 237);
+      }
 
-                  <ul>
-                    <li>
-                      <p>with p tag</p>
-                    </li>
-                    <li><span>with span tag</span></li>
-                    <li>only text</li>
-                    <li></li>
-                  </ul>
+      .c926 {
+        color: rgb(158, 83, 129);
+        width: 100%;
+        font-size: 50px;
+      }
 
-                  <ul class="ulist fa-ul" data-ost-type="benefits" id="i8c9go" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding: 0.2em 0; margin-left: 2em; line-height: 1.4em">
-                    <li class="ulistitem" id="ia3uv2" style="box-sizing: border-box; text-align: left">
-                      <span id="ibmh9h" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em"><i class="fas fa-circle" id="imkxch" style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block"> </i></span>
-                      <p id="ihgxlq" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left">Original von Inserat</p>
-                    </li>
-                    <li class="ulistitem" id="icuzh5" style="box-sizing: border-box; text-align: left">
-                      <span id="ijmtna" class="fa-li" style="box-sizing: border-box; left: -2em; width: 2em"><i class="fas fa-circle" id="ii8g9t" style="box-sizing: border-box; font-size: 0.4em; line-height: inherit; display: block"> </i></span>
-                      <p id="iw52xl" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; margin: 0; padding: 0; text-align: left">Original <b>von</b> Inserat</p>
-                    </li>
-                  </ul>
+      .cell.c849 {
+        width: 11%;
+      }
 
-                  <table class="card">
-                    <tr>
-                      <td class="card-cell">
-                        <img class="c1271" src="https://place-hold.it/520x520?text=Adv%20Editor&fontsize=40" alt="Big image here" />
-                        <table class="table100 c1357">
-                          <tr>
-                            <td class="card-content">
-                              <h1 class="card-title">
-                                Build your newsletters faster than ever
-                                <br />
-                              </h1>
-                              <p class="card-text">Import, build, test and export responsive newsletter templates faster than ever using the GrapesJS Newsletter Builder.</p>
-                              <table class="c1542">
-                                <tr>
-                                  <td class="card-footer" id="c1545">
-                                    <a class="button" href="https://github.com/artf/grapesjs">Free and Open Source</a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="list-item">
-                    <tr>
-                      <td class="list-item-cell">
-                        <table class="list-item-content">
-                          <tr class="list-item-row">
-                            <td class="list-cell-left">
-                              <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image1" />
-                            </td>
-                            <td class="list-cell-right">
-                              <h1 class="card-title">Built-in Blocks</h1>
-                              <p class="card-text">Drag and drop built-in blocks from the right panel and style them in a matter of seconds</p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="list-item">
-                    <tr>
-                      <td class="list-item-cell">
-                        <table class="list-item-content">
-                          <tr class="list-item-row">
-                            <td class="list-cell-left">
-                              <img class="list-item-image" src="https://place-hold.it/156x156/" alt="Image2" />
-                            </td>
-                            <td class="list-cell-right">
-                              <h1 class="card-title">Toggle images</h1>
-                              <p class="card-text">Build a good looking newsletter even without images enabled by the email clients</p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="grid-item-row">
-                    <tr>
-                      <td class="grid-item-cell2-l">
-                        <table class="grid-item-card">
-                          <tr>
-                            <td class="grid-item-card-cell">
-                              <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image1" />
-                              <table class="grid-item-card-body">
-                                <tr>
-                                  <td class="grid-item-card-content">
-                                    <h1 class="card-title">Test it</h1>
-                                    <p class="card-text">You can send email tests directly from the editor and check how are looking on your email clients</p>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="grid-item-cell2-r">
-                        <table class="grid-item-card">
-                          <tr>
-                            <td class="grid-item-card-cell">
-                              <img class="grid-item-image" src="https://place-hold.it/250x250/" alt="Image2" />
-                              <table class="grid-item-card-body">
-                                <tr>
-                                  <td class="grid-item-card-content">
-                                    <h1 class="card-title">Responsive</h1>
-                                    <p class="card-text">Using the device manager you'll always send a fully responsive contents</p>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="footer">
-                    <tr>
-                      <td class="footer-cell">
-                        <div class="c2577">
-                          <p class="footer-info">GrapesJS Newsletter Builder is a free and open source preset (plugin) used on top of the GrapesJS core library. For more information about and how to integrate it inside your applications check</p>
-                          <p>
-                            <a class="link" href="https://github.com/artf/grapesjs-preset-newsletter">GrapesJS Newsletter Preset</a>
-                            <br />
-                          </p>
-                        </div>
+      .c1144 {
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 300;
+      }
 
-                        <div class="c2421">
-                          MADE BY <a class="link" href="https://github.com/artf">ARTUR ARSENIEV</a>
-                          <p></p>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-      <style>
-        .link {
-          color: rgb(217, 131, 166);
-        }
+      .card {
+        min-height: 150px;
+        padding: 5px;
+        margin-bottom: 20px;
+        height: 0px;
+      }
 
-        .row {
-          vertical-align: top;
-        }
+      .card-cell {
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+        border-radius: 3px;
+        padding: 0;
+        text-align: center;
+      }
 
-        .main-body {
-          min-height: 150px;
-          padding: 5px;
-          width: 100%;
-          height: 100%;
-          background-color: rgb(234, 236, 237);
-        }
+      .card.sector {
+        background-color: rgb(255, 255, 255);
+        border-radius: 3px;
+        border-collapse: separate;
+      }
 
-        .c926 {
-          color: rgb(158, 83, 129);
-          width: 100%;
-          font-size: 50px;
-        }
+      .c1271 {
+        width: 100%;
+        margin: 0 0 15px 0;
+        font-size: 50px;
+        color: rgb(120, 197, 214);
+        line-height: 250px;
+        text-align: center;
+      }
 
-        .cell.c849 {
-          width: 11%;
-        }
+      .table100 {
+        width: 100%;
+      }
 
-        .c1144 {
-          padding: 10px;
-          font-size: 17px;
-          font-weight: 300;
-        }
+      .c1357 {
+        min-height: 150px;
+        padding: 5px;
+        margin: auto;
+        height: 0px;
+      }
 
-        .card {
-          min-height: 150px;
-          padding: 5px;
-          margin-bottom: 20px;
-          height: 0px;
-        }
+      .darkerfont {
+        color: rgb(65, 69, 72);
+      }
 
-        .card-cell {
-          background-color: rgb(255, 255, 255);
-          overflow: hidden;
-          border-radius: 3px;
-          padding: 0;
-          text-align: center;
-        }
+      .button {
+        font-size: 12px;
+        padding: 10px 20px;
+        background-color: rgb(217, 131, 166);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        border-radius: 3px;
+        font-weight: 300;
+      }
 
-        .card.sector {
-          background-color: rgb(255, 255, 255);
-          border-radius: 3px;
-          border-collapse: separate;
-        }
+      .table100.c1437 {
+        text-align: left;
+      }
 
-        .c1271 {
-          width: 100%;
-          margin: 0 0 15px 0;
-          font-size: 50px;
-          color: rgb(120, 197, 214);
-          line-height: 250px;
-          text-align: center;
-        }
+      .cell.cell-bottom {
+        text-align: center;
+        height: 51px;
+      }
 
-        .table100 {
-          width: 100%;
-        }
+      .card-title {
+        font-size: 25px;
+        font-weight: 300;
+        color: rgb(68, 68, 68);
+      }
 
-        .c1357 {
-          min-height: 150px;
-          padding: 5px;
-          margin: auto;
-          height: 0px;
-        }
+      .card-content {
+        font-size: 13px;
+        line-height: 20px;
+        color: rgb(111, 119, 125);
+        padding: 10px 20px 0 20px;
+        vertical-align: top;
+      }
 
-        .darkerfont {
-          color: rgb(65, 69, 72);
-        }
+      .container {
+        font-family: Helvetica, serif;
+        min-height: 150px;
+        padding: 5px;
+        margin: auto;
+        height: 0px;
+        width: 90%;
+        max-width: 550px;
+      }
 
-        .button {
-          font-size: 12px;
-          padding: 10px 20px;
-          background-color: rgb(217, 131, 166);
-          color: rgb(255, 255, 255);
-          text-align: center;
-          border-radius: 3px;
-          font-weight: 300;
-        }
+      .cell.c856 {
+        vertical-align: middle;
+      }
 
-        .table100.c1437 {
-          text-align: left;
-        }
+      .container-cell {
+        vertical-align: top;
+        font-size: medium;
+        padding-bottom: 50px;
+      }
 
-        .cell.cell-bottom {
-          text-align: center;
-          height: 51px;
-        }
+      .c1790 {
+        min-height: 150px;
+        padding: 5px;
+        margin: auto;
+        height: 0px;
+      }
 
-        .card-title {
-          font-size: 25px;
-          font-weight: 300;
-          color: rgb(68, 68, 68);
-        }
+      .table100.c1790 {
+        min-height: 30px;
+        border-collapse: separate;
+        margin: 0 0 10px 0;
+      }
 
-        .card-content {
-          font-size: 13px;
-          line-height: 20px;
-          color: rgb(111, 119, 125);
-          padding: 10px 20px 0 20px;
-          vertical-align: top;
-        }
+      .browser-link {
+        font-size: 12px;
+      }
 
-        .container {
-          font-family: Helvetica, serif;
-          min-height: 150px;
-          padding: 5px;
-          margin: auto;
-          height: 0px;
-          width: 90%;
-          max-width: 550px;
-        }
+      .top-cell {
+        text-align: right;
+        color: rgb(152, 156, 165);
+      }
 
-        .cell.c856 {
-          vertical-align: middle;
-        }
+      .table100.c1357 {
+        margin: 0;
+        border-collapse: collapse;
+      }
 
-        .container-cell {
-          vertical-align: top;
-          font-size: medium;
-          padding-bottom: 50px;
-        }
+      .c1769 {
+        width: 30%;
+      }
 
-        .c1790 {
-          min-height: 150px;
-          padding: 5px;
-          margin: auto;
-          height: 0px;
-        }
+      .c1776 {
+        width: 70%;
+      }
 
-        .table100.c1790 {
-          min-height: 30px;
-          border-collapse: separate;
-          margin: 0 0 10px 0;
-        }
+      .c1766 {
+        margin: 0 auto 10px 0;
+        padding: 5px;
+        width: 100%;
+        min-height: 30px;
+      }
 
-        .browser-link {
-          font-size: 12px;
-        }
+      .cell.c1769 {
+        width: 11%;
+      }
 
-        .top-cell {
-          text-align: right;
-          color: rgb(152, 156, 165);
-        }
+      .cell.c1776 {
+        vertical-align: middle;
+      }
 
-        .table100.c1357 {
-          margin: 0;
-          border-collapse: collapse;
-        }
+      .c1542 {
+        margin: 0 auto 10px auto;
+        padding: 5px;
+        width: 100%;
+      }
 
-        .c1769 {
-          width: 30%;
-        }
+      .card-footer {
+        padding: 20px 0;
+        text-align: center;
+      }
 
-        .c1776 {
-          width: 70%;
-        }
+      .c2280 {
+        height: 150px;
+        margin: 0 auto 10px auto;
+        padding: 5px 5px 5px 5px;
+        width: 100%;
+      }
 
-        .c1766 {
-          margin: 0 auto 10px 0;
-          padding: 5px;
-          width: 100%;
-          min-height: 30px;
-        }
+      .c2421 {
+        padding: 10px;
+      }
 
-        .cell.c1769 {
-          width: 11%;
-        }
+      .c2577 {
+        padding: 10px;
+      }
 
-        .cell.c1776 {
-          vertical-align: middle;
-        }
+      .footer {
+        margin-top: 50px;
+        color: rgb(152, 156, 165);
+        text-align: center;
+        font-size: 11px;
+        padding: 5px;
+      }
 
-        .c1542 {
-          margin: 0 auto 10px auto;
-          padding: 5px;
-          width: 100%;
-        }
+      .quote {
+        font-style: italic;
+      }
 
-        .card-footer {
-          padding: 20px 0;
-          text-align: center;
-        }
+      .list-item {
+        height: auto;
+        width: 100%;
+        margin: 0 auto 10px auto;
+        padding: 5px;
+      }
 
-        .c2280 {
-          height: 150px;
-          margin: 0 auto 10px auto;
-          padding: 5px 5px 5px 5px;
-          width: 100%;
-        }
+      .list-item-cell {
+        background-color: rgb(255, 255, 255);
+        border-radius: 3px;
+        overflow: hidden;
+        padding: 0;
+      }
 
-        .c2421 {
-          padding: 10px;
-        }
+      .list-cell-left {
+        width: 30%;
+        padding: 0;
+      }
 
-        .c2577 {
-          padding: 10px;
-        }
+      .list-cell-right {
+        width: 70%;
+        color: rgb(111, 119, 125);
+        font-size: 13px;
+        line-height: 20px;
+        padding: 10px 20px 0px 20px;
+      }
 
-        .footer {
-          margin-top: 50px;
-          color: rgb(152, 156, 165);
-          text-align: center;
-          font-size: 11px;
-          padding: 5px;
-        }
+      .list-item-content {
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 5px;
+        height: 150px;
+        width: 100%;
+      }
 
-        .quote {
-          font-style: italic;
-        }
+      .list-item-image {
+        color: rgb(217, 131, 166);
+        font-size: 45px;
+        width: 100%;
+      }
 
-        .list-item {
-          height: auto;
-          width: 100%;
-          margin: 0 auto 10px auto;
-          padding: 5px;
-        }
+      .grid-item-image {
+        line-height: 150px;
+        font-size: 50px;
+        color: rgb(120, 197, 214);
+        margin-bottom: 15px;
+        width: 100%;
+      }
 
-        .list-item-cell {
-          background-color: rgb(255, 255, 255);
-          border-radius: 3px;
-          overflow: hidden;
-          padding: 0;
-        }
+      .grid-item-row {
+        margin: 0 auto 10px;
+        padding: 5px 0;
+        width: 100%;
+      }
 
-        .list-cell-left {
-          width: 30%;
-          padding: 0;
-        }
+      .grid-item-card {
+        width: 100%;
+        padding: 5px 0;
+        margin-bottom: 10px;
+      }
 
-        .list-cell-right {
-          width: 70%;
-          color: rgb(111, 119, 125);
-          font-size: 13px;
-          line-height: 20px;
-          padding: 10px 20px 0px 20px;
-        }
+      .grid-item-card-cell {
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+        border-radius: 3px;
+        text-align: center;
+        padding: 0;
+      }
 
-        .list-item-content {
-          border-collapse: collapse;
-          margin: 0 auto;
-          padding: 5px;
-          height: 150px;
-          width: 100%;
-        }
+      .grid-item-card-content {
+        font-size: 13px;
+        color: rgb(111, 119, 125);
+        padding: 0 10px 20px 10px;
+        width: 100%;
+        line-height: 20px;
+      }
 
-        .list-item-image {
-          color: rgb(217, 131, 166);
-          font-size: 45px;
-          width: 100%;
-        }
+      .grid-item-cell2-l {
+        vertical-align: top;
+        padding-right: 10px;
+        width: 50%;
+      }
 
-        .grid-item-image {
-          line-height: 150px;
-          font-size: 50px;
-          color: rgb(120, 197, 214);
-          margin-bottom: 15px;
-          width: 100%;
-        }
+      .grid-item-cell2-r {
+        vertical-align: top;
+        padding-left: 10px;
+        width: 50%;
+      }
+    </style>
+  </div>
 
-        .grid-item-row {
-          margin: 0 auto 10px;
-          padding: 5px 0;
-          width: 100%;
-        }
-
-        .grid-item-card {
-          width: 100%;
-          padding: 5px 0;
-          margin-bottom: 10px;
-        }
-
-        .grid-item-card-cell {
-          background-color: rgb(255, 255, 255);
-          overflow: hidden;
-          border-radius: 3px;
-          text-align: center;
-          padding: 0;
-        }
-
-        .grid-item-card-content {
-          font-size: 13px;
-          color: rgb(111, 119, 125);
-          padding: 0 10px 20px 10px;
-          width: 100%;
-          line-height: 20px;
-        }
-
-        .grid-item-cell2-l {
-          vertical-align: top;
-          padding-right: 10px;
-          width: 50%;
-        }
-
-        .grid-item-cell2-r {
-          vertical-align: top;
-          padding-left: 10px;
-          width: 50%;
-        }
-      </style>
+  <div id="info-cont" style="display: none">
+    <br />
+    <svg class="grapesjs-logo" xmlns="http://www.w3.org/2000/svg" version="1">
+      <g id="gjs-logo">
+        <path
+          d="M40 5l-12.9 7.4 -12.9 7.4c-1.4 0.8-2.7 2.3-3.7 3.9 -0.9 1.6-1.5 3.5-1.5 5.1v14.9 14.9c0 1.7 0.6 3.5 1.5 5.1 0.9 1.6 2.2 3.1 3.7 3.9l12.9 7.4 12.9 7.4c1.4 0.8 3.3 1.2 5.2 1.2 1.9 0 3.8-0.4 5.2-1.2l12.9-7.4 12.9-7.4c1.4-0.8 2.7-2.2 3.7-3.9 0.9-1.6 1.5-3.5 1.5-5.1v-14.9 -12.7c0-4.6-3.8-6-6.8-4.2l-28 16.2"
+          style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; stroke-width: 10; stroke: #fff" />
+      </g>
+    </svg>
+    <br />
+    <div class="gjs-import-label">
+      <b>GrapesJS Ostendis Builder</b> is a showcase of what/how is possible to build an editor using the
+      <a class="info-link gjs-color-active" target="_blank" href="http://artf.github.io/grapesjs/">GrapesJS</a>
+      core library. Is not intended to represent a complete builder solution.
     </div>
+  </div>
 
-    <div id="info-cont" style="display: none">
-      <br />
-      <svg class="grapesjs-logo" xmlns="http://www.w3.org/2000/svg" version="1">
-        <g id="gjs-logo">
-          <path d="M40 5l-12.9 7.4 -12.9 7.4c-1.4 0.8-2.7 2.3-3.7 3.9 -0.9 1.6-1.5 3.5-1.5 5.1v14.9 14.9c0 1.7 0.6 3.5 1.5 5.1 0.9 1.6 2.2 3.1 3.7 3.9l12.9 7.4 12.9 7.4c1.4 0.8 3.3 1.2 5.2 1.2 1.9 0 3.8-0.4 5.2-1.2l12.9-7.4 12.9-7.4c1.4-0.8 2.7-2.2 3.7-3.9 0.9-1.6 1.5-3.5 1.5-5.1v-14.9 -12.7c0-4.6-3.8-6-6.8-4.2l-28 16.2" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; stroke-width: 10; stroke: #fff" />
-        </g>
-      </svg>
-      <br />
-      <div class="gjs-import-label">
-        <b>GrapesJS Ostendis Builder</b> is a showcase of what/how is possible to build an editor using the
-        <a class="info-link gjs-color-active" target="_blank" href="http://artf.github.io/grapesjs/">GrapesJS</a>
-        core library. Is not intended to represent a complete builder solution.
-      </div>
-    </div>
+  <script type="text/javascript">
+    var images = ["https://place-hold.it/70x70/F44/fff?text=GrapesJS", "https://place-hold.it/300x500", "https://place-hold.it/300x300", "https://place-hold.it/100x100/000/fff", "https://place-hold.it/1200x100/000/fff"];
 
-    <script type="text/javascript">
-      var images = ["https://place-hold.it/70x70/F44/fff?text=GrapesJS", "https://place-hold.it/300x500", "https://place-hold.it/300x300", "https://place-hold.it/100x100/000/fff", "https://place-hold.it/1200x100/000/fff"];
-
-      // Set up GrapesJS editor with the plugin
-      var editor = grapesjs.init({
-        height: "1100px",
-        //noticeOnUnload: 0,
-        storageManager: {
-          autoload: 0,
-        },
-        assetManager: {
-          assets: images,
-          multiUpload: true,
-          autoAdd: true,
-        },
-        cssIcons: null,
-        canvas: {
-          styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
-        },
-        canvasCss: `.gjs-selected{
+    // Set up GrapesJS editor with the plugin
+    var editor = grapesjs.init({
+      height: "1100px",
+      //noticeOnUnload: 0,
+      storageManager: {
+        autoload: 0,
+      },
+      assetManager: {
+        assets: images,
+        multiUpload: true,
+        autoAdd: true,
+      },
+      cssIcons: null,
+      canvas: {
+        styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
+      },
+      canvasCss: `.gjs-selected{
                       outline: 2px solid #3b5998 !important;
                       outline-offset: -2px !important;
                     }`,
-        blockManager: { appendOnClick: 1 },
-        container: "#gjs",
-        fromElement: true,
-        colorPicker: {
-          appendTo: "parent",
-          offset: { top: -244, left: -175 },
-          /* Option for Company Color */
-          // showPalette: true,
-          // palette: [['#000000', '#c2c2c2', '#ff0000', '#FF8200']],
+      blockManager: { appendOnClick: 1 },
+      container: "#gjs",
+      fromElement: true,
+      colorPicker: {
+        appendTo: "parent",
+        offset: { top: -244, left: -175 },
+        /* Option for Company Color */
+        // showPalette: true,
+        // palette: [['#000000', '#c2c2c2', '#ff0000', '#FF8200']],
+      },
+      plugins: ["gjs-preset-ostendis-adv"],
+      pluginsOpts: {
+        "gjs-preset-ostendis-adv": {
+          modalLabelImport: "Paste all your code here below and click import",
+          modalLabelExport: "Copy the code and use it wherever you want",
+          importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
+          categoryLabel: "Default",
         },
-        plugins: ["gjs-preset-ostendis-adv"],
-        pluginsOpts: {
-          "gjs-preset-ostendis-adv": {
-            modalLabelImport: "Paste all your code here below and click import",
-            modalLabelExport: "Copy the code and use it wherever you want",
-            importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
-            categoryLabel: "Default",
-          },
-        },
-      });
-    </script>
-  </body>
+      },
+    });
+  </script>
+</body>
+
 </html>

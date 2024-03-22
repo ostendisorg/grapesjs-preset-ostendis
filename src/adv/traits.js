@@ -31,6 +31,8 @@ define(function () {
         }
       },
       onUpdate({ elInput, component ,trait }) {
+        console.log(opt.usedOstBlockTypes);
+
         const traitName = trait.get('name') || "ost-block-select-default";
         const dataOstType = component.getAttributes()[traitName] || '';
         elInput.querySelector("#"+[traitName]).value = dataOstType ;
