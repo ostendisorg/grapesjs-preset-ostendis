@@ -2,7 +2,7 @@ export function checkOstBlocks(editor, usedOstBlockTypes){
 
     usedOstBlockTypes.forEach(el => { el.count = 0; });
 
-    var wrapper = editor.DomComponents.getWrapper();
+    var wrapper = editor.Components.getWrapper();
     var elements = wrapper.view.$el.find('[data-ost-type]').get();
 
     elements.forEach(element => {
