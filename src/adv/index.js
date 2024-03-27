@@ -10,8 +10,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
 
   let defaults = {
     editor,
-    usedOstBlockTypes,
     pfx: pfx || "",
+    usedOstBlockTypes,
     cmdOpenImport: "gjs-open-import-template",
     cmdTglImages: "gjs-toggle-images",
     cmdInlineHtml: "gjs-get-inlined-html",
@@ -187,6 +187,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     ostToolbarDelete: "Delete list element",
     ostToolbarUp: "Move list element up",
     ostToolbarDown: "Move list element down",
+
+    ostBlocksModalWarningTitle: "Warning",
+    ostBlocksModalWarningText: "Attention, the following Ostendis blocks are present several times. <br>Ostendis blocks can only appear once.",
   };
 
   // Change some config
@@ -304,13 +307,15 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
 
-    console.log("before: ", usedOstBlockTypes);
+    // Check ostendis blocks
     checks.checkOstBlocks(editor, usedOstBlockTypes);
-    console.log("after: ", usedOstBlockTypes);
 
+    // Show alert modal if necessary
+    if(usedOstBlockTypes.some( el => el.count > 1)){
+      checks.alertOstBlocks(defaults);
+    }
   });
 
-  // On selected components
   editor.on("component:selected", () => {
     var selected = editor.getSelected();  
 
@@ -344,7 +349,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
       toolbarArray.splice(1, 3);
       selected.set({'draggable' : false, 'removable' : false , 'copyable' : false, 'toolbar': toolbarArray});
     }
- 
+   
     function showOstToolbar(listItem) {
       var elPos = listItem.index();
       var elLast = listItem.parent().getLastChild().index();      
@@ -409,7 +414,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     }
   });
 
-  // On deselected components
+  editor.on('component:update:attributes', (component) => {
+    if (component === editor.getSelected() && component.getTrait('data-ost-type')) {
+      checks.checkOstBlocks(editor, usedOstBlockTypes);
+    }
+  });
+
   editor.on("component:deselected", () => {
     var ostToolbar = document.querySelector(".gjs-ost-toolbar");
     ostToolbar.classList.remove("show");

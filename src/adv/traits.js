@@ -30,10 +30,33 @@ define(function () {
           component.addAttributes({ [traitName] : dataOstType });
         }
       },
-      onUpdate({ elInput, component ,trait }) {
-        console.log(opt.usedOstBlockTypes);
 
+      onUpdate({ elInput, component ,trait }) {
         const traitName = trait.get('name') || "ost-block-select-default";
+
+        Array.from(elInput.querySelector("#"+[traitName]).options).forEach(function(optionElement, optionIndex){
+          const usedOstBlockTypesIndex = opt.usedOstBlockTypes.findIndex(e =>e.type === optionElement.value);
+
+          // Reset
+          var optionEl = elInput.querySelector("#"+[traitName]).options[optionIndex];
+          const regex = /^\(.*\)\s*/g;
+          optionEl.text = optionEl.text.replace(regex, "");
+          optionEl.removeAttribute('class');
+          optionEl.removeAttribute("disabled");
+
+          if(usedOstBlockTypesIndex > -1){            
+            if(opt.usedOstBlockTypes[usedOstBlockTypesIndex].count == 1){
+              optionEl.innerHTML = '(&#10003;) ' + optionEl.text;
+              optionEl.classList.add("gjs-select-option-ok");
+              optionEl.disabled = true;
+            }
+            else if(opt.usedOstBlockTypes[usedOstBlockTypesIndex].count > 1){
+              optionEl.innerHTML = '(! ' + opt.usedOstBlockTypes[usedOstBlockTypesIndex].count + '&times;) ' + optionEl.text;
+              optionEl.classList.add("gjs-select-option-nok");
+              optionEl.disabled = true;
+            }
+          }
+        });
         const dataOstType = component.getAttributes()[traitName] || '';
         elInput.querySelector("#"+[traitName]).value = dataOstType ;
       },

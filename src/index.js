@@ -1,13 +1,17 @@
 import grapesjs from "grapesjs";
+import * as checks from "./checks";
 
 export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
+  let usedOstBlockTypes = [];
+
 
   let defaults = {
     editor,
     pfx: pfx || "",
+    usedOstBlockTypes,
     cmdOpenImport: "gjs-open-import-template",
     cmdTglImages: "gjs-toggle-images",
     cmdInlineHtml: "gjs-get-inlined-html",
@@ -101,6 +105,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     ostToolbarDelete: "Delete list element",
     ostToolbarUp: "Move list element up",
     ostToolbarDown: "Move list element down",
+
+    ostBlocksModalWarningTitle: "Warning",
+    ostBlocksModalWarningText: "Attention, the following Ostendis blocks are present several times. <br>Ostendis blocks can only appear once.",
   };
 
   // Change some config
@@ -200,6 +207,14 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     const ostTools = document.createElement('div');
     ostTools.classList.add('gjs-ost-toolbar');
     tools.append(ostTools);
+
+    // Check ostendis blocks
+    checks.checkOstBlocks(editor, usedOstBlockTypes);
+
+    // Show alert modal if necessary
+    // if(usedOstBlockTypes.some( el => el.count > 1)){
+    //   checks.alertOstBlocks(defaults);
+    // }
   });
 
   editor.on("storage:start", () => {
@@ -317,6 +332,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       ostToolbar.appendChild(dwnBtn);
 
       ostToolbar.classList.add('show');      
+    }
+  });
+
+  editor.on('component:update:attributes', (component) => {
+    if (component === editor.getSelected() && component.getTrait('data-ost-type')) {
+      checks.checkOstBlocks(editor, usedOstBlockTypes);
     }
   });
 

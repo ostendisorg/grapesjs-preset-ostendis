@@ -193,9 +193,9 @@ div.#{$app-prefix}hover {
 }
 
 /* Hide Toolbar except "to parent" in simple editor */
- .simple .#{$app-prefix}toolbar-item:not(:first-child) {
-   display: none;
- }
+.simple .#{$app-prefix}toolbar-item:not(:first-child) {
+  display: none;
+}
 
 .#{$app-prefix}ost-toolbar {
   display: none;
@@ -422,7 +422,7 @@ div.#{$app-prefix}hover {
 }
 .alert-msg {
   position: absolute;
-  background-color: #fff;
+  background-color: $whiteColor;
   top: 50px;
   left: 20%;
   width: 60%;
@@ -432,8 +432,8 @@ div.#{$app-prefix}hover {
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.5);
 
   .header {
-    background-color: orange;
-    color: #fff;
+    background-color: $accentColor;
+    color: $whiteColor;
     padding: 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -475,7 +475,7 @@ div.#{$app-prefix}hover {
     button.ok {
       margin: 15px auto;
       display: flex;
-      background-color: #fff;
+      background-color: $whiteColor;
       padding: 5px 15px;
       text-transform: uppercase;
       color: currentColor;
@@ -491,15 +491,52 @@ div.#{$app-prefix}hover {
   }
 }
 
+/* Alert Ostendis Blocks*/
+.#{$app-prefix}mdl-container.alertModalOstBlocks {
+  .#{$app-prefix}mdl-dialog {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  .#{$app-prefix}mdl-header {
+    background-color: $accentColor;
+    color: $whiteColor;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bold;
+  }
+  .#{$app-prefix}mdl-btn-close {
+    color: $whiteColor;
+  }
+  .#{$app-prefix}mdl-content {
+    padding: 20px;
+  }
+  button.ok {
+    margin: 15px auto;
+    display: flex;
+    background-color: $whiteColor;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    color: currentColor;
+    border: none;
+    font-weight: normal;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  button.ok:hover {
+    background-color: #dfdfdf;
+  }
+}
 /* Color Picker */
-.#{$app-prefix}editor-cont .sp-container .sp-choose{
+.#{$app-prefix}editor-cont .sp-container .sp-choose {
   background: $mainColor;
   border-color: $mainColor;
   color: $whiteColor;
-  border-radius: 0; 
+  border-radius: 0;
 }
 .#{$app-prefix}editor-cont .sp-container .sp-choose:hover,
-.#{$app-prefix}editor-cont .sp-container .sp-choose:active{
+.#{$app-prefix}editor-cont .sp-container .sp-choose:active {
   background: $mainColor;
   border-color: $mainColor;
   color: $fontColor;
@@ -509,9 +546,17 @@ div.#{$app-prefix}hover {
 .#{$app-prefix}trt-trait__wrp-data-ost-type {
   background: rgba(255, 130, 0, 0.4);
 }
+.#{$app-prefix}select-option-ok {
+  background-color: rgb(185, 255, 178);
+  color: rgb(0, 100, 0);
+}
+.#{$app-prefix}select-option-nok {
+  background-color: rgb(255, 179, 179);
+  color: rgb(104, 0, 0);
+}
 
 /* Scale Trait Color Picker */
-.#{$app-prefix}trt-traits .sp-container{
+.#{$app-prefix}trt-traits .sp-container {
   top: 30px !important;
   left: -200px !important;
 }

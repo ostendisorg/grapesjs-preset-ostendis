@@ -13,7 +13,7 @@ define(function () {
       },
       options: [
         { id: "", name: opt.traitOstNone },
-        { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
+        { id: "organizationHeading", name: opt.traitOstOrganizationHeading},
         { id: "organization", name: opt.traitOstOrganization },
         { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
         { id: "introduction", name: opt.traitOstIntroduction },
