@@ -306,7 +306,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     const ostTools = document.createElement("div");
     ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
+  });
 
+  editor.on('storage:end:load', () => {
     // Check ostendis blocks
     checks.checkOstBlocks(editor, usedOstBlockTypes);
 
@@ -314,7 +316,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     if(usedOstBlockTypes.some( el => el.count > 1)){
       checks.alertOstBlocks(defaults);
     }
-  });
+   });
 
   editor.on("component:selected", () => {
     var selected = editor.getSelected();  

@@ -2,18 +2,16 @@ define(function () {
   return (opt = {}) => {
     const trm = opt.editor.TraitManager;
 
-    trm.addType("ost-blocks-select",{
+    trm.addType("ost-blocks-select", {
       createInput({ trait }) {
-        const traitOpts = trait.get('options') || [];
-        const traitName = trait.get('name') || "ost-block-select";
-        const options = traitOpts.length ? traitOpts : [
-          { id: '', name: 'None',  disabled: "disabled" },
-        ];
-    
-        const el = document.createElement('div');
+        const traitOpts = trait.get("options") || [];
+        const traitName = trait.get("name") || "ost-block-select";
+        const options = traitOpts.length ? traitOpts : [{ id: "", name: "None", disabled: "disabled" }];
+
+        const el = document.createElement("div");
         el.innerHTML = `
           <select class="ost-blocks-select" id="${traitName}">
-            ${options.map(opt => `<option value="${opt.id}" ${opt.disabled}>${opt.name}</option>`).join('')}
+            ${options.map((opt) => `<option value="${opt.id}" ${opt.disabled}>${opt.name}</option>`).join("")}
           </select>
           <div class="gjs-sel-arrow">
             <div class="gjs-d-s-arrow"></div>
@@ -21,44 +19,44 @@ define(function () {
         return el;
       },
       onEvent({ elInput, component, trait }) {
-        const traitName = trait.get('name') || "ost-block-select-default";
-        const dataOstType = elInput.querySelector("#"+[traitName]).value;
-        if(dataOstType == ""){
-          component.removeAttributes(traitName);        
-        }
-        else{
-          component.addAttributes({ [traitName] : dataOstType });
+        const traitName = trait.get("name") || "ost-block-select-default";
+        const dataOstType = elInput.querySelector("#" + [traitName]).value;
+        if (dataOstType == "") {
+          component.removeAttributes(traitName);
+        } else {
+          component.addAttributes({ [traitName]: dataOstType });
         }
       },
 
-      onUpdate({ elInput, component ,trait }) {
-        const traitName = trait.get('name') || "ost-block-select-default";
+      onUpdate({ elInput, component, trait }) {
+        const traitName = trait.get("name") || "ost-block-select-default";
 
-        Array.from(elInput.querySelector("#"+[traitName]).options).forEach(function(optionElement, optionIndex){
-          const usedOstBlockTypesIndex = opt.usedOstBlockTypes.findIndex(e =>e.type === optionElement.value);
+        Array.from(elInput.querySelector("#" + [traitName]).options).forEach(function (optionElement, optionIndex) {
+          if (optionElement.value != "") {
+            const usedOstBlockTypesIndex = opt.usedOstBlockTypes.findIndex((e) => e.type === optionElement.value);
 
-          // Reset
-          var optionEl = elInput.querySelector("#"+[traitName]).options[optionIndex];
-          const regex = /^\(.*\)\s*/g;
-          optionEl.text = optionEl.text.replace(regex, "");
-          optionEl.removeAttribute('class');
-          optionEl.removeAttribute("disabled");
+            // Reset
+            var optionEl = elInput.querySelector("#" + [traitName]).options[optionIndex];
+            const regex = /^\(.*\)\s*/g;
+            optionEl.text = optionEl.text.replace(regex, "");
+            optionEl.removeAttribute("class");
+            optionEl.removeAttribute("disabled");
 
-          if(usedOstBlockTypesIndex > -1){            
-            if(opt.usedOstBlockTypes[usedOstBlockTypesIndex].count == 1){
-              optionEl.innerHTML = '(&#10003;) ' + optionEl.text;
-              optionEl.classList.add("gjs-select-option-ok");
-              optionEl.disabled = true;
-            }
-            else if(opt.usedOstBlockTypes[usedOstBlockTypesIndex].count > 1){
-              optionEl.innerHTML = '(! ' + opt.usedOstBlockTypes[usedOstBlockTypesIndex].count + '&times;) ' + optionEl.text;
-              optionEl.classList.add("gjs-select-option-nok");
-              optionEl.disabled = true;
+            if (usedOstBlockTypesIndex > -1) {
+              if (opt.usedOstBlockTypes[usedOstBlockTypesIndex].count == 1) {
+                optionEl.innerHTML = "(&#10003;) " + optionEl.text;
+                optionEl.classList.add("gjs-select-option-ok");
+                optionEl.disabled = true;
+              } else if (opt.usedOstBlockTypes[usedOstBlockTypesIndex].count > 1) {
+                optionEl.innerHTML = "(! " + opt.usedOstBlockTypes[usedOstBlockTypesIndex].count + "&times;) " + optionEl.text;
+                optionEl.classList.add("gjs-select-option-nok");
+                optionEl.disabled = true;
+              }
             }
           }
         });
-        const dataOstType = component.getAttributes()[traitName] || '';
-        elInput.querySelector("#"+[traitName]).value = dataOstType ;
+        const dataOstType = component.getAttributes()[traitName] || "";
+        elInput.querySelector("#" + [traitName]).value = dataOstType;
       },
     });
 
@@ -90,6 +88,5 @@ define(function () {
         target.view.render();
       },
     });
-    
   };
 });
