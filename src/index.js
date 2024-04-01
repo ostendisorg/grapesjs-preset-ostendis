@@ -207,14 +207,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     const ostTools = document.createElement('div');
     ostTools.classList.add('gjs-ost-toolbar');
     tools.append(ostTools);
-
-    // Check ostendis blocks
-    checks.checkOstBlocks(editor, usedOstBlockTypes);
-
-    // Show alert modal if necessary
-    // if(usedOstBlockTypes.some( el => el.count > 1)){
-    //   checks.alertOstBlocks(defaults);
-    // }
   });
 
   editor.on("storage:start", () => {
@@ -267,6 +259,11 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     else if(isChildOfElement(selected.getEl(), "LI")){
       showOstToolbar(selected.closest('li'));
+    }
+
+    // Check ostendis blocks
+    if (selected.getTrait('data-ost-type')) {
+      checks.checkOstBlocks(editor, usedOstBlockTypes);
     }
 
 
@@ -332,12 +329,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       ostToolbar.appendChild(dwnBtn);
 
       ostToolbar.classList.add('show');      
-    }
-  });
-
-  editor.on('component:update:attributes', (component) => {
-    if (component === editor.getSelected() && component.getTrait('data-ost-type')) {
-      checks.checkOstBlocks(editor, usedOstBlockTypes);
     }
   });
 
