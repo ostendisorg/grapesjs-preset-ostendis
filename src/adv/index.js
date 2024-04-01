@@ -307,9 +307,8 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
   });
-
-  editor.on('storage:end:load', () => {
-    console.log('Storage load request ended');
+  editor.onReady(() => {
+    console.log('Editor onReady');
     // Check ostendis blocks
     checks.checkOstBlocks(editor, usedOstBlockTypes);
 
@@ -317,14 +316,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     if(usedOstBlockTypes.some( el => el.count > 1)){
       checks.alertOstBlocks(defaults);
     }
-   });
+  });
 
-   editor.on('storage:end', () => {
-    console.log('Storage request ended');
-   });
-
-   editor.on('storage:after', () => {
-    console.log('Storage request completed');
+  editor.on('storage:end:load', () => {
+    console.log('Storage load request ended');
    });
 
   editor.on("component:selected", () => {
