@@ -318,10 +318,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     }
   });
 
-  editor.on('storage:end:load', () => {
-    console.log('Storage load request ended');
-   });
-
   editor.on("component:selected", () => {
     var selected = editor.getSelected();  
 
