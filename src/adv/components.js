@@ -124,6 +124,33 @@ define(function () {
       view: dView,
     });
 
+    // domComp.addType("header", {
+    //   isComponent: (el) => el && el.tagName && ["h1", "h2", "h3", "h4", "h5", "h6"].includes(el.tagName.toLowerCase()),
+    //   extend: "text",
+    //   model: {
+    //     defaults: {
+    //       "custom-name": "Header",
+    //       tagName: opt.defaultTagName,
+    //       traits: [
+    //         {
+    //           type: "select",
+    //           options: [
+    //             { value: "h1", name: opt.headerBlkH1Label },
+    //             { value: "h2", name: opt.headerBlkH2Label },
+    //             { value: "h3", name: opt.headerBlkH3Label },
+    //             { value: "h4", name: opt.headerBlkH4Label },
+    //           ],
+    //           label: opt.headerBlkTraitLabel,
+    //           name: "tagName",
+    //           changeProp: 1,
+    //         },
+    //       ],
+    //     },
+    //   },
+    // })
+
+
+
     // Range trait
     const nameTrait = {
       name: "name",

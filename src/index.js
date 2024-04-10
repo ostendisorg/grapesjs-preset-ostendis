@@ -7,7 +7,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   let pfx = config.stylePrefix;
   let usedOstBlockTypes = [];
 
-
   let defaults = {
     editor,
     pfx: pfx || "",
@@ -64,10 +63,10 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     labelIconSelectPhone: "phone",
     labelIconSelectEnvelope: "envelope",
     labelIconSelectStar: "star",
-    
+
     labelScalePercent: "Percent",
     labelScaleBarColor: "Bar color",
-    labelScaleBgColor:  "Background color",
+    labelScaleBgColor: "Background color",
 
     traitBlkOstendisTooltip: "Define Ostendis block.",
     traitOstNone: "None",
@@ -131,16 +130,16 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
   importCommands(c);
 
   // Add blocks
- /* let importBlocks = require("./blocks");
+  /* let importBlocks = require("./blocks");
   importBlocks(c);*/
 
   // Add buttons
   let importButtons = require("./buttons");
   importButtons(c);
 
-    // Add richTextEditorSettings
-    let importRichTextEditor = require("./rte");
-    importRichTextEditor(c);
+  // Add richTextEditorSettings
+  let importRichTextEditor = require("./rte");
+  importRichTextEditor(c);
 
   // Set default template if the canvas is empty
   if (!editor.getHtml() && c.defaultTemplate) {
@@ -157,7 +156,6 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
   // Do stuff on load
   editor.on("load", function () {
-
     // Title translation and activate
     var swVisBtn = editor.Panels.getButton("options", "sw-visibility");
     swVisBtn.set("attributes", {
@@ -165,7 +163,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
     });
     swVisBtn && swVisBtn.set("active", 1);
     // Chrome doesn't show the outlines
-    editor.Commands.run('core:component-outline');
+    editor.Commands.run("core:component-outline");
 
     // Title translation and activate
     var openTmBtn = editor.Panels.getButton("views", "open-tm");
@@ -188,86 +186,80 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     // Paste only plain text
     var iframeBody = editor.Canvas.getBody();
-    iframeBody.onpaste = function(e) {
 
-      var pastedText = undefined;
+    iframeBody.onpaste = (event) => {
+      event.preventDefault();
+       var pastedText = undefined;
 
       if (window.clipboardData && window.clipboardData.getData) { // IE
-        pastedText = window.clipboardData.getData('Text');
-      } 
-      else if (e.clipboardData && e.clipboardData.getData) {
-        pastedText = (e.originalEvent || e).clipboardData.getData('text/plain');
+        pastedText = window.clipboardData.getData("Text");
       }
-      e.target.ownerDocument.execCommand("insertText", false, pastedText);
-      return false; // Prevent the default handler
+      else if (event.clipboardData && event.clipboardData.getData) {
+        pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
+      }
+      event.target.ownerDocument.execCommand("insertText", false, pastedText);
     };
 
     // Create ostendis toolbar
-    let tools = document.getElementById('gjs-tools');
-    const ostTools = document.createElement('div');
-    ostTools.classList.add('gjs-ost-toolbar');
+    let tools = document.getElementById("gjs-tools");
+    const ostTools = document.createElement("div");
+    ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
   });
 
   editor.on("storage:start", () => {
-
     var getAllComponents = (model, result = []) => {
       result.push(model);
-      model.components().each(mod => getAllComponents(mod, result))
+      model.components().each((mod) => getAllComponents(mod, result));
       return result;
-    }
+    };
 
     var allComponents = getAllComponents(editor.DomComponents.getWrapper());
-     allComponents.forEach((compo) => compo.set({ 
-      'draggable': true, 
-      'removable': true, 
-      'copyable': true,
-      'toolbar': [
-        { attributes: {class: 'fa-solid fa-arrow-up'}, command: 'select-parent'},
-        { attributes: {class: 'fa-solid fa-arrows-up-down-left-right'}, command: 'tlb-move'},
-        { attributes: {class: 'fa-regular fa-copy'}, command: 'tlb-clone'},
-        { attributes: {class: 'fa-solid fa-trash'}, command: 'tlb-delete'}
-      ] 
-    }));
+    allComponents.forEach((compo) =>
+      compo.set({
+        draggable: true,
+        removable: true,
+        copyable: true,
+        toolbar: [
+          { attributes: { class: "fa-solid fa-arrow-up" }, command: "select-parent" },
+          { attributes: { class: "fa-solid fa-arrows-up-down-left-right" }, command: "tlb-move" },
+          { attributes: { class: "fa-regular fa-copy" }, command: "tlb-clone" },
+          { attributes: { class: "fa-solid fa-trash" }, command: "tlb-delete" },
+        ],
+      })
+    );
   });
 
   // On selected components
-  editor.on('component:selected', () => {
+  editor.on("component:selected", () => {
     var selected = editor.getSelected();
-     
-    selected.set({'draggable' : false, 'removable' : false , 'copyable' : false });
-       
-    if(selected.is("ulistitem")){
+
+    selected.set({ draggable: false, removable: false, copyable: false });
+
+    if (selected.is("ulistitem")) {
       showOstToolbar(selected);
-    }
-
-    else if(selected.isChildOf('ulistitem')){
-      showOstToolbar(selected.closestType('ulistitem'));
-    }
-
-    else if(selected.getEl().tagName === "LI"){
+    } else if (selected.isChildOf("ulistitem")) {
+      showOstToolbar(selected.closestType("ulistitem"));
+    } else if (selected.getEl().tagName === "LI") {
       // If list element empty replace with placeholder text (M&E case:)
-      if(selected.components().length === 0 && !selected.get('content')){
+      if (selected.components().length === 0 && !selected.get("content")) {
         var selectedPosition = selected.index();
-        var newComponent = selected.parent().append('<li>Text</li>', {at: selectedPosition});
+        var newComponent = selected.parent().append("<li>Text</li>", { at: selectedPosition });
         selected.remove();
         editor.select(newComponent);
         selected = editor.getSelected();
       }
       showOstToolbar(selected);
-    }
-
-    else if(isChildOfElement(selected.getEl(), "LI")){
-      showOstToolbar(selected.closest('li'));
+    } else if (isChildOfElement(selected.getEl(), "LI")) {
+      showOstToolbar(selected.closest("li"));
     }
 
     // Check ostendis blocks
-    if (selected.getTrait('data-ost-type')) {
+    if (selected.getTrait("data-ost-type")) {
       checks.checkOstBlocks(editor, usedOstBlockTypes);
     }
 
-
-    function showOstToolbar(listItem){
+    function showOstToolbar(listItem) {
       var elPos = listItem.index();
       var elLast = listItem.parent().getLastChild().index();
 
@@ -275,76 +267,73 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       ostToolbar.innerHTML = "";
 
       // Add clone button
-      const cBtn = document.createElement('div');
+      const cBtn = document.createElement("div");
       cBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm-1.3 3.88h2.6v3.82h3.82v2.6H13.3v3.82h-2.6V13.3H6.88v-2.6h3.82z"/></svg>';
-      cBtn.classList.add("gjs-ost-toolbar-item","clone");
-      cBtn.title = defaults.ostToolbarClone;    
-      cBtn.addEventListener('click', () => {
-        listItem.parent().append(listItem.clone(), {at: elPos + 1});
+      cBtn.classList.add("gjs-ost-toolbar-item", "clone");
+      cBtn.title = defaults.ostToolbarClone;
+      cBtn.addEventListener("click", () => {
+        listItem.parent().append(listItem.clone(), { at: elPos + 1 });
       });
       ostToolbar.appendChild(cBtn);
 
       //Add delete button
-      const dBtn = document.createElement('div');
+      const dBtn = document.createElement("div");
       dBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm5.12 7.7v2.6H6.88v-2.6z"/></svg>';
       dBtn.title = defaults.ostToolbarDelete;
-      dBtn.classList.add("gjs-ost-toolbar-item","del");
-      if(elLast != 0){
-        dBtn.addEventListener('click', () => {
+      dBtn.classList.add("gjs-ost-toolbar-item", "del");
+      if (elLast != 0) {
+        dBtn.addEventListener("click", () => {
           listItem.remove();
           ostToolbar.classList.remove("show");
         });
-      }
-      else{
+      } else {
         dBtn.classList.add("disable");
       }
-      ostToolbar.appendChild(dBtn);      
+      ostToolbar.appendChild(dBtn);
 
       // Add move up button
-      const upBtn = document.createElement('div');
+      const upBtn = document.createElement("div");
       upBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M1.9 20.75 12 3.25l10.1 17.5Z"/></svg>';
       upBtn.title = defaults.ostToolbarUp;
-      upBtn.classList.add("gjs-ost-toolbar-item","up");
-      upBtn.addEventListener('click', () => {
-        listItem.move(listItem.parent(), {at: elPos - 1});
+      upBtn.classList.add("gjs-ost-toolbar-item", "up");
+      upBtn.addEventListener("click", () => {
+        listItem.move(listItem.parent(), { at: elPos - 1 });
         editor.selectRemove(listItem);
         editor.select(listItem);
       });
       ostToolbar.appendChild(upBtn);
 
       // Add move down button
-      const dwnBtn = document.createElement('div');
+      const dwnBtn = document.createElement("div");
       dwnBtn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.4 3.25 12 20.75 1.6 3.25Z"/></svg>';
       dwnBtn.title = defaults.ostToolbarDown;
-      dwnBtn.classList.add("gjs-ost-toolbar-item","down");
+      dwnBtn.classList.add("gjs-ost-toolbar-item", "down");
       var toPos = elPos + 2;
-      if(elPos == elLast){
+      if (elPos == elLast) {
         toPos = 0;
       }
-      dwnBtn.addEventListener('click', () => {
-        listItem.move(listItem.parent(), {at: toPos});
+      dwnBtn.addEventListener("click", () => {
+        listItem.move(listItem.parent(), { at: toPos });
         editor.selectRemove(listItem);
         editor.select(listItem);
-      });        
+      });
       ostToolbar.appendChild(dwnBtn);
 
-      ostToolbar.classList.add('show');      
+      ostToolbar.classList.add("show");
     }
   });
 
   // On deselected components
-  editor.on('component:deselected', () => {
+  editor.on("component:deselected", () => {
     var ostToolbar = document.querySelector(".gjs-ost-toolbar");
-    ostToolbar.classList.remove("show");    
+    ostToolbar.classList.remove("show");
   });
-
 });
 
 function isChildOfElement(element, tag) {
   while (element.parentNode) {
-      element = element.parentNode;
-      if (element.tagName === tag)
-          return element;
+    element = element.parentNode;
+    if (element.tagName === tag) return element;
   }
   return false;
 }

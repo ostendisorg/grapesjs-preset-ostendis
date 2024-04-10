@@ -66,6 +66,17 @@ define(function () {
       attributes: { class: "gjs-fonts gjs-f-divider" },
     });
 
+    // bm.add("header", {
+    //   label: opt.headerBlkTraitLabel,
+    //   category: opt.categoryLabel,
+    //   attributes: { class: "fa-solid fa-header" },
+    //   content: {
+    //     type: "header",
+    //     content: opt.headerBlkContent,
+    //     activeOnRender: 1,
+    //   },
+    // });
+
     bm.add("text", {
       label: opt.textBlkLabel,
       category: opt.categoryLabel,
@@ -99,6 +110,51 @@ define(function () {
       category: opt.categoryLabel,
       attributes: { class: "fa-solid fa-list-ul" },
       content: { type: "ulist" },
+    });
+
+    // Block icons
+    var blockTitleAndText = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".106" d="M1.536 8.474h9.632v.556H1.536zm0-1.053h9.632v.556H1.535zm0-1.053h9.63v.557h-9.63zm-.004-2.106h6.954v.973H1.532z"/></svg>';
+    var blockTitleAndList = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.238" viewBox="0 0 12.7 12.763"><path fill="none" stroke="currentColor" stroke-width=".523" d="M.262 2.59h12.177v8.113H.262z"/><path fill="currentColor" stroke="currentColor" stroke-width=".1" d="M2.058 8.752a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm0-1.053a.238.238 0 0 1-.238.238.238.238 0 0 1-.238-.238.238.238 0 0 1 .238-.238.238.238 0 0 1 .238.238zm.651 1.828h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zm0-1.053h8.459v.556H2.709zM1.532 4.262h6.954v.973H1.532z"/></svg>';
+
+
+
+    // Title and text block
+    bm.add("titleAndText", {
+      label: opt.titleAndTextBlkLabel,
+      category: opt.categoryLabel,
+      media: blockTitleAndText,
+      content: {
+        name: opt.titleAndTextBlkLabel,
+        components: [
+          {
+            type: "text",
+            content: `<h3>${opt.titleAndTextBlkContentTitle}</h3>`,
+          },
+          {
+            type: "text",
+            content: "<p>Text</p>",
+          },
+        ],
+      },
+    });
+
+    // Title and list block
+    bm.add("titleAndList", {
+      label: opt.titleAndListBlkLabel,
+      category: opt.categoryLabel,
+      media: blockTitleAndList,
+      content: {
+        name: opt.titleAndListBlkLabel,
+        components: [
+          {
+            type: "text",
+            content: `<h3>${opt.titleAndListBlkContentTitle}</h3>`,
+          },
+          {
+            type: "ulist",
+          },
+        ],
+      },
     });
 
     bm.add("icon", {
@@ -226,7 +282,7 @@ define(function () {
       category: opt.categoryLabel,
       content: { type: "scale" },
       attributes: { class: "fa-solid fa-bars-progress" },
-    });
+    }); 
 
     // Social media sites blocks
     bm.add("facebook", {

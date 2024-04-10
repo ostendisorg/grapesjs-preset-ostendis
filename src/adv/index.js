@@ -55,6 +55,16 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     dividerBlkLabel: "Divider",
     textSectionBlkLabel: "Text Section",
     ulistBlkLabel: "List",
+    // headerBlkTraitLabel: "Header",
+    // headerBlkH1Label: "Header 1",
+    // headerBlkH2Label: "Header 2",
+    // headerBlkH3Label: "Header 3",
+    // headerBlkH4Label: "Header 4",
+    // headerBlkContent: "Header",
+    titleAndTextBlkLabel: "Title and text",
+    titleAndTextBlkContentTitle: "Title",
+    titleAndListBlkLabel: "Title and list",
+    titleAndListBlkContentTitle: "Title",
     iconBlkLabel: "Icon",
     imageBlkLabel: "Image",
     videoBlkLabel: "Video",
@@ -91,37 +101,38 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sect333BlkLabel: "1/1/1 Columns",
     sect55BlkLabel: "1/1 Columns",
     sect37BlkLabel: "3/7 Columns",
-    textBlkOstType: "Block",
+    //textBlkOstType: "Block",
+    
 
-    textBlkLabelOrg: "Organization",
-    textBlkLabelOrgList: "Organization List",
-    textBlkTitleOrg: "Organization Header",
-    textBlkContentOrg: "Organization Text",
-    textBlkLabelIntro: "Introduction",
-    textBlkLabelIntroList: "Introduction List",
-    textBlkTitleIntro: "Introduction Header",
-    textBlkContentIntro: "Introduction Text",
-    textBlkLabelDesc: "Description",
-    textBlkLabelDescList: "Description List",
-    textBlkTitleDesc: "Description Header",
-    textBlkContentDesc: "Description Text",
-    textBlkLabelTasks: "Tasks",
-    textBlkLabelTasksList: "Tasks List",
-    textBlkTitleTasks: "Your tasks",
-    textBlkContentTasks: "Tasks Text",
-    textBlkLabelReq: "Requirements",
-    textBlkLabelReqList: "Requirements List",
-    textBlkTitleReq: "We expect",
-    textBlkContentReq: "Requirements Text",
-    textBlkLabelBenefits: "Benefits",
-    textBlkLabelBenefitsList: "Benefits List",
-    textBlkTitleBenefits: "We offer",
-    textBlkContentBenefits: "Benefits Text",
-    textBlkLabelContact: "Contact",
-    textBlkTitleContact: "Contact Header",
-    textBlkContentContact: "Contact Text",
-    textBlkLabelAction: "Action",
-    textBlkContentAction: "Call to action",
+    // textBlkLabelOrg: "Organization",
+    // textBlkLabelOrgList: "Organization List",
+    // textBlkTitleOrg: "Organization Header",
+    // textBlkContentOrg: "Organization Text",
+    // textBlkLabelIntro: "Introduction",
+    // textBlkLabelIntroList: "Introduction List",
+    // textBlkTitleIntro: "Introduction Header",
+    // textBlkContentIntro: "Introduction Text",
+    // textBlkLabelDesc: "Description",
+    // textBlkLabelDescList: "Description List",
+    // textBlkTitleDesc: "Description Header",
+    // textBlkContentDesc: "Description Text",
+    // textBlkLabelTasks: "Tasks",
+    // textBlkLabelTasksList: "Tasks List",
+    // textBlkTitleTasks: "Your tasks",
+    // textBlkContentTasks: "Tasks Text",
+    // textBlkLabelReq: "Requirements",
+    // textBlkLabelReqList: "Requirements List",
+    // textBlkTitleReq: "We expect",
+    // textBlkContentReq: "Requirements Text",
+    // textBlkLabelBenefits: "Benefits",
+    // textBlkLabelBenefitsList: "Benefits List",
+    // textBlkTitleBenefits: "We offer",
+    // textBlkContentBenefits: "Benefits Text",
+    // textBlkLabelContact: "Contact",
+    // textBlkTitleContact: "Contact Header",
+    // textBlkContentContact: "Contact Text",
+    // textBlkLabelAction: "Action",
+    // textBlkContentAction: "Call to action",
 
     labelIconTooltip: "For more icons: change class name in style manager.",
     labelIconSelectMinus: "minus",
@@ -301,21 +312,30 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sm.getConfig().clearProperties = 1;
     sm.render();
 
+    // Paste only plain text
+    var iframeBody = editor.Canvas.getBody();
+
+    iframeBody.onpaste = (event) => {
+      event.preventDefault();
+      var pastedText = undefined;
+
+      if (window.clipboardData && window.clipboardData.getData) { // IE
+        pastedText = window.clipboardData.getData("Text");
+      }
+      else if (event.clipboardData && event.clipboardData.getData) {
+        pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
+      }
+      event.target.ownerDocument.execCommand("insertText", false, pastedText);
+      return false; 
+    };       
+
     // Create ostendis toolbar
     let tools = document.getElementById("gjs-tools");
     const ostTools = document.createElement("div");
     ostTools.classList.add("gjs-ost-toolbar");
     tools.append(ostTools);
   });
-  // editor.onReady(() => {
-  //   // Check ostendis blocks
-  //   checks.checkOstBlocks(editor, usedOstBlockTypes);
 
-  //   // Show alert modal if necessary
-  //   if(usedOstBlockTypes.some( el => el.count > 1)){
-  //     checks.alertOstBlocks(defaults);
-  //   }
-  // });
 
   editor.on("component:selected", () => {
     var selected = editor.getSelected();  
