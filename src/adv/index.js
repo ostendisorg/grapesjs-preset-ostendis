@@ -326,8 +326,7 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
         pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
       }
       event.target.ownerDocument.execCommand("insertText", false, pastedText);
-      return false; 
-    };       
+    };
 
     // Create ostendis toolbar
     let tools = document.getElementById("gjs-tools");
