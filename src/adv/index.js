@@ -313,20 +313,22 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     sm.render();
 
     // Paste only plain text
-    var iframeBody = editor.Canvas.getBody();
+    // var iframeBody = editor.Canvas.getBody();
 
-    iframeBody.onpaste = (event) => {
-      event.preventDefault();
-      var pastedText = undefined;
+    // iframeBody.onpaste = (event) => {
+    //   event.preventDefault();
+    //   var pastedText = undefined;
 
-      if (window.clipboardData && window.clipboardData.getData) { // IE
-        pastedText = window.clipboardData.getData("Text");
-      }
-      else if (event.clipboardData && event.clipboardData.getData) {
-        pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
-      }
-      event.target.ownerDocument.execCommand("insertText", false, pastedText);
-    };
+    //   console.log("iframeBody.onpaste");
+
+    //   if (window.clipboardData && window.clipboardData.getData) { // IE
+    //     pastedText = window.clipboardData.getData("Text");
+    //   }
+    //   else if (event.clipboardData && event.clipboardData.getData) {
+    //     pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
+    //   }
+    //   event.target.ownerDocument.execCommand("insertText", false, pastedText);
+    // };
 
     // Create ostendis toolbar
     let tools = document.getElementById("gjs-tools");
@@ -335,6 +337,24 @@ export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {
     tools.append(ostTools);
   });
 
+editor.onReady(() => {
+  var iframeDoc = editor.Canvas.getDocument();
+  iframeDoc.onpaste = (event) => {
+    event.preventDefault();
+      var pastedText = undefined;
+
+      console.log("onREady -> iframeBody.onpaste");
+
+      if (window.clipboardData && window.clipboardData.getData) { // IE
+        pastedText = window.clipboardData.getData("Text");
+      }
+      else if (event.clipboardData && event.clipboardData.getData) {
+        pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
+      }
+      event.target.ownerDocument.execCommand("insertText", false, pastedText);
+
+  };
+});
 
   editor.on("component:selected", () => {
     var selected = editor.getSelected();  
