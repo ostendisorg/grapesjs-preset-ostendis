@@ -189,7 +189,9 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
 
     iframeBody.onpaste = (event) => {
       event.preventDefault();
-       var pastedText = undefined;
+      event.stopPropagation();
+
+      var pastedText = undefined;
 
       if (window.clipboardData && window.clipboardData.getData) { // IE
         pastedText = window.clipboardData.getData("Text");
@@ -197,7 +199,12 @@ export default grapesjs.plugins.add("gjs-preset-ostendis", (editor, opts) => {
       else if (event.clipboardData && event.clipboardData.getData) {
         pastedText = (event.originalEvent || event).clipboardData.getData("text/plain");
       }
+      pastedText = pastedText.replace(/\t/g,"");
+      pastedText = pastedText.replace(/(\r\n|\n|\r)/gm, " ");
+      pastedText = pastedText.replace(/\s+/gm, " ");
+
       event.target.ownerDocument.execCommand("insertText", false, pastedText);
+      return true;
     };
 
     // Create ostendis toolbar
