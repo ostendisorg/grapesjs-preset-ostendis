@@ -11,7 +11,7 @@ define(function () {
         const el = document.createElement("div");
         el.innerHTML = `
           <select class="ost-blocks-select" id="${traitName}">
-            ${options.map((opt) => `<option value="${opt.id}" ${opt.disabled}>${opt.name}</option>`).join("")}
+            ${options.map((opt) => `<option value="${opt.id}" ${opt.disabled !== undefined ? 'disabled' : ''}>${opt.name}</option>`).join("")}
           </select>
           <div class="gjs-sel-arrow">
             <div class="gjs-d-s-arrow"></div>

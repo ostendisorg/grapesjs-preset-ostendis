@@ -543,14 +543,16 @@ div.#{$app-prefix}hover {
 }
 
 /* Ostendis Block Traits */
-.#{$app-prefix}trt-trait__wrp-data-ost-type {
-  background: rgba(255, 130, 0, 0.4);
-}
-.#{$app-prefix}select-option-ok {
+// .#{$app-prefix}trt-trait__wrp-data-ost-type {
+//   background: rgba(255, 130, 0, 0.4);
+// }
+.#{$app-prefix}select-option-ok,
+.#{$app-prefix}select-option-ok:checked {
   background-color: rgb(185, 255, 178);
   color: rgb(0, 100, 0);
 }
-.#{$app-prefix}select-option-nok {
+.#{$app-prefix}select-option-nok,
+.#{$app-prefix}select-option-nok:checked {
   background-color: rgb(255, 179, 179);
   color: rgb(104, 0, 0);
 }
