@@ -1,17 +1,15 @@
 {
   "name": "grapesjs-preset-ostendis",
-  "version": "1.19.10",
+  "version": "1.20.1",
   "description": "GrapesJS preset configuration for the Ostendis editor",
-  "main": "dist/grapesjs-preset-ostendis.min.js",
+  "main": "dist/index.js",
   "files": [
-    "*"
+    "dist/"
   ],
   "scripts": {
-    "lint": "eslint src",
-    "build": "cross-env WEBPACK_ENV=prod && webpack && npm run build:css",
-    "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-ostendis.css",
     "v:patch": "npm version --no-git-tag-version patch",
-    "start": "npm run build && cross-env WEBPACK_ENV=dev webpack serve --progress && npm run build:css -- -w",
+    "start": "grapesjs-cli serve",
+    "build": "grapesjs-cli build",
     "test": "jest --passWithNoTests",
     "release": "npm run build && np"
   },
@@ -21,24 +19,26 @@
     "preset",
     "ostendis"
   ],
-  "author": "Daniel Nüssli",
+  "author": "Ostendis AG",
   "license": "BSD-3-Clause",
-  "dependencies": {
-    "juice": "^9.1.0"
-  },
   "devDependencies": {
-    "babel-loader": "^9.1.3",
-    "buffer": "^6.0.3",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.55.0",
-    "jest": "^29.7.0",
-    "node-sass": "^9.0.0",
-    "process": "^0.11.10",
-    "stream-browserify": "^3.0.0",
-    "util": "^0.12.5",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^29.4.0",
+    "@webpack-cli/generators": "^3.0.7",
+    "grapesjs": "^0.21.2",
+    "grapesjs-cli": "^4.1.1",
+    "jest": "^29.4.1",
+    "juice": "^8.1.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-typescript"
+        ]
+      }
+    }
   },
   "jest": {
     "modulePaths": [

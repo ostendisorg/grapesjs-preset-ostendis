@@ -1,8 +1,10 @@
 .DS_Store
 private/
+dist/
 img/
 js/
 node_modules/
 .eslintrc
-.idea/
 *.log
+.npmrc
+_index.html

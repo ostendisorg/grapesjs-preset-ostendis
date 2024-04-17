@@ -2,7 +2,7 @@ import grapesjs from "grapesjs";
 import styles from "./styles";
 import * as checks from "./checks";
 
-export default grapesjs.plugins.add("gjs-preset-ostendis-adv", (editor, opts = {}) => {
+export default grapesjs.plugins.add("grapesjs-preset-ostendis-adv", (editor, opts = {}) => {
   let c = opts;
   let config = editor.getConfig();
   let pfx = config.stylePrefix;

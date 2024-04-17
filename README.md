@@ -16,6 +16,7 @@ Download using one of the options:
 
 ## Usage
 
+Directly in the browser
 ```html
 <link href="path/to/grapes.min.css" rel="stylesheet"/>
 <link href="path/to/grapesjs-preset-ostendis.css" rel="stylesheet"/>
@@ -24,20 +25,38 @@ Download using one of the options:
 <script src="path/to/grapesjs-preset-ostendis.min.js"></script>
 
 <div id="gjs"></div>
+
 <script type="text/javascript">
   var editor = grapesjs.init({
       container : '#gjs',
-      plugins: ['gjs-preset-ostendis'],
+      plugins: ['grapesjs-preset-ostendis'],
       pluginsOpts: {
-        'gjs-preset-ostendis': {
-          modalTitleImport: 'Import template',
-          // ... other options
+        'grapesjs-preset-ostendis': {
+          // options
         }
       }
   });
 </script>
 ```
 
+Modern javascript
+```js
+import grapesjs from 'grapesjs';
+import plugin from 'grapesjs-preset-ostendis';
+
+const editor = grapesjs.init({
+  container : '#gjs',
+  // ...
+  plugins: [plugin],
+  pluginsOpts: {
+    [plugin]: { /* options */ }
+  }
+  // or
+  plugins: [
+    editor => plugin(editor, { /* options */ }),
+  ],
+});
+```
 
 ## Development
 
@@ -54,16 +73,16 @@ Install dependencies
 $ npm i
 ```
 
-The plugin relies on GrapesJS via `peerDependencies`, so you have to install it manually (without adding it to package.json)
-
-```sh
-$ npm i grapesjs --no-save
-```
-
 Start the dev server
 
 ```sh
 $ npm start
+```
+
+Build before the commit. This will also increase the patch level version of the package
+
+```sh
+$ npm run build
 ```
 
 ## Release
