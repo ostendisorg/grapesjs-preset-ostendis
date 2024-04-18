@@ -1,4 +1,5 @@
 const isProduction = process.env.NODE_ENV == "production";
+var path = require("path");
 
 module.exports = ({ config }) => {
   if (isProduction) {
@@ -15,6 +16,13 @@ module.exports = ({ config }) => {
     output: {
       ...config.output,
       filename: "[name].min.js",
+    },
+    devServer: {
+      ...config.devServer,
+      static: {
+        directory: path.resolve(__dirname, "."),
+        watch: true,
+      },
     },
   };
 };

@@ -5,7 +5,9 @@
     <title>GrapesJS Ostendis Editor</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.21.10/css/grapes.min.css" rel="stylesheet" />
-    <!-- <link href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="./style/tooltip.css" />
+    <link rel="stylesheet" href="./dist/grapesjs-preset-ostendis.css" />
+    <link href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.21.10/grapes.min.js"></script>
   </head>
@@ -538,9 +540,9 @@
           },
           container: "#gjs",
           fromElement: true,
-          // canvas: {
-          //   styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
-          // },
+          canvas: {
+            styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
+          },
           blockManager: { appendOnClick: 1 },
           plugins: ["grapesjs-preset-ostendis"],
           pluginsOpts: {

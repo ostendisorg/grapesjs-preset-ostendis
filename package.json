@@ -10,6 +10,7 @@
     "v:patch": "npm version --no-git-tag-version patch",
     "start": "grapesjs-cli serve",
     "build": "grapesjs-cli build",
+    "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-ostendis.css",
     "test": "jest --passWithNoTests",
     "release": "npm run build && np"
   },
@@ -44,5 +45,8 @@
     "modulePaths": [
       "./src"
     ]
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
   }
 }
