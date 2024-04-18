@@ -1,19 +1,17 @@
-import type { Editor, BlockProperties } from 'grapesjs';
-import { PluginOptions } from '.';
+import type { Editor, BlockProperties } from "grapesjs";
+import { PluginOptions } from ".";
 
-export default function(editor: Editor, opts: Required<PluginOptions>) {
-  const bm = editor.Blocks;
+export default function (editor: Editor, opts: Required<PluginOptions>) {
+  const { Blocks } = editor;
 
   const addBlock = (id: string, blockDef: BlockProperties) => {
-    opts.blocks.indexOf(id)! >= 0 && editor.Blocks.add(id, {
-      select: true,
-      ...blockDef,
-      ...opts.block(id),
-    });
-  }
+    opts.blocks.indexOf(id)! >= 0 &&
+      editor.Blocks.add(id, {
+        select: true,
+        ...blockDef,
+        ...opts.block(id),
+      });
+  };
 
-  bm.getAll().reset();
-
-  console.log("Test")
-
-};
+  Blocks.getAll().reset();
+}

@@ -1,9 +1,10 @@
-import type { Plugin } from 'grapesjs';
-import juice from 'juice';
-import loadBlocks from './blocks';
-import loadCommands from './commands';
-import loadPanels from './panels';
-import loadStyles from './styles';
+import type { Plugin } from "grapesjs";
+import juice from "juice";
+import loadBlocks from "./blocks";
+import loadCommands from "./commands";
+import loadPanels from "./panels";
+import loadTraits from "./traits";
+import loadRte from "./rte";
 
 export interface PluginOptions {
   /**
@@ -16,7 +17,12 @@ export interface PluginOptions {
    * @default (blockId) => ({})
    * @example (blockId) => blockId === 'quote' ? { attributes: {...} } : {};
    */
-  block?: (blockId: string) => ({});
+  block?: (blockId: string) => {};
+
+  /**
+   * Which OST blocks are in use.
+   */
+  usedOstBlockTypes?: string[];
 
   /**
    * Custom style for table blocks.
@@ -38,7 +44,7 @@ export interface PluginOptions {
    * Get inlined HTML command id.
    * @default 'gjs-get-inlined-html'
    */
-  cmdInlineHtml?: string,
+  cmdInlineHtml?: string;
 
   /**
    * Title for the import modal.
@@ -50,25 +56,31 @@ export interface PluginOptions {
    * Title for the export modal.
    * @default 'Export template'
    */
-  modalTitleExport?: string,
+  modalTitleExport?: string;
 
   /**
    * Label for the export modal.
    * @default ''
    */
-  modalLabelExport?: string,
+  modalLabelExport?: string;
 
   /**
    * Label for the import modal.
    * @default ''
    */
-  modalLabelImport?: string,
+  modalLabelImport?: string;
 
   /**
    * Label for the import button.
    * @default 'Import'
    */
-  modalBtnImport?: string,
+  modalBtnImport?: string;
+
+  /**
+   * Label for the Trait.
+   * @default ''
+   */
+  traitBlkValue?: string;
 
   /**
    * Template as a placeholder inside import modal.
@@ -101,6 +113,12 @@ export interface PluginOptions {
   showBlocksOnLoad?: boolean;
 
   /**
+   * Show the Traits Manager on load.
+   * @default true
+   */
+  showTraitsOnLoad?: boolean;
+
+  /**
    * Code viewer theme.
    * @default 'hopscotch'
    */
@@ -117,7 +135,7 @@ export interface PluginOptions {
    * @default true
    */
   useCustomTheme?: boolean;
-};
+}
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
@@ -128,30 +146,33 @@ const plugin: Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}
     blocks: [],
     block: () => ({}),
     juiceOpts: {},
-    cmdOpenImport: 'gjs-open-import-template',
-    cmdInlineHtml: 'gjs-get-inlined-html',
-    modalTitleImport: 'Import template',
-    modalTitleExport: 'Export template',
-    modalLabelImport: '',
-    modalLabelExport: '',
-    modalBtnImport: 'Import',
-    codeViewerTheme: 'hopscotch',
-    importPlaceholder: '',
+    usedOstBlockTypes: [],
+    cmdOpenImport: "gjs-open-import-template",
+    cmdInlineHtml: "gjs-get-inlined-html",
+    modalTitleImport: "Import template",
+    modalTitleExport: "Export template",
+    modalLabelImport: "",
+    modalLabelExport: "",
+    modalBtnImport: "Import",
+    codeViewerTheme: "hopscotch",
+    traitBlkValue: "",
+    importPlaceholder: "",
     inlineCss: true,
     cellStyle: {
-      padding: '0',
-      margin: '0',
-      'vertical-align': 'top',
+      padding: "0",
+      margin: "0",
+      "vertical-align": "top",
     },
     tableStyle: {
-      height: '150px',
-      margin: '0 auto 10px auto',
-      padding: '5px 5px 5px 5px',
-      width: '100%'
+      height: "150px",
+      margin: "0 auto 10px auto",
+      padding: "5px 5px 5px 5px",
+      width: "100%",
     },
     updateStyleManager: true,
     showStylesOnChange: true,
-    showBlocksOnLoad: true,
+    showBlocksOnLoad: false,
+    showTraitsOnLoad: true,
     useCustomTheme: true,
     ...opts,
   };
@@ -159,19 +180,19 @@ const plugin: Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}
   // Change some config
   config.devicePreviewMode = true;
 
-  if (options.useCustomTheme && typeof window !== 'undefined') {
-    const primaryColor = '#373d49';
-    const secondaryColor = '#dae5e6';
-    const tertiaryColor = '#4c9790';
-    const quaternaryColor = '#35d7bb';
-    const prefix = 'gjs-';
-    let cssString = '';
+  if (options.useCustomTheme && typeof window !== "undefined") {
+    const primaryColor = "#fff";
+    const secondaryColor = "#3b5998";
+    const tertiaryColor = "#3b5998";
+    const quaternaryColor = "#3b5998";
+    const prefix = "gjs-";
+    let cssString = "";
 
     [
-      ['one', primaryColor],
-      ['two', secondaryColor],
-      ['three', tertiaryColor],
-      ['four', quaternaryColor],
+      ["one", primaryColor],
+      ["two", secondaryColor],
+      ["three", tertiaryColor],
+      ["four", quaternaryColor],
     ].forEach(([cnum, ccol]) => {
       cssString += `
         .${prefix}${cnum}-bg {
@@ -186,7 +207,7 @@ const plugin: Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}
       `;
     });
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.innerText = cssString;
     document.head.appendChild(style);
   }
@@ -194,7 +215,8 @@ const plugin: Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}
   loadCommands(editor, options);
   loadBlocks(editor, options);
   loadPanels(editor, options);
-  loadStyles(editor, options);
+  loadRte(editor, options);
+  loadTraits(editor, options);
 };
 
 export default plugin;
