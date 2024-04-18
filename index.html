@@ -8,7 +8,6 @@
     <!-- <link href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" rel="stylesheet" /> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.21.10/grapes.min.js"></script>
-    <script src="dist/index.js" type="module"></script>
   </head>
   <style>
     body,
@@ -530,31 +529,33 @@
 
     <script type="text/javascript">
       // Set up GrapesJS editor with the plugin
-      var editor = grapesjs.init({
-        height: "100%",
-        storageManager: false,
-        richTextEditor: {
-          actions: ["bold", "italic", "underline", "link"],
-        },
-        container: "#gjs",
-        fromElement: true,
-        // canvas: {
-        //   styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
-        // },
-        blockManager: { appendOnClick: 1 },
-        plugins: ["grapesjs-preset-ostendis"],
-        pluginsOpts: {
-          "grapesjs-preset-ostendis": {
-            modalLabelImport: "Paste all your code here below and click import",
-            modalLabelExport: "Copy the code and use it wherever you want",
-            importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
-            categoryLabel: "Default",
+      window.onload = () => {
+        window.editor = grapesjs.init({
+          height: "100%",
+          storageManager: false,
+          richTextEditor: {
+            actions: ["bold", "italic", "underline", "link"],
           },
-        },
-        domComponents: {
-          draggableComponents: false,
-        },
-      });
+          container: "#gjs",
+          fromElement: true,
+          // canvas: {
+          //   styles: ["https://use.fontawesome.com/releases/v6.5.1/css/all.css", "./style/canvasStyle.css"],
+          // },
+          blockManager: { appendOnClick: 1 },
+          plugins: ["grapesjs-preset-ostendis"],
+          pluginsOpts: {
+            "grapesjs-preset-ostendis": {
+              modalLabelImport: "Paste all your code here below and click import",
+              modalLabelExport: "Copy the code and use it wherever you want",
+              importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
+              categoryLabel: "Default",
+            },
+          },
+          domComponents: {
+            draggableComponents: false,
+          },
+        });
+      };
     </script>
   </body>
 </html>
