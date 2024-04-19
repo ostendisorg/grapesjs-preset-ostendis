@@ -13,7 +13,7 @@ define(function () {
       },
       options: [
         { id: "", name: opt.traitOstNone },
-        { id: "organizationHeading", name: opt.traitOstOrganizationHeading},
+        { id: "organizationHeading", name: opt.traitOstOrganizationHeading },
         { id: "organization", name: opt.traitOstOrganization },
         { id: "introductionHeading", name: opt.traitOstIntroductionHeading },
         { id: "introduction", name: opt.traitOstIntroduction },
@@ -52,7 +52,7 @@ define(function () {
         { id: "additionalPic1URL", name: opt.traitOstAdditionalPic1URL },
         { id: "additionalPic2URL", name: opt.traitOstAdditionalPic2URL },
         { id: "additionalPic3URL", name: opt.traitOstAdditionalPic3URL },
-      ]
+      ],
     };
 
     // Define ostendis type "hide in simple html"
@@ -65,7 +65,7 @@ define(function () {
         "data-tooltip-pos": "bottom",
       },
       valueTrue: "1",
-      valueFalse: "0",
+      valueFalse: "",
     };
 
     // Add ostendis type trait to image components
@@ -261,7 +261,7 @@ define(function () {
     // Unsorted list component with fontawesome
     const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` + ulistItemContent + `</li>`;
     domComp.addType("ulist", {
-      isComponent: (el) => {
+      isComponent: el => {
         if (el.tagName === "UL" && el.classList.contains("ulist")) {
           return { type: "ulist" };
         }
@@ -270,16 +270,16 @@ define(function () {
         defaults: {
           tagName: "ul",
           attributes: { class: "ulist fa-ul" },
-          style: { padding: "0.2em 0", "margin-left": "2em", "line-height": "1.4em" },
+          style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"},
           components: ulListItem + ulListItem + ulListItem,
           traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
       },
     });
 
-    // icon component
+    // Icon component
     domComp.addType("icon", {
-      isComponent: (el) => {
+      isComponent: el => {
         var classNames = ["fa", "fas", "far", "fab", "fa-solid", "fa-regular", "fa-brands"];
         if (el.tagName === "I" && classNames.some((className) => el.classList.contains(className))) {
           return { type: "icon" };
@@ -324,7 +324,6 @@ define(function () {
                 { id: "fas fa-star", name: opt.labelIconSelectStar },
               ],
             },
-            ostTypeTextTrait, 
             ostTypeHideInSimpleHtmlTrait,
           ],
         },
@@ -339,7 +338,7 @@ define(function () {
         },
       },
     });
-    
+
     // Add ostendis type trait to table components
     domComp.addType("table", {
       model: {

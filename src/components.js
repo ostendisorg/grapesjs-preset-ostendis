@@ -29,7 +29,7 @@ define(function () {
         { id: "contact", name: opt.traitOstContact },
         { id: "calltoaction", name: opt.traitOstCallToAction },
       ],
-    };    
+    };
 
     // Define ostendis type trait for images
     const ostTypeImageTrait = {
@@ -146,7 +146,6 @@ define(function () {
           attributes: { type: "range", disabled: true },
         },
       },
-
       extendFnView: ["updateAttributes"],
       view: {
         updateAttributes() {
@@ -162,7 +161,7 @@ define(function () {
         defaults: {
           tagName: "div",
           attributes: { class: "scale", "data-percent" : "66", "data-fcolor" : "#3b5998", "data-bgcolor" : "#CCCCCC" },
-          style: { "box-sizing": "border-box", margin: "5px", padding: "0", height: "20px", "max-width": "100%", border: "0px solid #666666", background: "linear-gradient(to right,#3b5998 66%, #CCCCCC 66%);" },
+          style: { "box-sizing": "border-box", padding: "0", height: "20px", "max-width": "100%", border: "0px solid #666666", background: "linear-gradient(to right,#3b5998 66%, #CCCCCC 66%);" },
           traits: [
             {
               name: "percent",
@@ -225,20 +224,15 @@ define(function () {
           tagName: "li",
           draggable: "ul",
           attributes: { class: "ulistitem" },
-          style: { "text-align": "left" }, 
+          style: { "text-align": "left" },
           components: ulistItemContent,
           traits: ["id", "title", ostTypeTextTrait],
         },
-      }
+      },
     });
 
-    // Unsorted list component with fontawesome 5.x
-    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">
-                          <span class="fa-li" style="left:-2em;width:2em;">
-                             <i class="fas fa-circle" data-gjs-type="icon" style="font-size:0.4em;line-height:inherit;display:block;"></i>
-                          </span>
-                          <p style="margin:0;padding:0;text-align:left;">Text</p>
-                        </li>`;
+    // Unsorted list component with fontawesome
+    const ulListItem = `<li style="text-align:left" data-gjs-type="ulistitem">` + ulistItemContent + `</li>`;
     domComp.addType("ulist", {
       isComponent: el => {
         if(el.tagName === 'UL' && el.classList.contains('ulist')){
@@ -248,8 +242,8 @@ define(function () {
       model: {
         defaults: {
           tagName: "ul",
-          attributes: { class: "ulist fa-ul", name:"UnsortedList" },
-          style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"}, 
+          attributes: { class: "ulist fa-ul" },
+          style: { "padding": "0.2em 0", "margin-left": "2em", "line-height": "1.4em"},
           components: ulListItem + ulListItem + ulListItem,
           traits: ["id", ostTypeTextTrait, ostTypeHideInSimpleHtmlTrait],
         },
@@ -259,7 +253,7 @@ define(function () {
     // Icon component
     domComp.addType("icon", {
       isComponent: el => {
-        var classNames = ['fa','fas','far','fab'];
+        var classNames = ["fa", "fas", "far", "fab", "fa-solid", "fa-regular", "fa-brands"];
         if(el.tagName === 'I' && classNames.some(className => el.classList.contains(className))){
           return { type: 'icon' };
         }
@@ -307,6 +301,7 @@ define(function () {
                 { id: "fas fa-star", name: opt.labelIconSelectStar },
               ],
             },
+            ostTypeHideInSimpleHtmlTrait,
           ],
         },
       },
